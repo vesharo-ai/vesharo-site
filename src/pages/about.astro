@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import About2 from "@/components/about/About2";
+import Video from "@/components/video/Video";
+import Service1 from "@/components/service/Service1";
+import WhoWeAre from "@/components/who-we-are/WhoWeAre";
+import Team1 from "@/components/team/Team1";
+import Testimonial1 from "@/components/testimonials/Testimonial1";
+import Faq1 from "@/components/faq/Faq1";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+import { serviceCards } from "@/seeds/Service.seeds";
+import { teamMembers } from "@/seeds/Teams.seeds";
+---
+
+<Layout title="About Us | DigiFlow">
+  <BreadCrumb client:load title="About Us" />
+  <HeaderSlider client:visible />
+  <About2 client:visible />
+  <Video client:visible bgColor="#121212" />
+  <Service1 client:visible serviceData={[...serviceCards].slice(0, 4)} />
+  <WhoWeAre client:visible backgroundColor="#121212" />
+  <Team1 client:visible teamData={[...teamMembers.slice(0, 4)]} />
+  <Testimonial1 client:visible />
+  <Faq1 client:visible backgroundColor="#171717" />
+  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+</Layout>

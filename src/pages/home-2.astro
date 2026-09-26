@@ -1,0 +1,33 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Banner2 from "@/components/banner/Banner2";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import HeaderSlider2 from "@/components/heading-slider/HeaderSlider2";
+import About2 from "@/components/about/About2";
+import Service2 from "@/components/service/Service2";
+import WhoWeAre from "@/components/who-we-are/WhoWeAre";
+import Project2 from "@/components/project/Project2";
+import WorkFlow1 from "@/components/wordflows/WorkFlow1";
+import Pricing1 from "@/components/pricing/Pricing1";
+import Faq1 from "@/components/faq/Faq1";
+import Testimonial2 from "@/components/testimonials/Testimonial2";
+import Blog2 from "@/components/blog/Blog2";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+import { service2Cards } from "@/seeds/Service.seeds";
+---
+
+<Layout title="DigiFlow | Digital Agency Home 2">
+  <Banner2 client:load />
+  <HeaderSlider client:visible />
+  <HeaderSlider2 client:visible />
+  <About2 client:visible />
+  <Service2 client:visible service2Data={[...service2Cards.slice(0, 4)]} />
+  <WhoWeAre client:visible backgroundColor="#171717" />
+  <Project2 client:visible />
+  <WorkFlow1 client:visible />
+  <Pricing1 client:visible bgColor="#121212" />
+  <Faq1 client:visible backgroundColor="#171717" />
+  <Testimonial2 client:visible />
+  <Blog2 client:visible />
+  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+</Layout>

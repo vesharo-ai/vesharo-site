@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Project2 from "@/components/project/Project2";
+import Faq1 from "@/components/faq/Faq1";
+import Testimonial2 from "@/components/testimonials/Testimonial2";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+---
+
+<Layout title="Portfolio Two | DigiFlow">
+  <BreadCrumb client:load title="Portfolio Two" />
+  <HeaderSlider client:visible />
+  <Project2 client:visible />
+  <Faq1 client:visible backgroundColor="#171717" />
+  <Testimonial2 client:visible />
+  <Subscribe1 client:visible />
+</Layout>

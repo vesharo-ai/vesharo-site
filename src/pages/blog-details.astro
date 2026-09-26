@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import BlogDetails from "@/components/blog-details/BlogDetails";
+import RelatedArticles from "@/components/related-articles/RelatedArticles";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+---
+
+<Layout title="Blog Details | DigiFlow">
+  <BreadCrumb client:load title="Blog Details" />
+  <HeaderSlider client:visible />
+  <BlogDetails client:visible />
+  <RelatedArticles client:visible />
+  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+</Layout>

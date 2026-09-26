@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import ContactForm from "@/components/contact/ContactForm";
+import Map from "@/components/map/Map";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+---
+
+<Layout title="Contact Us | DigiFlow">
+  <BreadCrumb client:load title="Contact Us" />
+  <HeaderSlider client:visible />
+  <ContactForm client:visible />
+  <Map client:visible />
+  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+</Layout>

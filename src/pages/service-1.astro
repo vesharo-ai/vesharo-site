@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Service1 from "@/components/service/Service1";
+import Video from "@/components/video/Video";
+import Pricing1 from "@/components/pricing/Pricing1";
+import Testimonial1 from "@/components/testimonials/Testimonial1";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+import { serviceCards } from "@/seeds/Service.seeds";
+---
+
+<Layout title="Service One | DigiFlow">
+  <BreadCrumb client:load title="Service One" />
+  <HeaderSlider client:visible />
+  <Service1
+    client:visible
+    serviceData={serviceCards}
+    backgroundColor="#121212"
+    isInnerPage
+  />
+  <Video client:visible bgColor="#171717" />
+  <Pricing1 client:visible />
+  <Testimonial1 client:visible bgClass="tz-bg-neutral2" />
+  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+</Layout>

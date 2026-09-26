@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import ServiceDetails from "@/components/service-details/ServiceDetails";
+import Subscribe1 from "@/components/subscribe/Subscribe1";
+---
+
+<Layout title="Service Details | DigiFlow">
+  <BreadCrumb client:load title="Service Details" />
+  <HeaderSlider client:visible />
+  <ServiceDetails client:visible />
+  <Subscribe1 client:visible />
+</Layout>
