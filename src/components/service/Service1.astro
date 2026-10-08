@@ -1,0 +1,88 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  backgroundColor?: string;
+  limit?: number;
+}
+
+const { backgroundColor = "#171717", limit = 4 } = Astro.props;
+
+const allServices = await getCollection("services");
+const services = allServices
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, limit);
+
+const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
+---
+
+<section class="tz-service1" style={{ backgroundColor }}>
+  <div class="container">
+    <div class="tz-section-top">
+      <div class="row g-4 align-items-end">
+        <div class="col-md-8">
+          <SectionSubtitle subtitle="Core Capabilities" />
+          <SectionTitle title="Engineered For Modern Business" />
+        </div>
+        <div class="col-md-4">
+          <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
+            <a
+              href="/service-details"
+              class="tz-button text-uppercase fw-medium tz-text-m"
+            >
+              All Services
+            </a>
+            <a href="/service-details" class="tz-button-circle" aria-label="View All Services">
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {services.map((svc, index) => (
+        <div class="col-md-6 col-xl-3">
+          <div class={`tz-service1-card ${index === 0 ? "active" : ""}`}>
+            <a href="/service-details" class="tz-text-neutral4 d-block text-decoration-none">
+              <span class="tz-service1-card__number">{romanNumerals[index] || index + 1}</span>
+              <div class="tz-service1-card__content">
+                <div class="tz-service1-card__shape d-flex justify-content-center tz-mb-20 tz-mb-lg-40">
+                  <div
+                    class="d-flex align-items-center justify-content-center rounded-circle"
+                    style="width: 56px; height: 56px; background: rgba(0, 102, 255, 0.15); color: var(--vesharo-electric-accent, #00d2ff);"
+                  >
+                    <i class={`ph ${svc.data.icon}`} style="font-size: 28px;" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <h3 class="tz-service1-card__title text-uppercase text-center">
+                  {svc.data.title}
+                </h3>
+                <p class="tz-service1-card__desc fw-medium tz-text-l text-center mb-0">
+                  {svc.data.shortDescription}
+                </p>
+                <div class="tz-service1-card__footer">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <span class="mb-0 text-uppercase tz-text-neutral4 tz-text-s fw-semibold">
+                        Explore Capability
+                      </span>
+                    </div>
+                    <div class="col-4">
+                      <div class="d-flex justify-content-end">
+                        <i class="ph ph-arrow-up-right text-white" style="font-size: 18px;" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tz-service1-card__circle"></div>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "lockapp-feedback",
+    "quote": "Vesharo engineered our Android MDM infrastructure with remarkable precision. The offline enforcement mechanisms and low-latency cloud control plane gave our device financing business complete operational security.",
+    "author": "Operations Lead",
+    "role": "Head of Hardware Financing Operations",
+    "company": "LockApp Platform",
+    "project": "LockApp Device Management",
+    "rating": 5
+  },
+  {
+    "id": "navratrios-feedback",
+    "quote": "Handling 50,000+ gate scans during peak evening festival rushes with zero downtime or scanner sync lag seemed impossible until Vesharo built and deployed NavratriOS. The performance was flawless.",
+    "author": "Festival Organizing Committee",
+    "role": "Infrastructure & Ticketing Director",
+    "company": "NavratriOS Deployment",
+    "project": "NavratriOS Event Management",
+    "rating": 5
+  },
+  {
+    "id": "wirebench-feedback",
+    "quote": "Wirebench eliminated the API contract regression headaches our microservices teams faced every sprint. The drift detection caught breaking changes before staging deployments.",
+    "author": "Principal Architect",
+    "role": "Developer Experience Lead",
+    "company": "Wirebench Ecosystem",
+    "project": "Wirebench API Workbench",
+    "rating": 5
+  }
+]

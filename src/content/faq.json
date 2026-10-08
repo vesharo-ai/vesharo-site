@@ -1,0 +1,44 @@
+[
+  {
+    "id": "engagement-models",
+    "question": "What engagement models does Vesharo offer?",
+    "answer": "We offer two transparent models: (1) Sprint-Based Fixed Scope for well-defined deliverables with fixed milestones, and (2) Dedicated Engineering Squad for ongoing product development where you get a dedicated team of architects, developers, and DevOps specialists.",
+    "category": "Engagement",
+    "order": 1
+  },
+  {
+    "id": "ip-ownership",
+    "question": "Who owns the code and intellectual property produced?",
+    "answer": "You own 100% of all intellectual property, source code, data schemas, architectures, and deployment configurations from day one. Upon milestone handover, full rights and repository control belong exclusively to your organization.",
+    "category": "Legal & IP",
+    "order": 2
+  },
+  {
+    "id": "tech-stack-preferences",
+    "question": "What core technologies and architectures do you specialize in?",
+    "answer": "Our stack centers on high-performance, modern technologies: TypeScript, React, Astro, Next.js, Node.js, Go, Python (for AI & data pipelines), PostgreSQL, Redis, Docker, and AWS / GCP cloud infrastructure.",
+    "category": "Technology",
+    "order": 3
+  },
+  {
+    "id": "ai-security",
+    "question": "How do you ensure data security and accuracy in AI solutions?",
+    "answer": "We enforce strict security boundaries: zero customer data retention with public model vendors, private VPC deployments, deterministic validation layers, and role-based access control. All AI workflows are audited for privacy compliance.",
+    "category": "AI Automation",
+    "order": 4
+  },
+  {
+    "id": "delivery-timelines",
+    "question": "What does a typical project timeline look like?",
+    "answer": "Most projects start with a 1-week technical discovery and architecture sprint. MVPs typically ship in 3 to 6 weeks, while large-scale custom platforms follow 2-week agile delivery cycles with working builds demonstrated at every milestone.",
+    "category": "Process",
+    "order": 5
+  },
+  {
+    "id": "ongoing-support",
+    "question": "Do you provide ongoing maintenance and post-launch SLAs?",
+    "answer": "Yes. Every production deployment comes with a 30-day post-launch warranty, followed by optional monthly SLA packages covering 24/7 uptime monitoring, security patching, API maintenance, and incremental feature updates.",
+    "category": "Support",
+    "order": 6
+  }
+]

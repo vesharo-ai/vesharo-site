@@ -1,37 +1,30 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Banner1 from "@/components/banner/Banner1";
+import Banner1 from "@/components/banner/Banner1.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import HeaderSlider2 from "@/components/heading-slider/HeaderSlider2";
-import About1 from "@/components/about/About1";
-import Service1 from "@/components/service/Service1";
-import WhoWeAre from "@/components/who-we-are/WhoWeAre";
-import WorkFlow1 from "@/components/wordflows/WorkFlow1";
+import About1 from "@/components/about/About1.astro";
+import Service1 from "@/components/service/Service1.astro";
+import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
+import WorkFlow1 from "@/components/wordflows/WorkFlow1.astro";
 import Project1 from "@/components/project/Project1";
-import Team1 from "@/components/team/Team1";
+import Team1 from "@/components/team/Team1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
-import Blog1 from "@/components/blog/Blog1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
-import { serviceCards } from "@/seeds/Service.seeds";
-import { teamMembers } from "@/seeds/Teams.seeds";
-import { blogPosts } from "@/seeds/Blog1.seeds";
+import Blog1 from "@/components/blog/Blog1.astro";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout title="Vesharo — IT Services & AI Automation">
-  <Banner1 client:load />
+  <Banner1 />
   <HeaderSlider client:visible />
   <HeaderSlider2 client:visible />
-  <About1 client:visible />
-  <Service1
-    client:visible
-    serviceData={[...serviceCards].slice(0, 4)}
-    backgroundColor="#171717"
-  />
-  <WhoWeAre client:visible backgroundColor="#121212" />
-  <WorkFlow1 client:visible />
+  <About1 />
+  <Service1 limit={4} backgroundColor="#171717" />
+  <WhoWeAre backgroundColor="#121212" />
+  <WorkFlow1 />
   <Project1 client:visible />
-  <Team1 client:visible teamData={[...teamMembers.slice(0, 4)]} />
+  <Team1 />
   <Testimonial1 client:visible bgClass="tz-bg-neutral3" />
-  <Blog1 client:visible blogData={[...blogPosts.slice(0, 3)]} />
-  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+  <Blog1 limit={3} />
+  <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

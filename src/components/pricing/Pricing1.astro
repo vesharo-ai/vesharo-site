@@ -1,0 +1,111 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+
+interface Props {
+  bgColor?: string;
+}
+
+const { bgColor = "#121212" } = Astro.props;
+
+const engagementModels = [
+  {
+    packageName: "Sprint Scope",
+    subtitle: "Fixed-scope milestone delivery for MVPs & targeted modules",
+    tagline: "Fixed Milestones",
+    duration: "milestone",
+    features: [
+      "Technical architecture blueprint",
+      "Fixed timeline & deliverables",
+      "Bi-weekly sprint demonstrations",
+      "Full IP & source code transfer",
+      "30-day post-launch warranty",
+    ],
+    link: "/contact",
+    cta: "Start Discovery",
+  },
+  {
+    packageName: "Dedicated Squad",
+    subtitle: "Full-stack squad dedicated to scaling your product roadmap",
+    tagline: "Monthly Retainer",
+    duration: "squad / month",
+    features: [
+      "Lead architect + senior engineers",
+      "Full AI & cloud infrastructure",
+      "Daily asynchronous standups",
+      "Direct Slack / GitHub access",
+      "Flexible roadmap prioritization",
+    ],
+    link: "/contact",
+    cta: "Hire Squad",
+    featured: true,
+  },
+  {
+    packageName: "Enterprise Advisory",
+    subtitle: "Strategic architecture review, system audits & AI enablement",
+    tagline: "Custom Advisory",
+    duration: "engagement",
+    features: [
+      "Deep security & code audit",
+      "Legacy modernization strategy",
+      "AI feasibility & RAG planning",
+      "Cloud spend & infra audit",
+      "Executive roadmapping deck",
+    ],
+    link: "/contact",
+    cta: "Book Consultation",
+  },
+];
+---
+
+<div class="tz-pricing2" style={{ backgroundColor: bgColor }}>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <div class="tz-section-top">
+          <SectionSubtitle subtitle="ENGAGEMENT MODELS" />
+          <SectionTitle title="Predictable & Transparent" />
+        </div>
+        <p class="tz-text-m tz-text-neutral6 mb-4">
+          Choose the right engagement structure for your technical roadmap — from fixed milestone sprints to dedicated engineering squads.
+        </p>
+        <img src="/images/wwa/wwa1-shape.svg" alt="" aria-hidden="true" />
+      </div>
+      {engagementModels.map((card) => (
+        <div class="col-md-6 col-xl-3">
+          <div class="tz-pricing2-card" style={card.featured ? "border: 1px solid var(--vesharo-electric-accent, #00d2ff);" : ""}>
+            <div class="tz-pricing2-card__plan">
+              <p class="tz-pricing2-card__type tz-text-m text-uppercase tz-text-primary mb-1">
+                {card.packageName}
+              </p>
+              <div class="tz-pricing2-card__price">
+                <div class="tz-pricing2-card__amount tz-display-3">
+                  <span class="tz-price" style="font-size: 1.75rem;">
+                    {card.tagline}
+                  </span>
+                </div>
+              </div>
+              <p class="tz-text-xs text-muted mt-2 mb-0">
+                {card.subtitle}
+              </p>
+            </div>
+            <ul class="tz-pricing2-card__features tz-text-m tz-text-neutral6 list-unstyled d-flex flex-column gap-2 mb-4">
+              {card.features.map((feature) => (
+                <li class="tz-pricing2-card__feature d-flex align-items-center gap-2">
+                  <i class="ph ph-check-circle" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={card.link}
+              class="tz-button tz-button--style2 tz-text-m text-center w-100 d-inline-block text-uppercase fw-semibold"
+            >
+              {card.cta}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

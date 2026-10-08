@@ -7,42 +7,22 @@ export interface TeamMemberType {
 export const teamMembers: TeamMemberType[] = [
   {
     imageSrc: "/images/team/team1-img1.jpg",
-    name: "Devon Lane",
-    title: "Dog Trainer",
+    name: "Harsh Siddhapura",
+    title: "Founder & Lead Architect",
   },
   {
     imageSrc: "/images/team/team1-img2.jpg",
-    name: "Annette Black",
-    title: "President of Sales",
+    name: "Core Systems Squad",
+    title: "Distributed Systems & Cloud",
   },
   {
     imageSrc: "/images/team/team1-img3.jpg",
-    name: "Savannah Nguyen",
-    title: "Nursing Assistant",
+    name: "AI & ML Squad",
+    title: "Autonomous Agents & LLMs",
   },
   {
     imageSrc: "/images/team/team1-img4.jpg",
-    name: "Kristin Watson",
-    title: "Web Designer",
-  },
-  {
-    imageSrc: "/images/team/team1-img1.jpg",
-    name: "Michael Chen",
-    title: "UI/UX Designer",
-  },
-  {
-    imageSrc: "/images/team/team1-img2.jpg",
-    name: "Sarah Johnson",
-    title: "Marketing Director",
-  },
-  {
-    imageSrc: "/images/team/team1-img3.jpg",
-    name: "Robert Martinez",
-    title: "Software Engineer",
-  },
-  {
-    imageSrc: "/images/team/team1-img4.jpg",
-    name: "Emily Parker",
-    title: "Product Manager",
+    name: "Product Engineering",
+    title: "Full-Stack & Mobile Platforms",
   },
 ];

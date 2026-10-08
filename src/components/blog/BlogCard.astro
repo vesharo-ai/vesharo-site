@@ -1,0 +1,43 @@
+---
+interface Props {
+  imageSrc: string;
+  category: string;
+  date: string;
+  title: string;
+  link: string;
+}
+
+const { imageSrc, category, date, title, link } = Astro.props;
+---
+
+<div class="col-md-6 col-xl-4">
+  <div class="tz-blog1-card">
+    <div class="tz-blog1-card__image">
+      <img src={imageSrc} alt={title} />
+      <span class="tz-blog1-card__tag tz-text-m text-uppercase">
+        {category}
+      </span>
+    </div>
+    <div class="tz-blog1-card__content">
+      <p class="tz-blog1-card__date tz-text-m tz-text-neutral6 fw-light">
+        {date}
+      </p>
+      <h3 class="tz-blog1-card__title tz-text-neutral5" style="font-size: 1.25rem; line-height: 1.4;">
+        <a href={link} class="text-white text-decoration-none">
+          {title}
+        </a>
+      </h3>
+      <div class="tz-buttons d-flex justify-content-start justify-content-md-end mt-3">
+        <a
+          href={link}
+          class="tz-button text-uppercase fw-medium tz-text-m"
+        >
+          Read Article
+        </a>
+        <a class="tz-button-circle" href={link} aria-label={`Read ${title}`}>
+          <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

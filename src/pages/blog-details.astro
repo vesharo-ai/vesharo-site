@@ -1,16 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import BlogDetails from "@/components/blog-details/BlogDetails";
 import RelatedArticles from "@/components/related-articles/RelatedArticles";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout title="Blog Details | Vesharo">
-  <BreadCrumb client:load title="Blog Details" />
+  <BreadCrumb title="Blog Details" />
   <HeaderSlider client:visible />
   <BlogDetails client:visible />
   <RelatedArticles client:visible />
-  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+  <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

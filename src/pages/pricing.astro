@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import Pricing1 from "@/components/pricing/Pricing1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import Pricing1 from "@/components/pricing/Pricing1.astro";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Pricing Plan | Vesharo">
-  <BreadCrumb client:load title="Pricing Plan" />
+<Layout title="Pricing & Engagement Models | Vesharo">
+  <BreadCrumb title="Pricing Plan" />
   <HeaderSlider client:visible />
-  <Pricing1 client:visible />
-  <Subscribe1 client:visible />
+  <Pricing1 />
+  <Subscribe1 />
 </Layout>

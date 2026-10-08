@@ -1,0 +1,85 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  backgroundColor?: string;
+}
+
+const { backgroundColor = "#121212" } = Astro.props;
+
+const allFaqs = await getCollection("faq");
+const faqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section
+  class="tz-faq2 tz-bg-neutral2 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120"
+  style={{ backgroundColor }}
+>
+  <div class="container">
+    <div class="row g-4 d-flex justify-content-between">
+      <div class="col-xl-5">
+        <div class="tz-section-top tz-mb-0">
+          <SectionSubtitle subtitle="Questions & Answers" />
+          <SectionTitle title="Frequently Asked Questions" />
+        </div>
+        <p class="tz-faq2__desc tz-text-l tz-text-neutral6">
+          Everything you need to know about our engineering squads, IP ownership, and AI delivery workflows.
+        </p>
+        <div class="tz-faq2__thumb">
+          <div class="tz-buttons">
+            <a
+              href="/contact"
+              class="tz-button text-uppercase fw-medium tz-text-m"
+            >
+              Get in touch
+            </a>
+            <a class="tz-button-circle" href="/contact" aria-label="Contact Us">
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <img
+            src="/images/banner/banner1-shape2.svg"
+            alt=""
+            aria-hidden="true"
+            class="tz-faq2__shape floating"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="tz-faq-accordion-native d-flex flex-column gap-3">
+          {faqs.map((item, index) => (
+            <details
+              class="tz-faq-item p-3 rounded"
+              style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);"
+              open={index === 0}
+            >
+              <summary
+                class="d-flex align-items-center justify-content-between fw-semibold text-white cursor-pointer py-1"
+                style="list-style: none; font-size: 1.1rem; cursor: pointer;"
+              >
+                <span>{item.data.question}</span>
+                <i class="ph ph-caret-down text-cyan ms-2" style="color: var(--vesharo-electric-accent, #00d2ff); transition: transform 0.2s ease;"></i>
+              </summary>
+              <div class="pt-3 tz-text-l text-muted border-top border-secondary border-opacity-25 mt-2">
+                <p class="mb-0" style="line-height: 1.6;">
+                  {item.data.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] summary i {
+    transform: rotate(180deg);
+  }
+</style>

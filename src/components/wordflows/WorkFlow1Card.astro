@@ -1,0 +1,29 @@
+---
+interface Props {
+  subtitle: string;
+  number: string;
+  title: string;
+  description: string;
+  active?: boolean;
+}
+
+const { subtitle, number, title, description, active } = Astro.props;
+---
+
+<div class={`tz-workflow1-card text-center ${active ? "active" : ""}`}>
+  <h5 class="tz-workflow1-card__step tz-text-neutral6">{subtitle}</h5>
+  <!-- Timeline Track -->
+  <div class="tz-workflow1-card__line">
+    <span class="tz-workflow1-card__dot"></span>
+  </div>
+  <!-- Timeline Track -->
+  <div class="tz-workflow1-card__content">
+    <div class="tz-workflow1-card__number tz-display-1 tz-text-neutral1">
+      {number}
+    </div>
+    <h3 class="tz-workflow1-card__title tz-text-neutral5">{title}</h3>
+    <p class="tz-workflow1-card__desc tz-text-l tz-text-neutral6">
+      {description}
+    </p>
+  </div>
+</div>

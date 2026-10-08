@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import Faq1 from "@/components/faq/Faq1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import Faq1 from "@/components/faq/Faq1.astro";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout title="FAQ | Vesharo">
-  <BreadCrumb client:load title="FAQ'S" />
+  <BreadCrumb title="FAQ'S" />
   <HeaderSlider client:visible />
-  <Faq1 client:visible backgroundColor="#121212" />
-  <Subscribe1 client:visible />
+  <Faq1 backgroundColor="#121212" />
+  <Subscribe1 />
 </Layout>

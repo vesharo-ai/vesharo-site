@@ -1,20 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import BlogPage from "@/components/blog/BlogPage";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
-import { blogPosts } from "@/seeds/Blog1.seeds";
+import BlogPage from "@/components/blog/BlogPage.astro";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Blog | Vesharo">
-  <BreadCrumb client:load title="Blog" />
+<Layout title="Engineering Blog & Insights | Vesharo">
+  <BreadCrumb title="Blog" />
   <HeaderSlider client:visible />
-  <BlogPage
-    client:visible
-    pagination
-    blogData={[...blogPosts.slice(0, 8)]}
-    backgroundColor="#121212"
-  />
-  <Subscribe1 client:visible />
+  <BlogPage backgroundColor="#121212" />
+  <Subscribe1 />
 </Layout>

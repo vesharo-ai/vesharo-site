@@ -1,6 +1,6 @@
 ---
 import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
+import Footer from "@/components/footer/Footer.astro";
 import ScrollTop from "@/components/scroll-top/ScrollTop";
 
 import "@/styles/phosphoricons.css";
@@ -88,7 +88,7 @@ const {
     <main id="main-content">
       <slot />
     </main>
-    <Footer client:load />
-    <ScrollTop client:load />
+    <Footer />
+    <ScrollTop client:idle />
   </body>
 </html>

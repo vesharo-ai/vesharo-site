@@ -1,0 +1,74 @@
+[
+  {
+    "id": "enterprise-ai-agents-2026",
+    "title": "Architecting Autonomous AI Agents for Mission-Critical Enterprise Workflows",
+    "excerpt": "How to move beyond simple chat wrappers to reliable multi-agent systems with deterministic execution, strict tool use, and zero-hallucination guardrails.",
+    "date": "October 5, 2026",
+    "author": "Vesharo Engineering",
+    "category": "AI Automation",
+    "readTime": "6 min read",
+    "tags": ["AI Agents", "Architecture", "LLMs", "Enterprise"],
+    "image": "/images/blog/blog1-img1.jpg",
+    "link": "/blog-details"
+  },
+  {
+    "id": "why-astro-is-replacing-heavy-spas",
+    "title": "Why Island Architecture Beats Monolithic SPAs for High-Performance Web Applications",
+    "excerpt": "A deep dive into Astro's partial hydration, sub-100KB client JavaScript budgets, and how eliminating runtime bloat boosts conversion and Core Web Vitals.",
+    "date": "September 28, 2026",
+    "author": "Vesharo Engineering",
+    "category": "Web Engineering",
+    "readTime": "5 min read",
+    "tags": ["Astro", "Performance", "Web Development", "React"],
+    "image": "/images/blog/blog1-img2.jpg",
+    "link": "/blog-details"
+  },
+  {
+    "id": "securing-b2b-saas-device-management",
+    "title": "Engineering Resilient Android Device Management Systems Under Network Constraints",
+    "excerpt": "Lessons from building LockApp: handling offline policy enforcement, cryptographic payload signing, and low-latency synchronization across tens of thousands of devices.",
+    "date": "September 15, 2026",
+    "author": "Vesharo Engineering",
+    "category": "Mobile & Cloud",
+    "readTime": "7 min read",
+    "tags": ["Android MDM", "SaaS", "Security", "Distributed Systems"],
+    "image": "/images/blog/blog1-img3.jpg",
+    "link": "/blog-details"
+  },
+  {
+    "id": "building-rag-pipelines-production",
+    "title": "Production RAG in Practice: Hybrid Search, Reranking, and Vector Database Economics",
+    "excerpt": "Practical techniques to achieve sub-200ms latency on domain-specific retrieval while keeping cloud vector search costs predictable and scalable.",
+    "date": "August 30, 2026",
+    "author": "Vesharo Engineering",
+    "category": "AI Automation",
+    "readTime": "8 min read",
+    "tags": ["RAG", "Vector DB", "Embeddings", "Cloud"],
+    "image": "/images/blog/blog1-img1.jpg",
+    "link": "/blog-details"
+  },
+  {
+    "id": "modern-cloud-infrastructure-cost-reduction",
+    "title": "Slashing Cloud Spend by 40%: Container Optimization and Serverless Edge Patterns",
+    "excerpt": "A pragmatic blueprint for optimizing AWS and GCP footprints without compromising reliability, auto-scaling thresholds, or disaster recovery readiness.",
+    "date": "August 12, 2026",
+    "author": "Vesharo Engineering",
+    "category": "DevOps & Cloud",
+    "readTime": "5 min read",
+    "tags": ["DevOps", "Cloud Cost", "AWS", "Kubernetes"],
+    "image": "/images/blog/blog1-img2.jpg",
+    "link": "/blog-details"
+  },
+  {
+    "id": "api-first-development-drift-prevention",
+    "title": "Automating API Contract-Drift Detection Across Microservice Boundaries",
+    "excerpt": "How schema validation at the gateway level prevents breaking client regressions and streamlines continuous integration for fast-moving squads.",
+    "date": "July 24, 2026",
+    "author": "Vesharo Engineering",
+    "category": "Custom Software",
+    "readTime": "6 min read",
+    "tags": ["API", "OpenAPI", "Microservices", "CI/CD"],
+    "image": "/images/blog/blog1-img3.jpg",
+    "link": "/blog-details"
+  }
+]

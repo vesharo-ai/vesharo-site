@@ -1,0 +1,12 @@
+---
+interface Props {
+  subtitle: string;
+}
+
+const { subtitle } = Astro.props;
+---
+
+<div class="tz-section-subtitle">
+  <span class="tz-section-subtitle__line"></span>
+  <h4 class="text-uppercase tz-text-primary">{subtitle}</h4>
+</div>

@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import PortfolioDetails from "@/components/portfolio-details/PortfolioDetails";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout title="Portfolio Details | Vesharo">
-  <BreadCrumb client:load title="Portfolio Details" />
+  <BreadCrumb title="Portfolio Details" />
   <HeaderSlider client:visible />
   <PortfolioDetails client:visible />
-  <Subscribe1 client:visible />
+  <Subscribe1 />
 </Layout>

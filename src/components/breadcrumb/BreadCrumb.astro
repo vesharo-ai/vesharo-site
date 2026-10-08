@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section
+  class="tz-breadcrumb"
+  style='background-image: url("/images/breadcrumb/breadcrumb-img.jpg");'
+>
+  <div class="tz-breadcrumb__overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="tz-breadcrumb__content">
+          <h1 class="tz-breadcrumb__title tz-display-4 tz-text-neutral5 text-uppercase">
+            {title}
+          </h1>
+          <div class="tz-breadcrumb__menu tz-text-l text-uppercase">
+            <nav aria-label="Breadcrumb">
+              <ul class="tz-breadcrumb__list">
+                <li class="tz-breadcrumb__item">
+                  <a href="/">Home</a>
+                </li>
+                <li class="tz-breadcrumb__item active" aria-hidden="true">
+                  <i class="ph ph-caret-double-right"></i>
+                </li>
+                <li
+                  class="tz-breadcrumb__item active"
+                  aria-current="page"
+                >
+                  {title}
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "hardware-financing",
+    "name": "Electronics & Device Financing",
+    "category": "Fintech & IoT",
+    "logoText": "Fintech MDM",
+    "description": "Remote device locking, automated EMI payment enforcement, and fleet telemetry."
+  },
+  {
+    "id": "high-volume-events",
+    "name": "Cultural Festivals & Large Venues",
+    "category": "Event Infrastructure",
+    "logoText": "High-Volume Events",
+    "description": "Rapid gate access ticketing, anti-counterfeit QR passes, and attendee intelligence."
+  },
+  {
+    "id": "developer-platforms",
+    "name": "Distributed Engineering Squads",
+    "category": "Developer Tooling",
+    "logoText": "API Developer Tools",
+    "description": "Private schema drift detection, OpenAPI monitoring, and changelog automation."
+  }
+]

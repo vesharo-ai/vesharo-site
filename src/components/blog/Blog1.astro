@@ -1,0 +1,52 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import BlogCard from "./BlogCard.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 3 } = Astro.props;
+
+const allBlogs = await getCollection("blog");
+const blogPostsList = allBlogs.slice(0, limit);
+---
+
+<section class="tz-blog1">
+  <div class="container">
+    <div class="tz-section-top">
+      <div class="row g-4 align-items-end">
+        <div class="col-md-8">
+          <SectionSubtitle subtitle="Engineering Insights" />
+          <SectionTitle title="Latest Articles & Insights" />
+        </div>
+        <div class="col-md-4">
+          <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
+            <a
+              href="/blog"
+              class="tz-button text-uppercase fw-medium tz-text-m"
+            >
+              All Articles
+            </a>
+            <a href="/blog" class="tz-button-circle" aria-label="View All Articles">
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      {blogPostsList.map((post) => (
+        <BlogCard
+          imageSrc={post.data.image}
+          category={post.data.category}
+          date={post.data.date}
+          title={post.data.title}
+          link={post.data.link}
+        />
+      ))}
+    </div>
+  </div>
+</section>

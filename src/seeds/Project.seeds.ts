@@ -7,34 +7,22 @@ export type Project2CardType = {
 
 export const project2Cards: Project2CardType[] = [
   {
-    image: "/images/project/project2-img1.jpg",
-    tags: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-    link: "/project-details",
+    image: "/images/project/project1-img1.jpg",
+    tags: ["Mobile MDM", "Cloud Control"],
+    title: "LockApp",
+    link: "/portfolio-details",
   },
   {
-    image: "/images/project/project2-img2.jpg",
-    tags: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-    link: "/project-details",
+    image: "/images/project/project1-img2.jpg",
+    tags: ["Event Infrastructure", "High-Speed QR"],
+    title: "NavratriOS",
+    link: "/portfolio-details",
   },
   {
-    image: "/images/project/project2-img3.jpg",
-    tags: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-    link: "/project-details",
-  },
-  {
-    image: "/images/project/project2-img4.jpg",
-    tags: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-    link: "/project-details",
-  },
-  {
-    image: "/images/project/project2-img2.jpg",
-    tags: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-    link: "/project-details",
+    image: "/images/project/project1-img3.jpg",
+    tags: ["API Observability", "Schema Drift"],
+    title: "Wirebench",
+    link: "/portfolio-details",
   },
 ];
 
@@ -46,29 +34,19 @@ export type Project2SliderType = {
 
 export const project2SliderData: Project2SliderType[] = [
   {
-    projectSrc: "/images/project/project2-img1.jpg",
-    category: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
+    projectSrc: "/images/project/project1-img1.jpg",
+    category: ["Mobile MDM", "Cloud Control"],
+    title: "LockApp",
   },
   {
-    projectSrc: "/images/project/project2-img2.jpg",
-    category: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
+    projectSrc: "/images/project/project1-img2.jpg",
+    category: ["Event Infrastructure", "High-Speed QR"],
+    title: "NavratriOS",
   },
   {
-    projectSrc: "/images/project/project2-img3.jpg",
-    category: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-  },
-  {
-    projectSrc: "/images/project/project2-img4.jpg",
-    category: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
-  },
-  {
-    projectSrc: "/images/project/project2-img2.jpg",
-    category: ["Branding", "Graphic Design"],
-    title: "PixelForge Studio",
+    projectSrc: "/images/project/project1-img3.jpg",
+    category: ["API Observability", "Schema Drift"],
+    title: "Wirebench",
   },
 ];
 
@@ -85,28 +63,21 @@ export const projectCards: ProjectCardType[] = [
     link: "/portfolio-details",
     imageSrc: "/images/project/project1-img1.jpg",
     year: "2025",
-    title: "PixelForge Studio",
-    categories: ["BRANDING", "GRAPHIC DESIGN"],
+    title: "LockApp",
+    categories: ["ENTERPRISE MDM", "B2B SAAS"],
   },
   {
     link: "/portfolio-details",
     imageSrc: "/images/project/project1-img2.jpg",
-    year: "2025",
-    title: "NexaDigital Solutions",
-    categories: ["BRANDING", "GRAPHIC DESIGN"],
+    year: "2024",
+    title: "NavratriOS",
+    categories: ["EVENT TICKETING", "QR PLATFORM"],
   },
   {
     link: "/portfolio-details",
     imageSrc: "/images/project/project1-img3.jpg",
-    year: "2025",
-    title: "CodeCraft Agency",
-    categories: ["BRANDING", "GRAPHIC DESIGN"],
-  },
-  {
-    link: "/portfolio-details",
-    imageSrc: "/images/project/project1-img4.jpg",
-    year: "2025",
-    title: "Skyline Digital Hub",
-    categories: ["BRANDING", "GRAPHIC DESIGN"],
+    year: "2024",
+    title: "Wirebench",
+    categories: ["API GOVERNANCE", "DEV TOOLS"],
   },
 ];

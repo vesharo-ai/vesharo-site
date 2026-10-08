@@ -1,0 +1,51 @@
+---
+interface Props {
+  spacingClass?: string;
+  title?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  buttonLink?: string;
+}
+
+const {
+  spacingClass = "",
+  title = "Ready to Accelerate Your Engineering?",
+  subtitle = "Discuss your roadmap with our lead architects. Free 30-minute discovery session.",
+  buttonLabel = "Book a Free Call",
+  buttonLink = "/contact",
+} = Astro.props;
+---
+
+<div class={`tz-subscribe1 ${spacingClass}`}>
+  <div class="container">
+    <div class="tz-subscribe1__wrapper">
+      <div class="row g-4 d-flex align-items-center justify-content-between">
+        <div class="col-lg-7">
+          <h2 class="tz-subscribe1__title tz-display-3 text-uppercase mb-2 text-white">
+            {title}
+          </h2>
+          <p class="tz-text-l tz-text-neutral6 mb-0">
+            {subtitle}
+          </p>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-lg-end justify-content-start">
+          <div class="tz-buttons">
+            <a
+              href={buttonLink}
+              class="tz-button text-uppercase fw-medium tz-text-m"
+            >
+              {buttonLabel}
+            </a>
+            <a
+              href={buttonLink}
+              class="tz-button-circle"
+              aria-label={buttonLabel}
+            >
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

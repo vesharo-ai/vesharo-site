@@ -1,0 +1,200 @@
+---
+import { siteConfig } from "@/config/site";
+---
+
+<footer class="tz-footer d-flex align-items-center justify-content-end" role="contentinfo">
+  <div class="tz-footer__shape"></div>
+  <img
+    src="/images/footer/footer-texture.png"
+    alt=""
+    aria-hidden="true"
+    class="tz-footer__texture"
+  />
+  <div class="container">
+    <div class="tz-footer__wrapper">
+      <div class="row g-4 d-flex justify-content-between">
+        <!-- Logo, tagline, and direct contact details -->
+        <div class="col-xl-4 col-lg-5">
+          <div class="tz-footer__brand">
+            <a
+              href="/"
+              class="tz-footer__logo tz-mb-30 d-inline-block"
+              aria-label="Vesharo Home"
+            >
+              <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
+            </a>
+            <p class="tz-footer__tagline tz-text-m tz-text-neutral6 fw-light mb-4">
+              {siteConfig.description}
+            </p>
+
+            <!-- Verified Contact Details -->
+            <div class="d-flex flex-column gap-2 mb-4">
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                class="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                aria-label={`Email ${siteConfig.contact.email}`}
+              >
+                <i class="ph ph-envelope" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+                <span>{siteConfig.contact.email}</span>
+              </a>
+              <a
+                href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+                class="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                aria-label={`Call ${siteConfig.contact.phone}`}
+              >
+                <i class="ph ph-phone" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+                <span>{siteConfig.contact.phone}</span>
+              </a>
+              <div class="d-flex align-items-center gap-2 text-muted tz-text-s">
+                <i class="ph ph-map-pin" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+                <span>{siteConfig.contact.location}</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 text-muted tz-text-s">
+                <i class="ph ph-clock" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+                <span>{siteConfig.contact.hours}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Links -->
+          <div class="tz-footer__socials d-flex gap-2 align-items-center" role="list" aria-label="Social media profiles">
+            {siteConfig.socials.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="tz-footer__social-link d-inline-flex align-items-center justify-content-center"
+                aria-label={social.name}
+              >
+                <i class={`ph ${social.icon}`} aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right section with CTA and organized navigation columns -->
+        <div class="col-xl-8 col-lg-7">
+          <div class="tz-footer-right">
+            <img
+              src="/images/footer/shadow-brand-title.png"
+              alt=""
+              aria-hidden="true"
+              class="tz-footer__shadow"
+            />
+            <div class="tz-footer-right__content">
+              <!-- Top Bar / Direct Navigation & CTA -->
+              <div class="tz-footer__nav d-flex flex-wrap align-items-center justify-content-between gap-3">
+                <div class="tz-footer__menu tz-text-l d-flex flex-wrap gap-4">
+                  {siteConfig.nav.slice(0, 4).map((item) => (
+                    <a href={item.href} class="tz-footer__menu-link">
+                      {item.title.toUpperCase()}
+                    </a>
+                  ))}
+                </div>
+                <div class="tz-buttons d-inline-flex align-items-center">
+                  <a
+                    href={siteConfig.cta.href}
+                    class="tz-button-yellow text-uppercase fw-medium tz-text-m"
+                  >
+                    {siteConfig.cta.label}
+                  </a>
+                  <a
+                    href={siteConfig.cta.href}
+                    class="tz-button-yellow-circle"
+                    aria-label={siteConfig.cta.label}
+                  >
+                    <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- 3 Nav Columns -->
+              <div class="row g-4 tz-pt-30 tz-pt-lg-50 tz-pb-30 tz-pb-lg-50">
+                <!-- Services Column (7 core services) -->
+                <div class="col-md-5 col-sm-6">
+                  <div class="tz-footer__section">
+                    <h3 class="tz-footer__heading">Core Services</h3>
+                    <ul class="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                      {siteConfig.services.map((service) => (
+                        <li>
+                          <a
+                            href={service.href}
+                            class="tz-footer__link tz-text-m text-decoration-none"
+                          >
+                            {service.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="col-md-3 col-sm-6">
+                  <div class="tz-footer__section">
+                    <h3 class="tz-footer__heading">Company</h3>
+                    <ul class="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                      {siteConfig.footerLinks.company.map((link) => (
+                        <li>
+                          <a
+                            href={link.href}
+                            class="tz-footer__link tz-text-m text-decoration-none"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Verified Products & Legal Column -->
+                <div class="col-md-4 col-sm-12">
+                  <div class="tz-footer__section">
+                    <h3 class="tz-footer__heading">Products &amp; Legal</h3>
+                    <ul class="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-3">
+                      {siteConfig.portfolio.map((prod) => (
+                        <li>
+                          <a
+                            href={prod.href}
+                            class="tz-footer__link tz-text-m text-decoration-none"
+                          >
+                            {prod.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <div class="pt-2 border-top border-secondary border-opacity-25">
+                      <ul class="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                        {siteConfig.footerLinks.legal.map((link) => (
+                          <li>
+                            <a
+                              href={link.href}
+                              class="tz-footer__link tz-text-s text-muted text-decoration-none"
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Copyright row -->
+              <div class="tz-footer__bottom d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-secondary border-opacity-25">
+                <div class="tz-footer__copyright tz-text-m text-muted">
+                  Copyright &copy; 2026 Vesharo. All rights reserved.
+                </div>
+                <div class="tz-footer__tagline-right tz-text-s text-muted">
+                  Engineered for high performance and intelligent automation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

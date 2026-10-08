@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Error from "@/components/error/Error";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout title="404 - Page Not Found | Vesharo">
-  <BreadCrumb client:load title="404" />
+  <BreadCrumb title="404" />
   <HeaderSlider client:visible />
   <Error client:visible />
-  <Subscribe1 client:visible />
+  <Subscribe1 />
 </Layout>

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "ai-automation",
+    "title": "AI Automation",
+    "shortDescription": "Workflow automation, LLM integration & autonomous pipelines",
+    "fullDescription": "Transform operational workflows with production-grade AI agents, LLM integrations, and intelligent automation systems that eliminate manual bottlenecks.",
+    "icon": "ph-cpu",
+    "features": [
+      "Custom LLM & Agent Pipelines",
+      "Enterprise Process Automation",
+      "Retrieval-Augmented Generation (RAG)",
+      "API Orchestration & Webhooks"
+    ],
+    "deliverables": [
+      "Automated workflow blueprints",
+      "Production-ready AI integration",
+      "Monitoring & observability dashboards",
+      "Full API documentation"
+    ],
+    "order": 1
+  },
+  {
+    "id": "ai-agents",
+    "title": "AI Agents & Chatbots",
+    "shortDescription": "Custom intelligent assistants, multi-agent frameworks & RAG",
+    "fullDescription": "Deploy autonomous AI agents and conversational chatbots that interface directly with internal systems, knowledge bases, and client APIs.",
+    "icon": "ph-robot",
+    "features": [
+      "Multi-Agent Coordination Systems",
+      "Enterprise Chatbots with Memory",
+      "Role-Based Tool Use & Function Calling",
+      "Strict Guardrails & Hallucination Checks"
+    ],
+    "deliverables": [
+      "Trained domain-specific agent system",
+      "Custom embeddable chat widget",
+      "Knowledge retrieval pipeline",
+      "Admin telemetry portal"
+    ],
+    "order": 2
+  },
+  {
+    "id": "custom-software",
+    "title": "Custom Software Development",
+    "shortDescription": "Scalable enterprise web applications, robust APIs & architectures",
+    "fullDescription": "End-to-end full-stack software engineering tailored to solve complex business logic with clean, maintainable, and high-performance architecture.",
+    "icon": "ph-code",
+    "features": [
+      "Distributed Microservices & REST/GraphQL APIs",
+      "High-Throughput Backend Engineering",
+      "Multi-Tenant SaaS Platforms",
+      "Relational & NoSQL Database Architecture"
+    ],
+    "deliverables": [
+      "Clean TypeScript / Node / Go codebase",
+      "Automated CI/CD deployment pipeline",
+      "Unit & integration test suites",
+      "Comprehensive system architecture specs"
+    ],
+    "order": 3
+  },
+  {
+    "id": "web-development",
+    "title": "Web Development",
+    "shortDescription": "High-performance modern web platforms using Astro, Next.js & React",
+    "fullDescription": "Build lightning-fast, accessible, and SEO-optimized digital platforms utilizing modern island architecture and edge computing.",
+    "icon": "ph-browser",
+    "features": [
+      "Astro Island Architecture & SSR/SSG",
+      "React & Next.js Web Applications",
+      "WCAG 2.2 AA Accessibility Compliance",
+      "Sub-second Core Web Vitals"
+    ],
+    "deliverables": [
+      "Fully responsive production web platform",
+      "Design system & component library",
+      "Lighthouse 95+ performance optimization",
+      "Edge-ready deployment setup"
+    ],
+    "order": 4
+  },
+  {
+    "id": "mobile-app-development",
+    "title": "Mobile App Development",
+    "shortDescription": "Fluid iOS & Android cross-platform solutions built for scale",
+    "fullDescription": "Develop native-feel mobile applications with smooth gestures, offline capabilities, secure biometrics, and background sync.",
+    "icon": "ph-device-mobile",
+    "features": [
+      "React Native & Flutter Cross-Platform Apps",
+      "Offline-First Architecture & Sync",
+      "Secure Device Hardware Integration",
+      "App Store & Play Store Release Engineering"
+    ],
+    "deliverables": [
+      "iOS & Android compiled bundles",
+      "Published store listings & assets",
+      "Push notification service integration",
+      "Analytics & crash reporting configuration"
+    ],
+    "order": 5
+  },
+  {
+    "id": "cloud-devops",
+    "title": "Cloud & DevOps",
+    "shortDescription": "CI/CD pipelines, containerization, cloud infrastructure & AWS/GCP",
+    "fullDescription": "Modernize infrastructure with automated Infrastructure-as-Code, zero-downtime deployments, Kubernetes orchestration, and cloud cost optimization.",
+    "icon": "ph-cloud",
+    "features": [
+      "Terraform & AWS / GCP Infrastructure",
+      "Docker & Kubernetes Container Orchestration",
+      "Automated CI/CD Pipelines with GitHub Actions",
+      "24/7 Logging, Alerting & Metrics Dashboards"
+    ],
+    "deliverables": [
+      "Declarative IaC repositories",
+      "Hardened VPC & IAM security setups",
+      "Automated deployment environments",
+      "Cloud spend audit & optimization plan"
+    ],
+    "order": 6
+  },
+  {
+    "id": "it-consulting",
+    "title": "IT Consulting",
+    "shortDescription": "System audits, technology roadmapping & modern tech strategy",
+    "fullDescription": "Strategic technical advisory helping leadership choose the right architectural stack, reduce technical debt, and plan scalable roadmaps.",
+    "icon": "ph-chart-line-up",
+    "features": [
+      "Comprehensive Architecture Audits",
+      "Security & Compliance Reviews",
+      "Legacy Modernization Strategy",
+      "Engineering Team Enablement"
+    ],
+    "deliverables": [
+      "Executive architecture audit report",
+      "Risk remediation matrix",
+      "Technology adoption roadmap",
+      "Estimated cost & timeline projection"
+    ],
+    "order": 7
+  }
+]

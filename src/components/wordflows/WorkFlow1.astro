@@ -1,0 +1,21 @@
+---
+import WorkFlow1Card from "./WorkFlow1Card.astro";
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import { workflowCards } from "@/seeds/WorkFlows";
+---
+
+<section class="tz-workflow1">
+  <div class="container">
+    <div class="tz-section-top tz-section-top--centered">
+      <SectionSubtitle subtitle="Engineering Process" />
+      <SectionTitle title="HOW WE DELIVER" />
+    </div>
+    <div class="tz-workflow1-steps">
+      {workflowCards &&
+        workflowCards.map((item) => (
+          <WorkFlow1Card {...item} />
+        ))}
+    </div>
+  </div>
+</section>

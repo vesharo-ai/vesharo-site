@@ -1,15 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import Team1 from "@/components/team/Team1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
-import { teamMembers } from "@/seeds/Teams.seeds";
+import Team1 from "@/components/team/Team1.astro";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Our Team | Vesharo">
-  <BreadCrumb client:load title="Team" />
+<Layout title="Engineering Leadership & Squad | Vesharo">
+  <BreadCrumb title="Team" />
   <HeaderSlider client:visible />
-  <Team1 client:visible teamData={[...teamMembers.slice(0, 8)]} isInnerPage />
-  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+  <Team1 isInnerPage />
+  <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

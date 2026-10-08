@@ -1,0 +1,50 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import TeamCard from "./TeamCard.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  isInnerPage?: boolean;
+}
+
+const { isInnerPage = false } = Astro.props;
+
+const allTeam = await getCollection("team");
+const teamMembersList = allTeam.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="tz-team1">
+  <div class="container">
+    <div class="tz-section-top">
+      <div class="row g-4 align-items-end">
+        <div class="col-md-8">
+          <SectionSubtitle subtitle="Engineering Leadership" />
+          <SectionTitle title="The Minds Behind The Architecture" />
+        </div>
+        <div class="col-md-4">
+          <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
+            <a
+              href="/team"
+              class="tz-button text-uppercase fw-medium tz-text-m"
+            >
+              Meet The Squad
+            </a>
+            <a class="tz-button-circle" href="/team" aria-label="Meet The Squad">
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      {teamMembersList.map((member) => (
+        <TeamCard
+          name={member.data.name}
+          title={member.data.role}
+          imageSrc={member.data.image}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "harsh-siddhapura",
+    "name": "Harsh Siddhapura",
+    "role": "Founder & Principal Solutions Architect",
+    "bio": "Specializing in distributed systems, full-stack architectures, and production AI engineering. Leading architecture and client delivery across Vesharo platforms.",
+    "image": "/images/team/team1-img1.jpg",
+    "socials": {
+      "github": "https://github.com/vesharo-ai",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://x.com"
+    },
+    "order": 1
+  },
+  {
+    "id": "systems-engineering",
+    "name": "Core Systems & AI Squad",
+    "role": "Distributed Systems & Machine Learning Engineers",
+    "bio": "Multi-disciplinary engineering group dedicated to high-concurrency cloud systems, low-latency mobile platforms, and autonomous AI agents.",
+    "image": "/images/team/team1-img2.jpg",
+    "socials": {
+      "github": "https://github.com/vesharo-ai",
+      "linkedin": "https://linkedin.com"
+    },
+    "order": 2
+  }
+]

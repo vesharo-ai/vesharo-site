@@ -1,0 +1,31 @@
+---
+import BlogCard from "./BlogCard.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  backgroundColor?: string;
+}
+
+const { backgroundColor = "#171717" } = Astro.props;
+
+const allBlogs = await getCollection("blog");
+---
+
+<section
+  class="tz-blog-page tz-bg-neutral2 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120"
+  style={{ backgroundColor }}
+>
+  <div class="container">
+    <div class="row g-4">
+      {allBlogs.map((post) => (
+        <BlogCard
+          imageSrc={post.data.image}
+          category={post.data.category}
+          date={post.data.date}
+          title={post.data.title}
+          link={post.data.link}
+        />
+      ))}
+    </div>
+  </div>
+</section>
