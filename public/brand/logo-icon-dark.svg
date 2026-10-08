@@ -16,8 +16,8 @@
   </defs>
 
   
-      <path d="M 6 7 L 18 7 L 24 23 L 15 25 Z" fill="url(#vMarkL)"/>
-      <path d="M 42 7 L 30 7 L 24 23 L 33 25 Z" fill="url(#vMarkR)"/>
-      <path d="M 15 25 L 24 23 L 33 25 L 24 43 Z" fill="url(#vMarkB)"/>
+      <path d="M 6 7 L 18 7 L 24 23 L 15 25 Z" fill="#0B0F19" fill-opacity="0.9"/>
+      <path d="M 42 7 L 30 7 L 24 23 L 33 25 Z" fill="#0B0F19" fill-opacity="0.6"/>
+      <path d="M 15 25 L 24 23 L 33 25 L 24 43 Z" fill="#0B0F19"/>
     
 </svg>

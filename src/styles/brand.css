@@ -1,0 +1,37 @@
+/* Vesharo Brand Design Tokens — WCAG AA Verified */
+:root {
+  /* Brand Navy Base (Canvas & Surfaces) */
+  --vesharo-navy-950: #070b14; /* Deepest canvas / background */
+  --vesharo-navy-900: #0b0f19; /* Primary dark background */
+  --vesharo-navy-850: #0f1626; /* Secondary card background */
+  --vesharo-navy-800: #141d33; /* Elevated surface */
+  --vesharo-navy-700: #1e293b; /* Borders & dividers (dark) */
+  --vesharo-navy-600: #334155; /* Subtle borders */
+
+  /* Electric Accent (Brand Identity) */
+  --vesharo-electric-primary: #0066ff; /* Core brand blue */
+  --vesharo-electric-accent: #00d2ff;  /* High-contrast electric cyan */
+  --vesharo-electric-glow: #00f0ff;    /* Neon highlights & glows */
+  --vesharo-electric-hover: #0052cc;   /* Hover state */
+  --vesharo-electric-subtle: rgba(0, 210, 255, 0.12); /* Translucent cyan glow */
+
+  /* Neutral Scale */
+  --vesharo-neutral-50: #f8fafc;  /* Clean light text / light canvas */
+  --vesharo-neutral-100: #f1f5f9; /* Light surface */
+  --vesharo-neutral-200: #e2e8f0; /* Light borders */
+  --vesharo-neutral-300: #cbd5e1; /* Subtle text */
+  --vesharo-neutral-400: #94a3b8; /* Dark mode muted text */
+  --vesharo-neutral-500: #64748b; /* Secondary muted */
+  --vesharo-neutral-600: #475569; /* Light mode body text */
+  --vesharo-neutral-900: #0f172a; /* Light mode main text */
+
+  /* Semantic Colors */
+  --vesharo-semantic-success: #10b981;
+  --vesharo-semantic-warning: #f59e0b;
+  --vesharo-semantic-error: #ef4444;
+  --vesharo-semantic-info: #00d2ff;
+
+  /* Typography Stack */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}

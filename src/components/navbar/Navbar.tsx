@@ -40,7 +40,7 @@ function Navbar() {
               <div className="row">
                 <div className="col-4 col-lg-2">
                   <Link href="/" className="tz-header1__logo">
-                    <img src="/site-logo.svg" alt="site logo" />
+                    <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
                   </Link>
                 </div>
                 <div className="col-8 col-lg-10 text-end d-flex align-items-center justify-content-end justify-content-xl-center">

@@ -6,6 +6,7 @@ import ScrollTop from "@/components/scroll-top/ScrollTop";
 import "@/styles/phosphoricons.css";
 import "@/styles/animate.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/brand.css";
 import "@/styles/globals.css";
 import "swiper/css";
 
@@ -15,8 +16,8 @@ interface Props {
 }
 
 const {
-  title = "DigiFlow | Digital Agency Astro Template",
-  description = "Digiflow is a professionally designed template tailored for Digital Agency websites! Whether you’re building a site for any business related to agency, business, digital agency, and portfolio website, modern, clean, and fully customizable templates to help you create an impactful online presence.",
+  title = "Vesharo — IT Services & AI Automation",
+  description = "Vesharo is a premier IT services and AI automation company delivering custom software, AI agents, mobile applications, and scalable cloud infrastructure.",
 } = Astro.props;
 ---
 
@@ -25,10 +26,27 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#0B0F19" />
+    
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/brand/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/brand/og-image.png" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

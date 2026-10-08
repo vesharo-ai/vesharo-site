@@ -22,11 +22,11 @@ function Footer() {
                     href="/"
                     className="tz-footer__logo tz-mb-lg-80 tz-mb-40"
                   >
-                    <img src="/site-logo.svg" alt="DigiFlow" />
+                    <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
                   </Link>
                   <p className="tz-footer__tagline tz-text-l tz-text-neutral6 fw-light">
-                    We're your trusted partner in maintaining and enhancing the
-                    performance
+                    IT services &amp; AI automation company delivering intelligent systems,
+                    custom software, and scalable digital solutions.
                   </p>
                 </div>
                 <FooterSocial />

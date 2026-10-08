@@ -18,7 +18,7 @@ function Offcanvas({
             <div className="row g-0">
               <div className="col-6">
                 <Link href="/">
-                  <img src="/images/logo.png" alt="logo" />
+                  <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
                 </Link>
               </div>
               <div className="col-6 text-end">
@@ -34,9 +34,9 @@ function Offcanvas({
           {/*  */}
           {/*  */}
           <h5 className="tz-text-neutral5">Welcome to</h5>
-          <h1 className="tz-text-primary">DigiFlow</h1>
+          <h1 className="tz-text-primary">Vesharo</h1>
           <p className="tz-text-neutral5 tz-text-l">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            IT Services & AI Automation
           </p>
           {/*  */}
           {/*  */}
