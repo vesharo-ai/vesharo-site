@@ -55,9 +55,9 @@ function Navbar() {
                         href="/contact"
                         className="tz-button text-uppercase fw-medium tz-text-m"
                       >
-                        Get Started
+                        Book a free call
                       </Link>
-                      <Link className="tz-button-circle" href="/contact">
+                      <Link className="tz-button-circle" href="/contact" aria-label="Book a free call">
                         <i className="ph ph-arrow-up-right" />
                       </Link>
                     </div>
@@ -65,9 +65,13 @@ function Navbar() {
                   <div className="d-flex d-xl-none align-items-center gap-2 ms-4">
                     <ThemeToggle />
                     <button
+                      type="button"
                       className="tz-button d-inline-flex tz-offcanvas-btn tz-offcanvas-open-btn"
                       onClick={() => setShowOffcanvas(!showOffcanvas)}
-                      aria-label="Open menu"
+                      aria-label="Open mobile menu"
+                      aria-expanded={showOffcanvas}
+                      aria-controls="mobile-offcanvas-menu"
+                      id="mobile-menu-trigger"
                     >
                       <i className="ph ph-list" />
                     </button>

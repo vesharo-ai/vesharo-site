@@ -81,8 +81,11 @@ const {
     </script>
   </head>
   <body class="tz-bg-neutral3">
+    <a href="#main-content" class="skip-to-content visually-hidden-focusable">
+      Skip to main content
+    </a>
     <Navbar client:load />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer client:load />

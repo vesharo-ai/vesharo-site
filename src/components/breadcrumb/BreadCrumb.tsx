@@ -24,7 +24,7 @@ function BreadCrumb({ title }: BreadCrumbProps) {
                   {title}
                 </h5>
                 <div className="tz-breadcrumb__menu tz-text-l text-uppercase">
-                  <nav aria-label="tz-breadcrumb__nav">
+                  <nav aria-label="Breadcrumb">
                     <ul className="tz-breadcrumb__list">
                       <li className="tz-breadcrumb__item">
                         <Link href="/">Home</Link>

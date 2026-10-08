@@ -208,3 +208,31 @@ body {
 p {
   max-width: var(--max-line-ch);
 }
+
+/* Accessibility: Skip-to-content focus styling */
+.skip-to-content {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-brand-primary, #0066ff);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.4));
+  text-decoration: none;
+}
+
+.skip-to-content:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

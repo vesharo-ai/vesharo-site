@@ -1,207 +1,183 @@
 import React from "react";
 import Link from "@/components/common/Link";
 import FooterSocial from "./FooterSocial";
+import { siteConfig } from "@/config/site";
 
 function Footer() {
   return (
-    <>
-      <footer className="tz-footer d-flex align-items-center justify-content-end">
-        <div className="tz-footer__shape" />
-        <img
-          src="/images/footer/footer-texture.png"
-          alt="texture"
-          className="tz-footer__texture"
-        />
-        <div className="container">
-          <div className="tz-footer__wrapper">
-            <div className="row g-4 d-flex justify-content-between">
-              {/* Logo and tagline column */}
-              <div className="col-xl-3">
-                <div className="tz-footer__brand">
-                  <Link
-                    href="/"
-                    className="tz-footer__logo tz-mb-lg-80 tz-mb-40"
+    <footer className="tz-footer d-flex align-items-center justify-content-end" role="contentinfo">
+      <div className="tz-footer__shape" />
+      <img
+        src="/images/footer/footer-texture.png"
+        alt=""
+        aria-hidden="true"
+        className="tz-footer__texture"
+      />
+      <div className="container">
+        <div className="tz-footer__wrapper">
+          <div className="row g-4 d-flex justify-content-between">
+            {/* Logo, tagline, and direct contact details */}
+            <div className="col-xl-4 col-lg-5">
+              <div className="tz-footer__brand">
+                <Link
+                  href="/"
+                  className="tz-footer__logo tz-mb-30 d-inline-block"
+                  aria-label="Vesharo Home"
+                >
+                  <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
+                </Link>
+                <p className="tz-footer__tagline tz-text-m tz-text-neutral6 fw-light mb-4">
+                  {siteConfig.description}
+                </p>
+
+                {/* Verified Contact Details */}
+                <div className="d-flex flex-column gap-2 mb-4">
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                    aria-label={`Email ${siteConfig.contact.email}`}
                   >
-                    <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
-                  </Link>
-                  <p className="tz-footer__tagline tz-text-l tz-text-neutral6 fw-light">
-                    IT services &amp; AI automation company delivering intelligent systems,
-                    custom software, and scalable digital solutions.
-                  </p>
+                    <i className="ph ph-envelope" style={{ color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                    <span>{siteConfig.contact.email}</span>
+                  </a>
+                  <a
+                    href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+                    className="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                    aria-label={`Call ${siteConfig.contact.phone}`}
+                  >
+                    <i className="ph ph-phone" style={{ color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                    <span>{siteConfig.contact.phone}</span>
+                  </a>
+                  <div className="d-flex align-items-center gap-2 text-muted tz-text-s">
+                    <i className="ph ph-map-pin" style={{ color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                    <span>{siteConfig.contact.location}</span>
+                  </div>
+                  <div className="d-flex align-items-center gap-2 text-muted tz-text-s">
+                    <i className="ph ph-clock" style={{ color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                    <span>{siteConfig.contact.hours}</span>
+                  </div>
                 </div>
-                <FooterSocial />
               </div>
-              <div className="col-xl-8">
-                <div className="tz-footer-right">
-                  <img
-                    src="/images/footer/shadow-brand-title.png"
-                    alt="shadow-img"
-                    className="tz-footer__shadow"
-                  />
-                  <div className="tz-footer-right__content">
-                    <div className="tz-footer__nav">
-                      <div className="tz-footer__menu tz-text-l">
-                        <Link href="/" className="tz-footer__menu-link">
-                          HOME
+              <FooterSocial />
+            </div>
+
+            {/* Right section with CTA and organized navigation columns */}
+            <div className="col-xl-8 col-lg-7">
+              <div className="tz-footer-right">
+                <img
+                  src="/images/footer/shadow-brand-title.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="tz-footer__shadow"
+                />
+                <div className="tz-footer-right__content">
+                  {/* Top Bar / Direct Navigation & CTA */}
+                  <div className="tz-footer__nav d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div className="tz-footer__menu tz-text-l d-flex flex-wrap gap-4">
+                      {siteConfig.nav.slice(0, 4).map((item) => (
+                        <Link key={item.title} href={item.href} className="tz-footer__menu-link">
+                          {item.title.toUpperCase()}
                         </Link>
-                        <Link href="/about" className="tz-footer__menu-link">
-                          ABOUT US
-                        </Link>
-                        <Link href="/pricing" className="tz-footer__menu-link">
-                          PRICING PLAN
-                        </Link>
-                        <Link href="/blog" className="tz-footer__menu-link">
-                          BLOG
-                        </Link>
-                      </div>
-                      <div className="tz-buttons">
-                        <Link
-                          href="/contact"
-                          className="tz-button-yellow text-uppercase fw-medium tz-text-m"
-                        >
-                          Contact Us
-                        </Link>
-                        <Link
-                          href="/contact"
-                          className="tz-button-yellow-circle"
-                        >
-                          <i className="ph ph-arrow-up-right" />
-                        </Link>
+                      ))}
+                    </div>
+                    <div className="tz-buttons d-inline-flex align-items-center">
+                      <Link
+                        href={siteConfig.cta.href}
+                        className="tz-button-yellow text-uppercase fw-medium tz-text-m"
+                      >
+                        {siteConfig.cta.label}
+                      </Link>
+                      <Link
+                        href={siteConfig.cta.href}
+                        className="tz-button-yellow-circle"
+                        aria-label={siteConfig.cta.label}
+                      >
+                        <i className="ph ph-arrow-up-right" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* 3 Nav Columns */}
+                  <div className="row g-4 tz-pt-30 tz-pt-lg-50 tz-pb-30 tz-pb-lg-50">
+                    {/* Services Column (7 core services) */}
+                    <div className="col-md-5 col-sm-6">
+                      <div className="tz-footer__section">
+                        <h3 className="tz-footer__heading">Core Services</h3>
+                        <ul className="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                          {siteConfig.services.map((service) => (
+                            <li key={service.id}>
+                              <Link
+                                href={service.href}
+                                className="tz-footer__link tz-text-m text-decoration-none"
+                              >
+                                {service.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                    <div className="row g-4 tz-pt-30 tz-pt-lg-60 tz-pb-30 tz-pb-lg-60">
-                      {/* Company column */}
-                      <div className="col-md-4">
-                        <div className="tz-footer__section">
-                          <h3 className="tz-footer__heading">Company</h3>
-                          <ul className="tz-footer__links">
-                            <li>
+
+                    {/* Company Column */}
+                    <div className="col-md-3 col-sm-6">
+                      <div className="tz-footer__section">
+                        <h3 className="tz-footer__heading">Company</h3>
+                        <ul className="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                          {siteConfig.footerLinks.company.map((link) => (
+                            <li key={link.label}>
                               <Link
-                                href="/about"
-                                className="tz-footer__link tz-text-l"
+                                href={link.href}
+                                className="tz-footer__link tz-text-m text-decoration-none"
                               >
-                                About Us
+                                {link.label}
                               </Link>
                             </li>
-                            <li>
-                              <Link
-                                href="/service-details"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Our Services
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/portfolio-details"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Our portfolio
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/team"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Our Team
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
+                          ))}
+                        </ul>
                       </div>
-                      {/* Solutions column */}
-                      <div className="col-md-4">
-                        <div className="tz-footer__section">
-                          <h3 className="tz-footer__heading">Our Solutions</h3>
-                          <ul className="tz-footer__links">
-                            <li>
+                    </div>
+
+                    {/* Verified Products & Legal Column */}
+                    <div className="col-md-4 col-sm-12">
+                      <div className="tz-footer__section">
+                        <h3 className="tz-footer__heading">Products &amp; Legal</h3>
+                        <ul className="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-3">
+                          {siteConfig.portfolio.map((prod) => (
+                            <li key={prod.id}>
                               <Link
-                                href="/service-details"
-                                className="tz-footer__link tz-text-l"
+                                href={prod.href}
+                                className="tz-footer__link tz-text-m text-decoration-none"
                               >
-                                Web Development
+                                {prod.title}
                               </Link>
                             </li>
-                            <li>
-                              <Link
-                                href="/service-details"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Mobile Development
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/service-details"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Data analytics
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/service-details"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Network Connectivity
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      {/* Resources column */}
-                      <div className="col-md-4">
-                        <div className="tz-footer__section">
-                          <h3 className="tz-footer__heading">Resources</h3>
-                          <ul className="tz-footer__links">
-                            <li>
-                              <Link
-                                href="/faq"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Faq
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/blog"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Our Blog
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/contact"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Support Area
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/faq"
-                                className="tz-footer__link tz-text-l"
-                              >
-                                Privacy Policy
-                              </Link>
-                            </li>
+                          ))}
+                        </ul>
+                        <div className="pt-2 border-top border-secondary border-opacity-25">
+                          <ul className="tz-footer__links list-unstyled d-flex flex-column gap-2 mb-0">
+                            {siteConfig.footerLinks.legal.map((link) => (
+                              <li key={link.label}>
+                                <Link
+                                  href={link.href}
+                                  className="tz-footer__link tz-text-s text-muted text-decoration-none"
+                                >
+                                  {link.label}
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
                     </div>
-                    {/* Copyright row */}
-                    <div className="tz-footer__bottom">
-                      <div className="tz-footer__copyright tz-text-l">
-                        Copyright © 2025 Vesharo
-                      </div>
-                      <div className="tz-footer__credits tz-text-l">
-                        Designed By
-                        <Link href="/" className="tz-footer__credit-link">
-                          XYZ
-                        </Link>
-                      </div>
+                  </div>
+
+                  {/* Copyright row */}
+                  <div className="tz-footer__bottom d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-secondary border-opacity-25">
+                    <div className="tz-footer__copyright tz-text-m text-muted">
+                      Copyright &copy; 2026 Vesharo. All rights reserved.
+                    </div>
+                    <div className="tz-footer__tagline-right tz-text-s text-muted">
+                      Engineered for high performance and intelligent automation.
                     </div>
                   </div>
                 </div>
@@ -209,8 +185,8 @@ function Footer() {
             </div>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
 
