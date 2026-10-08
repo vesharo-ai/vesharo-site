@@ -1,0 +1,9 @@
+# Vesharo Site - Roo Code Rules
+
+## Guidelines & Architecture
+- **Brand**: Always use **Vesharo** across text, meta tags, and component assets.
+- **Stack**: Astro 5+, React 19, TypeScript, GSAP, Swiper, Bootstrap 5 / Custom CSS.
+- **Components**: Place reusable components in `src/components/` and define clean TypeScript interfaces for props.
+- **Pages**: Place routes in `src/pages/` and wrap page content with `<Layout title="...">`.
+- **Performance**: Use Astro client hydration directives (`client:load`, `client:visible`, `client:idle`) intentionally.
+- **Commands**: Run `npm run dev` to start the development server and `npm run build` to validate production builds.

@@ -1,20 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
-import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import BlogPage from "@/components/blog/BlogPage";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
-import { blogPosts } from "@/seeds/Blog1.seeds";
+import CtaBand from "@/components/cta/CtaBand";
+import { getBlogPosts } from "@/lib/blog";
 ---
 
-<Layout title="Blog | DigiFlow">
-  <BreadCrumb client:load title="Blog" />
-  <HeaderSlider client:visible />
+<Layout
+  title="Engineering Blog | Vesharo"
+  description="Practical engineering notes from Vesharo on architecture, cloud migration, data platforms, and product design."
+>
+  <BreadCrumb client:load title="Engineering Blog" />
   <BlogPage
     client:visible
-    pagination
-    blogData={[...blogPosts.slice(0, 8)]}
-    backgroundColor="#121212"
+    blogData={await getBlogPosts()}
+    backgroundColor="#0f0f0f"
   />
-  <Subscribe1 client:visible />
+  <CtaBand
+    client:visible
+    kicker="Next step"
+    heading="Reading about it is not the same as scoping it"
+    body="These articles describe how we think about a problem. If you have one of these problems right now, the useful next step is to tell us the specifics — the constraint, the deadline, what is already in place."
+    label="Discuss Your Project"
+    secondaryLabel="See what we build"
+    secondaryHref="/services"
+  />
 </Layout>

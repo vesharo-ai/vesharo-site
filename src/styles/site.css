@@ -1,0 +1,1572 @@
+/*
+ * site.css
+ *
+ * Styles for classes that the base theme (globals.css / styles.css) does not
+ * define. These belong to Vesharo's own page sections and to header pieces the
+ * theme left unstyled. Imported last in Layout.astro so it wins on ties.
+ *
+ * Design tokens match globals.css:
+ *   primary #7C5CFF, surface #171717, page #121212, text #fff, muted #BBBBB9
+ */
+
+/* ---------------------------------------------------------------
+   01. Utilities
+--------------------------------------------------------------- */
+.tz-text-center {
+  text-align: center;
+}
+.tz-pt-lg-140 {
+  padding-top: 120px;
+}
+.tz-pb-lg-140 {
+  padding-bottom: 120px;
+}
+@media (max-width: 991.98px) {
+  .tz-pt-lg-140 {
+    padding-top: 60px;
+  }
+  .tz-pb-lg-140 {
+    padding-bottom: 60px;
+  }
+}
+
+.tz-button--full {
+  width: 100%;
+  justify-content: center;
+}
+
+.tz-price {
+  font-family: "Teko", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.tz-cn {
+  font-family: "Teko", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------------
+   02. Layout shell
+   The header is position:fixed, so every page needs to start below it.
+--------------------------------------------------------------- */
+main {
+  padding-top: 92px;
+}
+@media (max-width: 575.98px) {
+  main {
+    padding-top: 80px;
+  }
+}
+@media (max-width: 767.98px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ---------------------------------------------------------------
+   03. Accessibility
+--------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  padding: 0.75rem 1.25rem;
+  background: #7c5cff;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------
+   03. Header — pieces the theme left unstyled
+--------------------------------------------------------------- */
+.tz-header1 {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1030 !important;
+  background: rgba(18, 18, 24, 0.9) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.25s ease-in-out;
+}
+.tz-header1.sticky {
+  background: rgba(15, 15, 20, 0.96) !important;
+  border-bottom-color: rgba(124, 92, 255, 0.2) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+.tz-header1__wrapper {
+  padding: 1rem 0 !important;
+}
+.tz-display-1,
+.tz-display-2,
+.tz-display-3,
+.tz-display-4 {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 700 !important;
+}
+.tz-header1__logo {
+  display: inline-flex;
+  align-items: center;
+}
+.tz-header1__logo img {
+  max-width: 160px;
+  height: auto;
+  display: block;
+}
+
+.tz-header__desktop {
+  position: relative;
+}
+
+.tz-menu-wrapper {
+  padding: 1rem 0;
+}
+.tz-menu-xl {
+  min-width: 640px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Submenus used by the desktop nav and the mobile drawer */
+.tz-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-submenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-submenu li a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #bbbbb9;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.tz-submenu li a:hover,
+.tz-submenu li a:focus-visible {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tz-mobile-menu__wrapper {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tz-mobile-menu .tz-main-menu > ul {
+  flex-direction: column;
+  gap: 0.125rem;
+}
+.tz-mobile-menu .tz-main-menu > ul > li > a {
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.tz-mobile-menu .tz-submenu {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding-left: 0.875rem;
+}
+.tz-mobile-menu .tz-main-menu > ul li.has-dropdown::after {
+  content: none;
+}
+
+.tz-offcanvas__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tz-offcanvas__top img {
+  max-width: 130px;
+  height: auto;
+}
+.tz-offcanvas__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+.tz-offcanvas-open-btn,
+.tz-offcanvas-close-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.tz-offcanvas-open-btn:hover,
+.tz-offcanvas-close-btn:hover {
+  border-color: #7c5cff;
+  color: #7c5cff;
+}
+
+/* Offcanvas panel itself (base class comes from the theme) */
+.tz-offcanvas {
+  overflow-y: auto;
+}
+.tz-offcanvas__wrapper {
+  min-height: 100%;
+}
+
+/* ---------------------------------------------------------------
+   04. Breadcrumb
+--------------------------------------------------------------- */
+.tz-breadcrumb__title {
+  margin: 0 0 0.5rem;
+}
+.tz-breadcrumb__menu a {
+  color: #bbbbb9;
+}
+.tz-breadcrumb__menu a:hover {
+  color: #7c5cff;
+}
+.tz-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------
+   05. Home hero
+--------------------------------------------------------------- */
+.tz-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media (max-width: 991.98px) {
+  .tz-hero {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+}
+.tz-hero__title {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 3.5rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
+  color: #ffffff !important;
+  margin: 0 0 1.25rem !important;
+  text-transform: none !important;
+}
+@media (max-width: 991.98px) {
+  .tz-hero__title {
+    font-size: 2.75rem !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .tz-hero__title {
+    font-size: 2.15rem !important;
+    line-height: 1.2 !important;
+  }
+}
+.tz-hero__desc {
+  color: #bbbbb9;
+  max-width: 56ch;
+  margin-bottom: 2rem;
+}
+.tz-hero__visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+.tz-hero__visual img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 991.98px) {
+  .tz-hero__visual img {
+    max-width: 70%;
+    margin-inline: auto;
+  }
+}
+.tz-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+  background: rgba(23, 23, 23, 0.8);
+  color: #f2f2f2;
+  font-size: 0.8125rem;
+}
+.tz-hero__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------
+   06. Proof strip (replaces the decorative service-name marquee)
+--------------------------------------------------------------- */
+.tz-proof {
+  background: #0e0e0e;
+  border-top: 1px solid #1d1d1d;
+  border-bottom: 1px solid #1d1d1d;
+  padding: 1.75rem 0;
+}
+.tz-proof__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-proof__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.tz-proof__icon {
+  color: #7c5cff;
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.tz-proof__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.tz-proof__label {
+  color: #8a8a90;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.tz-proof__value {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------
+   06b. Who we serve / problems we solve
+--------------------------------------------------------------- */
+.tz-audience__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-audience__item {
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 92, 255, 0.22);
+  background: linear-gradient(
+    135deg,
+    rgba(32, 32, 42, 0.95) 0%,
+    rgba(18, 18, 22, 0.98) 100%
+  );
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.tz-audience__item:hover {
+  border-color: rgba(124, 92, 255, 0.5);
+  transform: translateY(-3px);
+}
+.tz-audience__icon {
+  color: #a78bfa;
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.tz-audience__who {
+  color: #ffffff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+}
+.tz-audience__need {
+  color: #bbbbb9;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+.tz-audience__problems {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: start;
+}
+@media (max-width: 991.98px) {
+  .tz-audience__problems {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+.tz-audience__problems-title {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem;
+}
+.tz-audience__problem-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-audience__problem {
+  color: #a78bfa;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  position: relative;
+  padding-left: 1.125rem;
+}
+.tz-audience__problem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 5px;
+  height: 5px;
+  background: #7c5cff;
+  transform: rotate(45deg);
+}
+.tz-audience__consequence {
+  color: #bbbbb9;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  padding-left: 1.125rem;
+}
+
+/* Hero reassurance list */
+.tz-hero__assurances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-hero__assurances li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+}
+.tz-hero__assurances i {
+  color: #7c5cff;
+  font-size: 1rem;
+}
+
+/* FAQ section mark, replacing an off-brand grey 3D decoration */
+.tz-faq2__thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+.tz-faq2__mark {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 24px;
+  border: 1px solid rgba(124, 92, 255, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.18) 0%,
+    rgba(124, 92, 255, 0.04) 100%
+  );
+  color: #a78bfa;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------------
+   07. Service cards
+--------------------------------------------------------------- */
+.tz-service1__desc {
+  color: #bbbbb9;
+  max-width: 60ch;
+}
+.tz-service1-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.tz-service1-card__link {
+  display: block;
+  height: 100%;
+}
+.tz-service1-card__shape {
+  overflow: hidden;
+}
+/* Per-service Phosphor glyph, replacing a single shared placeholder icon that
+   was repeated across every service card. */
+.tz-service1-card__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 92, 255, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.16) 0%,
+    rgba(124, 92, 255, 0.04) 100%
+  );
+  color: #a78bfa;
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.tz-service1-card__link:hover .tz-service1-card__icon {
+  color: #ffffff;
+  border-color: rgba(124, 92, 255, 0.6);
+}
+.tz-service1-card__number {
+  color: #7c5cff;
+  font-family: "Teko", sans-serif;
+  font-size: 1rem;
+}
+.tz-service1-card__title {
+  color: #ffffff;
+  margin: 0.5rem 0 0.75rem;
+}
+.tz-service1-card__desc {
+  color: #bbbbb9;
+}
+.tz-service1-card__caps {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.tz-service1-card__caps li {
+  position: relative;
+  padding-left: 1.125rem;
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+  margin-bottom: 0.25rem;
+}
+.tz-service1-card__caps li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 5px;
+  height: 5px;
+  background: #7c5cff;
+  transform: rotate(45deg);
+}
+.tz-service1-card__link:hover .tz-service1-card__title {
+  color: #a78bfa;
+}
+
+/* ---------------------------------------------------------------
+   08. Pricing
+--------------------------------------------------------------- */
+.tz-pricing__desc {
+  color: #bbbbb9;
+  max-width: 56ch;
+}
+.tz-pricing__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.tz-pricing__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(32, 32, 42, 0.95) 0%,
+    rgba(18, 18, 22, 0.98) 100%
+  );
+  height: 100%;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.tz-pricing__card:hover,
+.tz-pricing__card--active {
+  border-color: rgba(124, 92, 255, 0.55);
+}
+.tz-pricing__card--active {
+  transform: translateY(-4px);
+}
+.tz-pricing__card-name {
+  color: #ffffff;
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.tz-pricing__card-subtitle {
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+}
+.tz-pricing__card-price {
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+}
+.tz-pricing__card-bullet {
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+.tz-pricing__card-arrow {
+  color: #7c5cff;
+  font-size: 1.25rem;
+}
+.tz-pricing__card:hover .tz-pricing__card-arrow {
+  color: #a78bfa;
+}
+
+.tz-pricing-detail__title {
+  margin-bottom: 1.5rem;
+}
+.tz-pricing-detail__features {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+.tz-pricing-detail__feature {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #bbbbb9;
+  margin-bottom: 0.875rem;
+}
+.tz-pricing-detail__feature::before {
+  /* Ligature form of ph-check. The "\e134" codepoint that used to be here is
+     caret-line-down in Phosphor, which rendered as a chevron, not a tick. */
+  content: "check";
+  font-family: "Phosphor" !important;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  position: absolute;
+  left: 0;
+  color: #7c5cff;
+}
+.tz-pricing-detail__aside {
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(23, 23, 23, 0.7);
+}
+.tz-pricing-detail__aside-title {
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+.tz-pricing-detail__aside-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+.tz-pricing-detail__aside-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.25rem;
+  color: #bbbbb9;
+  margin-bottom: 1rem;
+}
+.tz-pricing-detail__aside-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(124, 92, 255, 0.2);
+  color: #a78bfa;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------
+   09. Commitments (trust block)
+--------------------------------------------------------------- */
+.tz-commitments h3 {
+  line-height: 1.35;
+}
+.tz-commitments p {
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------
+   10. Contact
+--------------------------------------------------------------- */
+.tz-contact-info-box__content {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.tz-contact__alt {
+  margin-top: 4rem;
+}
+.tz-contact__alt-desc {
+  color: #bbbbb9;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------------
+   11. About
+--------------------------------------------------------------- */
+.tz-about1-content p,
+.tz-about1-desc {
+  color: #bbbbb9;
+  line-height: 1.75;
+}
+.tz-about2__title,
+.tz-about2__subtitle,
+.tz-about2__desc {
+  color: #ffffff;
+}
+.tz-about2__desc {
+  color: #bbbbb9;
+  line-height: 1.75;
+}
+.tz-about2-experience__text {
+  color: #bbbbb9;
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------------------------------
+   12. Service detail pages
+--------------------------------------------------------------- */
+.tz-service-detail__title {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.tz-service-detail__desc {
+  color: #bbbbb9;
+  line-height: 1.75;
+}
+.tz-service-detail__figure {
+  margin: 0;
+}
+.tz-service-detail__img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+.tz-service-detail__caption {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 0.875rem;
+  color: #bbbbb9;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+.tz-service-detail__caption-mark {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  background: #7c5cff;
+  transform: rotate(45deg);
+}
+.tz-service-detail__card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(32, 32, 42, 0.95) 0%,
+    rgba(18, 18, 22, 0.98) 100%
+  );
+  height: 100%;
+}
+.tz-service-detail__card-title {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.tz-service-detail__card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-service-detail__card-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #bbbbb9;
+  margin-bottom: 0.75rem;
+}
+.tz-service-detail__card-list li::before {
+  /* See note on .tz-cta-band__points li::before — \e134 is caret-line-down. */
+  content: "check";
+  font-family: "Phosphor" !important;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  position: absolute;
+  left: 0;
+  color: #7c5cff;
+}
+
+/* ---------------------------------------------------------------
+   13. Portfolio / engagements
+--------------------------------------------------------------- */
+.tz-portfolio__desc {
+  color: #bbbbb9;
+  max-width: 58ch;
+  line-height: 1.75;
+}
+.tz-portfolio__cta {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tz-portfolio__cta-desc {
+  color: #bbbbb9;
+  max-width: 52ch;
+}
+.tz-project1-card__title {
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------------
+   14. Workflow / project cards
+--------------------------------------------------------------- */
+.tz-workflow1-card__title {
+  color: #ffffff;
+}
+.tz-workflow1-card__desc {
+  color: #bbbbb9;
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------
+   15. Blog
+--------------------------------------------------------------- */
+.tz-blog1-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.tz-blog1-card:hover {
+  border-color: rgba(124, 92, 255, 0.5);
+  transform: translateY(-3px);
+}
+.tz-blog1-card__image {
+  position: relative;
+  flex: 0 0 auto;
+  height: 200px;
+  overflow: hidden;
+}
+.tz-blog1-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tz-blog1-card__tag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 40px;
+  background: #7c5cff;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+/* The theme deliberately floats this panel over the lower part of the image
+   (margin-top: -125px, width: calc(100% - 96px)). Keep that design intact —
+   only tune the radius so the panel matches the rounded card. */
+.tz-blog1-card__content {
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  flex: 1;
+}
+.tz-blog1-card__title,
+.tz-blog-details__subtitle {
+  color: #ffffff;
+  line-height: 1.35;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.75rem;
+}
+.tz-blog1-card__title a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.tz-blog1-card__title a:hover {
+  color: #a78bfa;
+}
+.tz-blog1-card__desc {
+  color: #bbbbb9;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.tz-blog1-card__date {
+  color: #bbbbb9;
+  margin: 0;
+}
+.tz-blog1-card .tz-buttons {
+  margin-top: auto;
+}
+
+.tz-blog-details__date,
+.tz-blog-details__duration,
+.tz-blog-details__author {
+  color: #bbbbb9;
+}
+.tz-blog-details__image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+.tz-blog-page__sidebar {
+  position: sticky;
+  top: 120px;
+}
+@media (max-width: 991.98px) {
+  .tz-blog-page__sidebar {
+    position: static;
+  }
+}
+.tz-blog-search {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.tz-blog-search input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #171717;
+  color: #ffffff;
+}
+.tz-blog-search input::placeholder {
+  color: #8a8a8f;
+}
+.tz-blog-search input:focus {
+  outline: none;
+  border-color: #7c5cff;
+}
+.tz-blog-search button {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.tz-blog-search button:hover {
+  border-color: #7c5cff;
+  color: #7c5cff;
+}
+.tz-recent-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-recent-posts li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tz-recent-posts li:last-child {
+  border-bottom: 0;
+}
+.tz-recent-posts a {
+  color: #bbbbb9;
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.tz-recent-posts a:hover {
+  color: #a78bfa;
+}
+.tz-blog-pagination a {
+  padding: 0.5rem 0.875rem;
+  border-radius: 8px;
+  color: #bbbbb9;
+}
+.tz-blog-pagination a[aria-current="page"],
+.tz-blog-pagination a:hover {
+  background: rgba(124, 92, 255, 0.18);
+  color: #ffffff;
+}
+.tz-blog-details-sidebar__blog-item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tz-blog-details-sidebar__content {
+  color: #bbbbb9;
+  line-height: 1.7;
+}
+.tz-blog-details-sidebar__content a {
+  color: #ffffff;
+}
+.tz-blog-details-social__title,
+.tz-blog-details-tag-box__title {
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------------------------------------------------------------
+   16. Closing CTA band
+--------------------------------------------------------------- */
+.tz-cta-band {
+  background: linear-gradient(
+    135deg,
+    rgba(32, 32, 42, 0.96) 0%,
+    rgba(18, 18, 22, 0.99) 100%
+  );
+  border-top: 1px solid rgba(124, 92, 255, 0.22);
+}
+.tz-cta-band__inner {
+  padding: 3rem;
+  border-radius: 24px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  background: radial-gradient(
+      circle at 12% 0%,
+      rgba(124, 92, 255, 0.16) 0%,
+      transparent 55%
+    ),
+    #17171a;
+}
+@media (max-width: 767.98px) {
+  .tz-cta-band__inner {
+    padding: 2rem 1.5rem;
+  }
+}
+.tz-cta-band__heading {
+  color: #ffffff;
+  margin: 0 0 1rem;
+}
+.tz-cta-band__body {
+  color: #bbbbb9;
+  max-width: 58ch;
+  margin-bottom: 2rem;
+}
+.tz-cta-band__panel {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 22, 0.7);
+  height: 100%;
+}
+.tz-cta-band__panel-title {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 0 0 1.25rem;
+}
+.tz-cta-band__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-cta-band__points li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #bbbbb9;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-bottom: 0.875rem;
+}
+.tz-cta-band__points li:last-child {
+  margin-bottom: 0;
+}
+.tz-cta-band__points li::before {
+  /* Ligature form of ph-check. The "\e134" codepoint that used to be here is
+     caret-line-down in Phosphor, which rendered as a chevron, not a tick. */
+  content: "check";
+  font-family: "Phosphor" !important;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  position: absolute;
+  left: 0;
+  color: #7c5cff;
+}
+
+/* Paired pill + circle buttons.
+   The circle deliberately overlaps the pill by15px (margin-left:-15px). On
+   narrow screens the pill's own right padding is only 20px, so a long CTA
+   label such as "Discuss Your Project" ran underneath the circle. Give the
+   pill enough right padding that the text always clears the overlap. */
+@media (max-width: 991.98px) {
+  .tz-button:has(+ .tz-button-circle),
+  .tz-button-white:has(+ .tz-button-circle) {
+    padding-right: 2rem;
+  }
+  .tz-button-circle,
+  .tz-button-white-circle {
+    flex: 0 0 auto;
+  }
+}
+
+/* Secondary / ghost button used inside the CTA band */
+.tz-button--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+.tz-button--ghost:hover {
+  border-color: #7c5cff;
+  color: #ffffff;
+}
+
+/* Service detail engagement note */
+.tz-service-detail__meta {
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------
+   17. Footer
+--------------------------------------------------------------- */
+.tz-footer__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tz-footer__cta-heading {
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+.tz-footer__cta-desc {
+  max-width: 54ch;
+}
+.tz-footer__cols {
+  margin-bottom: 3rem;
+}
+.tz-footer__heading {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.tz-footer__contact li,
+.tz-footer__legal li {
+  margin-bottom: 0.75rem;
+}
+.tz-footer__static {
+  color: #8a8a90;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.tz-footer__legal {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------------------------------------------------------------
+   18. Navigation — active page
+--------------------------------------------------------------- */
+.tz-main-menu li.is-current > a {
+  color: #ffffff;
+}
+.tz-main-menu li.is-current > a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 4px;
+  background: #7c5cff;
+}
+
+/* Off-canvas contact details */
+.tz-offcanvas__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+.tz-offcanvas__contact a {
+  color: #bbbbb9;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.tz-offcanvas__contact a:hover {
+  color: #7c5cff;
+}
+
+/* ---------------------------------------------------------------
+   19. Misc
+--------------------------------------------------------------- */
+.tz-brand2-slider {
+  width: 100%;
+}
+.tz-countup {
+  display: inline-block;
+}
+.tz-service2-card__title,
+.tz-service2-card__desc {
+  color: #ffffff;
+}
+.tz-service2-card__number {
+  color: #7c5cff;
+  font-family: "Teko", sans-serif;
+}
+.tz-service2__card-wrapper {
+  height: 100%;
+}
+
+/* ---------------------------------------------------------------
+   20. Stats strip (About page)
+--------------------------------------------------------------- */
+.tz-stats-strip {
+  background: #0e0e0e;
+  border-top: 1px solid #1d1d1d;
+  border-bottom: 1px solid #1d1d1d;
+  padding: 3.5rem 0;
+}
+.tz-stats-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-stats-strip__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.tz-stats-strip__icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(124, 92, 255, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.16) 0%,
+    rgba(124, 92, 255, 0.04) 100%
+  );
+  color: #a78bfa;
+  font-size: 1.625rem;
+}
+.tz-stats-strip__body {
+  display: flex;
+  flex-direction: column;
+}
+.tz-stats-strip__number {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.tz-stats-strip__suffix {
+  color: #7c5cff;
+  font-size: 2rem;
+  margin-left: 0.125rem;
+}
+.tz-stats-strip__label {
+  color: #f2f2f2;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0.375rem 0 0.25rem;
+}
+.tz-stats-strip__note {
+  color: #8a8a90;
+  font-size: 0.8125rem;
+  margin: 0;
+  line-height: 1.4;
+}
+@media (max-width: 767.98px) {
+  .tz-stats-strip__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 479.98px) {
+  .tz-stats-strip__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   21. Industries section (About page)
+--------------------------------------------------------------- */
+.tz-industries__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tz-industries__card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(28, 28, 38, 0.95) 0%,
+    rgba(18, 18, 22, 0.98) 100%
+  );
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.tz-industries__card:hover {
+  border-color: rgba(124, 92, 255, 0.45);
+  transform: translateY(-3px);
+}
+.tz-industries__icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  background: rgba(124, 92, 255, 0.1);
+  color: #a78bfa;
+  font-size: 1.5rem;
+}
+.tz-industries__name {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+.tz-industries__desc {
+  color: #bbbbb9;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+.tz-industries__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-industries__tag {
+  padding: 0.25rem 0.625rem;
+  border-radius: 40px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  background: rgba(124, 92, 255, 0.08);
+  color: #a78bfa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 575.98px) {
+  .tz-industries__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   22. Team section (About page)
+--------------------------------------------------------------- */
+.tz-team__values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.tz-team__value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.tz-team__value-heading {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.tz-team__value-body {
+  color: #bbbbb9;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0;
+}
+.tz-team__roles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-team__role-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(28, 28, 38, 0.9) 0%,
+    rgba(18, 18, 22, 0.95) 100%
+  );
+  transition: border-color 0.3s ease;
+}
+.tz-team__role-card:hover {
+  border-color: rgba(124, 92, 255, 0.4);
+}
+.tz-team__role-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  background: rgba(124, 92, 255, 0.1);
+  color: #a78bfa;
+  font-size: 1.25rem;
+}
+.tz-team__role-body {
+  flex: 1;
+  min-width: 0;
+}
+.tz-team__role-title {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.tz-team__role-area {
+  color: #8a8a90;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0 0 0.875rem;
+}
+.tz-team__role-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tz-team__skill-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bbbbb9;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 767.98px) {
+  .tz-team__roles {
+    grid-template-columns: 1fr;
+  }
+}

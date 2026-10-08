@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400" fill="none" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="400" rx="20" fill="#171717"/>
+  <rect x="0.5" y="0.5" width="559" height="399" rx="20" stroke="#7C5CFF" stroke-opacity="0.22"/>
+  <text x="32" y="44" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">ONE CODEBASE</text>
+  <rect x="32" y="62" width="116" height="200" rx="16" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <rect x="52" y="86" width="76" height="108" rx="6" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+  <path d="M52 108h76" stroke="#7C5CFF" stroke-width="1.5"/>
+  <circle cx="90" cy="97" r="2.5" fill="#2A2A2E"/>
+  <rect x="60" y="122" width="60" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="60" y="138" width="44" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="60" y="160" width="60" height="20" rx="6" fill="#7C5CFF" stroke="none" stroke-width="1"/>
+  <text x="90" y="210" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.4" fill="#9E9AA8" text-anchor="middle">React Native</text>
+  <text x="90" y="228" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0" fill="#9E9AA8" text-anchor="middle">iOS / Android</text>
+  <rect x="172" y="76" width="150" height="172" rx="14" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <rect x="194" y="100" width="106" height="96" rx="6" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+  <rect x="206" y="116" width="60" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="206" y="132" width="82" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="206" y="152" width="82" height="28" rx="6" fill="none" stroke="#2A2A2E" stroke-width="1"/>
+  <text x="247" y="224" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.4" fill="#9E9AA8" text-anchor="middle">Flutter</text>
+  <text x="247" y="240" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0" fill="#9E9AA8" text-anchor="middle">Cross-platform</text>
+  <rect x="346" y="62" width="182" height="200" rx="14" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <rect x="368" y="86" width="138" height="118" rx="8" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+  <path d="M368 112h138" stroke="#7C5CFF" stroke-width="1.5"/>
+  <circle cx="380" cy="99" r="2.5" fill="#2A2A2E"/><circle cx="390" cy="99" r="2.5" fill="#2A2A2E"/><circle cx="400" cy="99" r="2.5" fill="#2A2A2E"/>
+  <rect x="380" y="128" width="114" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="380" y="144" width="88" height="8" rx="4" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="380" y="164" width="114" height="26" rx="6" fill="#7C5CFF" stroke="none" stroke-width="1"/>
+  <text x="437" y="226" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.4" fill="#9E9AA8" text-anchor="middle">Responsive web</text>
+  <text x="437" y="242" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0" fill="#9E9AA8" text-anchor="middle">Same design system</text>
+  <text x="32" y="296" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">SHARED DESIGN SYSTEM</text>
+  <rect x="32" y="312" width="496" height="52" rx="12" fill="url(#g)" stroke="#7C5CFF" stroke-width="1.2"/>
+  <rect x="48" y="329" width="84" height="18" rx="9" fill="#171717" stroke="#7C5CFF" stroke-width="1"/>
+     <text x="90" y="342" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Buttons</text>
+  <rect x="145" y="329" width="84" height="18" rx="9" fill="#171717" stroke="#7C5CFF" stroke-width="1"/>
+     <text x="187" y="342" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Forms</text>
+  <rect x="242" y="329" width="84" height="18" rx="9" fill="#171717" stroke="#7C5CFF" stroke-width="1"/>
+     <text x="284" y="342" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Nav</text>
+  <rect x="339" y="329" width="84" height="18" rx="9" fill="#171717" stroke="#7C5CFF" stroke-width="1"/>
+     <text x="381" y="342" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Tokens</text>
+  <rect x="436" y="329" width="84" height="18" rx="9" fill="#171717" stroke="#7C5CFF" stroke-width="1"/>
+     <text x="478" y="342" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Motion</text>
+</svg>

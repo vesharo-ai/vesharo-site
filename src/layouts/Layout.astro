@@ -1,23 +1,38 @@
 ---
 import Navbar from "@/components/navbar/Navbar";
+import Analytics from "@/components/analytics/Analytics.astro";
 import Footer from "@/components/footer/Footer";
 import ScrollTop from "@/components/scroll-top/ScrollTop";
+import StickyMobileBar from "@/components/common/StickyMobileBar";
+import { site as brand } from "@/config/site";
 
 import "@/styles/phosphoricons.css";
 import "@/styles/animate.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "swiper/css";
+import "@/styles/site.css";
 
 interface Props {
   title?: string;
   description?: string;
+  /** Override the og:image for specific pages (absolute path from domain root) */
+  ogImagePath?: string;
+  /** Page type for schema — defaults to "WebPage" */
+  pageType?: "WebPage" | "AboutPage" | "ContactPage" | "FAQPage" | "CollectionPage";
 }
 
 const {
-  title = "DigiFlow | Digital Agency Astro Template",
-  description = "Digiflow is a professionally designed template tailored for Digital Agency websites! Whether you’re building a site for any business related to agency, business, digital agency, and portfolio website, modern, clean, and fully customizable templates to help you create an impactful online presence.",
+  title = `${brand.name} | ${brand.tagline}`,
+  description = brand.description,
+  ogImagePath,
+  pageType = "WebPage",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, brand.seo.siteUrl);
+const ogImage = ogImagePath
+  ? `${brand.seo.siteUrl}${ogImagePath}`
+  : `${brand.seo.siteUrl}${brand.seo.defaultOgImage}`;
 ---
 
 <!doctype html>
@@ -25,25 +40,212 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    
-    <!-- Google Fonts -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo & author tags -->
+    <meta name="author" content={brand.legalName} />
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Ahmedabad" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={brand.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${brand.name} — ${brand.tagline}`} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    {brand.seo.twitterHandle && <meta name="twitter:site" content={brand.seo.twitterHandle} />}
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={`${brand.name} — ${brand.tagline}`} />
+
+    <meta name="theme-color" content={brand.colors.primary} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+            "@id": `${brand.seo.siteUrl}/#organization`,
+            name: brand.legalName,
+            alternateName: brand.name,
+            url: brand.seo.siteUrl,
+            logo: {
+              "@type": "ImageObject",
+              url: `${brand.seo.siteUrl}/site-logo.svg`,
+              width: 200,
+              height: 60,
+            },
+            image: `${brand.seo.siteUrl}${brand.seo.defaultOgImage}`,
+            description: brand.description,
+            email: brand.contact.email,
+            telephone: brand.contact.phone,
+            priceRange: "$$$",
+            currenciesAccepted: "USD, INR",
+            paymentAccepted: "Bank Transfer, Invoice",
+            openingHours: "Mo-Fr 09:00-18:30",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Ahmedabad",
+              addressLocality: "Ahmedabad",
+              addressRegion: "Gujarat",
+              postalCode: "380001",
+              addressCountry: "IN",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 23.0225,
+              longitude: 72.5714,
+            },
+            areaServed: [
+              { "@type": "Country", name: "India" },
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "United Kingdom" },
+              { "@type": "Country", name: "Australia" },
+              { "@type": "Country", name: "Canada" },
+            ],
+            sameAs: [
+              brand.social.linkedin,
+              brand.social.github,
+              brand.social.twitter,
+            ].filter(Boolean),
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: brand.contact.phone,
+                email: brand.contact.email,
+                contactType: "sales",
+                availableLanguage: ["English", "Hindi", "Gujarati"],
+                contactOption: "TollFree",
+                hoursAvailable: {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "09:00",
+                  closes: "18:30",
+                },
+              },
+            ],
+            knowsAbout: [
+              "Custom Software Development",
+              "IT Consulting & Strategic Advisory",
+              "Web Application Development",
+              "Mobile App Development (iOS and Android)",
+              "Cloud Engineering and DevOps",
+              "FinOps and Cloud Cost Optimization",
+              "Product Design and UI/UX",
+              "Enterprise Software Modernization",
+              "Data Engineering and AI Solutions",
+              "Private Enterprise RAG & Vector Search",
+              "React and Next.js Development",
+              "SaaS Product Development",
+              "Legacy System Migration (Strangler Fig)",
+              "Fractional CTO Advisory",
+              "Kubernetes and Docker",
+              "AWS, GCP & Azure Cloud Architecture",
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Software Engineering, IT Consulting & Product Studio",
+              itemListElement: [
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Web Application Development" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cloud Engineering & DevOps" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Enterprise Modernization & Strangler Migration" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Data & AI Solutions" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Product & UI/UX Design" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "IT Consulting & Architecture Advisory" } },
+                { "@type": "Offer", itemOffered: { "@type": "SoftwareApplication", name: "Vesharo In-House Products & Accelerators" } },
+              ],
+            },
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${brand.seo.siteUrl}/#website`,
+            url: brand.seo.siteUrl,
+            name: brand.name,
+            description: brand.description,
+            inLanguage: "en",
+            publisher: {
+              "@id": `${brand.seo.siteUrl}/#organization`,
+            },
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: `${brand.seo.siteUrl}/blog?q={search_term_string}`,
+              },
+              "query-input": "required name=search_term_string",
+            },
+          },
+          {
+            "@type": pageType,
+            "@id": `${canonicalURL}/#webpage`,
+            url: canonicalURL,
+            name: title,
+            description: description,
+            inLanguage: "en",
+            isPartOf: { "@id": `${brand.seo.siteUrl}/#website` },
+            publisher: { "@id": `${brand.seo.siteUrl}/#organization` },
+            breadcrumb: canonicalURL.pathname !== "/"
+              ? {
+                  "@type": "BreadcrumbList",
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      name: "Home",
+                      item: brand.seo.siteUrl,
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 2,
+                      name: title.split("|")[0].trim(),
+                      item: canonicalURL.toString(),
+                    },
+                  ],
+                }
+              : undefined,
+          },
+        ].filter(Boolean),
+      })}
+    />
+
+    <!-- Google Fonts — preload critical fonts to reduce CLS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Teko:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="tz-bg-neutral3">
-    <Navbar client:load />
-    <main>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Analytics />
+    <Navbar client:load currentPath={canonicalURL.pathname} />
+    <main id="main">
       <slot />
     </main>
     <Footer client:load />
     <ScrollTop client:load />
+    <StickyMobileBar client:load />
   </body>
 </html>

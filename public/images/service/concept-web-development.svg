@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400" fill="none" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="400" rx="20" fill="#171717"/>
+  <rect x="0.5" y="0.5" width="559" height="399" rx="20" stroke="#7C5CFF" stroke-opacity="0.22"/>
+  <text x="32" y="44" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">PRESENTATION</text>
+  <rect x="32" y="60" width="220" height="148" rx="12" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <path d="M32 84h220" stroke="#2A2A2E" stroke-width="1"/>
+  <circle cx="48" cy="72" r="3.5" fill="#7C5CFF"/><circle cx="60" cy="72" r="3.5" fill="#2A2A2E"/><circle cx="72" cy="72" r="3.5" fill="#2A2A2E"/>
+  <rect x="48" y="100" width="86" height="12" rx="6" fill="#7C5CFF" stroke="none" stroke-width="1"/>
+  <rect x="48" y="122" width="188" height="10" rx="5" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="48" y="140" width="152" height="10" rx="5" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <rect x="48" y="162" width="70" height="26" rx="8" fill="none" stroke="#7C5CFF" stroke-width="1.4"/>
+  <text x="83" y="179" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="1" fill="#C4B5FD">CTA</text>
+  <rect x="136" y="162" width="100" height="26" rx="8" fill="#2A2A2E" stroke="none" stroke-width="1"/>
+  <text x="32" y="246" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">TYPED API</text>
+  <rect x="32" y="262" width="220" height="104" rx="12" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <rect x="48" y="280" width="188" height="20" rx="6" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+     <text x="60" y="294" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0" fill="#C4B5FD">GET  /orders</text>
+     <circle cx="226" cy="290" r="3.5" fill="#7C5CFF"/>
+  <rect x="48" y="308" width="188" height="20" rx="6" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+     <text x="60" y="322" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0" fill="#9E9AA8">POST /checkout</text>
+     <circle cx="226" cy="318" r="3.5" fill="#2A2A2E"/>
+  <rect x="48" y="336" width="188" height="20" rx="6" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+     <text x="60" y="350" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0" fill="#9E9AA8">PATCH /profile</text>
+     <circle cx="226" cy="346" r="3.5" fill="#2A2A2E"/>
+  <path d="M268 170H300" stroke="#7C5CFF" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0"/>
+   <path d="M295 166L300 170L295 174" stroke="#7C5CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M268 314H300" stroke="#7C5CFF" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0"/>
+   <path d="M295 310L300 314L295 318" stroke="#7C5CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="316" y="44" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">QUERY CACHE</text>
+  <rect x="316" y="60" width="212" height="168" rx="12" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <circle cx="340" cy="92" r="5" fill="#7C5CFF" opacity="1"/>
+     <text x="358" y="88" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.2" fill="#9E9AA8">Reference data</text>
+     <rect x="358" y="98" width="168" height="6" rx="3" fill="#2A2A2E"/>
+  <circle cx="340" cy="136" r="5" fill="#7C5CFF" opacity="0.72"/>
+     <text x="358" y="132" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.2" fill="#9E9AA8">Session state</text>
+     <rect x="358" y="142" width="132" height="6" rx="3" fill="#2A2A2E"/>
+  <circle cx="340" cy="180" r="5" fill="#7C5CFF" opacity="0.43999999999999995"/>
+     <text x="358" y="176" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.2" fill="#9E9AA8">Derived views</text>
+     <rect x="358" y="186" width="96" height="6" rx="3" fill="#2A2A2E"/>
+  <path d="M316 60v168" stroke="#2A2A2E" stroke-width="1"/>
+  <text x="316" y="284" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#A78BFA">PERSISTENCE</text>
+  <rect x="316" y="298" width="212" height="68" rx="12" fill="#0F0F0F" stroke="#2A2A2E" stroke-width="1"/>
+  <ellipse cx="352" cy="320" rx="20" ry="7" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+  <path d="M332 320v22c0 3.9 9 7 20 7s20-3.1 20-7v-22" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+  <path d="M332 331c0 3.9 9 7 20 7s20-3.1 20-7" fill="none" stroke="#7C5CFF" stroke-width="1.5" opacity="0.5"/>
+  <text x="386" y="328" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.2" fill="#FFFFFF">Primary store</text>
+  <text x="386" y="346" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="10" font-weight="500" letter-spacing="0" fill="#9E9AA8">+ read replica</text>
+</svg>

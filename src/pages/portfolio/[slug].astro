@@ -1,0 +1,168 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import CtaBand from "@/components/cta/CtaBand";
+import { engagementArchetypes } from "@/seeds/Project.seeds";
+import { site } from "@/config/site";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return engagementArchetypes.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+interface Props {
+  item: (typeof engagementArchetypes)[0];
+}
+
+const { item } = Astro.props;
+const canonicalUrl = `${site.seo.siteUrl}/portfolio/${item.id}`;
+---
+
+<Layout
+  title={`${item.title} | Architecture Case Study | ${site.name}`}
+  description={`${item.engagementType} in ${item.industry}: ${item.challenge}`}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": canonicalUrl,
+      headline: item.title,
+      description: item.challenge,
+      author: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.seo.siteUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: site.name,
+      },
+    })}
+  />
+
+  <BreadCrumb client:load title={item.title} />
+
+  <section class="tz-portfolio-detail tz-bg-neutral2 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120">
+    <div class="container">
+      {/* Header */}
+      <div class="row g-4 align-items-center mb-5">
+        <div class="col-lg-8">
+          <div class="tz-section-top">
+            <div class="tz-section-subtitle">
+              <span class="tz-section-subtitle__line" />
+              <span class="text-uppercase tz-text-primary fw-semibold" style="font-size: 0.8125rem; letter-spacing: 0.1em;">
+                Case Study Archetype · {item.industry}
+              </span>
+            </div>
+            <h1 class="tz-display-2 text-uppercase text-white mb-3">
+              {item.title}
+            </h1>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-primary text-white px-3 py-2 rounded-pill tz-text-s">
+                {item.engagementType}
+              </span>
+              <span class="badge bg-secondary bg-opacity-25 text-white-50 px-3 py-2 rounded-pill tz-text-s">
+                Verified Architecture Blueprint
+              </span>
+            </div>
+            <div class="tz-buttons d-flex flex-wrap gap-3">
+              <a
+                href={`/contact?service=${encodeURIComponent(item.title)}`}
+                class="tz-button text-uppercase fw-medium tz-text-m"
+              >
+                Discuss a Similar Project
+              </a>
+              <a
+                href={site.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-success d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill fw-medium"
+                style="border-color: rgba(37, 211, 102, 0.4); color: #25D366;"
+              >
+                <i class="ph ph-whatsapp-logo" style="font-size: 1.25rem;" aria-hidden="true" />
+                <span>WhatsApp Inquiry</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div
+            class="p-4 rounded-4"
+            style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(124, 92, 255, 0.2);"
+          >
+            <div class="text-white fw-bold tz-text-l mb-3">Tech Stack Specs</div>
+            <div class="d-flex flex-wrap gap-2">
+              {item.techStack.map((tech) => (
+                <span
+                  class="badge px-3 py-2 rounded font-monospace"
+                  style="background-color: rgba(124, 92, 255, 0.15); color: #E2E8F0; font-size: 0.8125rem;"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Problem & Approach */}
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+          <div
+            class="p-4 p-lg-5 rounded-4 h-100"
+            style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);"
+          >
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="ph ph-warning-circle text-warning" style="font-size: 1.5rem;" aria-hidden="true" />
+              <h2 class="tz-display-3 text-white fw-bold mb-0" style="font-size: 1.35rem;">
+                The Challenge
+              </h2>
+            </div>
+            <p class="text-white-50 tz-text-l" style="line-height: 1.7;">
+              {item.challenge}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div
+            class="p-4 p-lg-5 rounded-4 h-100"
+            style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(124, 92, 255, 0.2);"
+          >
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="ph ph-check-circle text-primary" style="font-size: 1.5rem; color: #A78BFA;" aria-hidden="true" />
+              <h2 class="tz-display-3 text-white fw-bold mb-0" style="font-size: 1.35rem;">
+                What Vesharo Delivers
+              </h2>
+            </div>
+            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+              {item.ourRole.map((role) => (
+                <li class="d-flex align-items-start gap-2 text-white tz-text-m">
+                  <i class="ph ph-check text-primary mt-1" style="color: #7C5CFF; font-size: 1.1rem;" aria-hidden="true" />
+                  <span>{role}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    client:visible
+    kicker="Next step"
+    heading="Have a similar architectural challenge?"
+    body="Tell us the system constraints and timeline you are working with. We will come back with a structured technical approach and a fixed quote once scope is defined."
+    label="Get a Free Quote"
+    secondaryLabel="Chat on WhatsApp"
+    secondaryHref={site.contact.whatsappUrl}
+  />
+</Layout>

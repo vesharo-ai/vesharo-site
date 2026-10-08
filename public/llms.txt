@@ -1,0 +1,51 @@
+# Vesharo Technologies
+
+> Custom Software Engineering, IT Consulting, and Product Studio headquartered in Ahmedabad, Gujarat, India, delivering high-impact technology solutions globally.
+
+## About Vesharo
+Vesharo is a software engineering and IT consulting company founded and operated by senior engineers. We partner with product teams, venture-backed startups, and growing enterprises across the United States, United Kingdom, Europe, Australia, and India.
+
+We operate across three complementary tracks:
+1. **IT Consulting & Architecture Advisory**: Cloud FinOps, legacy strangler-pattern modernization, technical due diligence for investors/CTOs, security gap assessments (SOC2, HIPAA, OWASP), and fractional CTO advisory.
+2. **Custom Software Engineering**: Full-stack web platforms, cross-platform and native mobile apps (iOS & Android), cloud infrastructure (AWS, GCP, Azure), data pipelines, and AI/LLM production integrations.
+3. **Product-Based Work & Labs**: In-house proprietary SaaS products and enterprise accelerators (CoreFlow, CloudPulse, LaunchEngine, DocuMind AI).
+
+## Core Guarantees & Credibility
+- **100% Code & IP Ownership**: Code, database schemas, infrastructure-as-code, and cloud accounts are pushed directly to client repositories under client ownership from day one.
+- **Fixed-Scope Pricing**: Every sprint or milestone is scoped and priced with zero hidden drift.
+- **Senior Engineers Only**: Projects are architected and actively coded by senior engineers, never handed down to unvetted juniors or outsourced intermediaries.
+- **NDA First**: Mutual non-disclosure agreements signed before receiving proprietary requirements or inspecting codebases.
+
+## Offerings
+
+### Custom Engineering Services
+- **Custom Web Applications**: Composable web applications built with React, Next.js, Astro, Node.js, Go, and Python.
+- **Mobile App Development**: High-performance mobile apps for iOS and Android using React Native and Flutter with offline-first synchronization.
+- **Cloud Engineering & DevOps**: Multi-region architecture, Kubernetes orchestration, Docker, automated CI/CD pipelines, and zero-downtime deployments.
+- **Enterprise Modernization**: Phased strangler-fig pattern migrations replacing legacy monoliths while preserving live transaction flows.
+- **Data & AI Solutions**: Production-ready ETL pipelines, real-time analytics warehouses, and private enterprise RAG / vector retrieval systems.
+- **Product & UI/UX Design**: Tokenized design systems, user journey mapping, and WCAG 2.1 AA accessible interfaces.
+
+### Strategic IT Consulting
+- **Cloud Architecture & FinOps Strategy**: Infrastructure right-sizing, cost attribution, and multi-cloud resilience (typically saving 25–40% in waste).
+- **Legacy Modernization Advisory**: Architectural dependency mapping, risk registers, and coexistence gateways.
+- **Technical Due Diligence & Code Audits**: Comprehensive pre-funding or acquisition audits evaluating code maintainability, security vulnerabilities, and licensing compliance.
+- **Fractional CTO & Systems Advisory**: Strategic guidance on technology choices, team hiring scorecards, and deployment standards.
+
+### In-House Products & Accelerators (Vesharo Labs)
+- **Vesharo CoreFlow**: High-concurrency distributed event broker & webhook orchestration engine with zero-loss dead-letter recovery.
+- **Vesharo CloudPulse**: Multi-cloud FinOps observability dashboard monitoring Kubernetes pod cost attribution and resource waste.
+- **Vesharo LaunchEngine**: Battle-tested full-stack SaaS foundation with enterprise multi-tenancy, RBAC, SSO/SAML, and Stripe billing.
+- **Vesharo DocuMind AI**: Private enterprise document intelligence and semantic search engine with strict VPC data isolation.
+
+## Engagement & Pricing Models
+- **Discovery & Architecture Sprint**: Starting from $5,900. Two-week architectural blueprint, clickable wireframe, schema definitions, and fixed-cost delivery roadmap.
+- **Dedicated Engineering Pod**: Starting from $9,500/month. Senior full-stack engineering pod integrated into two-week agile sprint cadences.
+- **Enterprise Modernization & Custom Build**: Scope-based pricing for large-scale transformations with a named delivery owner.
+
+## Contact Information
+- Website: https://vesharo.com
+- Email: contact@vesharo.com
+- Phone: +91 95862 12495
+- Location: Ahmedabad, Gujarat, India (serving global clients with timezone overlap)
+- Response Time: Within 24 business hours

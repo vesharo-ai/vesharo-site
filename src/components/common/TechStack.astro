@@ -1,0 +1,145 @@
+---
+const stack: string[] = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Python",
+  "Go",
+  "PostgreSQL",
+  "MongoDB",
+  "GraphQL",
+  "Redis",
+  "AWS",
+  "Docker",
+  "Kubernetes",
+  "Terraform",
+  "React Native",
+  "Flutter",
+];
+const items = [...stack, ...stack];
+---
+
+<section class="tz-techstack" aria-label="Technology stack we work with">
+  <div class="container">
+    <div class="tz-techstack__inner">
+      <div class="tz-techstack__label">
+        <span class="tz-techstack__line" aria-hidden="true"></span>
+        <span class="tz-techstack__text">Built with the stack teams trust</span>
+      </div>
+      <div class="tz-techstack__viewport">
+        <ul class="tz-techstack__track">
+          {
+            items.map((name) => (
+              <li class="tz-techstack__item">{name}</li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tz-techstack {
+    background: #0e0e0e;
+    border-top: 1px solid #1d1d1d;
+    border-bottom: 1px solid #1d1d1d;
+    padding: 1.5rem 0;
+    overflow: hidden;
+  }
+  .tz-techstack__inner {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .tz-techstack__label {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .tz-techstack__line {
+    width: 2.5rem;
+    height: 2px;
+    background: #7c5cff;
+    margin-right: 1rem;
+  }
+  .tz-techstack__text {
+    color: #f2f2f2;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tz-techstack__viewport {
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+  .tz-techstack__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    animation: tz-techstack-scroll 42s linear infinite;
+  }
+  .tz-techstack__item {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    color: #9b9ba0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+  .tz-techstack__item::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: #3f3f44;
+    transform: rotate(45deg);
+    margin-left: 1.5rem;
+  }
+  .tz-techstack__item:hover {
+    color: #ffffff;
+  }
+  @keyframes tz-techstack-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tz-techstack__track {
+      animation: none;
+    }
+  }
+  @media (max-width: 991.98px) {
+    .tz-techstack__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .tz-techstack__viewport {
+      width: 100%;
+    }
+  }
+</style>

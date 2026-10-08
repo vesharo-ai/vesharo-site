@@ -1,25 +1,26 @@
-import React from "react";
 import Link from "@/components/common/Link";
 
 function Error() {
   return (
     <div className="tz-error h-100">
       <div className="container">
-        <h1 className="tz-error__title">404</h1>
+        <h2 className="tz-error__title">404</h2>
         <h2 className="tz-error__subtitle">Oops! Page Not Found</h2>
         <p className="tz-error__desc tz-text-l">
-          Sorry, we couldn't find the page you where looking for. We suggest
-          that you return to homepage.
+          Sorry, the page you are looking for has been moved, renamed, or does not exist.
         </p>
-        <div className="tz-buttons d-flex justify-content-center">
+        <div className="tz-buttons d-flex justify-content-center gap-3">
           <Link
             href="/"
             className="tz-button text-uppercase fw-medium tz-text-m"
           >
-            Explore More
+            Back to Home
           </Link>
-          <Link href="/" className="tz-button-circle">
-            <i className="ph ph-arrow-up-right" />
+          <Link
+            href="/services"
+            className="tz-button tz-button--style2 text-uppercase fw-medium tz-text-m"
+          >
+            Our Services
           </Link>
         </div>
       </div>

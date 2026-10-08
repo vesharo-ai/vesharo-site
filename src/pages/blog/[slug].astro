@@ -1,0 +1,293 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import CtaBand from "@/components/cta/CtaBand";
+import { getCollection, render } from "astro:content";
+import { brand } from "@/config/brand";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const all = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const others = all.filter((p) => p.id !== post.id);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+const words = post.body?.trim().split(/\s+/).length ?? 0;
+const reading = Math.max(3, Math.round(words / 220));
+
+const categoryCounts = all.reduce<Record<string, number>>((acc, p) => {
+  acc[p.data.category] = (acc[p.data.category] ?? 0) + 1;
+  return acc;
+}, {});
+
+const tagSet = new Set<string>();
+all.forEach((p) => p.data.tags.forEach((t) => tagSet.add(t)));
+const tags = [...tagSet].sort();
+
+const canonical = `${brand.seo.siteUrl}/blog/${post.id}`;
+const shareUrl = encodeURIComponent(canonical);
+const shareTitle = encodeURIComponent(post.data.title);
+---
+
+<Layout
+  title={`${post.data.title} | Vesharo`}
+  description={post.data.description}
+>
+  <BreadCrumb client:load title={post.data.title} />
+
+  <article
+    class="tz-blog-details"
+    itemscope
+    itemtype="https://schema.org/BlogPosting"
+  >
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-xl-9">
+          <div class="tz-blog-details__image">
+            <img
+              src={post.data.image}
+              alt={post.data.title}
+              width={1200}
+              height={750}
+            />
+          </div>
+
+          <div class="tz-blog-details__meta tz-text-m">
+            <span
+              class="tz-blog-details__category tz-text-m tz-text-primary"
+              itemprop="articleSection"
+            >
+              {post.data.category}
+            </span>
+            <span
+              class="tz-blog-details__date tz-text-m tz-text-neutral6"
+              itemprop="datePublished"
+            >
+              {fmt(post.data.pubDate)}
+            </span>
+            <span
+              class="tz-blog-details__author tz-text-m tz-text-neutral6"
+              itemprop="author"
+            >
+              By {post.data.author}
+            </span>
+            <span
+              class="tz-blog-details__duration tz-text-m tz-text-neutral6"
+              itemprop="timeRequired"
+            >
+              {reading} min read
+            </span>
+          </div>
+
+          <h2
+            class="tz-blog-details__subtitle tz-text-neutral5"
+            itemprop="headline"
+          >
+            {post.data.title}
+          </h2>
+
+          <div class="tz-article-body" itemprop="articleBody">
+            <Content />
+          </div>
+
+          <div class="tz-blog-details-tag">
+            <div class="tz-blog-details-tag-box">
+              <h4 class="tz-blog-details-tag-box__title tz-text-neutral5">
+                Tags:
+              </h4>
+              {post.data.tags.map((tag) => (
+                <a
+                 
+                  class="tz-text-m tz-blog-details-tag-box__meta"
+                  href="/blog"
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+            <div class="tz-blog-details-social">
+              <h4 class="tz-blog-details-social__title tz-text-neutral5">
+                Share:
+              </h4>
+              <div class="tz-blog-details-social__items">
+                <a
+                  class="tz-blog-details-social__items-link"
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on Facebook"
+                >
+                  <i class="ph ph-facebook-logo" />
+                </a>
+                <a
+                  class="tz-blog-details-social__items-link"
+                  href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on X"
+                >
+                  <i class="ph ph-twitter-logo" />
+                </a>
+                <a
+                  class="tz-blog-details-social__items-link"
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on LinkedIn"
+                >
+                  <i class="ph ph-linkedin-logo" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3">
+          <div class="tz-blog-details-sidebar__widget">
+            <form action="/blog" method="get" class="tz-blog-details-sidebar__search">
+              <label for="search" class="visually-hidden">
+                Search articles
+              </label>
+              <input
+                id="search"
+                type="search"
+                name="q"
+                placeholder="Search"
+              />
+              <button type="submit">
+                <i class="ph ph-magnifying-glass" />
+              </button>
+            </form>
+          </div>
+
+          <div class="tz-blog-details-sidebar__widget">
+            <h4 class="tz-blog-details-sidebar__title">Top Category</h4>
+            <div class="tz-blog-details-sidebar__blog-list">
+              {Object.entries(categoryCounts).map(([cat, count]) => (
+                <a
+                 
+                  href="/blog"
+                  class="tz-blog-details-sidebar__blog-item tz-text-m"
+                >
+                  {cat} <span>({String(count).padStart(2, "0")})</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="tz-blog-details-sidebar__widget">
+            <h4 class="tz-blog-details-sidebar__title">Recent Posts</h4>
+            {others.slice(0, 3).map((p) => (
+              <div class="tz-blog-details-sidebar__item">
+                <img src={p.data.image} alt="" loading="lazy" />
+                <div class="tz-blog-details-sidebar__content">
+                  <p class="tz-blog-details-sidebar__date tz-text-m">
+                    {fmt(p.data.pubDate)}
+                  </p>
+                  <a href={`/blog/${p.id}`}>
+                    <h5 class="tz-blog-details-sidebar__meta">{p.data.title}</h5>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="tz-blog-details-sidebar__widget">
+            <h4 class="tz-blog-details-sidebar__title">Popular Tag</h4>
+            <div class="tz-blog-details-sidebar__tags">
+              {tags.map((tag) => (
+                <a href="/blog" class="tz-blog-details-sidebar__tag tz-text-l">
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {others.length > 0 && (
+    <div class="tz-blog2">
+      <div class="container">
+        <div class="tz-section-top">
+          <div class="row g-4">
+            <div class="col-md-8">
+              <div class="tz-section-title tz-display-2 text-uppercase">
+                Related Articles
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
+                <a
+                  href="/blog"
+                  class="tz-button text-uppercase fw-medium tz-text-m"
+                >
+                  All Articles
+                </a>
+                <a class="tz-button-circle" href="/blog">
+                  <i class="ph ph-arrow-up-right" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4">
+          {others.slice(0, 3).map((p) => (
+            <div class="col-md-6 col-xl-4">
+              <a href={`/blog/${p.id}`} class="tz-blog2-card-link">
+                <div class="tz-blog2-card">
+                  <div class="tz-blog2-card__top">
+                    <h3 class="tz-blog2-card__title tz-text-neutral5">
+                      {p.data.title}
+                    </h3>
+                    <div class="tz-blog2-card__meta tz-text-m">
+                      <span class="tz-blog2-card__category tz-text-m tz-text-neutral6">
+                        {p.data.category}
+                      </span>
+                      <span class="tz-blog2-card__date tz-text-m tz-text-neutral6">
+                        {fmt(p.data.pubDate)}
+                      </span>
+                      <span class="tz-blog2-card__duration tz-text-m tz-text-neutral6">
+                        {Math.max(3, Math.round((p.body?.trim().split(/\s+/).length ?? 0) / 220))} mins read
+                      </span>
+                    </div>
+                  </div>
+                  <div class="tz-blog2-card__image">
+                    <img src={p.data.image} alt={p.data.title} loading="lazy" />
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+
+  <CtaBand
+    client:visible
+    kicker="Next step"
+    heading="Facing this exact problem right now?"
+    body="Articles describe the general shape of a decision. Your situation has specifics — a deadline, an existing system, a budget. Send those and we will tell you what we would actually do."
+    label="Discuss Your Project"
+    secondaryLabel="Read all articles"
+    secondaryHref="/blog"
+  />
+</Layout>

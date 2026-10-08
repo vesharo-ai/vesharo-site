@@ -8,12 +8,21 @@ import Link from "@/components/common/Link";
 
 function Nav({
   setShowOffcanvas,
+  currentPath = "/",
 }: {
   setShowOffcanvas?: React.Dispatch<React.SetStateAction<boolean>>;
+  /** Rendered on the server from the real URL, so it is right before hydration. */
+  currentPath?: string;
 }) {
   const windowWidth = useWindowWidth();
   const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
   const [clientReady, setClientReady] = useState(false);
+
+  /** A parent item is current when the visitor is anywhere beneath it. */
+  const isCurrent = (item: MenuItem) =>
+    (item.activePaths ?? [item.href]).some((p) =>
+      p === "/" ? currentPath === "/" : currentPath.startsWith(p)
+    );
 
   useEffect(() => {
     setClientReady(true);
@@ -23,7 +32,11 @@ function Nav({
     <ul className="tz-submenu submenu">
       {items.map((item, index) => (
         <li key={index}>
-          <Link href={item.href} onClick={() => setShowOffcanvas?.(false)}>
+          <Link
+            href={item.href}
+            aria-current={isCurrent(item) ? "page" : undefined}
+            onClick={() => setShowOffcanvas?.(false)}
+          >
             {item.title}
           </Link>
         </li>
@@ -44,6 +57,7 @@ function Nav({
                       <li key={itemIndex}>
                         <Link
                           href={item.href}
+                          aria-current={isCurrent(item) ? "page" : undefined}
                           onClick={() => setShowOffcanvas?.(false)}
                         >
                           {item.title}
@@ -67,11 +81,12 @@ function Nav({
           <li
             key={index}
             className={`${item.submenu || item.columns ? "has-dropdown" : ""} ${
-              item.title === "Home" ? "has-homemenu" : ""
+              isCurrent(item) ? "is-current" : ""
             }`}
           >
             <Link
               href={item.href}
+              aria-current={isCurrent(item) ? "page" : undefined}
               onClick={(e) => {
                 if (item.submenu || item.columns) {
                   e.preventDefault();

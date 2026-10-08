@@ -1,0 +1,70 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import { brand } from "@/config/brand";
+---
+
+<Layout
+  title={`Privacy Policy | ${brand.name}`}
+  description={`Privacy Policy for ${brand.legalName}. Learn how we handle project data, communication details, and respect your privacy.`}
+>
+  <BreadCrumb client:load title="Privacy Policy" />
+  
+  <section class="tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120 tz-bg-neutral3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="p-4 p-lg-5 rounded-3 tz-bg-neutral2 border border-secondary text-white">
+            <h2 class="tz-display-4 mb-4 text-uppercase tz-text-neutral5">Privacy Policy</h2>
+            <p class="tz-text-neutral6 tz-text-m mb-4">
+              <strong>Last Updated:</strong> October 2026
+            </p>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">1. Overview</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              {brand.legalName} ("Vesharo", "we", "us", or "our") respects your privacy and is committed to protecting any personal and business information you share with us through our website ({brand.seo.siteUrl}) and direct consulting communications.
+            </p>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">2. Information We Collect</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              We collect information that you voluntarily provide to us when requesting proposals, booking technical consultations, or subscribing to engineering insights:
+            </p>
+            <ul class="tz-text-neutral6 tz-text-l fw-light ps-4 mb-3">
+              <li>Contact details (Name, business email address, company name)</li>
+              <li>Project scope, technical specifications, and budget preferences</li>
+              <li>Standard website analytics (browser type, anonymized IP, pages visited) to ensure site reliability</li>
+            </ul>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">3. How We Use Your Information</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              We use collected information solely for legitimate business operations:
+            </p>
+            <ul class="tz-text-neutral6 tz-text-l fw-light ps-4 mb-3">
+              <li>Evaluating and responding to your project inquiries and RFP submissions</li>
+              <li>Delivering agreed-upon software engineering and IT consulting services</li>
+              <li>Sending requested technical newsletters and company updates (with one-click unsubscribe)</li>
+              <li>Maintaining system security and preventing unauthorized access</li>
+            </ul>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">4. Intellectual Property &amp; NDA Protection</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              All proprietary project requirements, codebases, and architectural discussions shared with Vesharo are treated as strictly confidential. We execute standard mutual Non-Disclosure Agreements (NDAs) prior to detailed discovery and scoping sessions upon request.
+            </p>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">5. Data Sharing &amp; Third Parties</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              We do not sell, rent, or trade your personal or project data to any third parties. Data is processed only through secure, enterprise-grade cloud providers (such as AWS, Google Cloud, and encrypted email infrastructure) required to operate our services.
+            </p>
+
+            <h3 class="tz-text-neutral5 mt-4 mb-3">6. Contact Us</h3>
+            <p class="tz-text-neutral6 tz-text-l fw-light">
+              If you have any questions regarding this Privacy Policy or wish to exercise data rights, please contact our data privacy team at:
+              <br />
+              <a href={`mailto:${brand.contact.email}`} class="tz-text-primary fw-medium">{brand.contact.email}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

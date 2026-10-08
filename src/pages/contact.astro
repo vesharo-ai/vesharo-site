@@ -1,16 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
-import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import ContactForm from "@/components/contact/ContactForm";
 import Map from "@/components/map/Map";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
 ---
 
-<Layout title="Contact Us | DigiFlow">
+<Layout
+  title="Contact Vesharo | Start Your Software Project — Ahmedabad, India"
+  description="Get in touch with Vesharo's engineering team. Discuss your custom software, web app, mobile app, or cloud project. We reply within 24 business hours. Based in Ahmedabad, serving global clients."
+  pageType="ContactPage"
+>
   <BreadCrumb client:load title="Contact Us" />
-  <HeaderSlider client:visible />
   <ContactForm client:visible />
   <Map client:visible />
-  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
 </Layout>

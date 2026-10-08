@@ -1,14 +1,46 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
-import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Faq1 from "@/components/faq/Faq1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import WorkFlow1 from "@/components/wordflows/WorkFlow1";
+import CtaBand from "@/components/cta/CtaBand";
+import { faqItems } from "@/seeds/Faq.seeds";
 ---
 
-<Layout title="FAQ | DigiFlow">
-  <BreadCrumb client:load title="FAQ'S" />
-  <HeaderSlider client:visible />
-  <Faq1 client:visible backgroundColor="#121212" />
-  <Subscribe1 client:visible />
+<Layout
+  title="Software Development FAQs — IT Consulting, IP Ownership & Pricing | Vesharo"
+  description="Answers to the most common questions about Vesharo's custom software development services: how we handle IP ownership, NDAs, engagement pricing, code quality, and remote team collaboration."
+  pageType="FAQPage"
+>
+  <!-- JSON-LD FAQPage Schema for rich snippets & AEO search engines -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    })}
+  />
+
+  <BreadCrumb client:load title="Technical & Delivery FAQs" />
+  <Faq1 client:visible backgroundColor="#121212" ctaLabel="Ask us something else" />
+  <WorkFlow1 client:visible />
+
+  <CtaBand
+    client:visible
+    kicker="Still unanswered?"
+    heading="Ask the question you did not find here"
+    body="If your question is not on this page, that is a gap on our side. Send it — we would rather answer it properly than have you guess whether we are the right fit."
+    label="Request a Consultation"
+    secondaryLabel="Talk to Vesharo directly"
+    secondaryHref="/contact"
+  />
 </Layout>
+

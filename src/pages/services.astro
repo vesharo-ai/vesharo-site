@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import Service1 from "@/components/service/Service1";
+import ConsultingAdvisory from "@/components/consulting/ConsultingAdvisory";
+import TechStack from "@/components/common/TechStack.astro";
+import Faq1 from "@/components/faq/Faq1";
+import CtaBand from "@/components/cta/CtaBand";
+import { serviceCards } from "@/seeds/Service.seeds";
+---
+
+<Layout
+  title="Software Engineering & Strategic IT Consulting Services | Vesharo"
+  description="Vesharo delivers custom software engineering and strategic IT consulting: web apps, mobile systems, cloud architecture, enterprise legacy modernization, and AI platforms from Ahmedabad, India. Senior engineers, 100% IP ownership."
+  pageType="CollectionPage"
+>
+  <BreadCrumb client:load title="Software Engineering & IT Consulting Services" />
+
+  <Service1
+    client:visible
+    serviceData={serviceCards}
+    backgroundColor="#0f0f0f"
+    isInnerPage
+  />
+
+  {/* Strategic IT Consulting & Architecture Advisory */}
+  <ConsultingAdvisory client:visible bgClass="tz-bg-neutral2" />
+
+  <TechStack />
+
+  <Faq1 client:visible backgroundColor="#171717" ctaLabel="Request a Scope" />
+
+  <CtaBand
+    client:visible
+    kicker="Next step"
+    heading="Not sure which of these you need?"
+    body="That is the normal place to start. Describe the problem in your own words and we will tell you which of these six services actually applies — including if the answer is none of them."
+    label="Request a Scope"
+    secondaryLabel="Compare engagement models"
+    secondaryHref="/pricing"
+    points={[
+      "Which service lines are genuinely relevant",
+      "What has to be decided before a fixed quote",
+      "An honest view on whether to build, buy or wait",
+    ]}
+  />
+</Layout>

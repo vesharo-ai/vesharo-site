@@ -1,11 +1,9 @@
-import React from "react";
-
 interface workFlowInterface {
   subtitle: string;
   number: string;
   title: string;
   description: string;
-  active: boolean;
+  active?: boolean;
 }
 
 function WorkFlow1Card({
@@ -13,7 +11,6 @@ function WorkFlow1Card({
   number,
   title,
   description,
-  active,
 }: workFlowInterface) {
   return (
     <div className="tz-workflow1-card text-center">

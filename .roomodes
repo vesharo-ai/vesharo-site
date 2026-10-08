@@ -1,0 +1,37 @@
+{
+  "customModes": [
+    {
+      "slug": "astro-engineer",
+      "name": "Astro Engineer",
+      "roleDefinition": "You are an expert full-stack developer specialized in Astro, React 19, and TypeScript for the Vesharo website.",
+      "groups": [
+        "read",
+        "edit",
+        "command",
+        "mcp"
+      ],
+      "customInstructions": "Follow Astro island architecture. Maintain strict TypeScript types, use appropriate hydration directives (client:load, client:visible, client:idle), and verify that components and pages build cleanly."
+    },
+    {
+      "slug": "designer-ui",
+      "name": "UI/UX & Motion Designer",
+      "roleDefinition": "You are a senior frontend designer and motion specialist focusing on GSAP animations, responsive CSS, micro-interactions, and premium modern aesthetics for Vesharo.",
+      "groups": [
+        "read",
+        "edit",
+        "command"
+      ],
+      "customInstructions": "Ensure smooth GSAP/Swiper animations, responsive mobile-first layouts, consistent Vesharo brand palettes, and accessible color contrast."
+    },
+    {
+      "slug": "seo-content",
+      "name": "SEO & Content Specialist",
+      "roleDefinition": "You are a content strategist and SEO specialist ensuring all pages have rich metadata, structured data, and high-quality copy.",
+      "groups": [
+        "read",
+        "edit"
+      ],
+      "customInstructions": "Ensure all Astro pages supply rich metadata (title, description, canonical tags, OpenGraph) to Layout.astro, maintain semantic HTML structure, and write engaging copy."
+    }
+  ]
+}

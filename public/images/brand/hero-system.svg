@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" fill="none" role="img">
+  <defs>
+    <linearGradient id="hp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="hp2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <circle cx="280" cy="280" r="216" fill="url(#hp)" opacity="0.5"/>
+  <circle cx="280" cy="280" r="216" fill="none" stroke="#7C5CFF" stroke-opacity="0.28"/>
+  <circle cx="280" cy="280" r="164" fill="none" stroke="#7C5CFF" stroke-opacity="0.16" stroke-dasharray="4 8"/>
+  <path d="M280 116L435 200" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <path d="M435 200L435 360" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <path d="M435 360L280 444" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <path d="M280 444L125 360" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <path d="M125 360L125 200" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <path d="M125 200L280 116" stroke="url(#hp2)" stroke-width="1.6" opacity="0.5"/>
+  <circle cx="280" cy="116" r="26" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="280" cy="116" r="20" fill="#7C5CFF" opacity="0.16"/>
+     <text x="280" y="120" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Commit</text>
+  <circle cx="435" cy="200" r="22" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="435" cy="200" r="16" fill="#7C5CFF" opacity="0.16"/>
+     <text x="435" y="204" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Build</text>
+  <circle cx="435" cy="360" r="22" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="435" cy="360" r="16" fill="#7C5CFF" opacity="0.16"/>
+     <text x="435" y="364" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Test</text>
+  <circle cx="280" cy="444" r="26" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="280" cy="444" r="20" fill="#7C5CFF" opacity="0.16"/>
+     <text x="280" y="448" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Deploy</text>
+  <circle cx="125" cy="360" r="22" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="125" cy="360" r="16" fill="#7C5CFF" opacity="0.16"/>
+     <text x="125" y="364" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Operate</text>
+  <circle cx="125" cy="200" r="22" fill="#0F0F0F" stroke="#7C5CFF" stroke-width="1.4"/>
+     <circle cx="125" cy="200" r="16" fill="#7C5CFF" opacity="0.16"/>
+     <text x="125" y="204" font-family="Outfit, 'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="500" letter-spacing="0.3" fill="#C4B5FD" text-anchor="middle">Design</text>
+  <circle cx="280" cy="280" r="62" fill="url(#hp)" stroke="#7C5CFF" stroke-width="1.8"/>
+  <rect x="262" y="262" width="36" height="36" rx="8" fill="#7C5CFF"/>
+  <path d="M270 271l9 18 9-18h-6.6L280 279.4 276.6 271z" fill="#FFFFFF"/>
+  <path d="M276.5 271L280 278.1 283.5 271z" fill="#C4B5FD"/>
+</svg>

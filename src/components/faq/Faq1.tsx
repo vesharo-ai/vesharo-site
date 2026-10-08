@@ -5,7 +5,14 @@ import SectionSubtitle from "../section-subtitle/SectionSubtitle";
 import SectionTitle from "../section-title/SectionTitle";
 import Link from "@/components/common/Link";
 
-function Faq1({ backgroundColor = "#121212" }: { backgroundColor?: string }) {
+function Faq1({
+  backgroundColor = "#121212",
+  ctaLabel = "Talk to Vesharo",
+}: {
+  backgroundColor?: string;
+  /** Worded for the page the FAQ is answering questions on. */
+  ctaLabel?: string;
+}) {
   return (
     <>
       <section
@@ -17,28 +24,27 @@ function Faq1({ backgroundColor = "#121212" }: { backgroundColor?: string }) {
             <div className="col-xl-5">
               <div className="tz-section-top tz-mb-0">
                 <SectionSubtitle subtitle="FAQ" />
-                <SectionTitle title="frequently Asked questions" />
+                <SectionTitle title="Frequently Asked Questions" />
               </div>
               <p className="tz-faq2__desc tz-text-l tz-text-neutral6">
-                Frequently asked question (FAQ) pages to find answers.
+                Straight answers on how we scope, build and support software —
+                from first discovery call to long-term maintenance.
               </p>
               <div className="tz-faq2__thumb">
+                <span className="tz-faq2__mark" aria-hidden="true">
+                  <i className="ph ph-chats-circle" />
+                </span>
                 <div className="tz-buttons">
                   <Link
                     href="/contact"
                     className="tz-button text-uppercase fw-medium tz-text-m"
                   >
-                    Get in touch
+                    {ctaLabel}
                   </Link>
-                  <Link className="tz-button-circle" href="#">
+                  <Link className="tz-button-circle" href="/contact" aria-label={ctaLabel}>
                     <i className="ph ph-arrow-up-right" />
                   </Link>
                 </div>
-                <img
-                  src="/images/banner/banner1-shape2.svg"
-                  alt="img"
-                  className="tz-faq2__shape floating"
-                />
               </div>
             </div>
             <div className="col-xl-6">

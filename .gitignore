@@ -1,24 +1,23 @@
-# build output
-dist/
-# generated types
-.astro/
-
 # dependencies
 node_modules/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# build output
+dist/
+.astro/
 
-
-# environment variables
+# environment — never commit real secrets
 .env
 .env.production
+.env.local
+.env.*.local
 
-# macOS-specific files
+# logs
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# OS / editor / tools
 .DS_Store
-
-# jetbrains setting folder
 .idea/
+.vscode/
+.freebuff/

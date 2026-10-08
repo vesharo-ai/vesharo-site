@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "@/components/common/Link";
-import { type BlogPost, blogPosts } from "../../seeds/Blog1.seeds";
+import { type BlogPostForList } from "@/lib/blog";
 import BlogCard from "./BlogCard";
 import SectionSubtitle from "../section-subtitle/SectionSubtitle";
 import SectionTitle from "../section-title/SectionTitle";
 
-function Blog1({ blogData }: { blogData: BlogPost[] }) {
+function Blog1({ blogData }: { blogData: BlogPostForList[] }) {
   return (
     <>
       <section className="tz-blog1">
@@ -18,7 +18,7 @@ function Blog1({ blogData }: { blogData: BlogPost[] }) {
                     <SectionSubtitle subtitle="OUR BLOG" />
                   </div>
                   <div className="col-xl-7">
-                    <SectionTitle title=" Latest News &amp; Blog" />
+                    <SectionTitle title=" From the Engineering Blog" />
                   </div>
                 </div>
               </div>
@@ -28,18 +28,17 @@ function Blog1({ blogData }: { blogData: BlogPost[] }) {
                     href="/blog"
                     className="tz-button text-uppercase fw-medium tz-text-m"
                   >
-                    View More
-                  </Link>
-                  <Link href="/blog" className="tz-button-circle">
-                    <i className="ph ph-arrow-up-right" />
-                  </Link>
+                    All Articles
+                  </Link><Link href="/blog" className="tz-button-circle" aria-label="Read all engineering articles">
+                      <i className="ph ph-arrow-up-right" />
+                    </Link>
                 </div>
               </div>
             </div>
           </div>
           <div className="row g-4">
             {blogData &&
-              blogData.map((post, index) => <BlogCard key={index} {...post} />)}
+              blogData.map((post) => <BlogCard key={post.id} {...post} />)}
           </div>
         </div>
       </section>

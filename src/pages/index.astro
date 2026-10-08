@@ -1,37 +1,174 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Banner1 from "@/components/banner/Banner1";
-import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import HeaderSlider2 from "@/components/heading-slider/HeaderSlider2";
-import About1 from "@/components/about/About1";
+import ProofStrip from "@/components/proof/ProofStrip";
+import TechStack from "@/components/common/TechStack.astro";
 import Service1 from "@/components/service/Service1";
-import WhoWeAre from "@/components/who-we-are/WhoWeAre";
+import ProjectCards from "@/components/project/ProjectCards";
+import ProductsSection from "@/components/products/ProductsSection";
 import WorkFlow1 from "@/components/wordflows/WorkFlow1";
-import Project1 from "@/components/project/Project1";
-import Team1 from "@/components/team/Team1";
-import Testimonial1 from "@/components/testimonials/Testimonial1";
+import ReviewsSection from "@/components/testimonials/ReviewsSection";
+import Faq1 from "@/components/faq/Faq1";
+import ComparisonMatrix from "@/components/trust/ComparisonMatrix";
 import Blog1 from "@/components/blog/Blog1";
-import Subscribe1 from "@/components/subscribe/Subscribe1";
+import CtaBand from "@/components/cta/CtaBand";
 import { serviceCards } from "@/seeds/Service.seeds";
-import { teamMembers } from "@/seeds/Teams.seeds";
-import { blogPosts } from "@/seeds/Blog1.seeds";
+import { vesharoProducts } from "@/seeds/Products.seeds";
+import { engagementArchetypes } from "@/seeds/Project.seeds";
+import { getBlogPosts } from "@/lib/blog";
+import { site } from "@/config/site";
 ---
 
-<Layout title="DigiFlow | Digital Agency Home 1">
-  <Banner1 client:load />
-  <HeaderSlider client:visible />
-  <HeaderSlider2 client:visible />
-  <About1 client:visible />
+<Layout
+  title={`${site.name} | ${site.tagline}`}
+  description="Vesharo is a software engineering, IT consulting, and product development company in Ahmedabad, India. We build custom web apps, mobile apps, enterprise cloud systems, and proprietary digital products. Senior engineers, 100% IP ownership."
+>
+  <!-- ItemList schema for services & products (AEO / GEO / rich snippets) -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ItemList",
+          name: "Vesharo Core Engineering & Consulting Services",
+          description: "Core technology services offered by Vesharo Technologies",
+          numberOfItems: serviceCards.length,
+          itemListElement: serviceCards.map((s, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: s.title,
+            description: s.description,
+            url: `${site.seo.siteUrl}${s.link}`,
+          })),
+        },
+        {
+          "@type": "ItemList",
+          name: "Vesharo Labs In-House Products & Accelerators",
+          description: "Proprietary software products and production accelerators engineered by Vesharo",
+          numberOfItems: vesharoProducts.length,
+          itemListElement: vesharoProducts.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: p.name,
+            description: p.description,
+          })),
+        },
+      ],
+    })}
+  />
+
+  {/* 1. Hero: One H1, one-line promise, two buttons */}
+  <section class="tz-hero tz-bg-neutral2 tz-pt-60 tz-pb-60 tz-pt-lg-140 tz-pb-lg-140" aria-label="Vesharo homepage hero">
+    <div class="container">
+      <div class="row g-4 align-items-center g-lg-5">
+        <div class="col-lg-7">
+          <div class="tz-section-top">
+            <div class="tz-section-subtitle">
+              <span class="tz-section-subtitle__line" />
+              <span class="text-uppercase tz-text-primary fw-semibold" style="font-size: 0.8125rem; letter-spacing: 0.1em;">
+                Software Engineering · IT Consulting · Product Studio
+              </span>
+            </div>
+            <h1 class="tz-hero__title tz-display-2">
+              {site.homeH1}
+            </h1>
+            <p class="tz-hero__desc tz-text-l tz-text-neutral6">
+              {site.tagline} We engineer custom web applications, mobile apps, enterprise cloud systems, and proprietary digital products — and consult on the architectures you already run. Senior engineers, fixed scope, and 100% IP yours from day one.
+            </p>
+            <div class="tz-buttons d-flex flex-wrap gap-3 align-items-center">
+              <a href="/contact" class="tz-button text-uppercase fw-medium tz-text-m">
+                Get a Free Quote
+              </a>
+              <a
+                href={site.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-success d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill fw-medium"
+                style="border-color: rgba(37, 211, 102, 0.4); color: #25D366;"
+                aria-label="Contact Vesharo directly on WhatsApp"
+              >
+                <i class="ph ph-whatsapp-logo" style="font-size: 1.25rem;" aria-hidden="true" />
+                <span>WhatsApp Us</span>
+              </a>
+            </div>
+            <ul class="tz-hero__assurances">
+              <li><i class="ph ph-check-circle" aria-hidden="true" /> Fixed scope &amp; price before we start</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true" /> Senior engineer on every project — no juniors</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true" /> 100% IP &amp; code ownership from day one</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true" /> NDA signed before any detail is shared</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="tz-hero__visual">
+            <img
+              src="/images/brand/hero-system.svg"
+              alt="Vesharo software engineering delivery cycle: discover, design, build, test, deploy, and operate"
+              width="560"
+              height="560"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="tz-hero__badge">
+              <span class="tz-hero__badge-dot" aria-hidden="true" />
+              Delivery managed with CI/CD automation
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* 2. Trust Strip / How We Work & Tech Stack */}
+  <ProofStrip />
+  <TechStack />
+
+  {/* 3. Services */}
   <Service1
     client:visible
-    serviceData={[...serviceCards].slice(0, 4)}
-    backgroundColor="#171717"
+    serviceData={[...serviceCards].slice(0, 6)}
+    backgroundColor="#0f0f0f"
   />
-  <WhoWeAre client:visible backgroundColor="#121212" />
+
+  {/* 4. Featured Work: Client Engagement Archetypes + In-House Products & Accelerators */}
+  <ProjectCards
+    client:visible
+    items={engagementArchetypes.slice(0, 3)}
+    subtitle="Featured Work"
+    title="Typical Client Engagements"
+    intro="We are set up for recurring kinds of product and consulting engagements. These are three common engagement shapes, and what our team owns in each."
+  />
+  <ProductsSection client:visible bgClass="tz-bg-neutral2" />
+
+  {/* 5. Process */}
   <WorkFlow1 client:visible />
-  <Project1 client:visible />
-  <Team1 client:visible teamData={[...teamMembers.slice(0, 4)]} />
-  <Testimonial1 client:visible bgClass="tz-bg-neutral3" />
-  <Blog1 client:visible blogData={[...blogPosts.slice(0, 3)]} />
-  <Subscribe1 client:visible spacingClass="tz-mt-lg-120" />
+
+  {/* 6. Reviews (from reviews.json; auto-hides when empty per Golden Rule) */}
+  <ReviewsSection client:visible />
+
+  {/* 7. Comparison Matrix */}
+  <ComparisonMatrix client:visible bgClass="tz-bg-neutral3" />
+
+  {/* 8. Technical FAQs */}
+  <Faq1 client:visible backgroundColor="#121212" ctaLabel="Ask Us Something Else" />
+
+  {/* Blog Highlights */}
+  <Blog1 client:visible blogData={await getBlogPosts(3)} />
+
+  {/* 9. Final Call to Action */}
+  <CtaBand
+    client:visible
+    kicker="Start a project"
+    heading="Tell us what you are trying to build"
+    body="Send the problem, not a finished brief. We will come back with what we would do, what it needs, and roughly what it costs — or tell you if we are the wrong people for it."
+    label="Get a Free Quote"
+    secondaryLabel="Chat on WhatsApp"
+    secondaryHref={site.contact.whatsappUrl}
+    points={[
+      "A written response from an engineer, not a sales script",
+      "Our read on scope, risk and realistic delivery options",
+      "Fixed-scope quote once the work is defined",
+      "NDA signed before any sensitive detail is shared",
+    ]}
+  />
 </Layout>

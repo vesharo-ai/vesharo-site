@@ -7,36 +7,39 @@ export type WorkflowCard = {
   active: boolean;
 };
 
-// Create demo data array
+// 4-Phase Technical Delivery Process
 export const workflowCards: WorkflowCard[] = [
   {
-    subtitle: "STEP_01",
+    subtitle: "PHASE_01",
     number: "01",
-    title: "Discover & Strategize",
+    title: "Discovery & Architecture",
     description:
-      "We start by understanding your goals, audience, and challenges.",
+      "We map system boundaries, data models, and API contracts — establishing the technical blueprint and sprint roadmap.",
     active: true,
   },
   {
-    subtitle: "STEP_02",
+    subtitle: "PHASE_02",
     number: "02",
-    title: "Design & Prototype",
+    title: "Sprint Delivery",
     description:
-      "We create visual concepts and interactive prototypes for your project.",
+      "Our engineers ship production-grade code in two-week agile cadences with automated CI/CD integration and code reviews.",
     active: false,
   },
   {
-    subtitle: "STEP_03",
+    subtitle: "PHASE_03",
     number: "03",
-    title: "Develop & Implement",
-    description: "We turn designs into functional solutions with clean code.",
+    title: "QA & Security Hardening",
+    description:
+      "Comprehensive end-to-end testing, static analysis, vulnerability scanning, and performance benchmarking under peak load.",
     active: false,
   },
   {
-    subtitle: "STEP_04",
+    subtitle: "PHASE_04",
     number: "04",
-    title: "Test & Launch",
-    description: "We rigorously test and deploy your solution to the market.",
+    title: "Cloud Deployment & SLA",
+    description:
+      "Automated infrastructure provisioning, zero-downtime canary rollout, telemetry observability, and ongoing engineering support.",
     active: false,
   },
 ];
+

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Answer Engine & AI Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://vesharo.com/sitemap-index.xml
+# LLM Knowledge Standard
+# https://vesharo.com/llms.txt

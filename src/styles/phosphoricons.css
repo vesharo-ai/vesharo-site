@@ -2,8 +2,7 @@
   font-family: "Phosphor-Fill";
   src: url(/fonts/icons/Phosphor-Fill.woff2) format("woff2"),
     url(/fonts/icons/Phosphor-Fill.woff) format("woff"),
-    url(/fonts/icons/Phosphor-Fill.ttf) format("truetype"),
-    url(/fonts/icons/Phosphor-Fill.svg#Phosphor-Fill) format("svg");
+    url(/fonts/icons/Phosphor-Fill.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -4629,8 +4628,7 @@
   font-family: "Phosphor";
   src: url(/fonts/icons/Phosphor.woff2) format("woff2"),
     url(/fonts/icons/Phosphor.woff) format("woff"),
-    url(/fonts/icons/Phosphor.ttf) format("truetype"),
-    url(/fonts/icons/Phosphor.svg#Phosphor) format("svg");
+    url(/fonts/icons/Phosphor.ttf) format("truetype") ;
   font-weight: normal;
   font-style: normal;
   font-display: block;

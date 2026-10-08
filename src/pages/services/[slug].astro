@@ -1,0 +1,309 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import CtaBand from "@/components/cta/CtaBand";
+import { serviceCards } from "@/seeds/Service.seeds";
+import { site } from "@/config/site";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return serviceCards.map((card) => ({
+    params: { slug: card.id },
+    props: { card },
+  }));
+}
+
+interface Props {
+  card: (typeof serviceCards)[0];
+}
+
+const { card } = Astro.props;
+const service = serviceCards.find((s) => s.id === card.id);
+const canonicalUrl = `${site.seo.siteUrl}/services/${service?.id}`;
+---
+
+<Layout
+  title={
+    service
+      ? `${service.title} | ${site.name}`
+      : `Service | ${site.name}`
+  }
+  description={
+    service
+      ? `${service.promise} ${service.description}`
+      : "Vesharo engineering services for modern digital products."
+  }
+>
+  {/* JSON-LD Schema: Service & FAQPage for Answer Engine Optimization (AEO) */}
+  {service && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": canonicalUrl,
+            name: service.title,
+            description: service.description,
+            provider: {
+              "@type": "Organization",
+              name: site.name,
+              url: site.seo.siteUrl,
+            },
+            serviceType: service.title,
+            areaServed: "Worldwide",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "Free initial scoping and fixed quote proposal",
+            },
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${canonicalUrl}#faq`,
+            mainEntity: service.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.answer,
+              },
+            })),
+          },
+        ],
+      })}
+    />
+  )}
+
+  <BreadCrumb client:load title={service?.title ?? "Service"} />
+
+  {service ? (
+    <>
+      <section
+        class="tz-service-detail tz-bg-neutral2 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120"
+        aria-labelledby="service-title"
+      >
+        <div class="container">
+          {/* Service Header Row */}
+          <div class="row g-4 align-items-center mb-5">
+            <div class="col-lg-7">
+              <div class="tz-section-top">
+                <div class="tz-section-subtitle">
+                  <span class="tz-section-subtitle__line" />
+                  <span class="text-uppercase tz-text-primary fw-semibold" style="font-size: 0.8125rem; letter-spacing: 0.1em;">
+                    Engineered by Vesharo
+                  </span>
+                </div>
+                <h1
+                  id="service-title"
+                  class="tz-service-detail__title tz-display-2 text-uppercase mb-2"
+                >
+                  {service.title}
+                </h1>
+                <p class="tz-text-l tz-text-primary fw-medium mb-3">
+                  {service.promise}
+                </p>
+                <p class="tz-service-detail__desc tz-text-l tz-text-neutral6 mb-4" style="line-height: 1.7;">
+                  {service.description}
+                </p>
+                <div class="tz-buttons d-flex flex-wrap gap-3 align-items-center">
+                  <a
+                    href={`/contact?service=${encodeURIComponent(service.title)}`}
+                    class="tz-button text-uppercase fw-medium tz-text-m"
+                  >
+                    Get a Free Quote
+                  </a>
+                  <a
+                    href={site.contact.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline-success d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill fw-medium"
+                    style="border-color: rgba(37, 211, 102, 0.4); color: #25D366;"
+                  >
+                    <i class="ph ph-whatsapp-logo" style="font-size: 1.25rem;" aria-hidden="true" />
+                    <span>WhatsApp Inquiry</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <figure class="tz-service-detail__figure mb-0">
+                <img
+                  class="tz-service-detail__img w-100 rounded-4"
+                  src={service.concept}
+                  alt={`Architecture overview: ${service.conceptLabel}`}
+                  width="560"
+                  height="400"
+                  loading="eager"
+                  decoding="async"
+                />
+                <figcaption class="tz-service-detail__caption mt-2 text-center text-white-50 tz-text-s">
+                  <span class="tz-service-detail__caption-mark" aria-hidden="true" />
+                  {service.conceptLabel}
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          {/* Who It Is For & What We Deliver */}
+          <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+              <div
+                class="p-4 p-lg-5 rounded-4 h-100"
+                style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(124, 92, 255, 0.2);"
+              >
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <i class="ph ph-user-check text-primary" style="font-size: 1.5rem; color: #A78BFA;" aria-hidden="true" />
+                  <h2 class="tz-display-3 text-white fw-bold mb-0" style="font-size: 1.35rem;">
+                    Who This Service Is For
+                  </h2>
+                </div>
+                <p class="text-white-50 tz-text-l mb-4" style="line-height: 1.7;">
+                  {service.whoFor}
+                </p>
+                <div class="text-white-50 tz-text-s text-uppercase fw-semibold mb-2">
+                  Specialized Capabilities:
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  {service.capabilities.map((cap) => (
+                    <span
+                      class="badge px-3 py-2 rounded-pill"
+                      style="background-color: rgba(124, 92, 255, 0.15); color: #E2E8F0; font-size: 0.8125rem;"
+                    >
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div
+                class="p-4 p-lg-5 rounded-4 h-100"
+                style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(124, 92, 255, 0.2);"
+              >
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <i class="ph ph-package text-primary" style="font-size: 1.5rem; color: #A78BFA;" aria-hidden="true" />
+                  <h2 class="tz-display-3 text-white fw-bold mb-0" style="font-size: 1.35rem;">
+                    What We Deliver
+                  </h2>
+                </div>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                  {service.whatWeDeliver.map((item) => (
+                    <li class="d-flex align-items-start gap-2 text-white tz-text-m">
+                      <i class="ph ph-check-circle text-primary mt-1" style="color: #7C5CFF; font-size: 1.2rem;" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Delivery Process (4 Steps) */}
+          <div class="mb-5">
+            <div class="tz-section-top tz-section-top--centered mb-4">
+              <div class="tz-section-subtitle">
+                <span class="tz-section-subtitle__line" />
+                <span class="text-uppercase tz-text-primary fw-semibold" style="font-size: 0.8125rem; letter-spacing: 0.1em;">
+                  Our Delivery Process
+                </span>
+              </div>
+              <h2 class="tz-display-2 text-uppercase tz-text-neutral5">
+                How We Deliver {service.title}
+              </h2>
+            </div>
+            <div class="row g-4">
+              {service.process.map((step) => (
+                <div class="col-md-6 col-lg-3">
+                  <div
+                    class="p-4 rounded-3 h-100 d-flex flex-column justify-content-between"
+                    style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);"
+                  >
+                    <div>
+                      <div class="tz-cn text-primary mb-2" style="font-size: 2rem; color: #7C5CFF;">
+                        {step.step}
+                      </div>
+                      <h3 class="text-white fw-bold tz-text-l mb-2">
+                        {step.title}
+                      </h3>
+                      <p class="text-white-50 tz-text-m mb-0" style="line-height: 1.6;">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Short Service FAQ (AEO & GEO) */}
+          <div class="mb-4">
+            <div class="tz-section-top tz-section-top--centered mb-4">
+              <div class="tz-section-subtitle">
+                <span class="tz-section-subtitle__line" />
+                <span class="text-uppercase tz-text-primary fw-semibold" style="font-size: 0.8125rem; letter-spacing: 0.1em;">
+                  Direct Answers
+                </span>
+              </div>
+              <h2 class="tz-display-2 text-uppercase tz-text-neutral5">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+              <div class="col-lg-10">
+                <div class="d-flex flex-column gap-3">
+                  {service.faqs.map((f) => (
+                    <div
+                      class="p-4 rounded-3"
+                      style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(124, 92, 255, 0.2);"
+                    >
+                      <h3 class="text-white fw-semibold tz-text-l mb-2">
+                        {f.question}
+                      </h3>
+                      <p class="text-white-50 tz-text-m mb-0" style="line-height: 1.7;">
+                        {f.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Band */}
+      <CtaBand
+        client:visible
+        kicker="Ready to build?"
+        heading={`Get a free quote for ${service.title.toLowerCase()}`}
+        body="Share your project goals and requirements. A senior Vesharo engineer will review your brief and send back a structured scope and proposal."
+        label="Get a Free Quote"
+        secondaryLabel="Chat on WhatsApp"
+        secondaryHref={site.contact.whatsappUrl}
+      />
+    </>
+  ) : (
+    <section class="tz-pt-60 tz-pb-60 tz-bg-neutral2">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="tz-section-top">
+              <h1 class="tz-text-neutral5">Service not found</h1>
+              <p class="tz-text-l tz-text-neutral6">
+                The service you requested could not be found.
+              </p>
+              <a href="/services" class="tz-button text-uppercase fw-medium tz-text-m">
+                Back to Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

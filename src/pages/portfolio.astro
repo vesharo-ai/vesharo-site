@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb";
+import ProjectCards from "@/components/project/ProjectCards";
+import ProductsSection from "@/components/products/ProductsSection";
+import Commitments1 from "@/components/trust/Commitments1";
+import CtaBand from "@/components/cta/CtaBand";
+import { engagementArchetypes } from "@/seeds/Project.seeds";
+---
+
+<Layout
+  title="Engagements & Products | Vesharo"
+  description="Explore the software architectures Vesharo builds: client engagement archetypes (logistics, fintech, healthcare, AI, cloud migration) and proprietary in-house products from Vesharo Labs."
+>
+  <BreadCrumb client:load title="Engagements & Products" />
+
+  <ProjectCards
+    client:visible
+    items={engagementArchetypes}
+    subtitle="Client Delivery"
+    title="Six Architecture Archetypes"
+    intro="We do not publish client names or project screenshots we cannot evidence, so this page describes the shape of the work instead: the six recurring situations we are engaged for, and what we own in each. If yours is not listed, it is still worth a conversation."
+  />
+
+  {/* In-House Products & Accelerators */}
+  <ProductsSection client:visible bgClass="tz-bg-neutral2" />
+
+  <Commitments1 bgClass="tz-bg-neutral3" />
+
+  <CtaBand
+    client:visible
+    kicker="Next step"
+    heading="Tell us which of these you are in"
+    body="Name the situation and the constraint you are working against — a deadline, a contract, a system that cannot be switched off. We will tell you what we would do about it and what it would take."
+    label="Start a Project"
+    secondaryLabel="See what we build"
+    secondaryHref="/services"
+  />
+</Layout>

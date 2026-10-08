@@ -1,0 +1,41 @@
+# Vesharo Site - Roo Code & Cline Rules
+
+## Project Overview
+- **Project**: Vesharo Official Website (`vesharo`)
+- **Framework**: Astro (v5+), React 19, TypeScript
+- **Styling & Animation**: Custom CSS / Bootstrap 5, GSAP, Swiper
+- **Primary Branch**: `staging` (development), `main` (production)
+
+## Development Workflow
+- When running the dev server in the background:
+  ```bash
+  npm run dev
+  ```
+- Manage dev server status and logs according to Astro docs.
+- Build command for production checks:
+  ```bash
+  npm run build
+  ```
+
+## Architecture & File Structure
+- `src/pages/`: Astro routing endpoints (`.astro` files). Each file maps to a URL route.
+- `src/components/`: Modular React (`.tsx`) and Astro components.
+- `src/layouts/`: Global page layouts (`Layout.astro`), base meta tags, headers, and footers.
+- `src/seeds/`: Mock data and content feeds for blog, testimonials, team, and services.
+- `src/styles/`: Global stylesheets and CSS modules.
+- `public/`: Static assets (images, logos, fonts, icons).
+
+## Coding Standards & Best Practices
+1. **Branding**:
+   - Company name must always be **Vesharo**.
+   - Do not use old or placeholder brand names (e.g., Apptify, Cogniva, DigiFlow).
+2. **Components**:
+   - Keep components modular, reusable, and type-safe with TypeScript interfaces.
+   - Use `client:load`, `client:visible`, or `client:idle` appropriately on interactive React components in Astro pages.
+3. **UI / Styling**:
+   - Modern, responsive design across mobile, tablet, and desktop breakpoints.
+   - High visual polish with subtle animations (GSAP), smooth transitions, and accessible contrast.
+4. **SEO & Accessibility**:
+   - Every page must have a descriptive title, meta description, and OpenGraph tags via `<Layout>`.
+   - Use semantic HTML (`<main>`, `<header>`, `<footer>`, `<section>`, `<nav>`).
+   - Ensure descriptive `alt` tags on all images.
