@@ -46,12 +46,12 @@ const Banner1 = React.memo(function Banner1() {
                 </p>
                 <div className="tz-buttons follow-mouse">
                   <Link
-                    href="/portfolio-1"
+                    href="/portfolio-details"
                     className="tz-button text-uppercase fw-medium tz-text-m"
                   >
                     Our Portfolio
                   </Link>
-                  <Link href="/portfolio-1" className="tz-button-circle">
+                  <Link href="/portfolio-details" className="tz-button-circle">
                     <i className="ph ph-arrow-up-right" />
                   </Link>
                 </div>
@@ -97,7 +97,7 @@ const Banner1 = React.memo(function Banner1() {
                   alt="img"
                   className="tz-banner1__image"
                 />
-                <Link href="/portfolio-2" className="tz-banner1__circle">
+                <Link href="/portfolio-details" className="tz-banner1__circle">
                   <img
                     src="/images/banner/round-text.png"
                     alt=""

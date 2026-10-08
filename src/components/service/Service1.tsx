@@ -38,12 +38,12 @@ function Service1({
                 <div className="col-md-4">
                   <div className="tz-buttons d-flex justify-content-start justify-content-md-end">
                     <Link
-                      href="/service-1"
+                      href="/service-details"
                       className="tz-button text-uppercase fw-medium tz-text-m"
                     >
                       View More
                     </Link>
-                    <Link href="/service-1" className="tz-button-circle">
+                    <Link href="/service-details" className="tz-button-circle">
                       <i className="ph ph-arrow-up-right" />
                     </Link>
                   </div>

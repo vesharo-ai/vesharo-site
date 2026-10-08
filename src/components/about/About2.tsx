@@ -35,7 +35,7 @@ function About2() {
                       We’re More Than Just a Digital Agency
                     </div>
                     <p className="tz-about2__desc tz-text-l tz-text-neutral6 fw-light">
-                      At DigiFlow we don’t just create websites or run
+                      At Vesharo we don’t just create websites or run
                       campaigns—we build team of passionate strategists,
                       designers, developers, and marketers of innovation to
                       transform businesses.
@@ -62,12 +62,12 @@ function About2() {
                     </div>
                     <div className="tz-buttons">
                       <Link
-                        href="/portfolio-1"
+                        href="/portfolio-details"
                         className="tz-button text-uppercase fw-medium tz-text-m"
                       >
                         Our Portfolio
                       </Link>
-                      <Link className="tz-button-circle" href="/portfolio-1">
+                      <Link className="tz-button-circle" href="/portfolio-details">
                         <i className="ph ph-arrow-up-right" />
                       </Link>
                     </div>

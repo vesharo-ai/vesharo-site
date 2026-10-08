@@ -85,7 +85,7 @@ function Footer() {
                             </li>
                             <li>
                               <Link
-                                href="/service-1"
+                                href="/service-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Our Services
@@ -93,7 +93,7 @@ function Footer() {
                             </li>
                             <li>
                               <Link
-                                href="/portfolio-1"
+                                href="/portfolio-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Our portfolio
@@ -117,7 +117,7 @@ function Footer() {
                           <ul className="tz-footer__links">
                             <li>
                               <Link
-                                href="/service-1"
+                                href="/service-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Web Development
@@ -125,7 +125,7 @@ function Footer() {
                             </li>
                             <li>
                               <Link
-                                href="/service-1"
+                                href="/service-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Mobile Development
@@ -133,7 +133,7 @@ function Footer() {
                             </li>
                             <li>
                               <Link
-                                href="/service-1"
+                                href="/service-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Data analytics
@@ -141,7 +141,7 @@ function Footer() {
                             </li>
                             <li>
                               <Link
-                                href="/service-1"
+                                href="/service-details"
                                 className="tz-footer__link tz-text-l"
                               >
                                 Network Connectivity
@@ -194,7 +194,7 @@ function Footer() {
                     {/* Copyright row */}
                     <div className="tz-footer__bottom">
                       <div className="tz-footer__copyright tz-text-l">
-                        Copyright © 2025 DigiFlow
+                        Copyright © 2025 Vesharo
                       </div>
                       <div className="tz-footer__credits tz-text-l">
                         Designed By

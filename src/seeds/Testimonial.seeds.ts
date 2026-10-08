@@ -8,19 +8,19 @@ export interface TestimonialSlide {
 export const testimonialSlides: TestimonialSlide[] = [
   {
     imageSrc: "/images/testimonial/testimonial1-img1.jpg",
-    text: "From strategy execution, DigiFlow exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
+    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
     title: "Skyline Digital Hub",
     designation: "We're a team",
   },
   {
     imageSrc: "/images/testimonial/testimonial1-img2.jpg",
-    text: "From strategy execution, DigiFlow exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
+    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
     title: "Skyline Digital Hub",
     designation: "We're a team",
   },
   {
     imageSrc: "/images/testimonial/testimonial1-img3.jpg",
-    text: "From strategy execution, DigiFlow exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
+    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
     title: "Skyline Digital Hub",
     designation: "We're a team",
   },

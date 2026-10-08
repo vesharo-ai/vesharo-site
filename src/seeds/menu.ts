@@ -5,62 +5,43 @@ export const menuSeed: MenuSeed = {
     {
       title: "Home",
       href: "/",
-      submenu: [
-        { title: "Home-1", href: "/" },
-        { title: "Home-2", href: "/home-2" },
-      ],
     },
     {
-      title: "About Us",
+      title: "About",
       href: "/about",
     },
     {
       title: "Services",
-      href: "#",
+      href: "/service-details",
       submenu: [
-        { title: "Service-1", href: "/service-1" },
-        { title: "Service-2", href: "/service-2" },
-        { title: "Service Details", href: "/service-details" },
+        { title: "AI Automation", href: "/service-details" },
+        { title: "AI Agents & Chatbots", href: "/service-details" },
+        { title: "Custom Software Development", href: "/service-details" },
+        { title: "Web Development", href: "/service-details" },
+        { title: "Mobile App Development", href: "/service-details" },
+        { title: "Cloud & DevOps", href: "/service-details" },
+        { title: "IT Consulting", href: "/service-details" },
       ],
     },
     {
       title: "Portfolio",
-      href: "#",
-      submenu: [
-        { title: "Portfolio-1", href: "/portfolio-1" },
-        { title: "Portfolio-2", href: "/portfolio-2" },
-        { title: "Portfolio Details", href: "/portfolio-details" },
-      ],
+      href: "/portfolio-details",
     },
     {
-      title: "Pages",
-      href: "#",
-      isMegaMenu: true,
-      columns: [
-        [
-          { title: "Home-1", href: "/" },
-          { title: "Home-2", href: "/home-2" },
-          { title: "About", href: "/about" },
-          { title: "Service-1", href: "/service-1" },
-          { title: "Service-2", href: "/service-2" },
-          { title: "Service Details", href: "/service-details" },
-        ],
-        [
-          { title: "Portfolio-1", href: "/portfolio-1" },
-          { title: "Portfolio-2", href: "/portfolio-2" },
-          { title: "Portfolio Details", href: "/portfolio-details" },
-          { title: "FAQ", href: "/faq" },
-          { title: "Pricing", href: "/pricing" },
-        ],
-        [
-          { title: "Blog", href: "/blog" },
-          { title: "Blog Details", href: "/blog-details" },
-          { title: "Team", href: "/team" },
-          { title: "Team Details", href: "/team-details" },
-          { title: "404", href: "/404" },
-          { title: "Contact", href: "/contact" },
-        ],
-      ],
+      title: "Pricing",
+      href: "/pricing",
+    },
+    {
+      title: "FAQ",
+      href: "/faq",
+    },
+    {
+      title: "Blog",
+      href: "/blog",
+    },
+    {
+      title: "Contact",
+      href: "/contact",
     },
   ],
 };
