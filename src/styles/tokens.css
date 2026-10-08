@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Vesharo Design System Tokens — tokens.css
+   Single source of truth for typography, layout, themes, and design tokens
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Typography System (Plus Jakarta Sans + Inter)
+     ------------------------------------------------------------------------ */
+  --font-family-heading: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', system-ui, -apple-system, sans-serif;
+  --font-family-body: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Fluid Type Scale (clamp()) */
+  --text-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --text-h1: clamp(2.25rem, 4vw + 0.5rem, 3.5rem);
+  --text-h2: clamp(1.85rem, 3vw + 0.5rem, 2.75rem);
+  --text-h3: clamp(1.5rem, 2vw + 0.5rem, 2.15rem);
+  --text-h4: clamp(1.25rem, 1.5vw + 0.25rem, 1.65rem);
+  --text-h5: clamp(1.125rem, 1vw + 0.25rem, 1.35rem);
+  --text-h6: 1.0625rem;
+
+  --text-lead: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  --text-base: 1rem;       /* 16px - Meets acceptance criteria */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-xs: 0.75rem;     /* 12px */
+
+  /* Line Heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+  /* Maximum Line Length for readability (65-75ch) */
+  --max-line-ch: 70ch;
+
+  /* ------------------------------------------------------------------------
+     2. Spacing Scale
+     ------------------------------------------------------------------------ */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ------------------------------------------------------------------------
+     3. Radius Scale
+     ------------------------------------------------------------------------ */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------------
+     4. Shadows
+     ------------------------------------------------------------------------ */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 24px rgba(0, 210, 255, 0.22);
+
+  /* ------------------------------------------------------------------------
+     5. Z-Index Scale
+     ------------------------------------------------------------------------ */
+  --z-hide: -1;
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-offcanvas: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+
+  /* ------------------------------------------------------------------------
+     6. Responsive Breakpoints (reference values)
+     ------------------------------------------------------------------------ */
+  --bp-xs: 360px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+
+  /* ------------------------------------------------------------------------
+     7. Theme Color Variables (Default: Dark Navy Theme)
+     ------------------------------------------------------------------------ */
+  --color-bg-canvas: #070b14;
+  --color-bg-surface: #0b0f19;
+  --color-bg-card: #111827;
+  --color-bg-card-hover: #172138;
+  --color-bg-elevated: #1e293b;
+
+  --color-border-subtle: #1e293b;
+  --color-border-muted: #334155;
+  --color-border-glow: rgba(0, 210, 255, 0.4);
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-brand-primary: #0066ff;
+  --color-brand-accent: #00d2ff;
+  --color-brand-glow: #00f0ff;
+  --color-brand-hover: #0052cc;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --color-bg-canvas: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f1f5f9;
+  --color-bg-elevated: #e2e8f0;
+
+  --color-border-subtle: #e2e8f0;
+  --color-border-muted: #cbd5e1;
+  --color-border-glow: rgba(0, 102, 255, 0.3);
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+
+  --color-brand-primary: #0066ff;
+  --color-brand-accent: #0052cc;
+  --color-brand-glow: #0066ff;
+  --color-brand-hover: #0040a8;
+}
+
+/* Base Typographic Hierarchies & Fluid Classes */
+h1, .h1 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+}
+
+h2, .h2 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h2);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+}
+
+h3, .h3 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h3);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+}
+
+h4, .h4 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h4);
+  line-height: var(--leading-snug);
+  font-weight: 600;
+}
+
+h5, .h5 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h5);
+  line-height: var(--leading-normal);
+  font-weight: 600;
+}
+
+h6, .h6 {
+  font-family: var(--font-family-heading);
+  font-size: var(--text-h6);
+  line-height: var(--leading-normal);
+  font-weight: 600;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  max-width: var(--max-line-ch);
+}

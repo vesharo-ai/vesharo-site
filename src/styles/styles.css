@@ -98,7 +98,7 @@ List of Page Indexes
         01.01. Animations
 =======================================*/
 body {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   line-height: 1.5;
   font-optical-sizing: auto;
   font-style: normal;
@@ -2919,7 +2919,7 @@ a:focus, a:hover {
 }
 
 .tz-display-1 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 40px;
 }
@@ -2955,7 +2955,7 @@ a:focus, a:hover {
 }
 
 .tz-display-2 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 32px;
 }
@@ -2991,7 +2991,7 @@ a:focus, a:hover {
 }
 
 .tz-display-3 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 24px;
 }
@@ -3027,7 +3027,7 @@ a:focus, a:hover {
 }
 
 .tz-display-4 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 20px;
 }
@@ -3063,7 +3063,7 @@ a:focus, a:hover {
 }
 
 .tz-text-xl {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -3098,7 +3098,7 @@ a:focus, a:hover {
 }
 
 .tz-text-l {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -3133,7 +3133,7 @@ a:focus, a:hover {
 }
 
 .tz-text-m {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -3168,7 +3168,7 @@ a:focus, a:hover {
 }
 
 .tz-text-s {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -3203,7 +3203,7 @@ a:focus, a:hover {
 }
 
 .tz-text-xs {
-  font-family: "Outfit", serif;
+  font-family: var(--font-family-body);
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -3239,7 +3239,7 @@ a:focus, a:hover {
 
 .h1,
 h1 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 18px;
 }
@@ -3282,7 +3282,7 @@ h1 {
 
 .h2,
 h2 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 16px;
 }
@@ -3325,7 +3325,7 @@ h2 {
 
 .h3,
 h3 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 14px;
 }
@@ -3368,7 +3368,7 @@ h3 {
 
 .h4,
 h4 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 14px;
 }
@@ -3411,7 +3411,7 @@ h4 {
 
 .h5,
 h5 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 12px;
 }
@@ -3454,7 +3454,7 @@ h5 {
 
 .h6,
 h6 {
-  font-family: "Teko", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 12px;
 }

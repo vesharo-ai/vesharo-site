@@ -5,6 +5,7 @@ import BodyOverlay from "./_components/BodyOverlay";
 import Offcanvas from "./_components/Offcanvas";
 import Nav from "./_components/Nav";
 import Link from "@/components/common/Link";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
 function Navbar() {
   const [showOffcanvas, setShowOffcanvas] = React.useState(false);
@@ -47,7 +48,8 @@ function Navbar() {
                   <div className="tz-header__desktop d-none d-xl-block tz-ml-auto tz-mr-auto">
                     <Nav />
                   </div>
-                  <div className="d-none d-md-flex align-items-center justify-content-end gap-2">
+                  <div className="d-none d-md-flex align-items-center justify-content-end gap-3">
+                    <ThemeToggle />
                     <div className="tz-buttons">
                       <Link
                         href="/contact"
@@ -55,17 +57,21 @@ function Navbar() {
                       >
                         Get Started
                       </Link>
-                      <Link className="tz-button-circle" href="/">
+                      <Link className="tz-button-circle" href="/contact">
                         <i className="ph ph-arrow-up-right" />
                       </Link>
                     </div>
                   </div>
-                  <button
-                    className="tz-button d-inline-flex d-xl-none tz-offcanvas-btn tz-offcanvas-open-btn ms-4"
-                    onClick={() => setShowOffcanvas(!showOffcanvas)}
-                  >
-                    <i className="ph ph-list" />
-                  </button>
+                  <div className="d-flex d-xl-none align-items-center gap-2 ms-4">
+                    <ThemeToggle />
+                    <button
+                      className="tz-button d-inline-flex tz-offcanvas-btn tz-offcanvas-open-btn"
+                      onClick={() => setShowOffcanvas(!showOffcanvas)}
+                      aria-label="Open menu"
+                    >
+                      <i className="ph ph-list" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
