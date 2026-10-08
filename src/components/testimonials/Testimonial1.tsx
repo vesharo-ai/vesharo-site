@@ -41,25 +41,16 @@ const Testimonial1 = React.memo(function Testimonial1({
           <div className="row g-4 d-flex justify-content-between">
             <div className="col-lg-2 d-flex d-lg-block align-items-center justify-content-between">
               <div className="tz-testimonial1-highlight">
-                <div className="tz-testimonial1-highlight__avatars">
-                  <img
-                    src="/images/testimonial/testimonial1-avatar1.png"
-                    alt="Client 1"
-                    className="tz-testimonial1-highlight__avatar"
-                  />
-                  <img
-                    src="/images/testimonial/testimonial1-avatar2.png"
-                    alt="Client 2"
-                    className="tz-testimonial1-highlight__avatar"
-                  />
-                  <span className="tz-testimonial1-highlight__badge tz-text-neutral5 tz-text-m fw-medium">
-                    25k
+                <div className="d-flex align-items-center gap-2 mb-2">
+                  <i className="ph ph-shield-check" style={{ fontSize: "28px", color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                  <span className="tz-text-neutral5 tz-text-m fw-bold">
+                    100%
                   </span>
                 </div>
-                <p className="tz-testimonial1-highlight__text tz-text-xl tz-text-neutral5">
-                  More then 25K clients
+                <p className="tz-testimonial1-highlight__text tz-text-m tz-text-neutral5 fw-medium">
+                  Verified Client
                   <br />
-                  reviews
+                  Deployments
                 </p>
               </div>
               <div className="tz-testimonial1__shape2 d-flex align-items-end justify-content-center tz-pt-lg-120">

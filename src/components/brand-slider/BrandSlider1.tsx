@@ -10,8 +10,8 @@ function BrandSlider1() {
     <>
       <div className="tz-testimonial1-brands tz-pt-lg-120 tz-pt-60">
         <p className="tz-testimonial1-brands__title tz-text-xl tz-text-neutral5 text-uppercase">
-          TRUSTED BY <br />
-          EXCEPTIONAL BRANDS
+          TECHNOLOGY STACK &amp; <br />
+          PLATFORM INTEGRATIONS
         </p>
         <div className="tz-testimonial1-brands__slider">
           <div className="brand-carousel">

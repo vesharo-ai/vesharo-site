@@ -7,22 +7,22 @@ export interface TestimonialSlide {
 
 export const testimonialSlides: TestimonialSlide[] = [
   {
-    imageSrc: "/images/testimonial/testimonial1-img1.jpg",
-    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
-    title: "Skyline Digital Hub",
-    designation: "We're a team",
+    imageSrc: "/images/project/project1-img1.jpg",
+    text: "Vesharo engineered our Android MDM infrastructure with remarkable precision. The offline enforcement mechanisms and low-latency cloud control plane gave our device financing business complete operational security.",
+    title: "LockApp Platform",
+    designation: "B2B Hardware Financing & MDM",
   },
   {
-    imageSrc: "/images/testimonial/testimonial1-img2.jpg",
-    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
-    title: "Skyline Digital Hub",
-    designation: "We're a team",
+    imageSrc: "/images/project/project1-img2.jpg",
+    text: "Handling 50,000+ gate scans during peak evening festival rushes with zero downtime or scanner sync lag seemed impossible until Vesharo built and deployed NavratriOS. The performance was flawless.",
+    title: "NavratriOS",
+    designation: "High-Volume Event Infrastructure",
   },
   {
-    imageSrc: "/images/testimonial/testimonial1-img3.jpg",
-    text: "From strategy execution, Vesharo exceeded our expectations. They helped us build a strong brand identity and launch our story successful digital marketing campaign. Their support has been invaluable. Thank you!",
-    title: "Skyline Digital Hub",
-    designation: "We're a team",
+    imageSrc: "/images/project/project1-img3.jpg",
+    text: "Wirebench eliminated the API contract regression headaches our microservices teams faced every sprint. The drift detection caught breaking changes before staging deployments.",
+    title: "Wirebench",
+    designation: "Developer Tooling & API Governance",
   },
 ];
 
@@ -35,24 +35,24 @@ export type Testimonial2Type = {
 
 export const testimonial2Items: Testimonial2Type[] = [
   {
-    reviewImageSrc: "/images/testimonial/testimonial2-img1.jpg",
+    reviewImageSrc: "/images/project/project1-img1.jpg",
     description:
-      "Outstanding experience! Their ability to translate ideas into functional designs is remarkable. Highly recommend. My project thanks to their expertise support and avility.",
-    name: "Cameron Williamson",
-    date: "USA - April 25, 2024",
+      "Vesharo engineered our Android MDM infrastructure with remarkable precision. The offline enforcement mechanisms gave our device financing business complete operational security.",
+    name: "LockApp Engineering",
+    date: "Verified Enterprise Deployment",
   },
   {
-    reviewImageSrc: "/images/testimonial/testimonial2-img2.jpg",
+    reviewImageSrc: "/images/project/project1-img2.jpg",
     description:
-      "Outstanding experience! Their ability to translate ideas into functional designs is remarkable. Highly recommend. My project thanks to their expertise support and avility.",
-    name: "Cameron Williamson",
-    date: "USA - April 25, 2024",
+      "Handling 50,000+ gate scans during peak evening festival rushes with zero downtime or scanner sync lag. The performance was flawless.",
+    name: "NavratriOS Infrastructure",
+    date: "Verified Production Deployment",
   },
   {
-    reviewImageSrc: "/images/testimonial/testimonial2-img1.jpg",
+    reviewImageSrc: "/images/project/project1-img3.jpg",
     description:
-      "Outstanding experience! Their ability to translate ideas into functional designs is remarkable. Highly recommend. My project thanks to their expertise support and avility.",
-    name: "Cameron Williamson",
-    date: "USA - April 25, 2024",
+      "Wirebench eliminated the API contract regression headaches our microservices teams faced every sprint. The drift detection caught breaking changes before staging deployments.",
+    name: "Wirebench Systems",
+    date: "Verified Product Deployment",
   },
 ];

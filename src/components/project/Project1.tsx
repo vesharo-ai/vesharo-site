@@ -115,7 +115,7 @@ function Project1({ backgroundColor = "#121212" }) {
                   </Link>
                 </div>
                 <div className="tz-project1-card__image-wrapper">
-                  <img src={project.imageSrc} alt={project.title} />
+                  <img src={project.imageSrc} alt={project.title} className="img-fluid w-100 rounded" />
                   <span className="tz-project1-card__tag-date tz-text-m">
                     {project.year}
                     <span className="tz-project1-card__line" />
@@ -142,12 +142,12 @@ function Project1({ backgroundColor = "#121212" }) {
         </div>
         <div className="tz-buttons d-flex justify-content-center mt-5 mt-lg-0">
           <Link
-            href="#"
+            href="/portfolio-details"
             className="tz-button text-uppercase fw-medium tz-text-m"
           >
             VIEW ALL PROJECTS
           </Link>
-          <Link className="tz-button-circle" href="#">
+          <Link className="tz-button-circle" href="/portfolio-details" aria-label="View All Projects">
             <i className="ph ph-arrow-up-right" />
           </Link>
         </div>

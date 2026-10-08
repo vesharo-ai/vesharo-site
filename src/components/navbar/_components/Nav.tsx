@@ -86,13 +86,19 @@ export default function Nav({
                 {/* Services Mega Menu */}
                 <div
                   id="services-mega-menu"
-                  className={`tz-submenu submenu tz-services-mega-menu ${
+                  className={`tz-submenu submenu tz-mega-menu tz-services-mega-menu ${
                     servicesOpen ? "visible opacity-100" : ""
                   }`}
                   role="region"
                   aria-label="Services Menu"
                   style={{
-                    display: servicesOpen || (windowWidth >= 1200 && servicesOpen) ? "block" : "none",
+                    display: servicesOpen ? "block" : "none",
+                    background: "rgba(11, 15, 25, 0.98)",
+                    border: "1px solid rgba(0, 102, 255, 0.25)",
+                    borderRadius: "12px",
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.75)",
+                    backdropFilter: "blur(16px)",
+                    zIndex: 1050,
                   }}
                 >
                   <div className="tz-mega-wrapper p-4">

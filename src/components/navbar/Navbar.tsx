@@ -39,12 +39,12 @@ function Navbar() {
           <div className="container">
             <div className="tz-header1__wrapper">
               <div className="row">
-                <div className="col-4 col-lg-2">
-                  <Link href="/" className="tz-header1__logo">
-                    <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" />
+                <div className="col-6 col-md-4 col-lg-2 d-flex align-items-center">
+                  <Link href="/" className="tz-header1__logo d-inline-block" aria-label="Vesharo Home">
+                    <img src="/brand/logo.svg" alt="Vesharo" width="148" height="34" className="img-fluid" style={{ maxHeight: "34px", width: "auto" }} />
                   </Link>
                 </div>
-                <div className="col-8 col-lg-10 text-end d-flex align-items-center justify-content-end justify-content-xl-center">
+                <div className="col-6 col-md-8 col-lg-10 text-end d-flex align-items-center justify-content-end justify-content-xl-center">
                   <div className="tz-header__desktop d-none d-xl-block tz-ml-auto tz-mr-auto">
                     <Nav />
                   </div>
