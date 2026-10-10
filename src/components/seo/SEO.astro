@@ -1,0 +1,117 @@
+---
+import { siteConfig } from "@/config/site";
+import {
+  getOrganizationJsonLd,
+  getWebSiteJsonLd,
+  getBreadcrumbJsonLd,
+  type BreadcrumbItem,
+  type ArticleSchemaData,
+} from "@/lib/jsonLd";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  article?: ArticleSchemaData;
+  breadcrumbs?: BreadcrumbItem[];
+  jsonLd?: Record<string, any> | Record<string, any>[];
+}
+
+const {
+  title: rawTitle,
+  description: rawDescription,
+  canonical: rawCanonical,
+  ogImage: rawOgImage,
+  ogType = "website",
+  noindex = false,
+  article,
+  breadcrumbs,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, "") : siteConfig.url;
+
+// Format title with template `%s | Vesharo` unless it already includes brand name
+let title = rawTitle || `${siteConfig.name} — ${siteConfig.tagline}`;
+if (rawTitle && !rawTitle.toLowerCase().includes("vesharo")) {
+  title = `${rawTitle} | ${siteConfig.name}`;
+}
+
+// Ensure description is clean and within recommendation (<= 155 chars)
+const description =
+  rawDescription || siteConfig.description;
+
+// Canonical URL resolution
+const currentPath = Astro.url.pathname;
+const canonicalUrl = rawCanonical
+  ? (rawCanonical.startsWith("http") ? rawCanonical : `${siteUrl}${rawCanonical}`)
+  : `${siteUrl}${currentPath}`;
+
+// OG Image resolution
+const ogImageUrl = rawOgImage
+  ? (rawOgImage.startsWith("http") ? rawOgImage : `${siteUrl}${rawOgImage}`)
+  : `${siteUrl}/brand/og-image.png`;
+
+// Assemble structured data
+const baseSchemas: Record<string, any>[] = [
+  getOrganizationJsonLd(siteUrl),
+  getWebSiteJsonLd(siteUrl),
+];
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  baseSchemas.push(getBreadcrumbJsonLd(breadcrumbs, siteUrl));
+}
+
+if (jsonLd) {
+  if (Array.isArray(jsonLd)) {
+    baseSchemas.push(...jsonLd);
+  } else {
+    baseSchemas.push(jsonLd);
+  }
+}
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+<meta name="theme-color" content="#070B14" />
+<meta name="color-scheme" content="dark light" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:locale" content="en_US" />
+
+{ogType === "article" && article && (
+  <>
+    <meta property="article:published_time" content={article.datePublished} />
+    {article.dateModified && <meta property="article:modified_time" content={article.dateModified} />}
+    {article.authorName && <meta property="article:author" content={article.authorName} />}
+  </>
+)}
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@vesharo_ai" />
+<meta name="twitter:creator" content="@vesharo_ai" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- Structured Data (JSON-LD) -->
+{baseSchemas.map((schema) => (
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+))}

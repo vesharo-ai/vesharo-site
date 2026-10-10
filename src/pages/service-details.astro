@@ -4,11 +4,32 @@ import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import ServiceDetails from "@/components/service-details/ServiceDetails";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+import { getServiceJsonLd } from "@/lib/jsonLd";
+
+const faqs = (await getCollection("faq"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4)
+  .map(({ data }) => ({ id: data.id, question: data.question, answer: data.answer }));
+
+const serviceSchema = getServiceJsonLd({
+  name: "IT Services & AI Engineering",
+  description: "Production AI automation, cloud architectures, and full-stack software development.",
+  path: "/service-details",
+});
 ---
 
-<Layout title="Service Details | Vesharo">
+<Layout
+  title="Services & AI Capabilities | Vesharo"
+  description="Explore our 7 core capabilities in AI automation, custom software, cloud DevOps, and high-performance mobile platforms."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/service-details" },
+  ]}
+  jsonLd={serviceSchema}
+>
   <BreadCrumb title="Service Details" />
-  <HeaderSlider client:visible />
-  <ServiceDetails client:visible />
+  <HeaderSlider />
+  <ServiceDetails faqs={faqs} />
   <Subscribe1 />
 </Layout>

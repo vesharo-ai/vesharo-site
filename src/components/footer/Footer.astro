@@ -28,30 +28,30 @@ import { siteConfig } from "@/config/site";
             </p>
 
             <!-- Verified Contact Details -->
-            <div class="d-flex flex-column gap-2 mb-4">
+            <div class="d-flex flex-column gap-3 mb-4">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                class="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                class="d-flex align-items-center gap-2 text-decoration-none tz-footer-contact-link"
                 aria-label={`Email ${siteConfig.contact.email}`}
               >
-                <i class="ph ph-envelope" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
-                <span>{siteConfig.contact.email}</span>
+                <i class="ph ph-envelope" style="color: #00d2ff; font-size: 18px;" aria-hidden="true"></i>
+                <span class="text-white fw-medium" style="font-size: 14px;">{siteConfig.contact.email}</span>
               </a>
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
-                class="d-flex align-items-center gap-2 text-decoration-none text-muted tz-text-s hover-cyan"
+                class="d-flex align-items-center gap-2 text-decoration-none tz-footer-contact-link"
                 aria-label={`Call ${siteConfig.contact.phone}`}
               >
-                <i class="ph ph-phone" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
-                <span>{siteConfig.contact.phone}</span>
+                <i class="ph ph-phone" style="color: #00d2ff; font-size: 18px;" aria-hidden="true"></i>
+                <span class="text-white fw-medium" style="font-size: 14px;">{siteConfig.contact.phone}</span>
               </a>
-              <div class="d-flex align-items-center gap-2 text-muted tz-text-s">
-                <i class="ph ph-map-pin" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
-                <span>{siteConfig.contact.location}</span>
+              <div class="d-flex align-items-center gap-2">
+                <i class="ph ph-map-pin" style="color: #00d2ff; font-size: 18px;" aria-hidden="true"></i>
+                <span style="color: #cbd5e1; font-size: 14px;">{siteConfig.contact.location}</span>
               </div>
-              <div class="d-flex align-items-center gap-2 text-muted tz-text-s">
-                <i class="ph ph-clock" style="color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
-                <span>{siteConfig.contact.hours}</span>
+              <div class="d-flex align-items-center gap-2">
+                <i class="ph ph-clock" style="color: #00d2ff; font-size: 18px;" aria-hidden="true"></i>
+                <span style="color: #cbd5e1; font-size: 14px;">{siteConfig.contact.hours}</span>
               </div>
             </div>
           </div>

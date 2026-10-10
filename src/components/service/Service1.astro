@@ -8,7 +8,7 @@ interface Props {
   limit?: number;
 }
 
-const { backgroundColor = "#171717", limit = 4 } = Astro.props;
+const { backgroundColor = "#0f1626", limit = 4 } = Astro.props;
 
 const allServices = await getCollection("services");
 const services = allServices
@@ -46,27 +46,27 @@ const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
       {services.map((svc, index) => (
         <div class="col-md-6 col-xl-3">
           <div class={`tz-service1-card ${index === 0 ? "active" : ""}`}>
-            <a href="/service-details" class="tz-text-neutral4 d-block text-decoration-none">
+            <a href="/service-details" class="text-white d-block text-decoration-none">
               <span class="tz-service1-card__number">{romanNumerals[index] || index + 1}</span>
               <div class="tz-service1-card__content">
                 <div class="tz-service1-card__shape d-flex justify-content-center tz-mb-20 tz-mb-lg-40">
                   <div
                     class="d-flex align-items-center justify-content-center rounded-circle"
-                    style="width: 56px; height: 56px; background: rgba(0, 102, 255, 0.15); color: var(--vesharo-electric-accent, #00d2ff);"
+                    style="width: 56px; height: 56px; background: rgba(0, 210, 255, 0.15); color: #00d2ff;"
                   >
                     <i class={`ph ${svc.data.icon}`} style="font-size: 28px;" aria-hidden="true"></i>
                   </div>
                 </div>
-                <h3 class="tz-service1-card__title text-uppercase text-center">
+                <h3 class="tz-service1-card__title text-uppercase text-center text-white">
                   {svc.data.title}
                 </h3>
-                <p class="tz-service1-card__desc fw-medium tz-text-l text-center mb-0">
+                <p class="tz-service1-card__desc fw-medium tz-text-l text-center mb-0" style="color: #cbd5e1;">
                   {svc.data.shortDescription}
                 </p>
                 <div class="tz-service1-card__footer">
                   <div class="row align-items-center">
                     <div class="col-8">
-                      <span class="mb-0 text-uppercase tz-text-neutral4 tz-text-s fw-semibold">
+                      <span class="mb-0 text-uppercase tz-text-s fw-semibold" style="color: #00d2ff;">
                         Explore Capability
                       </span>
                     </div>
@@ -88,10 +88,49 @@ const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 </section>
 
 <style>
+  /* Accent surfaces (active, hover, keyboard focus) need dark text to stay readable. */
+  :global(.tz-service1-card.active),
+  :global(.tz-service1-card:hover),
+  :global(.tz-service1-card:focus-within) {
+    background-color: var(--vesharo-electric-accent);
+  }
+
+  :global(.tz-service1-card:focus-within .tz-service1-card__content) {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  :global(.tz-service1-card:focus-within .tz-service1-card__number),
+  :global(.tz-service1-card:focus-within .tz-service1-card__circle) {
+    visibility: hidden;
+  }
+
+  :global(.tz-service1-card.active *),
+  :global(.tz-service1-card:hover *),
+  :global(.tz-service1-card:focus-within *) {
+    color: #070b14 !important;
+  }
+
+  :global(.tz-service1-card.active .tz-service1-card__shape > div),
+  :global(.tz-service1-card:hover .tz-service1-card__shape > div),
+  :global(.tz-service1-card:focus-within .tz-service1-card__shape > div) {
+    background: rgba(12, 12, 12, 0.1) !important;
+  }
+
+  :global(.tz-service1-card a:focus-visible) {
+    outline: 2px solid #070b14;
+    outline-offset: 4px;
+  }
+
   @media (max-width: 991px) {
     :global(.tz-service1-card .tz-service1-card__content) {
       visibility: visible !important;
       opacity: 1 !important;
+    }
+    /* Content is always shown on touch layouts, so the hover-only decorations would cover it. */
+    :global(.tz-service1-card .tz-service1-card__number),
+    :global(.tz-service1-card .tz-service1-card__circle) {
+      display: none !important;
     }
     :global(.tz-service1-card__footer) {
       padding-top: 1.5rem !important;

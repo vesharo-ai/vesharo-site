@@ -6,9 +6,13 @@ import Error from "@/components/error/Error";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="404 - Page Not Found | Vesharo">
+<Layout
+  title="Page Not Found | Vesharo"
+  description="The page you are looking for does not exist or has been moved. Explore Vesharo's IT services and AI automation platforms."
+  noindex={true}
+>
   <BreadCrumb title="404" />
-  <HeaderSlider client:visible />
-  <Error client:visible />
+  <HeaderSlider />
+  <Error />
   <Subscribe1 />
 </Layout>

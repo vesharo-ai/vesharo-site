@@ -3,6 +3,9 @@ import SectionSubtitle from "../section-subtitle/SectionSubtitle";
 import SectionTitle from "../section-title/SectionTitle";
 import ContactInfoBox from "./ContactInfoBox";
 import ContactFormBox from "./ContactFormBox";
+import { siteConfig } from "@/config/site";
+
+const { contact } = siteConfig;
 
 function ContactForm() {
   return (
@@ -16,21 +19,20 @@ function ContactForm() {
           <div className="col-lg-4">
             <ContactInfoBox
               icon="ph-phone-call"
-              title="Call US 24/7"
-              link="(316) 555-0116"
-              href="tel:23232424"
+              title={`Call / WhatsApp · ${contact.hours}`}
+              link={contact.phone}
+              href={`tel:${contact.phone.replace(/\s+/g, "")}`}
             />
             <ContactInfoBox
               icon="ph-envelope-simple-open"
-              title="Email Us Anytime"
-              link="tranthuy.nute@gmail.com"
-              href="mailto:tranthuy.nute@gmail.com"
+              title="Email Us"
+              link={contact.email}
+              href={`mailto:${contact.email}`}
             />
             <ContactInfoBox
               icon="ph-map-pin"
               title="Our Location"
-              link="George Bush Intercontinental Airport"
-              href="#"
+              link={contact.location}
               className="mb-0"
             />
           </div>

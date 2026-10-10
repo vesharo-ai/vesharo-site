@@ -6,6 +6,7 @@
     "role": "Head of Hardware Financing Operations",
     "company": "LockApp Platform",
     "project": "LockApp Device Management",
+    "image": "/images/project/project1-img1.jpg",
     "rating": 5
   },
   {
@@ -15,6 +16,7 @@
     "role": "Infrastructure & Ticketing Director",
     "company": "NavratriOS Deployment",
     "project": "NavratriOS Event Management",
+    "image": "/images/project/project1-img2.jpg",
     "rating": 5
   },
   {
@@ -24,6 +26,7 @@
     "role": "Developer Experience Lead",
     "company": "Wirebench Ecosystem",
     "project": "Wirebench API Workbench",
+    "image": "/images/project/project1-img3.jpg",
     "rating": 5
   }
 ]

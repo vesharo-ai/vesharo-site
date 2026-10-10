@@ -3,24 +3,32 @@ import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import About2 from "@/components/about/About2.astro";
-import Video from "@/components/video/Video";
 import Service1 from "@/components/service/Service1.astro";
 import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
 import Team1 from "@/components/team/Team1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
 import Faq1 from "@/components/faq/Faq1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getTestimonialSlides } from "@/lib/content";
+
+const testimonials = await getTestimonialSlides();
 ---
 
-<Layout title="About Us | Vesharo">
+<Layout
+  title="About Us | Vesharo"
+  description="Learn about Vesharo's senior engineering team, enterprise standards, and our mission to deliver high-velocity AI and software."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+  ]}
+>
   <BreadCrumb title="About Us" />
-  <HeaderSlider client:visible />
+  <HeaderSlider />
   <About2 />
-  <Video client:visible bgColor="#121212" />
   <Service1 limit={4} />
-  <WhoWeAre backgroundColor="#121212" />
+  <WhoWeAre backgroundColor="#0b0f19" />
   <Team1 />
-  <Testimonial1 client:visible />
-  <Faq1 backgroundColor="#171717" />
+  {testimonials.length > 0 && <Testimonial1 client:visible slides={testimonials} />}
+  <Faq1 backgroundColor="#0f1626" />
   <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

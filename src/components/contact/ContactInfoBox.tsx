@@ -5,7 +5,7 @@ interface ContactInfoBoxProps {
   icon: string;
   title: string;
   link: string;
-  href: string;
+  href?: string;
   className?: string;
 }
 
@@ -23,9 +23,13 @@ function ContactInfoBox({
       </div>
       <div className="tz-contact-info-box__content">
         <h5 className="tz-contact-info-box__title">{title}</h5>
-        <Link className="tz-text-l tz-contact-info-box__link" href={href}>
-          {link}
-        </Link>
+        {href ? (
+          <Link className="tz-text-l tz-contact-info-box__link" href={href}>
+            {link}
+          </Link>
+        ) : (
+          <span className="tz-text-l tz-contact-info-box__link">{link}</span>
+        )}
       </div>
     </div>
   );

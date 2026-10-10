@@ -169,7 +169,7 @@ a:hover {
 }
 
 .tz-bg-primary {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 
 .tz-bg-secondary {
@@ -177,15 +177,15 @@ a:hover {
 }
 
 .tz-bg-neutral1 {
-  background-color: #1d1d1d;
+  background-color: #141d33;
 }
 
 .tz-bg-neutral2 {
-  background-color: #171717;
+  background-color: #0f1626;
 }
 
 .tz-bg-neutral3 {
-  background-color: #121212;
+  background-color: #0b0f19;
 }
 
 .tz-bg-neutral4 {
@@ -205,7 +205,7 @@ a:hover {
 }
 
 .tz-text-primary {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 
 .tz-text-secondary {
@@ -213,15 +213,15 @@ a:hover {
 }
 
 .tz-text-neutral1 {
-  color: #1d1d1d;
+  color: #141d33;
 }
 
 .tz-text-neutral2 {
-  color: #171717;
+  color: #0f1626;
 }
 
 .tz-text-neutral3 {
-  color: #121212;
+  color: #0b0f19;
 }
 
 .tz-text-neutral4 {
@@ -241,7 +241,7 @@ a:hover {
 }
 
 .tz-border-primary {
-  border-color: #c9f31d;
+  border-color: #00d2ff;
 }
 
 .tz-border-secondary {
@@ -249,15 +249,15 @@ a:hover {
 }
 
 .tz-border-neutral1 {
-  border-color: #1d1d1d;
+  border-color: #141d33;
 }
 
 .tz-border-neutral2 {
-  border-color: #171717;
+  border-color: #0f1626;
 }
 
 .tz-border-neutral3 {
-  border-color: #121212;
+  border-color: #0b0f19;
 }
 
 .tz-border-neutral4 {
@@ -3652,9 +3652,9 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   text-align: center;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 @media (min-width: 992px) {
   .tz-button {
@@ -3675,8 +3675,8 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
+  background-color: #00d2ff;
 }
 @media (min-width: 992px) {
   .tz-button-circle {
@@ -3696,7 +3696,7 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   text-align: center;
   background-color: #ffffff;
 }
@@ -3719,7 +3719,7 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   background-color: #ffffff;
 }
 @media (min-width: 992px) {
@@ -3740,7 +3740,7 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   text-align: center;
   background-color: #ffff00;
 }
@@ -3763,7 +3763,7 @@ h6 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   background-color: #ffff00;
 }
 @media (min-width: 992px) {
@@ -3785,31 +3785,31 @@ h6 {
   justify-content: flex-start;
 }
 .tz-buttons:hover .tz-button {
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 .tz-buttons:hover .tz-button-circle {
   border: 2px solid;
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 .tz-buttons:hover .tz-button-yellow {
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 .tz-buttons:hover .tz-button-yellow-circle {
   border: 2px solid;
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 .tz-buttons:hover .tz-button-white {
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 .tz-buttons:hover .tz-button-white-circle {
   border: 2px solid;
-  color: #c9f31d;
-  background-color: #1d1d1d;
+  color: #00d2ff;
+  background-color: #141d33;
 }
 
 /*======================================
@@ -3828,9 +3828,9 @@ select {
   border: none;
   width: 100%;
   margin-bottom: 10px;
-  background: #121212;
+  background: #0b0f19;
   margin-bottom: 0;
-  background-color: #121212;
+  background-color: #0b0f19;
   padding: 0rem 1rem;
   color: #000000;
 }
@@ -3844,8 +3844,8 @@ select::-ms-input-placeholder {
   color: rgba(187, 187, 185, 0.5) !important;
 }
 select:focus {
-  box-shadow: 0px 0px 0px 1px #c9f31d;
-  box-shadow: 0px 0px 0px 1px #c9f31d;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
 }
 
 input {
@@ -3861,7 +3861,7 @@ input {
   border: none;
   width: 100%;
   margin-bottom: 10px;
-  background: #121212;
+  background: #0b0f19;
   margin-bottom: 0;
 }
 input::placeholder {
@@ -3874,8 +3874,8 @@ input::-ms-input-placeholder {
   color: rgba(187, 187, 185, 0.5) !important;
 }
 input:focus {
-  box-shadow: 0px 0px 0px 1px #c9f31d;
-  box-shadow: 0px 0px 0px 1px #c9f31d;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
 }
 
 textarea {
@@ -3891,7 +3891,7 @@ textarea {
   border: none;
   width: 100%;
   margin-bottom: 10px;
-  background: #121212;
+  background: #0b0f19;
   margin-bottom: 0;
   resize: none;
   height: 10.5rem;
@@ -3906,8 +3906,8 @@ textarea::-ms-input-placeholder {
   color: rgba(187, 187, 185, 0.5) !important;
 }
 textarea:focus {
-  box-shadow: 0px 0px 0px 1px #c9f31d;
-  box-shadow: 0px 0px 0px 1px #c9f31d;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
+  box-shadow: 0px 0px 0px 1px #00d2ff;
 }
 
 /*======================================
@@ -3943,7 +3943,7 @@ textarea:focus {
   fill: #ffff00;
 }
 .common-shape1--primary path {
-  fill: #c9f31d;
+  fill: #00d2ff;
 }
 
 .common-shape2--right {
@@ -4020,7 +4020,7 @@ textarea:focus {
 }
 .tz-pagination__page:hover,
 .tz-pagination__page.active {
-  background: #c9f31d;
+  background: #00d2ff;
   color: #000000 !important;
 }
 .tz-pagination .prev-btn {
@@ -4038,7 +4038,7 @@ textarea:focus {
   }
 }
 .tz-pagination .prev-btn:hover {
-  color: #c9f31d !important;
+  color: #00d2ff !important;
 }
 .tz-pagination .next-btn {
   background-color: transparent;
@@ -4055,7 +4055,7 @@ textarea:focus {
   }
 }
 .tz-pagination .next-btn:hover {
-  color: #c9f31d !important;
+  color: #00d2ff !important;
 }
 
 /*======================================
@@ -4089,7 +4089,7 @@ textarea:focus {
   text-align: center;
 }
 .tz-section-subtitle {
-  color: #c9f31d;
+  color: #00d2ff;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
   font-weight: 500;
@@ -4105,7 +4105,7 @@ textarea:focus {
 .tz-section-subtitle__line {
   height: 0.0625rem;
   width: 3.75rem;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   margin-right: 1.25rem;
 }
 .tz-section-title {
@@ -4126,7 +4126,7 @@ textarea:focus {
   padding-left: 0;
 }
 .tz-main-menu > ul li a:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 @media (min-width: 1200px) {
   .tz-main-menu > ul li.has-dropdown::after {
@@ -4140,7 +4140,7 @@ textarea:focus {
     top: 18px;
     transform: translate(-5px, 3px);
     font-size: 14px;
-    color: #c9f31d;
+    color: #00d2ff;
   }
 }
 .tz-main-menu > ul li.has-dropdown .submenu {
@@ -4155,7 +4155,7 @@ textarea:focus {
   z-index: 999;
   visibility: hidden;
   text-align: left;
-  background: rgba(23, 23, 23, 0.7);
+  background: rgba(15, 22, 38, 0.7);
   backdrop-filter: blur(10px);
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px -40px;
 }
@@ -4176,7 +4176,7 @@ textarea:focus {
 }
 .tz-main-menu > ul li.has-dropdown .submenu li a:hover {
   padding-left: 0.9375rem;
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-main-menu > ul li.has-dropdown .submenu.tz-mega-menu {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px -40px;
@@ -4285,8 +4285,8 @@ textarea:focus {
   padding: 0;
 }
 .tz-offcanvas-btn:hover {
-  color: #c9f31d;
-  border: 1px solid rgba(201, 243, 29, 0.5);
+  color: #00d2ff;
+  border: 1px solid rgba(0, 210, 255, 0.5);
 }
 .tz-body-overlay {
   position: fixed;
@@ -4314,7 +4314,7 @@ textarea:focus {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: #1d1d1d;
+  background: #141d33;
   backdrop-filter: blur(10px);
   overscroll-behavior-y: contain;
   -webkit-transform: translateX(calc(100% + 80px));
@@ -4369,7 +4369,7 @@ textarea:focus {
   font-size: 1.125rem;
 }
 .tz-mobile-menu .tz-main-menu > ul li a .dropdown-toggle-btn:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-mobile-menu .tz-main-menu > ul li.has-dropdown .dropdown-toggle-btn {
   transition: all 0.3s ease-in-out;
@@ -4386,7 +4386,7 @@ textarea:focus {
   padding-top: 10px;
   padding-left: 10px;
   transition: none;
-  background: #1d1d1d;
+  background: #141d33;
 }
 .tz-mobile-menu
   .tz-main-menu
@@ -4432,7 +4432,7 @@ textarea:focus {
 
 .sticky {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px -40px;
-  background: rgba(23, 23, 23, 0.7);
+  background: rgba(15, 22, 38, 0.7);
   backdrop-filter: blur(10px);
 }
 
@@ -4442,7 +4442,7 @@ textarea:focus {
 .tz-banner1 {
   position: relative;
   overflow: hidden;
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
   padding: 5rem 0rem 0rem 0rem;
 }
@@ -4581,8 +4581,8 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 60px;
-  background-color: #c9f31d;
-  color: #1d1d1d;
+  background-color: #00d2ff;
+  color: #141d33;
   margin-left: -0.9375rem;
 }
 .tz-banner1-highlight__text {
@@ -4596,7 +4596,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 170px;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   border: 5px solid #000000;
   position: absolute;
   bottom: 5%;
@@ -4651,7 +4651,7 @@ textarea:focus {
 }
 .tz-banner1__circle-icon {
   position: absolute;
-  color: #1d1d1d;
+  color: #141d33;
   font-size: 24px;
   display: block;
   background-color: #ffff00;
@@ -4691,7 +4691,7 @@ textarea:focus {
 =======================================*/
 .tz-banner2 {
   position: relative;
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
   padding: 5rem 0rem 1.25rem 0rem;
 }
@@ -4713,7 +4713,7 @@ textarea:focus {
 .tz-banner2__btn {
   text-transform: uppercase;
   color: #000000;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   height: 100px;
   width: 100px;
   display: inline-flex;
@@ -4839,7 +4839,7 @@ textarea:focus {
 =======================================*/
 .tz-text-slider {
   padding: 1.25rem 0rem 1.25rem 0rem;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 @media (min-width: 992px) {
   .tz-text-slider {
@@ -4867,7 +4867,7 @@ textarea:focus {
 
 .tz-text-slider2 {
   padding: 1.25rem 0rem 1.25rem 0rem;
-  background: #1d1d1d;
+  background: #141d33;
   backdrop-filter: blur(5px);
 }
 @media (min-width: 992px) {
@@ -4884,7 +4884,7 @@ textarea:focus {
 =======================================*/
 .tz-about1 {
   position: relative;
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -4984,7 +4984,7 @@ textarea:focus {
         06.02. About Style 2
 =======================================*/
 .tz-about2 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5040,7 +5040,7 @@ textarea:focus {
         07.01. Service Style 1
 =======================================*/
 .tz-service1 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5052,7 +5052,7 @@ textarea:focus {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -5066,7 +5066,7 @@ textarea:focus {
   padding-top: 7.625rem;
 }
 .tz-service1-card__number {
-  color: rgba(201, 243, 29, 0.2);
+  color: rgba(0, 210, 255, 0.2);
   position: absolute;
   font-size: clamp(120px, 15vw, 260px);
   font-weight: 900;
@@ -5085,7 +5085,7 @@ textarea:focus {
 }
 .tz-service1-card__circle {
   position: absolute;
-  border: 15px solid #171717;
+  border: 15px solid #0f1626;
   border-bottom: none;
   bottom: 0;
   left: 50%;
@@ -5093,10 +5093,10 @@ textarea:focus {
   width: 100px;
   height: 50px;
   border-radius: 50% 50% 0 0/100% 100% 0 0;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 .tz-service1-card:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -5114,7 +5114,7 @@ textarea:focus {
 }
 
 .tz-service1-card.active {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -5147,7 +5147,7 @@ textarea:focus {
         07.02. Service Style 2
 =======================================*/
 .tz-service2 {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5157,7 +5157,7 @@ textarea:focus {
 }
 .tz-service2-card {
   position: relative;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -5205,13 +5205,13 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-service2-card:hover .tz-service2-card__icon svg path {
-  fill: #c9f31d;
+  fill: #00d2ff;
 }
 .tz-service2-card:hover .tz-service2-card__btn {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-service2-card:hover .tz-service2-card__btn-icon svg path {
-  fill: #c9f31d;
+  fill: #00d2ff;
 }
 
 .tz-service2-card.active {
@@ -5220,19 +5220,19 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-service2-card.active .tz-service2-card__icon svg path {
-  fill: #c9f31d;
+  fill: #00d2ff;
 }
 .tz-service2-card.active .tz-service2-card__btn {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-service2-card.active .tz-service2-card__btn-icon svg path {
-  fill: #c9f31d;
+  fill: #00d2ff;
 }
 /*======================================
         07.03. Service Details
 =======================================*/
 .tz-service-details {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5296,7 +5296,7 @@ textarea:focus {
   justify-content: center;
   border-radius: 100%;
   font-size: 1rem;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
   padding: 0.625rem 0.625rem 0.625rem 0.625rem;
 }
@@ -5310,14 +5310,14 @@ textarea:focus {
 }
 .tz-service-details-sidebar__widget {
   padding: 1.5rem;
-  background-color: #171717;
+  background-color: #0f1626;
 }
 .tz-service-details-sidebar__widget:not(:first-child) {
   margin-top: 2rem;
 }
 .tz-service-details-sidebar__title {
   padding: 0.625rem;
-  border-left: 4px solid #c9f31d;
+  border-left: 4px solid #00d2ff;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -5327,21 +5327,21 @@ textarea:focus {
   align-items: center;
   justify-content: space-between;
   padding: 1.125rem 0.75rem 1.125rem 0.75rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   font-weight: 400;
   margin-bottom: 0.5rem;
   transition: all 0.3s linear;
 }
 .tz-service-details-sidebar__service-list a:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-service-details-sidebar__service-list a:hover i {
   color: #000000;
 }
 .tz-service-details-sidebar__service-list a i {
-  color: #c9f31d;
+  color: #00d2ff;
   font-size: 1.25rem;
 }
 .tz-service-details-sidebar__file-list a {
@@ -5350,7 +5350,7 @@ textarea:focus {
   gap: 0.75rem;
   width: 100%;
   padding: 1rem 0.75rem 1rem 0.75rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   margin-bottom: 0.5rem;
   border: none;
@@ -5359,7 +5359,7 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-service-details-sidebar__file-list a:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 
@@ -5376,7 +5376,7 @@ textarea:focus {
   height: 100%;
   position: relative;
   padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -5412,7 +5412,7 @@ textarea:focus {
   font-size: 24px;
 }
 .tz-wwa1-card__social-logo a:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-wwa1-card__social-follow {
   transform: rotate(-90deg);
@@ -5421,7 +5421,7 @@ textarea:focus {
   color: #ffffff;
 }
 .tz-wwa1-card__social-follow a:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-wwa1-card__trishape-muted {
   position: absolute;
@@ -5482,8 +5482,8 @@ textarea:focus {
   font-weight: 300;
   font-size: 110px;
   color: transparent;
-  -webkit-text-stroke: 1px #c9f31d;
-  text-stroke: 1px #c9f31d;
+  -webkit-text-stroke: 1px #00d2ff;
+  text-stroke: 1px #00d2ff;
 }
 @media (min-width: 1440px) {
   .tz-wwa1-experience__counter-number-stroke {
@@ -5504,7 +5504,7 @@ textarea:focus {
         09.01. Workflow Style 1
 =======================================*/
 .tz-workflow1 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5565,7 +5565,7 @@ textarea:focus {
   left: 50%;
   width: 100%;
   height: 2px;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   transform: translateX(-50%);
   z-index: 0;
 }
@@ -5575,10 +5575,10 @@ textarea:focus {
   left: 50%;
   width: 12px;
   height: 12px;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   border-radius: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 10px #c9f31d;
+  box-shadow: 0 0 10px #00d2ff;
   z-index: 1;
 }
 
@@ -5586,7 +5586,7 @@ textarea:focus {
         10.01. Pricing Style 2
 =======================================*/
 .tz-pricing2 {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5608,7 +5608,7 @@ textarea:focus {
 }
 .tz-pricing2__1month {
   padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-  background-color: #171717;
+  background-color: #0f1626;
   color: #bbbbb9;
   border: none;
 }
@@ -5618,12 +5618,12 @@ textarea:focus {
   }
 }
 .tz-pricing2__1month.active {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-pricing2__3month {
   padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-  background-color: #171717;
+  background-color: #0f1626;
   color: #bbbbb9;
   border: none;
 }
@@ -5633,11 +5633,11 @@ textarea:focus {
   }
 }
 .tz-pricing2__3month.active {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-pricing2-card {
-  background-color: #171717;
+  background-color: #0f1626;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
 }
 @media (min-width: 992px) {
@@ -5677,7 +5677,7 @@ textarea:focus {
   justify-content: center;
   flex-wrap: nowrap;
   border-radius: 0;
-  background-color: #171717;
+  background-color: #0f1626;
   color: #ffffff;
   border: 1px solid rgba(187, 187, 185, 0.1);
 }
@@ -5687,7 +5687,7 @@ textarea:focus {
   }
 }
 .tz-pricing2-card .tz-button--style2:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 
@@ -5778,7 +5778,7 @@ textarea:focus {
         12.01. Project Style 1
 =======================================*/
 .tz-project1 {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5853,7 +5853,7 @@ textarea:focus {
   margin-bottom: 0;
 }
 .tz-project1-card__tag {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: #ffffff;
 }
@@ -5863,7 +5863,7 @@ textarea:focus {
   }
 }
 .tz-project1-card__tag-date {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   position: absolute;
@@ -5930,21 +5930,21 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  color: #1d1d1d;
-  background-color: #c9f31d;
+  color: #141d33;
+  background-color: #00d2ff;
 }
 .tz-project1-card:hover .tz-project1-card__line {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #1d1d1d;
+  background-color: #141d33;
 }
 
 /*======================================
         12.02. Project Style 2
 =======================================*/
 .tz-project2 {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -5975,7 +5975,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 160px;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   border: 5px solid #ffffff;
   z-index: 2;
 }
@@ -6013,7 +6013,7 @@ textarea:focus {
   left: 0;
   top: 0;
   padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   visibility: hidden;
   opacity: 0;
 }
@@ -6061,7 +6061,7 @@ textarea:focus {
         12.03. Portfolio Details
 =======================================*/
 .tz-portfolio-details {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6094,7 +6094,7 @@ textarea:focus {
         13.01. Team Style 1
 =======================================*/
 .tz-team1 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6115,9 +6115,9 @@ textarea:focus {
   height: 100%;
   background: linear-gradient(
     to top,
-    rgba(201, 243, 29, 0.3) 0%,
-    rgba(201, 243, 29, 0.2) 50%,
-    rgba(201, 243, 29, 0.1) 100%
+    rgba(0, 210, 255, 0.3) 0%,
+    rgba(0, 210, 255, 0.2) 50%,
+    rgba(0, 210, 255, 0.1) 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -6180,8 +6180,8 @@ textarea:focus {
   transition: all 0.3s ease;
 }
 .tz-team1-card__social:hover {
-  background-color: #c9f31d;
-  color: #1d1d1d;
+  background-color: #00d2ff;
+  color: #141d33;
 }
 .tz-team1-card:hover::before {
   opacity: 1;
@@ -6195,7 +6195,7 @@ textarea:focus {
         13.02. Team Details
 =======================================*/
 .tz-team-details {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6250,8 +6250,8 @@ textarea:focus {
   justify-content: center;
   border-radius: 0px;
   font-size: 0.875rem;
-  border: 1px solid #c9f31d;
-  color: #c9f31d;
+  border: 1px solid #00d2ff;
+  color: #00d2ff;
 }
 @media (min-width: 992px) {
   .tz-team-details-social__items-link {
@@ -6268,7 +6268,7 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-team-details-info {
@@ -6312,14 +6312,14 @@ textarea:focus {
   }
 }
 .tz-team-details-expertise__list-icon {
-  color: #c9f31d;
+  color: #00d2ff;
   height: 20px;
   width: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 32px;
-  background-color: rgba(201, 243, 29, 0.1);
+  background-color: rgba(0, 210, 255, 0.1);
   padding: 0.625rem;
 }
 @media (min-width: 992px) {
@@ -6349,7 +6349,7 @@ textarea:focus {
 }
 
 .progress-bar {
-  background: #c9f31d;
+  background: #00d2ff;
 }
 
 .progressbar-active {
@@ -6412,7 +6412,7 @@ textarea:focus {
   font-size: 0.75rem;
   color: #ffffff;
   padding: 0;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   flex-shrink: 0;
   border: none;
 }
@@ -6431,7 +6431,7 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background: #c9f31d;
+  background: #00d2ff;
   color: #000000;
 }
 .tz-testimonial1__slider .swiper-scrollbar {
@@ -6444,7 +6444,7 @@ textarea:focus {
   margin: 0 0.625rem;
 }
 .tz-testimonial1__slider .swiper-scrollbar-drag {
-  background: #c9f31d;
+  background: #00d2ff;
   height: 0.25rem;
   position: absolute;
   border-radius: 0px;
@@ -6459,7 +6459,7 @@ textarea:focus {
   position: relative;
 }
 .tz-testimonial1-highlight__avatar {
-  border: 2px solid #1d1d1d;
+  border: 2px solid #141d33;
   border-radius: 60px;
 }
 .tz-testimonial1-highlight__avatar:not(:first-child) {
@@ -6472,9 +6472,9 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 60px;
-  background-color: #c9f31d;
-  color: #1d1d1d;
-  border: 2px solid #1d1d1d;
+  background-color: #00d2ff;
+  color: #141d33;
+  border: 2px solid #141d33;
   margin-left: -0.9375rem;
 }
 .tz-testimonial1-highlight__text {
@@ -6575,8 +6575,8 @@ textarea:focus {
   justify-content: center;
   border-radius: 50%;
   font-size: 0.75rem;
-  border: 1px solid #c9f31d;
-  color: #c9f31d;
+  border: 1px solid #00d2ff;
+  color: #00d2ff;
   padding: 0;
   cursor: pointer;
 }
@@ -6592,7 +6592,7 @@ textarea:focus {
   }
 }
 .tz-testimonial2__slider-navigation .tz-slider-nav:hover {
-  background: #c9f31d;
+  background: #00d2ff;
   color: #000000;
 }
 .tz-testimonial2__slider .swiper-wrapper {
@@ -6610,7 +6610,7 @@ textarea:focus {
   position: relative !important;
 }
 .tz-testimonial2 .swiper-scrollbar-drag {
-  background: #c9f31d;
+  background: #00d2ff;
   height: 0.25rem;
   position: absolute;
   border-radius: 0px;
@@ -6654,8 +6654,8 @@ textarea:focus {
   border-radius: 50%;
   font-weight: 500;
   border: 2px solid #ffffff;
-  color: #1d1d1d;
-  background: #c9f31d;
+  color: #141d33;
+  background: #00d2ff;
 }
 
 /*======================================
@@ -6663,7 +6663,7 @@ textarea:focus {
 =======================================*/
 .tz-testimonial2-trustpoint {
   padding: 2rem 1.25rem 2rem 1.25rem;
-  background: #1d1d1d;
+  background: #141d33;
   text-align: center;
   max-width: 19.125rem;
   height: 100%;
@@ -6735,7 +6735,7 @@ textarea:focus {
         14.05. Testimonial Review
 =======================================*/
 .tz-testimonial2-review {
-  background: #171717;
+  background: #0f1626;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -6799,7 +6799,7 @@ textarea:focus {
         15.01. Blog Style 1
 =======================================*/
 .tz-blog1 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6826,7 +6826,7 @@ textarea:focus {
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
 .tz-blog1-card__content {
-  background-color: #171717;
+  background-color: #0f1626;
   padding: 1.125rem 1.625rem 1.125rem 1.625rem;
   display: flex;
   flex-direction: column;
@@ -6837,7 +6837,7 @@ textarea:focus {
   width: calc(100% - 96px);
   position: relative;
   margin: -125px auto 0px;
-  border-bottom: 2px solid #1d1d1d;
+  border-bottom: 2px solid #141d33;
   z-index: 6;
 }
 @media (min-width: 992px) {
@@ -6848,7 +6848,7 @@ textarea:focus {
 }
 .tz-blog1-card__content .tz-button {
   padding: 0.3125rem 1.25rem 0.3125rem 1rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
 }
 @media (min-width: 992px) {
@@ -6857,9 +6857,9 @@ textarea:focus {
   }
 }
 .tz-blog1-card__content .tz-button-circle {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
-  border: 2px solid #171717;
+  border: 2px solid #0f1626;
   font-size: 0.875rem;
   height: 28px;
   width: 28px;
@@ -6883,25 +6883,25 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 .tz-blog1-card:hover .tz-blog1-card__content .tz-buttons .tz-button {
   color: #000000;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
 }
 .tz-blog1-card:hover .tz-blog1-card__content .tz-buttons .tz-button-circle {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   border: 2px solid;
   color: #000000;
-  background-color: #1d1d1d;
-  background-color: #c9f31d;
+  background-color: #141d33;
+  background-color: #00d2ff;
 }
 
 /*======================================
         15.02. Blog Style 2
 =======================================*/
 .tz-blog2 {
-  background: #171717;
+  background: #0f1626;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6933,7 +6933,7 @@ textarea:focus {
         15.03. Blog Details
 =======================================*/
 .tz-blog-details {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -6962,7 +6962,7 @@ textarea:focus {
 }
 .tz-blog-details__category {
   padding: 0.375rem 0.75rem 0.375rem 0.75rem;
-  border: 1px solid #c9f31d;
+  border: 1px solid #00d2ff;
   border-radius: 2rem;
 }
 .tz-blog-details-tag {
@@ -7005,7 +7005,7 @@ textarea:focus {
   border: 1px solid rgba(187, 187, 185, 0.2);
 }
 .tz-blog-details-tag-box__meta:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-blog-details-social {
   display: flex;
@@ -7034,8 +7034,8 @@ textarea:focus {
   justify-content: center;
   border-radius: 0px;
   font-size: 0.875rem;
-  border: 1px solid #c9f31d;
-  color: #c9f31d;
+  border: 1px solid #00d2ff;
+  color: #00d2ff;
 }
 @media (min-width: 992px) {
   .tz-blog-details-social__items-link {
@@ -7052,19 +7052,19 @@ textarea:focus {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-blog-details-sidebar__widget {
   padding: 1.5rem;
-  background-color: #171717;
+  background-color: #0f1626;
 }
 .tz-blog-details-sidebar__widget:not(:first-child) {
   margin-top: 2rem;
 }
 .tz-blog-details-sidebar__title {
   padding: 0.625rem;
-  border-left: 4px solid #c9f31d;
+  border-left: 4px solid #00d2ff;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -7074,21 +7074,21 @@ textarea:focus {
   align-items: center;
   justify-content: space-between;
   padding: 1.125rem 0.75rem 1.125rem 0.75rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   font-weight: 400;
   margin-bottom: 0.5rem;
   transition: all 0.3s linear;
 }
 .tz-blog-details-sidebar__blog-list a:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-blog-details-sidebar__blog-list a:hover i {
   color: #000000;
 }
 .tz-blog-details-sidebar__blog-list a i {
-  color: #c9f31d;
+  color: #00d2ff;
   font-size: 1.25rem;
 }
 .tz-blog-details-sidebar__file-list a {
@@ -7097,7 +7097,7 @@ textarea:focus {
   gap: 0.75rem;
   width: 100%;
   padding: 1rem 0.75rem 1rem 0.75rem;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   margin-bottom: 0.5rem;
   border: none;
@@ -7106,7 +7106,7 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-blog-details-sidebar__file-list a:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-blog-details-sidebar__item {
@@ -7140,7 +7140,7 @@ textarea:focus {
 .tz-blog-details-sidebar__tag {
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: #ffffff;
-  background-color: #1d1d1d;
+  background-color: #141d33;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -7153,7 +7153,7 @@ textarea:focus {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   color: #000000;
-  background: #c9f31d;
+  background: #00d2ff;
 }
 .tz-blog-details-sidebar__search {
   display: flex;
@@ -7164,13 +7164,13 @@ textarea:focus {
   position: relative;
 }
 .tz-blog-details-sidebar__search input {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #ffffff;
   font-size: 1rem;
   outline: none;
 }
 .tz-blog-details-sidebar__search input::placeholder {
-  color: #1d1d1d;
+  color: #141d33;
 }
 .tz-blog-details-sidebar__search button {
   position: absolute;
@@ -7181,7 +7181,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 0px;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   border: none;
   cursor: pointer;
   font-size: 1.25rem;
@@ -7248,10 +7248,10 @@ textarea:focus {
   justify-content: start;
   gap: 0.625rem;
   font-weight: 500;
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-comment__reply:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-comment__reply i,
 .tz-comment__reply svg {
@@ -7269,7 +7269,7 @@ textarea:focus {
   line-height: 3rem;
   border-radius: 8px;
   padding: 0rem 0.9375rem 0rem 0.9375rem;
-  background: #171717;
+  background: #0f1626;
   border: none;
   outline: none;
   box-shadow: none;
@@ -7280,7 +7280,7 @@ textarea:focus {
   border: none;
   outline: none;
   box-shadow: none;
-  background: #171717;
+  background: #0f1626;
   color: #bbbbb9;
 }
 .tz-comment-box input::placeholder {
@@ -7290,20 +7290,20 @@ textarea:focus {
   line-height: 3rem;
   border-radius: 8px;
   padding: 0rem 0.9375rem 0rem 0.9375rem;
-  background: #171717;
+  background: #0f1626;
   border: none;
   outline: none;
   box-shadow: none;
   width: 100%;
   margin-bottom: 0.9375rem;
   height: 9.75rem;
-  background: #171717;
+  background: #0f1626;
 }
 .tz-comment-box textarea:focus {
   border: none;
   outline: none;
   box-shadow: none;
-  background: #171717;
+  background: #0f1626;
   color: #bbbbb9;
 }
 .tz-comment-box textarea::placeholder {
@@ -7331,7 +7331,7 @@ textarea:focus {
 .tz-contact-info-box {
   padding: 2.3125rem 2.5rem 2.3125rem 2.5rem;
   text-align: center;
-  background-color: #171717;
+  background-color: #0f1626;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -7345,8 +7345,8 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #1d1d1d;
-  color: #c9f31d;
+  background-color: #141d33;
+  color: #00d2ff;
   margin-bottom: 1.75rem;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -7364,10 +7364,10 @@ textarea:focus {
   color: #bbbbb9;
 }
 .tz-contact-info-box:hover {
-  border-bottom: 2px solid #c9f31d;
+  border-bottom: 2px solid #00d2ff;
 }
 .tz-contact-info-box:hover .tz-contact-info-box__icon {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
 }
 .tz-contact-info-box:hover .tz-contact-info-box__link {
@@ -7376,7 +7376,7 @@ textarea:focus {
 .tz-contact-form {
   padding: 1.875rem 1.875rem 1.875rem 1.875rem;
   border-radius: 12px;
-  background-color: #171717;
+  background-color: #0f1626;
 }
 @media (min-width: 768px) {
   .tz-contact-form {
@@ -7394,7 +7394,7 @@ textarea:focus {
   line-height: 3rem;
   border-radius: 8px;
   padding: 0rem 0.9375rem 0rem 0.9375rem;
-  background: #1d1d1d;
+  background: #141d33;
   border: none;
   outline: none;
   box-shadow: none;
@@ -7402,7 +7402,7 @@ textarea:focus {
   color: #bbbbb9;
 }
 .tz-contact-form input:focus {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #bbbbb9;
   box-shadow: none;
 }
@@ -7419,7 +7419,7 @@ textarea:focus {
   line-height: 3rem;
   border-radius: 8px;
   padding: 0rem 0.9375rem 0rem 0.9375rem;
-  background: #1d1d1d;
+  background: #141d33;
   border: none;
   outline: none;
   box-shadow: none;
@@ -7428,7 +7428,7 @@ textarea:focus {
   height: 9.75rem;
 }
 .tz-contact-form textarea:focus {
-  background-color: #1d1d1d;
+  background-color: #141d33;
   color: #bbbbb9;
   box-shadow: none;
 }
@@ -7461,7 +7461,7 @@ textarea:focus {
         17.01. Error Page
 =======================================*/
 .tz-error {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
   text-align: center;
 }
@@ -7490,7 +7490,7 @@ textarea:focus {
         18.01. Video Style 1
 =======================================*/
 .tz-video1 {
-  background: #121212;
+  background: #0b0f19;
   padding: 3.75rem 0rem 3.75rem 0rem;
 }
 @media (min-width: 992px) {
@@ -7515,7 +7515,7 @@ textarea:focus {
   top: 9%;
   right: 28%;
   transform: translateY(-50%);
-  border: 10px solid #121212;
+  border: 10px solid #0b0f19;
   height: 200px;
   width: 200px;
   display: inline-flex;
@@ -7552,7 +7552,7 @@ textarea:focus {
   font-size: 20px;
   border-radius: 50%;
   display: block;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
   display: grid;
   place-items: center;
@@ -7569,7 +7569,7 @@ textarea:focus {
 }
 @keyframes ripple {
   0% {
-    box-shadow: 0 0 0 0 #c9f31d, 0 0 0 0 #c9f31d;
+    box-shadow: 0 0 0 0 #00d2ff, 0 0 0 0 #00d2ff;
   }
   80% {
     box-shadow: 0 0 0 20px rgba(255, 255, 255, 0),
@@ -7584,13 +7584,14 @@ textarea:focus {
         19.01. Breadcrumb Component
 =======================================*/
 .tz-breadcrumb {
-  padding: 3.75rem 0rem 3.75rem 0rem;
+  /* Offset for the fixed header (~88px). */
+  padding: calc(88px + 2rem) 0rem 3.75rem 0rem;
   background-size: cover;
   position: relative;
 }
 @media (min-width: 992px) {
   .tz-breadcrumb {
-    padding: 7.5rem 0rem 7.5rem 0rem;
+    padding: calc(108px + 4rem) 0rem 7.5rem 0rem;
   }
 }
 .tz-breadcrumb__content {
@@ -7615,7 +7616,7 @@ textarea:focus {
   color: #ffffff;
 }
 .tz-breadcrumb__item.active {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-breadcrumb__overlay {
   position: absolute;
@@ -7649,7 +7650,7 @@ textarea:focus {
   color: black !important;
 }
 .tz-subscribe1__search input::placeholder {
-  color: #1d1d1d;
+  color: #141d33;
   font-weight: 300;
 }
 
@@ -7660,7 +7661,7 @@ textarea:focus {
 }
 .tz-subscribe1__wrapper {
   position: relative;
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   padding: 2.5rem 1.875rem 2.5rem 1.875rem;
 }
 @media (min-width: 992px) {
@@ -7680,7 +7681,7 @@ textarea:focus {
   border: 1px solid black;
   border-radius: 120px;
   width: 100%;
-  background: #c9f31d;
+  background: #00d2ff;
   padding: 0.25rem 1rem 0.25rem 1rem;
 }
 @media (min-width: 992px) {
@@ -7692,8 +7693,8 @@ textarea:focus {
   outline: none;
   box-shadow: none;
   border-color: #000000;
-  color: #171717;
-  background: #c9f31d;
+  color: #0f1626;
+  background: #00d2ff;
 }
 .tz-subscribe1__search button {
   height: 30px;
@@ -7725,7 +7726,7 @@ textarea:focus {
 =======================================*/
 .tz-footer {
   position: relative;
-  background-color: #121212;
+  background-color: #0b0f19;
   padding: 15rem 0rem 0rem 0rem;
 }
 .tz-footer__shape {
@@ -7802,14 +7803,14 @@ textarea:focus {
   }
 }
 .tz-footer__social-link {
-  border: 1px solid #c9f31d;
+  border: 1px solid #00d2ff;
   height: 30px;
   width: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 0px;
-  color: #c9f31d;
+  color: #00d2ff;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -7827,7 +7828,7 @@ textarea:focus {
   }
 }
 .tz-footer__social-link:hover {
-  background-color: #c9f31d;
+  background-color: #00d2ff;
   color: #000000;
   border-color: 1px solid transparent;
 }
@@ -7857,7 +7858,7 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-footer__menu-link:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-footer__heading {
   color: #ffffff;
@@ -7885,7 +7886,7 @@ textarea:focus {
   -o-transition: all 0.3s ease-in-out;
 }
 .tz-footer__link:hover {
-  color: #c9f31d;
+  color: #00d2ff;
 }
 .tz-footer__section {
   margin-bottom: 0.9375rem;
@@ -7914,7 +7915,7 @@ textarea:focus {
   text-align: right;
 }
 .tz-footer__credit-link {
-  color: #c9f31d;
+  color: #00d2ff;
   text-decoration: none;
 }
 .tz-footer__credit-link:hover {
@@ -7923,7 +7924,7 @@ textarea:focus {
 
 
 .tz-project1 {
-  background: #171717;
+  background: #0f1626;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -7961,7 +7962,7 @@ textarea:focus {
   }
 }
 .tz-project1 {
-  background: #171717;
+  background: #0f1626;
   min-height: 100vh;
   overflow: hidden;
   padding-top: 2rem; /* Added padding-top */
@@ -8081,7 +8082,7 @@ textarea:focus {
 .tz-banner2__btn::after {
   content: "";
   position: absolute;
-  border: 2px solid #c9f31d;
+  border: 2px solid #00d2ff;
   border-radius: 160px;
   z-index: -1;
   animation: pulse 1s infinite linear;
@@ -8134,7 +8135,7 @@ html {
   right: 20px;
   width: 45px;
   height: 45px;
-  background: #c9f31d;
+  background: #00d2ff;
   border: none;
   border-radius: 50%;
   cursor: pointer;

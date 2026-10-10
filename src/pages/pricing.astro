@@ -6,9 +6,16 @@ import Pricing1 from "@/components/pricing/Pricing1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Pricing & Engagement Models | Vesharo">
+<Layout
+  title="Pricing & Engagement Models | Vesharo"
+  description="Transparent, milestone-based pricing for AI automation, dedicated engineering sprints, and custom software delivery."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Pricing", path: "/pricing" },
+  ]}
+>
   <BreadCrumb title="Pricing Plan" />
-  <HeaderSlider client:visible />
+  <HeaderSlider />
   <Pricing1 />
   <Subscribe1 />
 </Layout>

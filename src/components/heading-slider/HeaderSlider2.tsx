@@ -1,60 +1,20 @@
-"use client";
-
 import React from "react";
-import Header2Slide from "./Header2Slide";
-import { headingTexts } from "../../seeds/HeadingSlider1.seeds";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { headingTexts } from "@/config/marquee";
 
-function HeaderSlider2() {
+export default function HeaderSlider2() {
+  // Duplicate array 3 times for seamless infinite reverse scroll
+  const items = [...headingTexts, ...headingTexts, ...headingTexts];
+
   return (
-    <>
-      <div className="tz-text-slider2 ">
-        <div className="swiper-wrapper">
-          <Swiper
-            className="tz-brand2-slider"
-            modules={[Autoplay]}
-            spaceBetween={0}
-            speed={4000}
-            slidesPerView={3}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              reverseDirection: true,
-            }}
-            loop={true}
-            freeMode={true}
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-              },
-              480: {
-                slidesPerView: 2,
-              },
-              640: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-              992: {
-                slidesPerView: 5,
-              },
-              1200: {
-                slidesPerView: 7,
-              },
-            }}
-          >
-            {headingTexts.map((text, index) => (
-              <SwiperSlide key={index}>
-                <Header2Slide text={text} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+    <div className="tz-text-slider2 tz-marquee-container" aria-label="Vesharo Engineering Pillars">
+      <div className="tz-marquee-track tz-marquee-track--right">
+        {items.map((text, idx) => (
+          <div key={idx} className="tz-marquee-item tz-marquee-item--cyan">
+            <span className="tz-marquee-bullet tz-marquee-bullet--cyan" aria-hidden="true">✦</span>
+            <span className="tz-marquee-text">{text}</span>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
-
-export default HeaderSlider2;

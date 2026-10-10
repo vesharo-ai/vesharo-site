@@ -2,13 +2,17 @@ import React from "react";
 import BrandSlider1 from "../brand-slider/BrandSlider1";
 import SectionSubtitle from "../section-subtitle/SectionSubtitle";
 import SectionTitle from "../section-title/SectionTitle";
-import Testimonial1Slider from "./Testimonial1Slider";
+import Testimonial1Slider, { type TestimonialSlide } from "./Testimonial1Slider";
 
 const Testimonial1 = React.memo(function Testimonial1({
+  slides,
   bgClass = "tz-bg-neutral3",
 }: {
+  slides: TestimonialSlide[];
   bgClass?: string;
 }) {
+  if (slides.length === 0) return null;
+
   return (
     <>
       <section
@@ -42,7 +46,7 @@ const Testimonial1 = React.memo(function Testimonial1({
             <div className="col-lg-2 d-flex d-lg-block align-items-center justify-content-between">
               <div className="tz-testimonial1-highlight">
                 <div className="d-flex align-items-center gap-2 mb-2">
-                  <i className="ph ph-shield-check" style={{ fontSize: "28px", color: "var(--vesharo-electric-accent, #00d2ff)" }} aria-hidden="true" />
+                  <i className="ph ph-shield-check" style={{ fontSize: "28px", color: "#00d2ff" }} aria-hidden="true" />
                   <span className="tz-text-neutral5 tz-text-m fw-bold">
                     100%
                   </span>
@@ -61,7 +65,7 @@ const Testimonial1 = React.memo(function Testimonial1({
               </div>
             </div>
             <div className="col-lg-9">
-              <Testimonial1Slider />
+              <Testimonial1Slider slides={slides} />
             </div>
           </div>
           <BrandSlider1 />

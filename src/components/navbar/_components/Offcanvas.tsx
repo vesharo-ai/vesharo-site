@@ -220,22 +220,22 @@ export default function Offcanvas({
 
         {/* Bottom Contact & Action */}
         <div className="pt-4 border-top border-secondary border-opacity-25 mt-4">
-          <div className="mb-3">
+          <div className="mb-3 d-flex flex-column gap-2">
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="d-flex align-items-center gap-2 text-muted text-decoration-none mb-2"
+              className="d-flex align-items-center gap-2 text-decoration-none"
               style={{ minHeight: "44px", fontSize: "14px" }}
             >
-              <i className="ph ph-envelope" style={{ fontSize: "18px", color: "var(--vesharo-electric-accent, #00d2ff)" }} />
-              <span>{siteConfig.contact.email}</span>
+              <i className="ph ph-envelope" style={{ fontSize: "18px", color: "#00d2ff" }} />
+              <span className="text-white fw-medium">{siteConfig.contact.email}</span>
             </a>
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
-              className="d-flex align-items-center gap-2 text-muted text-decoration-none"
+              className="d-flex align-items-center gap-2 text-decoration-none"
               style={{ minHeight: "44px", fontSize: "14px" }}
             >
-              <i className="ph ph-phone" style={{ fontSize: "18px", color: "var(--vesharo-electric-accent, #00d2ff)" }} />
-              <span>{siteConfig.contact.phone}</span>
+              <i className="ph ph-phone" style={{ fontSize: "18px", color: "#00d2ff" }} />
+              <span className="text-white fw-medium">{siteConfig.contact.phone}</span>
             </a>
           </div>
 

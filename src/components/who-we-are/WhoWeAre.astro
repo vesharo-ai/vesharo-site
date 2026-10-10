@@ -6,97 +6,103 @@ interface Props {
   backgroundColor?: string;
 }
 
-const { backgroundColor = "#121212" } = Astro.props;
+const { backgroundColor = "#070B14" } = Astro.props;
 
 const pillars = [
   {
     value: "100%",
     label: "IP & Code Ownership",
-    sub: "Full rights & repository handover on delivery",
+    sub: "Full rights, source code & clean repository handover upon delivery.",
+    icon: "ph-shield-check",
   },
   {
-    value: "7",
+    value: "7+",
     label: "Core Specializations",
-    sub: "AI, Custom Software, Cloud, DevOps, Mobile",
+    sub: "Production AI, custom software, cloud DevOps, and scalable platforms.",
+    icon: "ph-cpu",
   },
   {
     value: "0",
     label: "Vendor Data Leakage",
-    sub: "Private VPC & strict AI security guardrails",
+    sub: "Private VPC deployments, isolated LLM pipelines, and strict security.",
+    icon: "ph-lock-key",
   },
   {
-    value: "2",
-    label: "Week Agile Sprints",
-    sub: "Continuous working software demonstration",
+    value: "2 Wk",
+    label: "Agile Sprints",
+    sub: "Continuous working software releases and transparent velocity reporting.",
+    icon: "ph-clock-countdown",
   },
 ];
 ---
 
 <section
-  class="tz-wwa1 tz-bg-neutral3 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120"
+  class="tz-wwa1 tz-pt-60 tz-pb-60 tz-pt-lg-120 tz-pb-lg-120"
   style={{ backgroundColor }}
 >
   <div class="container">
-    <div class="row g-4">
-      <div class="col-xl-5">
-        <div class="tz-section-top">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <!-- Left Column: Context & High-End Visual -->
+      <div class="col-lg-5">
+        <div class="tz-section-top mb-4">
           <SectionSubtitle subtitle="Engineering Standards" />
           <SectionTitle title="HOW WE DELIVER VALUE" />
         </div>
-        <p class="tz-text-l tz-text-neutral6 mb-4">
+        <p class="tz-text-l mb-4" style="line-height: 1.6; color: #cbd5e1;">
           We combine senior engineering discipline with state-of-the-art AI automation to deliver robust, scalable digital assets that generate tangible business outcomes.
         </p>
-        <img src="/images/wwa/wwa1-img.jpg" alt="Vesharo Engineering Standards" class="img-fluid w-100 rounded" />
-      </div>
-      <div class="col-xl-7">
-        <div class="row g-4">
-          <div class="col-xl-4 col-md-6 d-none d-md-block">
-            <div class="tz-wwa1-shape">
-              <img src="/images/wwa/wwa1-shape.svg" alt="" aria-hidden="true" />
+
+        <!-- Command Center Feature Visual -->
+        <div class="vesharo-wwa-media position-relative rounded-4 overflow-hidden shadow-lg mb-4 mb-lg-0">
+          <img
+            src="/images/wwa/wwa1-img.jpg"
+            alt="Vesharo Enterprise Engineering Standards"
+            class="img-fluid w-100 object-fit-cover"
+            style="min-height: 320px; max-height: 420px; display: block;"
+            loading="lazy"
+          />
+          <div class="vesharo-wwa-media-overlay position-absolute bottom-0 start-0 end-0 p-3 p-md-4">
+            <div class="d-flex align-items-center gap-2">
+              <span class="vesharo-badge-dot"></span>
+              <span class="text-white fw-semibold tz-text-s">Enterprise-Grade SDLC &amp; Strict Code Auditing</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Clean, Responsive Metric Cards Grid -->
+      <div class="col-lg-7">
+        <div class="row g-3 g-md-4">
           {pillars.map((item) => (
-            <div class="col-xl-4 col-md-6">
-              <div class="tz-wwa1-card">
-                <img
-                  src="/images/wwa/wwa1-muted-trishape.svg"
-                  alt=""
-                  aria-hidden="true"
-                  class="tz-wwa1-card__trishape-muted"
-                />
-                <img
-                  src="/images/wwa/wwa1-active-trishape.svg"
-                  alt=""
-                  aria-hidden="true"
-                  class="tz-wwa1-card__trishape-active"
-                />
-                <div class="tz-wwa1-experience tz-text-neutral5">
-                  <div class="tz-wwa1-experience__counter">
-                    <h5 class="tz-wwa1-experience__counter-number tz-cn">
-                      {item.value}
-                    </h5>
-                  </div>
-                  <div class="tz-wwa1-experience__text text-uppercase tz-text-m fw-semibold">
-                    {item.label}
-                  </div>
-                  <p class="tz-text-xs text-muted mt-2 mb-0" style="line-height: 1.3;">
-                    {item.sub}
-                  </p>
+            <div class="col-sm-6">
+              <div class="vesharo-metric-card h-100 p-4 rounded-4 position-relative">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="vesharo-metric-value">{item.value}</span>
+                  <span class="vesharo-metric-glow"></span>
                 </div>
+                <h4 class="vesharo-metric-label text-white mb-2">{item.label}</h4>
+                <p class="vesharo-metric-sub mb-0">{item.sub}</p>
               </div>
             </div>
           ))}
-          <div class="col-xl-4 col-md-6">
-            <div class="tz-wwa1-card d-flex flex-column justify-content-center align-items-center text-center p-4">
-              <span class="tz-text-s text-uppercase fw-semibold mb-2" style="color: var(--vesharo-electric-accent, #00d2ff);">
-                Have a project?
-              </span>
+
+          <!-- 5th Call To Action Card -->
+          <div class="col-sm-12">
+            <div class="vesharo-metric-cta p-4 rounded-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+              <div>
+                <span class="text-uppercase fw-bold tz-text-xs tracking-wider text-accent">Next Step</span>
+                <h4 class="text-white mb-1 mt-1">Ready to engineer your next platform?</h4>
+                <p class="tz-text-s mb-0" style="color: #cbd5e1;">Book a technical scoping call directly with our engineering leads.</p>
+              </div>
               <a
                 href="/contact"
-                class="tz-button text-uppercase fw-medium tz-text-s d-inline-block"
-                style="padding: 10px 18px;"
+                class="tz-button d-inline-flex align-items-center justify-content-center gap-2 text-nowrap"
+                style="padding: 12px 24px;"
               >
-                Discuss Scope
+                <span>Discuss Scope</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -105,3 +111,58 @@ const pillars = [
     </div>
   </div>
 </section>
+
+<style>
+  .vesharo-wwa-media {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0f1626;
+  }
+  .vesharo-wwa-media-overlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.95) 100%);
+    backdrop-filter: blur(4px);
+  }
+  .vesharo-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00d2ff;
+    box-shadow: 0 0 8px #00d2ff;
+    display: inline-block;
+  }
+  .vesharo-metric-card {
+    background: #0f1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .vesharo-metric-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.5);
+    box-shadow: 0 12px 32px rgba(0, 210, 255, 0.12);
+  }
+  .vesharo-metric-value {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+    color: #00d2ff;
+    -webkit-text-fill-color: #00d2ff;
+  }
+  .vesharo-metric-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .vesharo-metric-sub {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  .vesharo-metric-cta {
+    background: #0f1626;
+    border: 1px solid rgba(0, 210, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  .text-accent {
+    color: #00d2ff !important;
+  }
+</style>

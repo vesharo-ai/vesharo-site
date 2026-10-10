@@ -6,9 +6,16 @@ import Team1 from "@/components/team/Team1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Engineering Leadership & Squad | Vesharo">
+<Layout
+  title="Our Leadership & Engineers | Vesharo"
+  description="Meet the senior engineers and AI architects building scalable digital products and automation pipelines at Vesharo."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Team", path: "/team" },
+  ]}
+>
   <BreadCrumb title="Team" />
-  <HeaderSlider client:visible />
+  <HeaderSlider />
   <Team1 isInnerPage />
   <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

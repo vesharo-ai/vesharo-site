@@ -6,7 +6,7 @@ interface Props {
   bgColor?: string;
 }
 
-const { bgColor = "#121212" } = Astro.props;
+const { bgColor = "#0b0f19" } = Astro.props;
 
 const engagementModels = [
   {
@@ -69,7 +69,6 @@ const engagementModels = [
         <p class="tz-text-m tz-text-neutral6 mb-4">
           Choose the right engagement structure for your technical roadmap — from fixed milestone sprints to dedicated engineering squads.
         </p>
-        <img src="/images/wwa/wwa1-shape.svg" alt="" aria-hidden="true" class="d-none d-md-block" />
       </div>
       {engagementModels.map((card) => (
         <div class="col-md-6 col-xl-3">

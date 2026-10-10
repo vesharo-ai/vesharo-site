@@ -1,29 +1,20 @@
-/* Vesharo Brand Design Tokens — WCAG AA Verified */
+/* Vesharo Brand Design Tokens — Deep Navy + Electric Blue/Cyan (WCAG AA verified) */
 :root {
   /* Brand Navy Base (Canvas & Surfaces) */
   --vesharo-navy-950: #070b14; /* Deepest canvas / background */
   --vesharo-navy-900: #0b0f19; /* Primary dark background */
   --vesharo-navy-850: #0f1626; /* Secondary card background */
   --vesharo-navy-800: #141d33; /* Elevated surface */
-  --vesharo-navy-700: #1e293b; /* Borders & dividers (dark) */
+  --vesharo-navy-700: #1e293b; /* Borders & dividers */
   --vesharo-navy-600: #334155; /* Subtle borders */
 
-  /* Electric Accent (Brand Identity) */
+  /* Electric Accent. Cyan is the fill/text accent on navy (≈10:1 with navy text);
+     blue is reserved for gradients, borders and glows (fails AA behind dark text). */
   --vesharo-electric-primary: #0066ff; /* Core brand blue */
-  --vesharo-electric-accent: #00d2ff;  /* High-contrast electric cyan */
-  --vesharo-electric-glow: #00f0ff;    /* Neon highlights & glows */
-  --vesharo-electric-hover: #0052cc;   /* Hover state */
-  --vesharo-electric-subtle: rgba(0, 210, 255, 0.12); /* Translucent cyan glow */
-
-  /* Neutral Scale */
-  --vesharo-neutral-50: #f8fafc;  /* Clean light text / light canvas */
-  --vesharo-neutral-100: #f1f5f9; /* Light surface */
-  --vesharo-neutral-200: #e2e8f0; /* Light borders */
-  --vesharo-neutral-300: #cbd5e1; /* Subtle text */
-  --vesharo-neutral-400: #94a3b8; /* Dark mode muted text */
-  --vesharo-neutral-500: #64748b; /* Secondary muted */
-  --vesharo-neutral-600: #475569; /* Light mode body text */
-  --vesharo-neutral-900: #0f172a; /* Light mode main text */
+  --vesharo-electric-accent: #00d2ff;  /* Electric cyan — buttons, highlights, accent text */
+  --vesharo-electric-glow: #00f0ff;    /* Glow & highlights */
+  --vesharo-electric-hover: #00b8e6;   /* Hover state */
+  --vesharo-electric-subtle: rgba(0, 210, 255, 0.12);
 
   /* Semantic Colors */
   --vesharo-semantic-success: #10b981;
@@ -31,7 +22,730 @@
   --vesharo-semantic-error: #ef4444;
   --vesharo-semantic-info: #00d2ff;
 
+  /* Neutral Scale */
+  --vesharo-neutral-50: #f8fafc;
+  --vesharo-neutral-100: #f1f5f9;
+  --vesharo-neutral-200: #e2e8f0;
+  --vesharo-neutral-300: #cbd5e1;
+  --vesharo-neutral-400: #94a3b8;
+  --vesharo-neutral-500: #64748b;
+  --vesharo-neutral-600: #475569;
+  --vesharo-neutral-900: #0f172a;
+
   /* Typography Stack */
   --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+/* ==========================================================================
+   Buttons — Electric Cyan (#00d2ff) with Bold Navy Text
+   ========================================================================== */
+.tz-button,
+.tz-button-yellow,
+.tz-button--style2 {
+  background: #00d2ff !important;
+  color: #070b14 !important;
+  font-weight: 700 !important;
+  border: 1px solid #00d2ff !important;
+  box-shadow: 0 4px 16px rgba(0, 210, 255, 0.28) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tz-button:hover,
+.tz-button-yellow:hover,
+.tz-button--style2:hover {
+  background: #ffffff !important;
+  color: #070b14 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.tz-button-circle,
+.tz-button-yellow-circle {
+  background: #00d2ff !important;
+  color: #070b14 !important;
+  box-shadow: 0 4px 16px rgba(0, 210, 255, 0.28) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tz-button-circle:hover,
+.tz-button-yellow-circle:hover {
+  background: #ffffff !important;
+  color: #070b14 !important;
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+/* Brand Secondary & Accent Colors */
+.tz-text-secondary {
+  color: #00d2ff !important;
+}
+
+.tz-text-primary {
+  color: #00d2ff !important;
+}
+
+/* Scroll to top button */
+.scroll-top-btn {
+  background: #0f1626 !important;
+  border: 1px solid rgba(0, 210, 255, 0.4) !important;
+}
+.scroll-top-btn svg circle:last-of-type {
+  stroke: #00d2ff !important;
+}
+.scroll-top-btn i {
+  color: #00d2ff !important;
+}
+
+/* Section subtitles */
+.tz-section-subtitle h4 {
+  color: #00d2ff !important;
+  letter-spacing: 0.1em;
+}
+
+.tz-section-subtitle__line {
+  background: #00d2ff !important;
+}
+
+/* ==========================================================================
+   Continuous Marquee Ticker (HeaderSlider 1 & 2) — Clean & Collision-Free
+   ========================================================================== */
+/* Top Accent Ribbon */
+.tz-text-slider {
+  background: #00d2ff !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: 1.15rem 0 !important;
+}
+
+.tz-text-slider .tz-marquee-text {
+  color: #070b14 !important;
+  font-weight: 800 !important;
+}
+
+.tz-text-slider .tz-marquee-bullet {
+  color: #070b14 !important;
+}
+
+/* Bottom Dark Ribbon with Accent Highlights */
+.tz-text-slider2 {
+  background: #0b0f19 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 1.15rem 0 !important;
+}
+
+.tz-text-slider2 .tz-marquee-text {
+  color: #00d2ff !important;
+  font-weight: 700 !important;
+}
+
+.tz-text-slider2 .tz-marquee-bullet {
+  color: #ffffff !important;
+}
+
+.tz-marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.tz-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  will-change: transform;
+}
+
+.tz-marquee-track--left {
+  animation: tzMarqueeLeft 35s linear infinite;
+}
+
+.tz-marquee-track--right {
+  animation: tzMarqueeRight 35s linear infinite;
+}
+
+.tz-marquee-container:hover .tz-marquee-track {
+  animation-play-state: paused;
+}
+
+.tz-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tz-marquee-text {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tz-marquee-bullet {
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+@keyframes tzMarqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+@keyframes tzMarqueeRight {
+  0% {
+    transform: translateX(-33.333333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   Engineering Workflow (WorkFlow1) Accents
+   ========================================================================== */
+.tz-workflow1-card__dot {
+  background-color: #00d2ff !important;
+  box-shadow: 0 0 14px #00d2ff !important;
+}
+
+.tz-workflow1-card__line {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.tz-workflow1-card__step {
+  color: #00d2ff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+}
+
+.tz-workflow1-card__number {
+  font-size: clamp(2rem, 3.5vw, 2.75rem) !important;
+  color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ==========================================================================
+   Experience Counter Sizing Fix (Eliminating 310px template explosion)
+   ========================================================================== */
+.tz-about1-experience__counter-number {
+  font-size: clamp(3rem, 5vw, 4.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif) !important;
+  color: #ffffff !important;
+}
+
+.tz-about1-experience__counter-plus {
+  font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+  line-height: 1 !important;
+  color: #00d2ff !important;
+  font-weight: 700 !important;
+  padding-left: 4px !important;
+  padding-right: 12px !important;
+}
+
+/* ==========================================================================
+   Technology Stack Strip (BrandSlider1 Replacement)
+   ========================================================================== */
+.vesharo-tech-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 2rem;
+}
+
+.vesharo-tech-strip__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00d2ff;
+  margin-bottom: 0.5rem;
+}
+
+.vesharo-tech-strip__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 991.98px) {
+  .vesharo-tech-strip__title {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 1rem;
+    padding-right: 0;
+  }
+}
+
+.vesharo-tech-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 16px;
+  animation: tzTechMarquee 40s linear infinite;
+  will-change: transform;
+}
+
+.vesharo-tech-strip__marquee:hover .vesharo-tech-track {
+  animation-play-state: paused;
+}
+
+.vesharo-tech-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #0f1626;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.vesharo-tech-card:hover {
+  border-color: #00d2ff;
+  transform: translateY(-2px);
+}
+
+.vesharo-tech-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-family: var(--font-heading);
+}
+
+.vesharo-tech-name {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.vesharo-tech-role {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+@keyframes tzTechMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+/* ==========================================================================
+   Header Dropdown — Remove duplicate template caret pseudo-element
+   ========================================================================== */
+.tz-main-menu > ul li.has-dropdown::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ==========================================================================
+   Universal High-Contrast Text Fixes (Eliminates invisible black-on-dark text)
+   ========================================================================== */
+.tz-text-neutral4 {
+  color: #e2e8f0 !important;
+}
+
+.tz-text-neutral6 {
+  color: #cbd5e1 !important;
+}
+
+.hero-subtitle {
+  color: #cbd5e1 !important;
+}
+
+.tz-about1-desc {
+  color: #cbd5e1 !important;
+}
+
+.tz-service1-card a.tz-text-neutral4,
+.tz-service1-card a,
+.tz-service1-card {
+  color: #ffffff !important;
+}
+
+.tz-service1-card__title {
+  color: #ffffff !important;
+}
+
+.tz-service1-card__desc {
+  color: #cbd5e1 !important;
+}
+
+.tz-workflow1-card__desc {
+  color: #cbd5e1 !important;
+}
+
+.tz-testimonial1-highlight__text {
+  color: #cbd5e1 !important;
+}
+
+/* ==========================================================================
+   Footer Contact Links — High Contrast & Hover Effects
+   ========================================================================== */
+.tz-footer-contact-link {
+  transition: all 0.2s ease;
+}
+
+.tz-footer-contact-link span {
+  color: #ffffff !important;
+  transition: color 0.2s ease;
+}
+
+.tz-footer-contact-link:hover span {
+  color: #00d2ff !important;
+}
+
+/* ==========================================================================
+   Services Mega Menu
+   ========================================================================== */
+.tz-services-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: none;
+  border: 0;
+  color: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 3.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 1440px) {
+  .tz-services-trigger {
+    font-size: 14px;
+  }
+}
+
+.tz-services-trigger i {
+  font-size: 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tz-services-trigger:hover,
+.tz-services-nav.is-open .tz-services-trigger {
+  color: var(--vesharo-electric-accent);
+}
+
+.tz-services-nav.is-open .tz-services-trigger i {
+  transform: rotate(180deg);
+}
+
+.tz-services-trigger:focus-visible {
+  outline: 2px solid var(--vesharo-electric-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Anchored to the nav <ul> so the panel centres under the whole menu */
+.tz-services-nav {
+  position: static;
+}
+
+.tz-mega {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  z-index: 1001;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  width: min(920px, calc(100vw - 48px));
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: #0b0f19;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 210, 255, 0.05),
+    0 0 40px -10px rgba(0, 102, 255, 0.25);
+  transform: translateX(-50%);
+  animation: tz-mega-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: none;
+  text-align: left;
+}
+
+.tz-mega[hidden] {
+  display: none;
+}
+
+/* Hover bridge across the gap between trigger and panel */
+.tz-mega::before {
+  content: "";
+  position: absolute;
+  inset: -12px 0 auto;
+  height: 12px;
+}
+
+@keyframes tz-mega-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.tz-mega ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Beats the template's `.tz-nav-links > ul li a` uppercase / 60px line-height */
+.tz-nav-links .tz-mega a {
+  line-height: 1.4;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.tz-mega__main {
+  padding: 28px;
+}
+
+.tz-mega__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.tz-mega__eyebrow {
+  margin: 0 0 4px;
+  font-family: var(--font-family-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vesharo-electric-accent);
+}
+
+.tz-mega__lead {
+  margin: 0;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.tz-mega .tz-mega__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.tz-mega .tz-mega__all:hover {
+  gap: 10px;
+  color: var(--vesharo-electric-accent);
+}
+
+.tz-mega__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.tz-mega .tz-mega__service {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tz-mega .tz-mega__service:hover,
+.tz-mega .tz-mega__service:focus-visible {
+  background: rgba(148, 163, 184, 0.07);
+  border-color: rgba(148, 163, 184, 0.12);
+}
+
+.tz-mega__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: var(--vesharo-electric-accent);
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.18);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tz-mega__service:hover .tz-mega__icon,
+.tz-mega__service:focus-visible .tz-mega__icon {
+  color: #070b14;
+  background: var(--vesharo-electric-accent);
+}
+
+.tz-mega .tz-mega__service--custom {
+  border: 1px dashed rgba(148, 163, 184, 0.25);
+}
+
+.tz-mega__service--custom .tz-mega__icon {
+  color: #e2e8f0;
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.tz-mega__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.tz-mega__title {
+  font-family: var(--font-family-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.tz-mega__desc {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.tz-mega__side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+  background: #0f1626;
+  border-left: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 0 20px 20px 0;
+}
+
+.tz-mega__products {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tz-mega .tz-mega__product {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.tz-mega__product > i {
+  margin-top: 2px;
+  color: #64748b;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tz-mega .tz-mega__product:hover,
+.tz-mega .tz-mega__product:focus-visible {
+  background: rgba(148, 163, 184, 0.07);
+}
+
+.tz-mega__product:hover > i {
+  color: var(--vesharo-electric-accent);
+  transform: translate(2px, -2px);
+}
+
+.tz-mega__cta {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.18), rgba(0, 210, 255, 0.08));
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.tz-mega__cta-text {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.tz-mega .tz-mega__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #070b14;
+  background: var(--vesharo-electric-accent);
+  transition: background-color 0.2s ease;
+}
+
+.tz-mega .tz-mega__cta-btn:hover {
+  color: #070b14;
+  background: var(--vesharo-electric-glow);
+}
+
+.tz-mega a:focus-visible {
+  outline: 2px solid var(--vesharo-electric-accent);
+  outline-offset: 2px;
+}
+
+.tz-header1 {
+  z-index: 1000 !important;
+}
+
+.tz-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.tz-faq-item[open] summary i {
+  transform: rotate(180deg);
+}
+
+/* Bootstrap's default muted grey is tuned for light surfaces and fails AA on the dark canvas. */
+.text-muted {
+  color: var(--vesharo-neutral-400) !important;
+}
+
+
+

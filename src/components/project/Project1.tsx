@@ -1,83 +1,101 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
-import { projectCards } from "@/seeds/Project.seeds";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import React, { useEffect, useRef } from "react";
 import Link from "@/components/common/Link";
 
-function Project1({ backgroundColor = "#121212" }) {
+export interface ProjectCard {
+  link: string;
+  imageSrc: string;
+  year: string;
+  title: string;
+  categories: string[];
+}
+
+function Project1({
+  projects,
+  backgroundColor = "#0b0f19",
+}: {
+  projects: ProjectCard[];
+  backgroundColor?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
-  useLayoutEffect(() => {
-    // Only run GSAP/ScrollTrigger if screen is greater than 992px
+  useEffect(() => {
+    // The stacked-card animation is desktop-only, so GSAP is only downloaded there.
     if (window.innerWidth <= 992) return;
-
-    gsap.registerPlugin(ScrollTrigger);
 
     const container = containerRef.current;
     const cards = cardsRef.current;
-
     if (!container || cards.length === 0) return;
 
-    // Initial state for all cards
-    gsap.set(cards, {
-      autoAlpha: 0,
-      y: 100,
-      scale: 0.95,
-      filter: "blur(5px)",
-    });
+    let cancelled = false;
+    let trigger: { kill: () => void } | undefined;
 
-    // Show first card immediately with smooth animation
-    gsap.to(cards[0], {
-      autoAlpha: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      duration: 0.3,
-      ease: "power1.out",
-    });
+    Promise.all([import("gsap"), import("gsap/dist/ScrollTrigger")]).then(
+      ([{ default: gsap }, { default: ScrollTrigger }]) => {
+        if (cancelled) return;
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Create scroll-triggered animations
-    ScrollTrigger.create({
-      trigger: ".tz-project1",
-      start: "top top",
-      end: `+=${cards.length * 100}%`,
-      pin: ".tz-project1__slides-sticky",
-      pinSpacing: true,
-      scrub: 1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const totalCards = cards.length;
-        const currentIndex = Math.floor(progress * totalCards);
-
-        cards.forEach((card, index) => {
-          if (index === currentIndex) {
-            gsap.to(card, {
-              autoAlpha: 1,
-              y: 0,
-              scale: 1,
-              filter: "blur(0px)",
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          } else {
-            gsap.to(card, {
-              autoAlpha: 0,
-              y: index < currentIndex ? -100 : 100,
-              scale: 0.95,
-              filter: "blur(5px)",
-              duration: 0.5,
-              ease: "power2.inOut",
-            });
-          }
+        // Initial state for all cards
+        gsap.set(cards, {
+          autoAlpha: 0,
+          y: 100,
+          scale: 0.95,
+          filter: "blur(5px)",
         });
-      },
-    });
+
+        // Show first card immediately with smooth animation
+        gsap.to(cards[0], {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.3,
+          ease: "power1.out",
+        });
+
+        // Create scroll-triggered animations
+        trigger = ScrollTrigger.create({
+          trigger: container.closest(".tz-project1") ?? container,
+          start: "top top",
+          end: `+=${cards.length * 100}%`,
+          pin: container,
+          pinSpacing: true,
+          scrub: 1,
+          onUpdate: (self) => {
+            const totalCards = cards.length;
+            const currentIndex = Math.min(Math.floor(self.progress * totalCards), totalCards - 1);
+
+            cards.forEach((card, index) => {
+              if (index === currentIndex) {
+                gsap.to(card, {
+                  autoAlpha: 1,
+                  y: 0,
+                  scale: 1,
+                  filter: "blur(0px)",
+                  duration: 0.5,
+                  ease: "power2.out",
+                });
+              } else {
+                gsap.to(card, {
+                  autoAlpha: 0,
+                  y: index < currentIndex ? -100 : 100,
+                  scale: 0.95,
+                  filter: "blur(5px)",
+                  duration: 0.5,
+                  ease: "power2.inOut",
+                });
+              }
+            });
+          },
+        });
+      }
+    );
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      cancelled = true;
+      trigger?.kill();
     };
   }, []);
 
@@ -94,7 +112,7 @@ function Project1({ backgroundColor = "#121212" }) {
           </div>
         </div>
         <div className="tz-project1__slides-sticky" ref={containerRef}>
-          {projectCards.map((project, index) => (
+          {projects.map((project, index) => (
             <div
               className="tz-project1__sticky-card"
               key={index}
@@ -110,8 +128,8 @@ function Project1({ backgroundColor = "#121212" }) {
                   >
                     View More
                   </Link>
-                  <Link className="tz-button-circle" href={project.link}>
-                    <i className="ph ph-arrow-up-right" />
+                  <Link className="tz-button-circle" href={project.link} aria-label={`View ${project.title}`}>
+                    <i className="ph ph-arrow-up-right" aria-hidden="true" />
                   </Link>
                 </div>
                 <div className="tz-project1-card__image-wrapper">

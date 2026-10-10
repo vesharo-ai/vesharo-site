@@ -7,7 +7,7 @@ interface Props {
   backgroundColor?: string;
 }
 
-const { backgroundColor = "#121212" } = Astro.props;
+const { backgroundColor = "#0b0f19" } = Astro.props;
 
 const allFaqs = await getCollection("faq");
 const faqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
@@ -39,12 +39,6 @@ const faqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
               <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
             </a>
           </div>
-          <img
-            src="/images/banner/banner1-shape2.svg"
-            alt=""
-            aria-hidden="true"
-            class="tz-faq2__shape floating"
-          />
         </div>
       </div>
       <div class="col-xl-6">

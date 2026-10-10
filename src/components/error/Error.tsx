@@ -18,8 +18,8 @@ function Error() {
           >
             Explore More
           </Link>
-          <Link href="/" className="tz-button-circle">
-            <i className="ph ph-arrow-up-right" />
+          <Link href="/" className="tz-button-circle" aria-label="Back to homepage">
+            <i className="ph ph-arrow-up-right" aria-hidden="true" />
           </Link>
         </div>
       </div>

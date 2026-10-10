@@ -1,49 +1,51 @@
 ---
-// Astro-Native Hero Banner — Zero Hydration JS
+// Vesharo Hero Banner — Premium, Responsive, Collision-Free
 ---
 
-<section class="tz-banner1">
-  <div class="container">
-    <img
-      src="/images/banner/banner1-gradient-left.png"
-      alt=""
-      aria-hidden="true"
-      class="position-absolute bottom-0 start-0"
-    />
-    <img
-      src="/images/banner/banner1-gradient-right.png"
-      alt=""
-      aria-hidden="true"
-      class="position-absolute top-0 end-0"
-    />
-    <img
-      src="/images/banner/banner1-shape1.png"
-      alt=""
-      aria-hidden="true"
-      class="tz-banner1__shape1"
-    />
-    <img
-      src="/images/banner/banner1-shape2.svg"
-      alt=""
-      aria-hidden="true"
-      class="tz-banner1__shape2 floating"
-    />
-    <div class="row g-4 d-flex justify-content-between">
-      <div class="col-xl-5">
-        <span class="tz-banner1__title1 text-uppercase tz-text-neutral5 d-block">
-          INTELLIGENT
-        </span>
-        <h1 class="tz-banner1__title2 text-uppercase tz-text-secondary">
-          AI &amp; SOFTWARE
+<section class="tz-banner1 position-relative overflow-hidden">
+  <!-- Subtle ambient glow in brand colors -->
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
+
+  <div class="container position-relative py-3 py-lg-4" style="z-index: 2;">
+    <div class="row g-4 g-xl-5 align-items-center">
+      <!-- Left Column: Copy & Actions -->
+      <div class="col-lg-6">
+        <div class="hero-badge d-inline-flex align-items-center gap-2 mb-3 px-3 py-2 rounded-pill">
+          <span class="pulse-dot"></span>
+          <span class="text-uppercase fw-semibold" style="font-size: 12px; letter-spacing: 0.08em; color: #00d2ff;">
+            Production-Grade IT &amp; AI Automation
+          </span>
+        </div>
+
+        <h1 class="hero-title fw-bold text-uppercase mb-3">
+          <span class="text-white d-block">Intelligent</span>
+          <span class="gradient-text d-block">AI &amp; Software</span>
         </h1>
-        <div class="tz-banner1-content">
-          <p class="tz-banner1__desc tz-text-l tz-text-neutral6 tz-pb-xl-30">
-            Vesharo delivers production-grade AI automation, custom software, and scalable cloud platforms engineered for reliability and speed.
-          </p>
-          <div class="tz-buttons">
+
+        <p class="hero-subtitle text-muted mb-4">
+          Vesharo engineers custom software platforms, autonomous AI agents, and resilient cloud architectures tailored for modern enterprise scale.
+        </p>
+
+        <div class="d-flex flex-wrap align-items-center gap-3 mb-4 pb-2">
+          <div class="tz-buttons d-inline-flex align-items-center">
+            <a
+              href="/contact"
+              class="tz-button text-uppercase fw-semibold"
+              style="padding: 12px 26px; font-size: 14px;"
+            >
+              Book a Free Call
+            </a>
+            <a href="/contact" class="tz-button-circle" aria-label="Book a Free Call">
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="tz-buttons d-inline-flex align-items-center">
             <a
               href="/portfolio-details"
-              class="tz-button text-uppercase fw-medium tz-text-m"
+              class="tz-button text-uppercase fw-semibold"
+              style="padding: 12px 26px; font-size: 14px;"
             >
               Our Portfolio
             </a>
@@ -52,47 +54,138 @@
             </a>
           </div>
         </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="tz-banner1-info">
-          <div class="tz-banner1-content2">
-            <p class="tz-banner1__desc tz-text-l tz-text-neutral6">
-              From enterprise device platforms to autonomous AI agents, we engineer bespoke technology that scales.
-            </p>
+
+        <!-- Verified Trust Points -->
+        <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4 pt-3 border-top border-secondary border-opacity-25">
+          <div class="d-flex align-items-center gap-2">
+            <i class="ph ph-shield-check" style="font-size: 20px; color: #00d2ff;" aria-hidden="true"></i>
+            <span class="text-white" style="font-size: 13px; font-weight: 500;">100% Client-Owned IP</span>
           </div>
-          <div class="tz-banner1-highlight">
-            <div class="d-flex align-items-center gap-2">
-              <i class="ph ph-shield-check" style="font-size: 24px; color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
-              <span class="tz-text-neutral5 tz-text-m fw-semibold">
-                100% Client-Owned IP
-              </span>
-            </div>
-            <p class="tz-banner1-highlight__text tz-text-m tz-text-primary mt-1 mb-0">
-              Enterprise-grade engineering standards
-            </p>
+          <div class="d-flex align-items-center gap-2">
+            <i class="ph ph-cpu" style="font-size: 20px; color: #00d2ff;" aria-hidden="true"></i>
+            <span class="text-white" style="font-size: 13px; font-weight: 500;">Zero Data Retention</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="ph ph-lightning" style="font-size: 20px; color: #00d2ff;" aria-hidden="true"></i>
+            <span class="text-white" style="font-size: 13px; font-weight: 500;">2-Week Delivery Sprints</span>
           </div>
         </div>
-        <div class="tz-banner1__wrapper">
+      </div>
+
+      <!-- Right Column: High-End Technology Showcase Image -->
+      <div class="col-lg-6">
+        <div class="hero-image-card p-2 rounded-4 position-relative">
           <img
-            src="/images/banner/banner1-img.jpg"
-            alt="Vesharo Engineering Showcase"
-            class="tz-banner1__image img-fluid w-100"
+            src="/images/banner/banner1-hero.jpg"
+            alt="Vesharo Autonomous AI & Enterprise Software Platform"
+            class="img-fluid rounded-4 w-100 shadow-lg"
+            style="border: 1px solid rgba(0, 102, 255, 0.3); display: block;"
           />
-          <a href="/contact" class="tz-banner1__circle" aria-label="Start a Project">
-            <img
-              src="/images/banner/round-text.png"
-              alt=""
-              aria-hidden="true"
-              class="tz-banner1__circle-img"
-            />
-            <div class="tz-banner1__circle-thumb">
-              <span class="tz-banner1__circle-icon">
-                <i class="ph ph-arrow-down" aria-hidden="true"></i>
-              </span>
+          <div class="floating-stat-badge p-3 rounded-3 position-absolute shadow">
+            <div class="d-flex align-items-center gap-2">
+              <i class="ph ph-check-circle" style="font-size: 22px; color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
+              <div>
+                <div class="fw-bold text-white" style="font-size: 13px; line-height: 1.2;">Sub-Second Latency</div>
+                <div class="text-muted" style="font-size: 11px;">Production Benchmarks</div>
+              </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* The site header is position: fixed, so the hero reserves its height (~88px) at the top. */
+  .tz-banner1 {
+    padding: calc(88px + 1rem) 0 3rem;
+  }
+
+  @media (min-width: 992px) {
+    .tz-banner1 {
+      padding: calc(88px + 3rem) 0 5rem;
+    }
+  }
+
+  .hero-glow-left {
+    position: absolute;
+    top: -100px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-glow-right {
+    position: absolute;
+    bottom: -100px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.25);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00d2ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00d2ff;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 15px #00d2ff; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    position: static !important;
+  }
+
+  .gradient-text {
+    color: #00d2ff;
+    -webkit-text-fill-color: #00d2ff;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 540px;
+  }
+
+  .hero-image-card {
+    background: rgba(15, 22, 38, 0.7);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .floating-stat-badge {
+    bottom: 20px;
+    left: 20px;
+    background: rgba(7, 11, 20, 0.92);
+    border: 1px solid rgba(0, 210, 255, 0.35);
+    backdrop-filter: blur(12px);
+  }
+
+  @media (max-width: 767px) {
+    .floating-stat-badge {
+      position: static !important;
+      margin-top: 12px;
+    }
+  }
+</style>

@@ -5,12 +5,37 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import BlogDetails from "@/components/blog-details/BlogDetails";
 import RelatedArticles from "@/components/related-articles/RelatedArticles";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+import { getArticleJsonLd } from "@/lib/jsonLd";
+
+const recentPosts = (await getCollection("blog"))
+  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .slice(0, 3)
+  .map(({ data }) => ({ img: data.image, date: data.date, title: data.title, link: data.link }));
+
+const articleSchema = getArticleJsonLd({
+  title: "Building Resilient AI Agents in Production",
+  description: "In-depth architecture guide on building fault-tolerant autonomous AI agents with structured output validation and VPC isolation.",
+  path: "/blog-details",
+  datePublished: "2026-03-15T00:00:00Z",
+  authorName: "Vesharo Engineering Team",
+});
 ---
 
-<Layout title="Blog Details | Vesharo">
+<Layout
+  title="Building Resilient AI Agents | Vesharo"
+  description="In-depth architecture guide on building fault-tolerant autonomous AI agents with structured output validation and VPC isolation."
+  ogType="article"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Building Resilient AI Agents", path: "/blog-details" },
+  ]}
+  jsonLd={articleSchema}
+>
   <BreadCrumb title="Blog Details" />
-  <HeaderSlider client:visible />
-  <BlogDetails client:visible />
-  <RelatedArticles client:visible />
+  <HeaderSlider />
+  <BlogDetails recentPosts={recentPosts} />
+  <RelatedArticles />
   <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

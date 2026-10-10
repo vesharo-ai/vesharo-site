@@ -1,9 +1,9 @@
 import React from "react";
 import ServiceSidebar from "./ServiceSidebar";
 import ServiceDetailsCounter from "./ServiceDetailsCounter";
-import ServiceDetailsAccordion from "./ServiceDetailsAccordion";
+import ServiceDetailsAccordion, { type ServiceFaq } from "./ServiceDetailsAccordion";
 
-function ServiceDetails() {
+function ServiceDetails({ faqs }: { faqs: ServiceFaq[] }) {
   return (
     <div className="tz-service-details">
       <div className="container">
@@ -131,7 +131,7 @@ function ServiceDetails() {
                 </div>
               </div>
               <div className="col-md-6">
-                <ServiceDetailsAccordion />
+                <ServiceDetailsAccordion items={faqs} />
               </div>
             </div>
           </div>

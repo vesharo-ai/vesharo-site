@@ -1,13 +1,13 @@
 import React from "react";
 import BlogDetailsTag from "./BlogDetailsTag";
 import Link from "@/components/common/Link";
-import BlogDetailsRecentPost from "./BlogDetailsRecentPost";
+import BlogDetailsRecentPost, { type RecentPost } from "./BlogDetailsRecentPost";
 import BlogDetailsTopCategory from "./BlogDetailsTopCategory";
 import BlogDetailsSearch from "./BlogDetailsSearch";
 import BlogDetailsReview from "./BlogDetailsReview";
 import BlogDetailsTagSocial from "./BlogDetailsTagSocial";
 
-function BlogDetails() {
+function BlogDetails({ recentPosts }: { recentPosts: RecentPost[] }) {
   return (
     <div className="tz-blog-details">
       <div className="container">
@@ -85,7 +85,7 @@ function BlogDetails() {
           <div className="col-xl-3">
             <BlogDetailsSearch />
             <BlogDetailsTopCategory />
-            <BlogDetailsRecentPost />
+            <BlogDetailsRecentPost posts={recentPosts} />
             <BlogDetailsTag />
           </div>
         </div>

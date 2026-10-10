@@ -6,13 +6,23 @@
     "client": "Hardware Financing & Retailers",
     "year": "2025",
     "category": "Enterprise Mobile & Cloud SaaS",
+    "tags": [
+      "Enterprise MDM",
+      "B2B SaaS"
+    ],
     "description": "LockApp is an enterprise-grade mobile device management and EMI enforcement system for electronics retailers and NBFCs financing smartphones. The platform combines a custom Android device management agent with a multi-tenant cloud control plane.",
     "metrics": [
       "Real-time remote device policy sync",
       "Tamper-resistant offline lock enforcement",
       "Multi-tenant retailer administration dashboard"
     ],
-    "stack": ["Android MDM", "Node.js", "PostgreSQL", "Docker", "AWS"],
+    "stack": [
+      "Android MDM",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "AWS"
+    ],
     "link": "/portfolio-details",
     "featured": true,
     "image": "/images/project/project1-img1.jpg"
@@ -24,13 +34,23 @@
     "client": "Cultural Festivals & Event Organizers",
     "year": "2024",
     "category": "Event Infrastructure & High-Volume Ticketing",
+    "tags": [
+      "Event Ticketing",
+      "QR Platform"
+    ],
     "description": "NavratriOS is a specialized ticketing and entry management platform built to handle tens of thousands of concurrent festival attendees with sub-second QR code scanning at physical venue gates, instant fraud detection, and real-time pass generation.",
     "metrics": [
       "Sub-second gate validation via handheld scanners",
       "Zero-downtime registration spikes under heavy load",
       "Real-time attendance analytics and pass management"
     ],
-    "stack": ["React", "Fastify", "Redis", "PostgreSQL", "TailwindCSS"],
+    "stack": [
+      "React",
+      "Fastify",
+      "Redis",
+      "PostgreSQL",
+      "TailwindCSS"
+    ],
     "link": "/portfolio-details",
     "featured": true,
     "image": "/images/project/project1-img2.jpg"
@@ -42,13 +62,23 @@
     "client": "Developer Tooling & Engineering Teams",
     "year": "2024",
     "category": "Developer Tools & API Governance",
+    "tags": [
+      "API Governance",
+      "Dev Tools"
+    ],
     "description": "Wirebench is a lightweight, privacy-first API testing and documentation workbench for distributed engineering teams. It continuously monitors live endpoint contracts against OpenAPI schemas and flags breaking changes before staging deployment.",
     "metrics": [
       "Automated contract-drift alerting",
       "Zero cloud data leaks — runs locally and in private VPC",
       "Integrated markdown changelog generation"
     ],
-    "stack": ["TypeScript", "Electron", "SQLite", "OpenAPI Spec", "React"],
+    "stack": [
+      "TypeScript",
+      "Electron",
+      "SQLite",
+      "OpenAPI Spec",
+      "React"
+    ],
     "link": "/portfolio-details",
     "featured": true,
     "image": "/images/project/project1-img3.jpg"

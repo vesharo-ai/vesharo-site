@@ -4,11 +4,28 @@ import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Faq1 from "@/components/faq/Faq1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+import { getFaqJsonLd } from "@/lib/jsonLd";
+
+const faqEntries = await getCollection("faq");
+const faqSchema = getFaqJsonLd(
+  faqEntries
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(({ data }) => ({ question: data.question, answer: data.answer }))
+);
 ---
 
-<Layout title="FAQ | Vesharo">
+<Layout
+  title="Frequently Asked Questions | Vesharo"
+  description="Common questions regarding code ownership, AI security guardrails, 2-week delivery sprints, and engineering processes."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "FAQ", path: "/faq" },
+  ]}
+  jsonLd={faqSchema}
+>
   <BreadCrumb title="FAQ'S" />
-  <HeaderSlider client:visible />
-  <Faq1 backgroundColor="#121212" />
+  <HeaderSlider />
+  <Faq1 backgroundColor="#0b0f19" />
   <Subscribe1 />
 </Layout>

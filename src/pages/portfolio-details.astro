@@ -6,9 +6,16 @@ import PortfolioDetails from "@/components/portfolio-details/PortfolioDetails";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
-<Layout title="Portfolio Details | Vesharo">
+<Layout
+  title="Featured Case Studies | Vesharo"
+  description="Explore real products built by Vesharo: LockApp (B2B SaaS MDM), NavratriOS (Event Infrastructure), and Wirebench (API Testing)."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio-details" },
+  ]}
+>
   <BreadCrumb title="Portfolio Details" />
-  <HeaderSlider client:visible />
-  <PortfolioDetails client:visible />
+  <HeaderSlider />
+  <PortfolioDetails />
   <Subscribe1 />
 </Layout>

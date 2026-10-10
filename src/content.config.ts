@@ -26,6 +26,7 @@ const portfolio = defineCollection({
     client: z.string(),
     year: z.string(),
     category: z.string(),
+    tags: z.array(z.string()).default([]),
     description: z.string(),
     metrics: z.array(z.string()),
     stack: z.array(z.string()),
@@ -92,6 +93,7 @@ const testimonials = defineCollection({
     role: z.string(),
     company: z.string(),
     project: z.string(),
+    image: z.string().optional(),
     rating: z.number().default(5),
   }),
 });

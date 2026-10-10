@@ -1,13 +1,21 @@
 import React from "react";
-import { recentPosts } from "../../seeds/RecentPost.seeds";
 
-function BlogDetailsRecentPost() {
+export interface RecentPost {
+  img: string;
+  date: string;
+  title: string;
+  link: string;
+}
+
+function BlogDetailsRecentPost({ posts }: { posts: RecentPost[] }) {
+  if (posts.length === 0) return null;
+
   return (
     <div className="tz-blog-details-sidebar__widget">
       <h4 className="tz-blog-details-sidebar__title">Recent Posts</h4>
-      {recentPosts.map((post, idx) => (
-        <div className="tz-blog-details-sidebar__item" key={idx}>
-          <img src={post.img} alt="img" />
+      {posts.map((post) => (
+        <div className="tz-blog-details-sidebar__item" key={post.title}>
+          <img src={post.img} alt="" loading="lazy" />
           <div className="tz-blog-details-sidebar__content">
             <p className="tz-blog-details-sidebar__date tz-text-m">
               {post.date}

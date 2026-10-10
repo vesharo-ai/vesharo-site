@@ -2,6 +2,8 @@
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer.astro";
 import ScrollTop from "@/components/scroll-top/ScrollTop";
+import SEO from "@/components/seo/SEO.astro";
+import type { BreadcrumbItem, ArticleSchemaData } from "@/lib/jsonLd";
 
 import "@/styles/phosphoricons.css";
 import "@/styles/animate.css";
@@ -12,45 +14,38 @@ import "@/styles/brand.css";
 import "@/styles/globals.css";
 import "swiper/css";
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  article?: ArticleSchemaData;
+  breadcrumbs?: BreadcrumbItem[];
+  jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
-const {
-  title = "Vesharo — IT Services & AI Automation",
-  description = "Vesharo is a premier IT services and AI automation company delivering custom software, AI agents, mobile applications, and scalable cloud infrastructure.",
-} = Astro.props;
+const seoProps = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0B0F19" />
-    
+    <meta name="generator" content={Astro.generator} />
+
     <!-- Favicons & App Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <!-- Primary Metadata & Structured Data via SEO Component -->
+    <SEO {...seoProps} />
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="/brand/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/brand/og-image.png" />
-    
-    <!-- Preload Critical Self-Hosted Variable Fonts (Zero external network requests) -->
+    <!-- Preload Critical Self-Hosted Variable Fonts -->
     <link
       rel="preload"
       href="/fonts/plus-jakarta-sans-latin.woff2"

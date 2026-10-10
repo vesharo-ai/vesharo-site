@@ -19,7 +19,8 @@ function Navbar() {
         setIsSticky(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -48,9 +49,9 @@ function Navbar() {
                   <div className="tz-header__desktop d-none d-xl-block tz-ml-auto tz-mr-auto">
                     <Nav />
                   </div>
-                  <div className="d-none d-md-flex align-items-center justify-content-end gap-3">
+                  <div className="d-flex align-items-center justify-content-end gap-2 gap-md-3">
                     <ThemeToggle />
-                    <div className="tz-buttons">
+                    <div className="tz-buttons d-none d-md-inline-flex">
                       <Link
                         href="/contact"
                         className="tz-button text-uppercase fw-medium tz-text-m"
@@ -61,12 +62,9 @@ function Navbar() {
                         <i className="ph ph-arrow-up-right" />
                       </Link>
                     </div>
-                  </div>
-                  <div className="d-flex d-xl-none align-items-center gap-2 ms-4">
-                    <ThemeToggle />
                     <button
                       type="button"
-                      className="tz-button d-inline-flex tz-offcanvas-btn tz-offcanvas-open-btn"
+                      className="tz-button d-inline-flex d-xl-none tz-offcanvas-btn tz-offcanvas-open-btn"
                       onClick={() => setShowOffcanvas(!showOffcanvas)}
                       aria-label="Open mobile menu"
                       aria-expanded={showOffcanvas}

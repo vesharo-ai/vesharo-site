@@ -14,12 +14,32 @@ export default function Nav({
   const [servicesOpen, setServicesOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
   const navRef = useRef<HTMLElement>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       setCurrentPath(window.location.pathname);
     }
   }, []);
+
+  // Graceful hover handlers with 180ms bridge to prevent flickering
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    if (windowWidth >= 1200) {
+      setServicesOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (windowWidth >= 1200) {
+      closeTimeoutRef.current = setTimeout(() => {
+        setServicesOpen(false);
+      }, 180);
+    }
+  };
 
   // Close dropdown on Esc key or click outside
   useEffect(() => {
@@ -38,8 +58,21 @@ export default function Nav({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("mousedown", handleClickOutside);
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
     };
   }, []);
+
+  const handleServiceClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setServicesOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setServicesOpen(false);
+    setShowOffcanvas?.(false);
+  };
 
   return (
     <nav ref={navRef} className="tz-nav-links d-flex tz-main-menu" aria-label="Main Navigation">
@@ -51,172 +84,94 @@ export default function Nav({
             return (
               <li
                 key={item.title}
-                className={`has-dropdown position-relative ${servicesOpen ? "dropdown-open" : ""}`}
-                onMouseEnter={() => windowWidth >= 1200 && setServicesOpen(true)}
-                onMouseLeave={() => windowWidth >= 1200 && setServicesOpen(false)}
+                className={`tz-services-nav ${servicesOpen ? "is-open" : ""}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <button
                   type="button"
-                  className={`tz-nav-link-btn d-inline-flex align-items-center gap-1 ${
-                    isActive ? "active" : ""
-                  }`}
+                  className={`tz-services-trigger ${isActive ? "active" : ""}`}
                   aria-expanded={servicesOpen}
-                  aria-haspopup="true"
                   aria-controls="services-mega-menu"
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setServicesOpen(!servicesOpen);
-                    }
-                  }}
+                  onClick={handleServiceClick}
                 >
                   <span>Services</span>
-                  <i
-                    className="ph ph-caret-down"
-                    style={{
-                      fontSize: "14px",
-                      transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      transition: "transform 0.2s ease",
-                    }}
-                    aria-hidden="true"
-                  />
+                  <i className="ph ph-caret-down" aria-hidden="true" />
                 </button>
 
-                {/* Services Mega Menu */}
                 <div
                   id="services-mega-menu"
-                  className={`tz-submenu submenu tz-mega-menu tz-services-mega-menu ${
-                    servicesOpen ? "visible opacity-100" : ""
-                  }`}
+                  className="tz-mega"
                   role="region"
-                  aria-label="Services Menu"
-                  style={{
-                    display: servicesOpen ? "block" : "none",
-                    background: "rgba(11, 15, 25, 0.98)",
-                    border: "1px solid rgba(0, 102, 255, 0.25)",
-                    borderRadius: "12px",
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.75)",
-                    backdropFilter: "blur(16px)",
-                    zIndex: 1050,
-                  }}
+                  aria-label="Services"
+                  hidden={!servicesOpen}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <div className="tz-mega-wrapper p-4">
-                    <div className="row g-3">
-                      <div className="col-12 col-xl-8">
-                        <div className="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom border-secondary border-opacity-25">
-                          <span
-                            className="text-uppercase fw-semibold"
-                            style={{ fontSize: "12px", color: "var(--vesharo-electric-accent, #00d2ff)" }}
-                          >
-                            Core Capabilities (7)
-                          </span>
-                          <Link
-                            href="/service-details"
-                            style={{ fontSize: "12px", color: "#94a3b8", textDecoration: "none" }}
-                            onClick={() => {
-                              setServicesOpen(false);
-                              setShowOffcanvas?.(false);
-                            }}
-                          >
-                            View Details &rarr;
-                          </Link>
-                        </div>
-                        <div className="row g-2">
-                          {siteConfig.services.map((service) => (
-                            <div key={service.id} className="col-12 col-md-6">
-                              <Link
-                                href={service.href}
-                                className="tz-mega-service-card d-flex align-items-start gap-2 p-2 rounded text-decoration-none"
-                                onClick={() => {
-                                  setServicesOpen(false);
-                                  setShowOffcanvas?.(false);
-                                }}
-                              >
-                                <div
-                                  className="tz-service-icon-box p-2 rounded"
-                                  style={{
-                                    background: "rgba(0, 102, 255, 0.12)",
-                                    color: "var(--vesharo-electric-accent, #00d2ff)",
-                                  }}
-                                >
-                                  <i className={`ph ${service.icon}`} style={{ fontSize: "18px" }} />
-                                </div>
-                                <div>
-                                  <div className="fw-semibold text-white" style={{ fontSize: "14px" }}>
-                                    {service.title}
-                                  </div>
-                                  <p
-                                    className="mb-0"
-                                    style={{ fontSize: "12px", color: "#94a3b8", lineHeight: "1.3" }}
-                                  >
-                                    {service.shortDescription}
-                                  </p>
-                                </div>
-                              </Link>
-                            </div>
-                          ))}
-                        </div>
+                  <div className="tz-mega__main">
+                    <div className="tz-mega__head">
+                      <div>
+                        <p className="tz-mega__eyebrow">What we build</p>
+                        <p className="tz-mega__lead">
+                          {siteConfig.services.length} core capabilities, delivered by senior engineers.
+                        </p>
                       </div>
-
-                      {/* Right Showcase Column */}
-                      <div className="col-12 col-xl-4 border-start border-secondary border-opacity-25 ps-xl-4 d-none d-xl-flex flex-column justify-content-between">
-                        <div>
-                          <span
-                            className="text-uppercase fw-semibold d-block mb-3 pb-2 border-bottom border-secondary border-opacity-25"
-                            style={{ fontSize: "12px", color: "var(--vesharo-electric-accent, #00d2ff)" }}
-                          >
-                            Real Products
-                          </span>
-                          <div className="d-flex flex-column gap-2">
-                            {siteConfig.portfolio.map((item) => (
-                              <Link
-                                key={item.id}
-                                href={item.href}
-                                className="p-2 rounded text-decoration-none border border-secondary border-opacity-25"
-                                style={{ background: "rgba(17, 24, 39, 0.6)" }}
-                                onClick={() => setServicesOpen(false)}
-                              >
-                                <div className="fw-semibold text-white" style={{ fontSize: "13px" }}>
-                                  {item.title}
-                                </div>
-                                <div
-                                  style={{
-                                    fontSize: "11px",
-                                    color: "#94a3b8",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                  }}
-                                >
-                                  {item.tagline}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                        <div
-                          className="mt-3 p-3 rounded text-center border"
-                          style={{
-                            background: "rgba(0, 102, 255, 0.08)",
-                            borderColor: "rgba(0, 102, 255, 0.2)",
-                          }}
-                        >
-                          <p style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "8px" }}>
-                            Need custom AI or software engineering?
-                          </p>
-                          <Link
-                            href="/contact"
-                            className="tz-button text-uppercase fw-medium text-center d-inline-block w-100"
-                            style={{ padding: "8px 16px", fontSize: "12px" }}
-                            onClick={() => setServicesOpen(false)}
-                          >
-                            Book a free call
-                          </Link>
-                        </div>
-                      </div>
+                      <Link href="/service-details" className="tz-mega__all" onClick={closeMenu}>
+                        All services <i className="ph ph-arrow-right" aria-hidden="true" />
+                      </Link>
                     </div>
+
+                    <ul className="tz-mega__grid">
+                      {siteConfig.services.map((service) => (
+                        <li key={service.id}>
+                          <Link href={service.href} className="tz-mega__service" onClick={closeMenu}>
+                            <span className="tz-mega__icon" aria-hidden="true">
+                              <i className={`ph ${service.icon}`} />
+                            </span>
+                            <span className="tz-mega__text">
+                              <span className="tz-mega__title">{service.title}</span>
+                              <span className="tz-mega__desc">{service.shortDescription}</span>
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/contact" className="tz-mega__service tz-mega__service--custom" onClick={closeMenu}>
+                          <span className="tz-mega__icon" aria-hidden="true">
+                            <i className="ph ph-plus" />
+                          </span>
+                          <span className="tz-mega__text">
+                            <span className="tz-mega__title">Something custom?</span>
+                            <span className="tz-mega__desc">Tell us the problem — we’ll scope the right build.</span>
+                          </span>
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
+
+                  <aside className="tz-mega__side">
+                    <p className="tz-mega__eyebrow">Our products</p>
+                    <ul className="tz-mega__products">
+                      {siteConfig.portfolio.map((item) => (
+                        <li key={item.id}>
+                          <Link href={item.href} className="tz-mega__product" onClick={closeMenu}>
+                            <span className="tz-mega__text">
+                              <span className="tz-mega__title">{item.title}</span>
+                              <span className="tz-mega__desc">{item.tagline}</span>
+                            </span>
+                            <i className="ph ph-arrow-up-right" aria-hidden="true" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="tz-mega__cta">
+                      <p className="tz-mega__cta-text">Free 30-minute scoping call with our engineering leads.</p>
+                      <Link href="/contact" className="tz-mega__cta-btn" onClick={closeMenu}>
+                        Book a free call <i className="ph ph-arrow-right" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </aside>
                 </div>
               </li>
             );
@@ -228,7 +183,7 @@ export default function Nav({
                 href={item.href}
                 className={isActive ? "active" : ""}
                 aria-current={isActive ? "page" : undefined}
-                onClick={() => setShowOffcanvas?.(false)}
+                onClick={closeMenu}
               >
                 {item.title}
               </Link>

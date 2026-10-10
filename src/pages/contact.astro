@@ -5,12 +5,23 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import ContactForm from "@/components/contact/ContactForm";
 import Map from "@/components/map/Map";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getProfessionalServiceJsonLd } from "@/lib/jsonLd";
+
+const contactSchema = getProfessionalServiceJsonLd();
 ---
 
-<Layout title="Contact Us | Vesharo">
+<Layout
+  title="Contact Our Engineering Team | Vesharo"
+  description="Discuss your project scope directly with Vesharo's technical leads. Based in Ahmedabad, India, serving global enterprises."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]}
+  jsonLd={contactSchema}
+>
   <BreadCrumb title="Contact Us" />
-  <HeaderSlider client:visible />
-  <ContactForm client:visible />
-  <Map client:visible />
+  <HeaderSlider />
+  <ContactForm />
+  <Map />
   <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>

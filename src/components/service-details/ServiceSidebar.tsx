@@ -40,26 +40,6 @@ function ServiceSidebar() {
           </Link>
         </div>
       </div>
-      {/* Company Profile Widget */}
-      <div className="tz-service-details-sidebar__widget">
-        <h4 className="tz-service-details-sidebar__title">Company profile</h4>
-        <div className="tz-service-details-sidebar__file-list">
-          <Link
-            href="/pdf/pdf-file.pdf"
-            download="Document_of_Business.pdf"
-            className="tz-service-details-sidebar__file-item tz-text-l"
-          >
-            <i className="ph ph-file-archive" /> Document of Business
-          </Link>
-          <Link
-            href="/pdf/pdf-file.pdf"
-            download="Document_of_Word.pdf"
-            className="tz-service-details-sidebar__file-item tz-text-l"
-          >
-            <i className="ph ph-file-archive" /> Download Word File
-          </Link>
-        </div>
-      </div>
       <div className="tz-service-details-sidebar__widget">
         <h4 className="tz-service-details-sidebar__title border-start-0 p-0">
           Book A Free Consultation

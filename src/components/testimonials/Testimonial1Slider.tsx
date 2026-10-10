@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import { testimonialSlides } from "../../seeds/Testimonial.seeds";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import type { NavigationOptions, ScrollbarOptions } from "swiper/types";
@@ -10,7 +9,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
-function Testimonial1Slider() {
+export interface TestimonialSlide {
+  imageSrc?: string;
+  text: string;
+  title: string;
+  designation: string;
+}
+
+function Testimonial1Slider({ slides }: { slides: TestimonialSlide[] }) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -63,16 +69,18 @@ function Testimonial1Slider() {
             }
           }}
         >
-          {testimonialSlides.map((slide, index) => (
+          {slides.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="swiper-slide">
                 <div className="tz-testimonial1-card">
                   <div className="row g-4 d-flex justify-content-between">
-                    <div className="col-sm-5">
-                      <div className="tz-testimonial1-card__image">
-                        <img src={slide.imageSrc} alt={slide.title} />
+                    {slide.imageSrc && (
+                      <div className="col-sm-5">
+                        <div className="tz-testimonial1-card__image">
+                          <img src={slide.imageSrc} alt={slide.title} loading="lazy" />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div className="col-sm-6">
                       <div className="tz-testimonial1-card__info">
                         <p className="tz-testimonial1-card__text tz-text-xl tz-text-neutral6">
@@ -86,7 +94,7 @@ function Testimonial1Slider() {
                         </p>
                         <img
                           src="/images/testimonial/testimonial1-quote.svg"
-                          alt="shape"
+                          alt=""
                           className="tz-testimonial1-card__quote"
                         />
                       </div>
@@ -104,15 +112,17 @@ function Testimonial1Slider() {
             type="button"
             className="tz-testimonial1__slider-prev tz-slider-nav"
             ref={prevRef}
+            aria-label="Previous testimonial"
           >
-            <i className="ph ph-caret-left" />
+            <i className="ph ph-caret-left" aria-hidden="true" />
           </button>
           <button
             type="button"
             className="tz-testimonial1__slider-next tz-slider-nav"
             ref={nextRef}
+            aria-label="Next testimonial"
           >
-            <i className="ph ph-caret-right" />
+            <i className="ph ph-caret-right" aria-hidden="true" />
           </button>
         </div>
         <div className="swiper-scrollbar" ref={scrollbarRef} />

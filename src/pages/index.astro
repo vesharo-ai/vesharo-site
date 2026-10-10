@@ -12,19 +12,28 @@ import Team1 from "@/components/team/Team1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
 import Blog1 from "@/components/blog/Blog1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getFeaturedProjectCards, getTestimonialSlides } from "@/lib/content";
+
+const projects = await getFeaturedProjectCards();
+const testimonials = await getTestimonialSlides();
 ---
 
-<Layout title="Vesharo — IT Services & AI Automation">
+<Layout
+  title="Vesharo — IT Services & AI Automation"
+  description="Production-grade AI automation, custom software, and scalable cloud platforms engineered for modern enterprises."
+>
   <Banner1 />
-  <HeaderSlider client:visible />
-  <HeaderSlider2 client:visible />
+  <HeaderSlider />
+  <HeaderSlider2 />
   <About1 />
-  <Service1 limit={4} backgroundColor="#171717" />
-  <WhoWeAre backgroundColor="#121212" />
+  <Service1 limit={4} backgroundColor="#0f1626" />
+  <WhoWeAre backgroundColor="#0b0f19" />
   <WorkFlow1 />
-  <Project1 client:visible />
+  {projects.length > 0 && <Project1 client:visible projects={projects} />}
   <Team1 />
-  <Testimonial1 client:visible bgClass="tz-bg-neutral3" />
+  {testimonials.length > 0 && (
+    <Testimonial1 client:visible slides={testimonials} bgClass="tz-bg-neutral3" />
+  )}
   <Blog1 limit={3} />
   <Subscribe1 spacingClass="tz-mt-lg-120" />
 </Layout>
