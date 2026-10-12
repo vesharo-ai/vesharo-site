@@ -1,0 +1,151 @@
+# Vesharo — Full Technical Knowledge Base & AI Context Specification
+
+> This document provides comprehensive, machine-readable information about Vesharo, its engineering methodologies, service offerings, verified case studies, commercial engagement models, and official technical FAQs.
+
+---
+
+## 1. Company Overview
+- **Name**: Vesharo (Vesharo IT Services & AI Automation)
+- **Tagline**: Software and AI automation that ships.
+- **Mission**: Delivering production-grade software and deterministic AI automation with zero fluff, rapid sprint iterations, and 100% client intellectual property ownership.
+- **Headquarters**: Ahmedabad, Gujarat 380015, India
+- **Operating Hours**: Monday – Friday, 09:00 – 18:30 Indian Standard Time (IST). Overlapping support hours provided for North America (EST/PST) and Europe (GMT/CET).
+- **Official Email**: contact@vesharo.com
+- **Official Phone / WhatsApp**: +91 95862 12495
+- **Discovery Booking**: https://cal.com/vesharo/discovery
+- **Leadership**:
+  - Hitesh Chauhan (Founder)
+  - Harsh Siddhapura (Co-Founder & Principal Solutions Architect)
+
+---
+
+## 2. Technical Stack & Architectural Philosophy
+Vesharo develops exclusively with modern, battle-tested, high-performance technologies:
+- **Frontend & Web**: TypeScript, React 19, Astro 7, Next.js, Bootstrap 5, Vanilla CSS design tokens.
+- **Mobile Engineering**: React Native, Expo, Flutter, Kotlin (Android Enterprise Device Owner SDK), Swift.
+- **Backend & APIs**: Node.js, Express, Go (Golang), Python (AI orchestration & data pipelines).
+- **Databases & Caching**: PostgreSQL, MongoDB Atlas, Redis, SQLite (offline mobile sync).
+- **AI & Automation**: Anthropic Claude 3.5 Sonnet, OpenAI GPT-4o, LangChain/LlamaIndex, Pinecone, pgvector, self-hosted open-source models (Llama 3, DeepSeek) on private cloud GPUs.
+- **Cloud & DevOps**: Docker, Kubernetes, AWS (ECS, Lambda, RDS, S3, CloudFront), Google Cloud Platform (GCP), GitHub Actions, Vercel.
+
+---
+
+## 3. Core Services Breakdown
+
+### Service 1: AI Automation (`/services/ai-automation`)
+- **What it is**: Enterprise-grade artificial intelligence workflows integrated directly into core business operations with deterministic validation.
+- **Core Capabilities**: Document processing & extraction, deterministic workflow pipelines, private Retrieval-Augmented Generation (RAG), and CRM/ERP data synchronization.
+- **Security Guardrails**: Zero customer data retention agreements with model providers, private VPC data isolation, role-based access control, and deterministic schema outputs.
+
+### Service 2: AI Agents & Chatbots (`/services/ai-agents-chatbots`)
+- **What it is**: Autonomous, multi-turn AI agents equipped with structured tool-calling capabilities to execute business tasks across databases and APIs.
+- **Core Capabilities**: Customer support ticket triage, automated lead qualification, intelligent SQL querying over data warehouses, and multi-step research synthesis.
+- **Hallucination Prevention**: Strict confidence score thresholds, schema-validated JSON tool outputs, and programmatic fallback routing to human teams.
+
+### Service 3: Custom Software Development (`/services/custom-software-development`)
+- **What it is**: Tailored web platforms, high-throughput backend services, and scalable database architectures engineered for specific business logic.
+- **Core Capabilities**: Domain-driven architectural blueprints, microservices architectures, Strangler Fig legacy modernization, and third-party API orchestration.
+- **Ownership**: 100% intellectual property, source code, and repository transfer upon milestone completion.
+
+### Service 4: Web Development (`/services/web-development`)
+- **What it is**: Fast, accessible, content-driven and transactional web applications built for high Lighthouse performance and maximum SEO/AEO indexability.
+- **Core Capabilities**: Static & server-rendered Astro architectures, React interactive components, fluid design token systems, and WCAG 2.2 AA accessibility.
+
+### Service 5: Mobile App Development (`/services/mobile-app-development`)
+- **What it is**: High-performance cross-platform iOS and Android applications with 60 FPS performance, offline data persistence, and hardware integrations.
+- **Core Capabilities**: React Native and Flutter engineering, biometric security, camera/barcode scanning, push notifications (FCM), and background sync.
+
+### Service 6: Cloud & DevOps (`/services/cloud-devops`)
+- **What it is**: Resilient cloud infrastructure setup, automated CI/CD pipelines, containerization, and cost-efficient cloud resource management.
+- **Core Capabilities**: Infrastructure as Code (Terraform), Docker containerization, automated testing pipelines in GitHub Actions, and 24/7 cloud monitoring.
+
+### Service 7: IT Consulting & Architecture Advisory (`/services/it-consulting`)
+- **What it is**: Strategic technology roadmapping, legacy codebase audits, AI feasibility reviews, and Fractional CTO architecture guidance.
+- **Core Capabilities**: Code audits, cloud spend optimization, compliance reviews (HIPAA, DPDP, GDPR), and architectural refactoring strategies.
+
+---
+
+## 4. Real Verified Case Studies & Products
+
+### Product 1: LockApp (Android Enterprise MDM)
+- **Client / Domain**: Retail Electronics & Mobile Financing in India.
+- **Problem**: Retailers selling smartphones on EMI installment plans experienced substantial default rates with no reliable mechanism to enforce payments or recover devices.
+- **Solution**: Android Device Owner app built in Kotlin using Android Enterprise APIs. Paired with shop-owner and admin web portals in React Native/Expo and Node.js backend.
+- **Key Features**: Remote device lock/unlock, Knox-level bypass prevention, offline timeout triggers, and dual FCM/SMS command relays.
+- **Status**: Live in production.
+
+### Product 2: NavratriOS (High-Throughput Gate QR Scanner)
+- **Client / Domain**: Large-scale cultural festival event organizers in Gujarat, India.
+- **Problem**: Severe gate congestion during festival entry with thousands of simultaneous attendees attempting to enter within narrow peak windows.
+- **Solution**: High-throughput distributed QR validation system with modular Node.js backend, Redis caching, and React Native gate scanner mobile apps.
+- **Key Features**: Sub-100ms camera QR decode, cryptographic anti-passback enforcement, offline sync, and real-time attendance dashboard.
+- **Status**: Live in production.
+
+### Product 3: Wirebench (API Contract Workbench & Client)
+- **Client / Domain**: Developer Tooling & API Engineering Teams.
+- **Problem**: Existing API tools have bloat, intrusive telemetry, cloud lock-in, and lack automated contract drift diffing.
+- **Solution**: Private, local-first API client with one-click Postman/Insomnia/Hoppscotch workspace imports and OpenAPI contract-drift diffing.
+- **Key Features**: Zero external telemetry, instant OpenAPI linting, git-backed request collections, and team changelog generation.
+- **Status**: Public Beta / Live.
+
+### Product 4: MedMarketMD (Healthcare Procurement Platform)
+- **Client / Domain**: Healthcare clinics and verified medical suppliers.
+- **Problem**: Fragmented supply chains and compliance friction in procuring clinical supplies.
+- **Solution**: HIPAA-compliant procurement marketplace platform with encrypted ordering, multi-vendor catalogs, and automated reorder triggers.
+- **Status**: Live in production.
+
+---
+
+## 5. Commercial Engagement Models
+
+1. **Fixed-Scope Milestone Delivery**:
+   - Ideal for: MVPs, isolated feature modules, or systems with well-defined specifications.
+   - Pricing: Custom milestone quote based on verified technical deliverables.
+   - Cadence: 4 to 8 weeks; bi-weekly staging demos; 30-day post-launch warranty.
+
+2. **Dedicated Engineering Squad**:
+   - Ideal for: High-growth tech companies needing ongoing engineering velocity.
+   - Pricing: Predictable monthly retainer.
+   - Team: Principal Solutions Architect + Senior Full-Stack Developers.
+   - Cadence: Daily async standups, direct Slack/GitHub collaboration, 2-week agile sprints.
+
+3. **Support & Maintenance Retainer**:
+   - Ideal for: Live production applications needing 24/7 uptime and stability.
+   - Pricing: Predictable monthly SLA subscription.
+   - Inclusions: 24/7 uptime monitoring, security patching, library upgrades, bug-fixing SLA.
+
+4. **Free Technical Discovery Call**:
+   - Ideal for: Founders and engineering leaders evaluating feasibility.
+   - Pricing: $0 (100% complimentary).
+   - Inclusions: 30-minute 1-on-1 session with a principal architect, feasibility assessment, high-level architecture recommendations, mutual NDA.
+
+---
+
+## 6. Official Technical FAQ Knowledge Base
+
+**Q: Who owns the code and intellectual property produced during the project?**
+A: You own 100% of all intellectual property, source code, database architectures, and deployment configurations from day one. Full rights and git repository access belong exclusively to your organization upon milestone delivery.
+
+**Q: How do you ensure data security and confidentiality in AI systems?**
+A: We enforce strict zero-data-retention agreements with LLM providers, isolate proprietary business data in private vector databases within your own cloud VPC, and apply deterministic verification guardrails before outputs reach production systems.
+
+**Q: What is your typical project kickoff time?**
+A: Once the initial technical discovery or milestone statement of work is agreed upon, our engineering squad provisions environments and begins active sprint execution within 3 to 5 business days.
+
+**Q: Are cloud hosting and third-party API costs included in your fees?**
+A: Cloud infrastructure (AWS, GCP) and third-party API fees (Anthropic, OpenAI, Twilio) are billed directly to your corporate accounts. This ensures full data ownership, billing transparency, and zero intermediary markup.
+
+**Q: Will you sign a non-disclosure agreement (NDA) before discussing project details?**
+A: Yes, absolutely. We routinely sign mutual NDAs before reviewing proprietary requirements, internal workflows, architectural diagrams, or confidential business data.
+
+**Q: Do you provide post-launch support and warranty coverage?**
+A: Every production release includes a complimentary 30-day bug-fix warranty. Afterwards, we offer monthly SLA retainers covering 24/7 uptime monitoring, security patches, framework upgrades, and feature iterations.
+
+---
+
+## 7. Contact Information
+- **Website**: https://vesharo.com
+- **Direct Email**: contact@vesharo.com
+- **Phone / WhatsApp**: +91 95862 12495
+- **Cal.com Scheduling**: https://cal.com/vesharo/discovery
+- **Address**: Ahmedabad, Gujarat 380015, India

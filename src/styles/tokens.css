@@ -241,3 +241,39 @@ p {
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* ------------------------------------------------------------------------
+   WCAG 2.2 AA: High-Contrast Focus Ring (>= 3:1 contrast ratio)
+   ------------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--vesharo-electric-accent, #00d2ff) !important;
+  outline-offset: 3px !important;
+}
+
+/* ------------------------------------------------------------------------
+   WCAG 2.2 AA: 44x44px Minimum Touch Targets
+   ------------------------------------------------------------------------ */
+button,
+a.btn,
+.tz-button,
+.tz-button-circle,
+.category-nav-pill,
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+}
+
+/* ------------------------------------------------------------------------
+   WCAG 2.2 AA: Honor prefers-reduced-motion
+   ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

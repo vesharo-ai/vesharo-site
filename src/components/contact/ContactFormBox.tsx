@@ -117,6 +117,7 @@ export default function ContactFormBox() {
             type="text"
             id="contact-name"
             name="name"
+            autoComplete="name"
             className="form-control bg-dark text-white"
             style={{
               backgroundColor: "#070B14",
@@ -150,6 +151,7 @@ export default function ContactFormBox() {
             type="email"
             id="contact-email"
             name="email"
+            autoComplete="email"
             className="form-control bg-dark text-white"
             style={{
               backgroundColor: "#070B14",
@@ -183,6 +185,7 @@ export default function ContactFormBox() {
             type="tel"
             id="contact-phone"
             name="phone"
+            autoComplete="tel"
             className="form-control bg-dark text-white"
             style={{
               backgroundColor: "#070B14",

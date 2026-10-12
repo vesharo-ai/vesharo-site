@@ -1,0 +1,42 @@
+# Vesharo
+
+> Vesharo is a specialized IT services and AI automation engineering firm based in Ahmedabad, Gujarat, India. We engineer custom web and mobile applications, deterministic AI agents, cloud infrastructure, and enterprise software for growing businesses and tech startups.
+
+## Core Tagline
+Software and AI automation that ships.
+
+## Key Facts
+- **Location**: Ahmedabad, Gujarat, India (Operating hours: Mon-Fri 09:00 - 18:30 IST)
+- **Founders**: Hitesh Chauhan (Founder), Harsh Siddhapura (Co-Founder & Principal Solutions Architect)
+- **Official Contact**: contact@vesharo.com
+- **Official Phone**: +91 95862 12495
+- **Discovery Booking**: https://cal.com/vesharo/discovery
+- **Code & IP Ownership**: 100% intellectual property, source code, and repository ownership transferred to clients upon milestone completion.
+- **Warranty**: Complimentary 30-day post-launch bug warranty on all software deliverables.
+
+## Core Services
+- [AI Automation](https://vesharo.com/services/ai-automation): Enterprise LLM automation, deterministic validation, RAG architectures, and zero-data-retention security boundaries.
+- [AI Agents & Chatbots](https://vesharo.com/services/ai-agents-chatbots): Domain-specific autonomous agents with tool-calling, support triage, ERP/CRM data sync, and multi-turn workflows.
+- [Custom Software Development](https://vesharo.com/services/custom-software-development): Bespoke web platforms, microservices architectures, REST & GraphQL APIs, and legacy system modernization (Strangler Fig pattern).
+- [Web Development](https://vesharo.com/services/web-development): High-performance Astro, React, and Next.js applications, server-driven architecture, and WCAG 2.2 AA accessibility.
+- [Mobile App Development](https://vesharo.com/services/mobile-app-development): High-throughput iOS and Android mobile apps using React Native and Flutter with native 60 FPS performance and offline sync.
+- [Cloud & DevOps](https://vesharo.com/services/cloud-devops): Automated CI/CD pipelines, Docker containerization, Kubernetes clusters, and AWS/GCP cloud infrastructure.
+- [IT Consulting & Architecture Advisory](https://vesharo.com/services/it-consulting): Technical architecture audits, AI feasibility reviews, security perimeters, and CTO-level roadmap planning.
+
+## Verified Products & Case Studies
+- [LockApp](https://vesharo.com/portfolio/lockapp): Android Enterprise MDM (Device Owner) B2B SaaS for Indian electronics retailers to manage EMI-financed smartphones with remote lock/unlock and Knox-level security.
+- [NavratriOS](https://vesharo.com/portfolio/navratrios): High-throughput event ticketing and access control platform in Gujarat, handling thousands of QR gate scans per minute with sub-100ms validation and offline synchronization.
+- [Wirebench](https://vesharo.com/portfolio/wirebench): Local-first private API client with one-click migration from Postman/Insomnia, contract drift detection, and team changelogs.
+- [MedMarketMD](https://vesharo.com/portfolio/medmarketmd): HIPAA-compliant B2B healthcare procurement marketplace connecting verified medical suppliers and clinics with real-time inventory and encrypted ordering.
+
+## Engagement Models
+- **Fixed-Scope Projects**: Milestone-based delivery for well-defined MVPs and feature modules. 4 to 8 week timelines, 30-day warranty.
+- **Dedicated Engineering Squads**: Predictable monthly retainer. Senior solutions architect + full-stack engineers embedded in your Slack and GitHub.
+- **Support & Maintenance Retainer**: Monthly SLA subscription. 24/7 uptime monitoring, security patching, and ongoing updates.
+- **Free Discovery Call**: 30-minute 1-on-1 architecture evaluation with a principal architect ($0, zero obligation).
+
+## Primary Documentation Links
+- [Complete Machine-Readable System Document](https://vesharo.com/llms-full.txt): In-depth technical specifications, architectures, and full FAQ knowledge base.
+- [Engineering Blog & Playbooks](https://vesharo.com/blog): Real technical guides on AI automation, mobile app costs, and software architecture.
+- [Frequently Asked Questions](https://vesharo.com/faq): 26 authoritative answers on IP ownership, AI security guardrails, and sprint delivery.
+- [Pricing & Engagement Models](https://vesharo.com/pricing): Detailed breakdown of commercial collaboration structures.
