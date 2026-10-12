@@ -160,12 +160,12 @@ function Project1({
         </div>
         <div className="tz-buttons d-flex justify-content-center mt-5 mt-lg-0">
           <Link
-            href="/portfolio-details"
+            href="/portfolio"
             className="tz-button text-uppercase fw-medium tz-text-m"
           >
             VIEW ALL PROJECTS
           </Link>
-          <Link className="tz-button-circle" href="/portfolio-details" aria-label="View All Projects">
+          <Link className="tz-button-circle" href="/portfolio" aria-label="View All Projects">
             <i className="ph ph-arrow-up-right" />
           </Link>
         </div>

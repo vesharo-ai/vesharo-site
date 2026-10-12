@@ -1,0 +1,74 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Base -->
+  <rect width="800" height="500" rx="16" fill="#070B14"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" stroke="rgba(0, 102, 255, 0.25)"/>
+
+  <!-- Subtle Teal/Blue Glow -->
+  <circle cx="400" cy="250" r="230" fill="#0066FF" fill-opacity="0.08" filter="blur(60px)"/>
+
+  <!-- Desktop App Frame -->
+  <rect x="80" y="40" width="640" height="420" rx="12" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+
+  <!-- Window Header Bar -->
+  <rect x="80" y="40" width="640" height="38" rx="12" fill="#0F1626"/>
+  <rect x="80" y="66" width="640" height="12" fill="#0F1626"/>
+  <circle cx="104" cy="59" r="5" fill="#FF5F56"/>
+  <circle cx="120" cy="59" r="5" fill="#FFBD2E"/>
+  <circle cx="136" cy="59" r="5" fill="#27C93F"/>
+  <text x="320" y="63" fill="rgba(255, 255, 255, 0.7)" font-family="Inter, sans-serif" font-size="12" font-weight="500">MedMarketMD • B2B Medical Procurement</text>
+
+  <!-- Left Sidebar Navigation -->
+  <rect x="80" y="78" width="160" height="382" fill="#070B14" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+  <text x="96" y="104" fill="rgba(255, 255, 255, 0.4)" font-family="Inter, sans-serif" font-size="10" font-weight="700">CLINICAL PORTAL</text>
+  
+  <rect x="92" y="118" width="136" height="28" rx="6" fill="#0066FF" fill-opacity="0.2"/>
+  <text x="104" y="136" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11" font-weight="600">Bulk Orders</text>
+
+  <rect x="92" y="152" width="136" height="28" rx="6" fill="transparent"/>
+  <text x="104" y="170" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">Suppliers (Verified)</text>
+
+  <rect x="92" y="186" width="136" height="28" rx="6" fill="transparent"/>
+  <text x="104" y="204" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">Batch Tracking</text>
+
+  <!-- Main Content Dashboard -->
+  <rect x="240" y="78" width="480" height="382" fill="#0B0F19"/>
+
+  <!-- Top Metrics Row -->
+  <rect x="256" y="94" width="140" height="64" rx="8" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="268" y="114" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Active Procurement POs</text>
+  <text x="268" y="136" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700">148 Batches</text>
+  <text x="268" y="150" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">100% In-Stock</text>
+
+  <rect x="412" y="94" width="140" height="64" rx="8" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="424" y="114" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Cold-Chain Telemetry</text>
+  <text x="424" y="136" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700">2.4°C Stored</text>
+  <text x="424" y="150" fill="#27C93F" font-family="Inter, sans-serif" font-size="9">Compliance Verified</text>
+
+  <rect x="568" y="94" width="136" height="64" rx="8" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="580" y="114" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Fulfillment Rate</text>
+  <text x="580" y="136" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700">99.8%</text>
+  <text x="580" y="150" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">Sub-24h Dispatch</text>
+
+  <!-- Table View Graphic -->
+  <rect x="256" y="172" width="448" height="230" rx="8" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="272" y="196" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">Live Hospital &amp; Diagnostic Batch Orders</text>
+  
+  <rect x="272" y="210" width="416" height="32" rx="4" fill="rgba(255, 255, 255, 0.02)"/>
+  <text x="284" y="230" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">PO-9842 • Apex Diagnostics</text>
+  <text x="460" y="230" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10">Diagnostic Reagents</text>
+  <text x="630" y="230" fill="#27C93F" font-family="Inter, sans-serif" font-size="10" font-weight="600">DISPATCHED</text>
+
+  <rect x="272" y="248" width="416" height="32" rx="4" fill="rgba(255, 255, 255, 0.02)"/>
+  <text x="284" y="268" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">PO-9843 • Carewell Clinics</text>
+  <text x="460" y="268" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10">Surgical Disposables</text>
+  <text x="630" y="268" fill="#0066FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">PROCESSING</text>
+
+  <rect x="272" y="286" width="416" height="32" rx="4" fill="rgba(255, 255, 255, 0.02)"/>
+  <text x="284" y="306" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">PO-9844 • Metro Health Labs</text>
+  <text x="460" y="306" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10">Pharma Cold-Storage</text>
+  <text x="630" y="306" fill="#27C93F" font-family="Inter, sans-serif" font-size="10" font-weight="600">DELIVERED</text>
+
+  <!-- Bottom Verification Bar -->
+  <rect x="256" y="414" width="448" height="26" rx="4" fill="rgba(0, 102, 255, 0.1)"/>
+  <text x="272" y="431" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">HIPAA &amp; PHARMA AUDIT COMPLIANT • END-TO-END BATCH TRACEABILITY</text>
+</svg>

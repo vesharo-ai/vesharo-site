@@ -51,17 +51,17 @@ export const siteConfig = {
       icon: "ph-cpu",
     },
     {
-      id: "ai-agents",
+      id: "ai-agents-chatbots",
       title: "AI Agents & Chatbots",
       shortDescription: "Custom intelligent assistants, multi-agent frameworks & RAG",
-      href: "/services/ai-agents",
+      href: "/services/ai-agents-chatbots",
       icon: "ph-robot",
     },
     {
-      id: "custom-software",
+      id: "custom-software-development",
       title: "Custom Software Development",
       shortDescription: "Scalable enterprise web applications, robust APIs & architectures",
-      href: "/services/custom-software",
+      href: "/services/custom-software-development",
       icon: "ph-code",
     },
     {
@@ -113,6 +113,12 @@ export const siteConfig = {
       title: "Wirebench",
       tagline: "Private API client with contract-drift detection and team changelog",
       href: "/portfolio/wirebench",
+    },
+    {
+      id: "medmarketmd",
+      title: "MedMarketMD",
+      tagline: "HIPAA-compliant healthcare marketplace platform connecting medical suppliers and clinics",
+      href: "/portfolio/medmarketmd",
     },
   ] as PortfolioItem[],
 

@@ -166,7 +166,7 @@ export default function Offcanvas({
 
               <li>
                 <Link
-                  href="/portfolio-details"
+                  href="/portfolio"
                   className="d-flex align-items-center text-white text-decoration-none fw-medium py-2 px-1"
                   style={{ minHeight: "44px", fontSize: "16px" }}
                   onClick={closeMenu}

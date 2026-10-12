@@ -56,10 +56,12 @@
         "question": "How long does a typical automation project take to deploy?",
         "answer": "Most targeted enterprise workflow automations ship to staging within 2 to 4 weeks, followed by parallel verification against your historical dataset."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "wirebench",
+    "relatedServiceIds": ["ai-agents-chatbots", "cloud-devops", "custom-software-development"]
   },
   {
-    "id": "ai-agents",
+    "id": "ai-agents-chatbots",
     "title": "AI Agents & Chatbots",
     "shortDescription": "Custom intelligent assistants, multi-agent frameworks & RAG",
     "fullDescription": "Deploy autonomous AI agents and conversational assistants that interface directly with internal systems, knowledge repositories, and client-facing interfaces. Our agentic systems perform multi-step reasoning, execute verified tool calls, and retrieve accurate domain context without fabricating answers.",
@@ -115,10 +117,12 @@
         "question": "What happens when an agent cannot answer a question?",
         "answer": "We program deterministic fallback triggers that gracefully transfer the session and complete chat transcript to human support agents."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "wirebench",
+    "relatedServiceIds": ["ai-automation", "custom-software-development", "web-development"]
   },
   {
-    "id": "custom-software",
+    "id": "custom-software-development",
     "title": "Custom Software Development",
     "shortDescription": "Scalable enterprise web applications, robust APIs & architectures",
     "fullDescription": "End-to-end full-stack software engineering tailored to solve complex business operations with clean, maintainable, and high-performance architecture. From high-throughput backend services to multi-tenant B2B SaaS platforms, we write production code built for longevity, security, and effortless scaling.",
@@ -174,7 +178,9 @@
         "question": "Can you integrate with our existing third-party systems?",
         "answer": "Yes. We have deep experience integrating payment gateways (Stripe, Razorpay), CRMs (Salesforce, HubSpot), and custom internal legacy APIs."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "navratrios",
+    "relatedServiceIds": ["web-development", "mobile-app-development", "cloud-devops"]
   },
   {
     "id": "web-development",
@@ -233,7 +239,9 @@
         "question": "How easy is it for non-technical team members to update content?",
         "answer": "We structure data using intuitive Markdown, JSON content collections, or headless CMS platforms (Strapi, Sanity) for seamless editing."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "medmarketmd",
+    "relatedServiceIds": ["custom-software-development", "mobile-app-development", "cloud-devops"]
   },
   {
     "id": "mobile-app-development",
@@ -292,7 +300,9 @@
         "question": "Can the app function without an active internet connection?",
         "answer": "Yes. We implement robust offline-first caching that queues local transactions and synchronizes automatically upon reconnect."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "lockapp",
+    "relatedServiceIds": ["custom-software-development", "cloud-devops", "web-development"]
   },
   {
     "id": "cloud-devops",
@@ -351,7 +361,9 @@
         "question": "Do we keep administrative ownership of our cloud accounts?",
         "answer": "Yes. All infrastructure is deployed directly within your company's own cloud organization, ensuring full governance and compliance."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "navratrios",
+    "relatedServiceIds": ["custom-software-development", "ai-automation", "it-consulting"]
   },
   {
     "id": "it-consulting",
@@ -410,6 +422,8 @@
         "question": "How long does a technical architecture audit take?",
         "answer": "A standard architecture and code quality audit takes 1 to 2 weeks from kickoff to final executive presentation."
       }
-    ]
+    ],
+    "relatedCaseStudyId": "lockapp",
+    "relatedServiceIds": ["custom-software-development", "cloud-devops", "ai-automation"]
   }
 ]

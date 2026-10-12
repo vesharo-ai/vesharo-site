@@ -5,16 +5,44 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("portfolio");
+const allProjects = await getCollection("portfolio");
+
+// Category filtering via query params (compatible with static and server rendering)
+const currentCategory = Astro.url.searchParams.get("category") || "all";
+
+const categories = ["all", ...new Set(allProjects.map((p) => p.data.category))];
+
+const filteredProjects = currentCategory === "all"
+  ? allProjects
+  : allProjects.filter((p) => p.data.category === currentCategory);
+
+const portfolioJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Vesharo Verified Portfolio & Case Studies",
+  description: "Real production case studies built by Vesharo: LockApp, NavratriOS, Wirebench, and MedMarketMD.",
+  hasPart: filteredProjects.map((p) => ({
+    "@type": "CreativeWork",
+    name: p.data.title,
+    headline: p.data.tagline,
+    description: p.data.description,
+    url: `https://vesharo.com/portfolio/${p.data.id}`,
+    creator: {
+      "@type": "Organization",
+      name: "Vesharo",
+    },
+  })),
+};
 ---
 
 <Layout
-  title="Real Portfolio & Verified Case Studies | Vesharo"
-  description="Explore production platforms built by Vesharo: LockApp (B2B MDM SaaS), NavratriOS (Gate Ticketing), and Wirebench (API Governance Workbench)."
+  title="Real Portfolio & Case Studies | Vesharo"
+  description="Explore production platforms built by Vesharo: LockApp (B2B MDM SaaS), NavratriOS (Gate Ticketing), Wirebench (API Governance), and MedMarketMD."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
   ]}
+  jsonLd={portfolioJsonLd}
 >
   <BreadCrumb title="Case Studies" />
   <HeaderSlider />
@@ -27,31 +55,77 @@ const projects = await getCollection("portfolio");
           Verified Production Work
         </span>
         <h1 class="h1 text-white fw-bold mb-3">Real Products Engineered for Industry Leaders</h1>
-        <p class="text-white-50 lead mx-auto" style="max-width: 720px;">
+        <p class="text-white-50 lead mx-auto mb-4" style="max-width: 720px;">
           We adhere to strict content integrity: no invented client logos or fictitious case studies. Here is the verified software we have built and deployed.
         </p>
+
+        <!-- Category Filter Links (Works Without JavaScript) -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          {categories.map((cat) => {
+            const isActive = currentCategory === cat;
+            const href = cat === "all" ? "/portfolio" : `/portfolio?category=${encodeURIComponent(cat)}`;
+            return (
+              <a
+                href={href}
+                class={`btn rounded-pill px-3 py-1 small fw-semibold transition-all ${
+                  isActive
+                    ? "btn-primary"
+                    : "btn-outline-secondary text-white-50 border-secondary border-opacity-25"
+                }`}
+                style="font-size: 0.85rem;"
+              >
+                {cat === "all" ? "All Products" : cat}
+              </a>
+            );
+          })}
+        </div>
       </div>
 
       <div class="row g-4">
-        {projects.map(({ data }) => (
-          <div class="col-lg-4">
+        {filteredProjects.map(({ data }) => (
+          <div class="col-lg-6">
             <div
-              class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+              class="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between"
               style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
             >
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-3">
+                <!-- Mockup Preview Graphic -->
+                <div class="mb-4 rounded-3 overflow-hidden p-2 text-center" style="background-color: #070B14; border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <img
+                    src={data.image}
+                    alt={`${data.title} product screen mockup`}
+                    class="img-fluid rounded"
+                    style="max-height: 240px; width: auto; object-fit: contain;"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
                   <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.8rem;">
                     {data.category}
                   </span>
-                  <span class="text-white-50 small">{data.year}</span>
+                  <div class="d-flex align-items-center gap-2">
+                    {data.status && (
+                      <span class="badge px-2 py-1 rounded text-white" style="background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;">
+                        {data.status}
+                      </span>
+                    )}
+                    <span class="text-white-50 small">{data.year}</span>
+                  </div>
                 </div>
 
                 <h2 class="h3 text-white fw-bold mb-2">{data.title}</h2>
                 <p class="text-primary small fw-semibold mb-3">{data.tagline}</p>
-                <p class="text-white-50 small mb-4" style="line-height: 1.6;">
+                <p class="text-white-50 small mb-4" style="line-height: 1.7;">
                   {data.description}
                 </p>
+
+                {data.role && (
+                  <div class="mb-3 small">
+                    <span class="text-white-50">Our Engineering Role: </span>
+                    <strong class="text-white">{data.role}</strong>
+                  </div>
+                )}
 
                 <h3 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-2">Key Outcomes</h3>
                 <ul class="list-unstyled text-white-50 small mb-4">

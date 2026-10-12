@@ -116,7 +116,7 @@ export default function Nav({
                           {siteConfig.services.length} core capabilities, delivered by senior engineers.
                         </p>
                       </div>
-                      <Link href="/service-details" className="tz-mega__all" onClick={closeMenu}>
+                      <Link href="/services" className="tz-mega__all" onClick={closeMenu}>
                         All services <i className="ph ph-arrow-right" aria-hidden="true" />
                       </Link>
                     </div>

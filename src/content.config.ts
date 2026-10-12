@@ -17,6 +17,8 @@ const services = defineCollection({
     process: z.array(z.object({ step: z.string(), desc: z.string() })).optional(),
     techStack: z.array(z.string()).optional(),
     faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+    relatedCaseStudyId: z.string().optional(),
+    relatedServiceIds: z.array(z.string()).optional(),
   }),
 });
 
@@ -40,6 +42,8 @@ const portfolio = defineCollection({
     challenge: z.string().optional(),
     solution: z.string().optional(),
     architecture: z.array(z.string()).optional(),
+    role: z.string().optional(),
+    status: z.string().optional(),
   }),
 });
 

@@ -19,6 +19,25 @@ interface Props {
 
 const { project } = Astro.props;
 const data = project.data;
+
+const caseStudyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: `${data.title} Case Study — ${data.tagline}`,
+  description: data.description,
+  datePublished: `${data.year}-01-01T00:00:00Z`,
+  author: {
+    "@type": "Organization",
+    name: "Vesharo Engineering",
+    url: "https://vesharo.com",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Vesharo",
+  },
+  image: `https://vesharo.com${data.image}`,
+  mainEntityOfPage: `https://vesharo.com/portfolio/${data.id}`,
+};
 ---
 
 <Layout
@@ -29,6 +48,7 @@ const data = project.data;
     { name: "Portfolio", path: "/portfolio" },
     { name: data.title, path: `/portfolio/${data.id}` },
   ]}
+  jsonLd={caseStudyJsonLd}
 >
   <BreadCrumb title={data.title} />
   <HeaderSlider />
@@ -39,11 +59,28 @@ const data = project.data;
         <!-- Main Case Study Content -->
         <div class="col-lg-8">
           <div class="p-4 p-md-5 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
-            <div class="d-flex align-items-center gap-3 mb-3">
+            <!-- Screen Mockup Showcase -->
+            <div class="mb-4 rounded-3 overflow-hidden p-3 text-center" style="background-color: #070B14; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <img
+                src={data.image}
+                alt={`${data.title} product screen mockup`}
+                class="img-fluid rounded"
+                style="max-height: 380px; width: auto; object-fit: contain;"
+              />
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
               <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.85rem;">
                 {data.category}
               </span>
-              <span class="text-white-50 small">Production Year: {data.year}</span>
+              <div class="d-flex align-items-center gap-2">
+                {data.status && (
+                  <span class="badge px-2 py-1 rounded text-white" style="background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;">
+                    Status: {data.status}
+                  </span>
+                )}
+                <span class="text-white-50 small">Production: {data.year}</span>
+              </div>
             </div>
 
             <h1 class="h2 text-white fw-bold mb-2">{data.title}</h1>
@@ -77,12 +114,12 @@ const data = project.data;
             <!-- Architecture Components -->
             {data.architecture && data.architecture.length > 0 && (
               <div class="mb-5">
-                <h2 class="h4 text-white fw-semibold mb-3">System Architecture & Highlights</h2>
+                <h2 class="h4 text-white fw-semibold mb-3">System Architecture &amp; Highlights</h2>
                 <div class="row g-3">
                   {data.architecture.map((item) => (
                     <div class="col-12">
                       <div class="p-3 rounded-3 d-flex align-items-start gap-3" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
-                        <i class="ph-cpu text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <i class="ph ph-cpu text-primary mt-1" style="font-size: 1.25rem;"></i>
                         <span class="text-white small fw-medium">{item}</span>
                       </div>
                     </div>
@@ -93,7 +130,7 @@ const data = project.data;
 
             <!-- Verified Results -->
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">Verified Results & Operational Impact</h2>
+              <h2 class="h4 text-white fw-semibold mb-3">Verified Results &amp; Operational Impact</h2>
               <ul class="text-white-50 ps-4 mb-0">
                 {data.metrics.map((m) => (
                   <li class="mb-2"><strong class="text-white">{m}</strong> — verified in production deployment.</li>
@@ -114,13 +151,20 @@ const data = project.data;
                 <span class="text-white fw-medium">{data.client}</span>
               </div>
 
+              {data.role && (
+                <div class="mb-3">
+                  <span class="text-white-50 small d-block mb-1">Our Engineering Role</span>
+                  <span class="text-white fw-medium">{data.role}</span>
+                </div>
+              )}
+
               <div class="mb-3">
-                <span class="text-white-50 small d-block mb-1">Deployment Year</span>
-                <span class="text-white fw-medium">{data.year}</span>
+                <span class="text-white-50 small d-block mb-1">Current Status</span>
+                <span class="text-primary fw-semibold">{data.status || "Production"}</span>
               </div>
 
               <div class="mb-4">
-                <span class="text-white-50 small d-block mb-1">Core Tech Stack</span>
+                <span class="text-white-50 small d-block mb-1">Production Tech Stack</span>
                 <div class="d-flex flex-wrap gap-2 mt-2">
                   {data.stack.map((s) => (
                     <span class="badge px-3 py-2 rounded-pill text-white" style="background-color: rgba(255, 255, 255, 0.08);">
@@ -135,13 +179,14 @@ const data = project.data;
               </a>
             </div>
 
-            <!-- All Real Portfolio Links -->
+            <!-- All Real Case Studies Navigation -->
             <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
               <h2 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">Other Real Case Studies</h2>
               <div class="d-flex flex-column gap-2">
-                <a href="/portfolio/lockapp" class="text-white-50 text-decoration-none small hover-text-primary py-1">LockApp (Enterprise MDM SaaS)</a>
+                <a href="/portfolio/lockapp" class="text-white-50 text-decoration-none small hover-text-primary py-1">LockApp (Android Enterprise MDM)</a>
                 <a href="/portfolio/navratrios" class="text-white-50 text-decoration-none small hover-text-primary py-1">NavratriOS (Gate QR Ticketing)</a>
-                <a href="/portfolio/wirebench" class="text-white-50 text-decoration-none small hover-text-primary py-1">Wirebench (API Contract Tool)</a>
+                <a href="/portfolio/wirebench" class="text-white-50 text-decoration-none small hover-text-primary py-1">Wirebench (API Contract Workbench)</a>
+                <a href="/portfolio/medmarketmd" class="text-white-50 text-decoration-none small hover-text-primary py-1">MedMarketMD (B2B Procurement)</a>
               </div>
             </div>
           </div>

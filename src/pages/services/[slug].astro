@@ -4,21 +4,42 @@ import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { getServiceJsonLd } from "@/lib/jsonLd";
+import { getServiceJsonLd, getFaqJsonLd } from "@/lib/jsonLd";
 
 export async function getStaticPaths() {
   const allServices = await getCollection("services");
-  return allServices.map((service) => ({
-    params: { slug: service.data.id },
-    props: { service },
-  }));
+  const allPortfolio = await getCollection("portfolio");
+  const sortedServices = [...allServices].sort((a, b) => a.data.order - b.data.order);
+
+  return sortedServices.map((service) => {
+    const relatedPortfolio = service.data.relatedCaseStudyId
+      ? allPortfolio.find((p) => p.data.id === service.data.relatedCaseStudyId)
+      : undefined;
+
+    const relatedServices = sortedServices
+      .filter((s) => s.data.id !== service.data.id)
+      .slice(0, 3);
+
+    return {
+      params: { slug: service.data.id },
+      props: {
+        service,
+        relatedPortfolio,
+        relatedServices,
+        allServicesList: sortedServices,
+      },
+    };
+  });
 }
 
 interface Props {
   service: CollectionEntry<"services">;
+  relatedPortfolio?: CollectionEntry<"portfolio">;
+  relatedServices: CollectionEntry<"services">[];
+  allServicesList: CollectionEntry<"services">[];
 }
 
-const { service } = Astro.props;
+const { service, relatedPortfolio, relatedServices, allServicesList } = Astro.props;
 const data = service.data;
 
 const serviceJsonLd = getServiceJsonLd({
@@ -27,6 +48,9 @@ const serviceJsonLd = getServiceJsonLd({
   path: `/services/${data.id}`,
   serviceType: data.title,
 });
+
+const faqJsonLd = data.faqs && data.faqs.length > 0 ? getFaqJsonLd(data.faqs) : null;
+const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
 ---
 
 <Layout
@@ -37,7 +61,7 @@ const serviceJsonLd = getServiceJsonLd({
     { name: "Services", path: "/services" },
     { name: data.title, path: `/services/${data.id}` },
   ]}
-  jsonLd={serviceJsonLd}
+  jsonLd={schemas}
 >
   <BreadCrumb title={data.title} />
   <HeaderSlider />
@@ -68,7 +92,7 @@ const serviceJsonLd = getServiceJsonLd({
                   <div class="col-md-6">
                     <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
                       <div class="d-flex align-items-start gap-2">
-                        <i class="ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
                         <span class="text-white small fw-medium">{feature}</span>
                       </div>
                     </div>
@@ -82,12 +106,12 @@ const serviceJsonLd = getServiceJsonLd({
               <div class="mb-5">
                 <h2 class="h4 text-white fw-semibold mb-3">Enterprise Use Cases & Applications</h2>
                 <p class="text-white-50 mb-3">
-                  How modern organizations leverage this capability to eliminate friction and scale revenue:
+                  How modern organizations leverage this capability to eliminate friction, automate workflows, and scale revenue:
                 </p>
                 <ul class="list-unstyled text-white-50">
                   {data.useCases.map((uc) => (
                     <li class="d-flex align-items-start gap-3 mb-3 p-3 rounded-3" style="background-color: rgba(255, 255, 255, 0.02); border-left: 3px solid #0066FF;">
-                      <i class="ph-arrow-right text-primary mt-1"></i>
+                      <i class="ph ph-arrow-right text-primary mt-1"></i>
                       <span>{uc}</span>
                     </li>
                   ))}
@@ -130,9 +154,47 @@ const serviceJsonLd = getServiceJsonLd({
               </ul>
             </div>
 
-            <!-- Service FAQs -->
+            <!-- Related Real Case Study (Only if real) -->
+            {relatedPortfolio && (
+              <div class="mb-5 p-4 p-md-5 rounded-4" style="background-color: #070B14; border: 1px solid rgba(0, 102, 255, 0.35);">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                  <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.15); font-size: 0.8rem;">
+                    Proven In Production
+                  </span>
+                  {relatedPortfolio.data.status && (
+                    <span class="badge px-2 py-1 rounded text-white" style="background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;">
+                      {relatedPortfolio.data.status}
+                    </span>
+                  )}
+                </div>
+                <h3 class="h4 text-white fw-bold mb-2">Real Implementation: {relatedPortfolio.data.title}</h3>
+                <p class="text-primary small fw-semibold mb-3">{relatedPortfolio.data.tagline}</p>
+                <p class="text-white-50 small mb-4" style="line-height: 1.7;">
+                  {relatedPortfolio.data.description}
+                </p>
+                <div class="mb-4">
+                  <ul class="list-unstyled text-white-50 small mb-0">
+                    {relatedPortfolio.data.metrics.slice(0, 2).map((m) => (
+                      <li class="d-flex align-items-start mb-2">
+                        <i class="ph ph-check-circle text-primary me-2 mt-1"></i>
+                        <span>{m}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href={`/portfolio/${relatedPortfolio.data.id}`}
+                  class="btn btn-outline-primary px-4 py-2 rounded-pill small fw-semibold d-inline-flex align-items-center gap-2"
+                >
+                  <span>Explore Case Study</span>
+                  <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            )}
+
+            <!-- Service FAQs (with FAQPage schema) -->
             {data.faqs && data.faqs.length > 0 && (
-              <div>
+              <div class="mb-4">
                 <h2 class="h4 text-white fw-semibold mb-3">Frequently Asked Questions</h2>
                 <div class="d-flex flex-column gap-3">
                   {data.faqs.map((f) => (
@@ -147,6 +209,32 @@ const serviceJsonLd = getServiceJsonLd({
               </div>
             )}
           </div>
+
+          <!-- Bottom Related Services Navigation -->
+          {relatedServices && relatedServices.length > 0 && (
+            <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h3 class="h5 text-white fw-bold mb-3">Related Capabilities</h3>
+              <div class="row g-3">
+                {relatedServices.map((rs) => (
+                  <div class="col-md-4">
+                    <a
+                      href={`/services/${rs.data.id}`}
+                      class="p-3 rounded-3 d-block text-decoration-none h-100 transition-all"
+                      style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class={`${rs.data.icon} text-primary`} style="font-size: 1.25rem;"></i>
+                        <span class="text-white small fw-bold">{rs.data.title}</span>
+                      </div>
+                      <p class="text-white-50 small mb-0" style="font-size: 0.8rem; line-height: 1.5;">
+                        {rs.data.shortDescription}
+                      </p>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         <!-- Sidebar Column -->
@@ -181,17 +269,21 @@ const serviceJsonLd = getServiceJsonLd({
               </div>
             )}
 
-            <!-- Other Capabilities Link List -->
+            <!-- All Capabilities Link List -->
             <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
               <h2 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">All Capabilities</h2>
               <div class="d-flex flex-column gap-2">
-                <a href="/services/ai-automation" class="text-white-50 text-decoration-none small hover-text-primary py-1">AI Automation</a>
-                <a href="/services/ai-agents" class="text-white-50 text-decoration-none small hover-text-primary py-1">AI Agents & Chatbots</a>
-                <a href="/services/custom-software" class="text-white-50 text-decoration-none small hover-text-primary py-1">Custom Software Development</a>
-                <a href="/services/web-development" class="text-white-50 text-decoration-none small hover-text-primary py-1">Web Development</a>
-                <a href="/services/mobile-app-development" class="text-white-50 text-decoration-none small hover-text-primary py-1">Mobile App Development</a>
-                <a href="/services/cloud-devops" class="text-white-50 text-decoration-none small hover-text-primary py-1">Cloud & DevOps</a>
-                <a href="/services/it-consulting" class="text-white-50 text-decoration-none small hover-text-primary py-1">IT Consulting</a>
+                {allServicesList.map((svc) => (
+                  <a
+                    href={`/services/${svc.data.id}`}
+                    class={`text-decoration-none small py-1 d-flex align-items-center justify-content-between ${
+                      svc.data.id === data.id ? "text-primary fw-bold" : "text-white-50 hover-text-primary"
+                    }`}
+                  >
+                    <span>{svc.data.title}</span>
+                    {svc.data.id === data.id && <i class="ph ph-arrow-right small"></i>}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
