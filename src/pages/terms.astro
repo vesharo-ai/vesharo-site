@@ -6,8 +6,8 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout
-  title="Terms of Service | Vesharo"
-  description="Read Vesharo's transparent terms of service, intellectual property ownership agreements, and engineering delivery standards."
+  title="Terms of Service | Transparent Engineering Standards | Vesharo"
+  description="Vesharo's client terms of service: 100% IP ownership, 30-day bug warranty, milestone delivery standards, and mutual non-disclosure agreements."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Terms of Service", path: "/terms" },
@@ -16,88 +16,109 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
   <BreadCrumb title="Terms of Service" />
   <HeaderSlider />
 
-  <section class="py-5" style="background-color: #0b0f19;">
+  <section class="py-5" style="background-color: var(--vesharo-navy-base, #070B14); color: #fff;">
     <div class="container py-lg-4">
       <div class="row justify-content-center">
-        <div class="col-lg-9 col-xl-8">
-          <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
-            <div class="mb-4">
-              <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+        <div class="col-lg-10 col-xl-9">
+          <div class="p-4 p-md-5 rounded-4" style="background-color: rgba(11, 15, 25, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
+              <span class="badge px-3 py-2 rounded-pill text-cyan" style="background-color: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25); color: var(--vesharo-electric-accent, #00d2ff); font-size: 0.875rem;">
                 Last Updated: October 2026
+              </span>
+              <span class="tz-text-xs text-neutral-400" style="color: #64748B;">
+                Governing Law: Ahmedabad, Gujarat, India
               </span>
             </div>
 
-            <h1 class="h2 text-white mb-4 fw-bold">Terms of Service</h1>
-            <p class="text-white-50 lead mb-5">
-              These Terms of Service govern your use of the Vesharo website (vesharo.com) and define the contractual operating framework for our software engineering and AI automation consulting engagements.
+            <h1 class="h2 text-white mb-4 fw-bold" style="font-family: var(--font-family-heading);">
+              Terms of Service & Engineering Standards
+            </h1>
+            <p class="text-neutral-300 lead mb-5" style="color: #CBD5E1; line-height: 1.7;">
+              These Terms of Service govern your use of the Vesharo website (vesharo.com) and define the contractual operating framework for all custom software engineering, cloud architecture, and AI automation consulting engagements.
             </p>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">1. Scope of Engineering Services</h2>
-              <p class="text-white-50 mb-3">
-                Vesharo provides enterprise software engineering, AI automation pipelines, custom web and mobile application development, cloud infrastructure setup, and strategic IT advisory. Specific project scope, timelines, deliverables, and acceptance criteria are outlined in mutually executed Statements of Work (SOWs) or sprint backlog agreements.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                1. Scope of Engineering Services
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                Vesharo provides specialized IT services including custom web and mobile application engineering, autonomous AI agent workflows, cloud DevOps infrastructure, and technical architecture advisory. Specific project requirements, milestones, deliverables, and acceptance criteria are formalized in mutually executed Statements of Work (SOWs) or agile sprint backlog commitments.
               </p>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">2. Intellectual Property (IP) Ownership</h2>
-              <p class="text-white-50 mb-3">
-                We believe clients should own what they pay for:
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                2. Intellectual Property (IP) Ownership
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                We operate on an unambiguous client-first intellectual property policy:
               </p>
-              <ul class="text-white-50 ps-4 mb-3">
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
                 <li class="mb-2"><strong class="text-white">100% Client Ownership:</strong> Upon settlement of agreed milestone invoices, you own full, irrevocable intellectual property rights to all custom source code, documentation, architectures, database schemas, and assets engineered specifically for your project.</li>
-                <li class="mb-2"><strong class="text-white">Open Source & Third-Party Libraries:</strong> Any third-party open-source components (e.g., React, Astro, PostgreSQL) incorporated into deliverables remain governed by their respective permissive licenses (MIT, Apache 2.0, BSD).</li>
-                <li class="mb-2"><strong class="text-white">Pre-Existing Knowledge:</strong> Vesharo retains ownership of general engineering techniques, reusable utility snippets, and internal tooling that do not contain client proprietary business logic.</li>
+                <li class="mb-2"><strong class="text-white">Open Source & Permissive Libraries:</strong> Any third-party open-source components (e.g., React, Astro, Node.js, PostgreSQL) incorporated into deliverables remain governed by their respective permissive licenses (MIT, Apache 2.0, BSD).</li>
+                <li class="mb-2"><strong class="text-white">Internal Tooling:</strong> Vesharo retains ownership of general engineering utilities and framework templates that do not contain client proprietary business logic.</li>
               </ul>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">3. Milestone Delivery & Acceptance</h2>
-              <p class="text-white-50 mb-3">
-                We organize projects into clear 2-week agile delivery sprints. At each milestone:
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                3. Milestone Delivery & Acceptance Window
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                We organize engagements into verifiable 2-week agile delivery sprints:
               </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2">We deploy working preview environments and provide testable builds.</li>
-                <li class="mb-2">Clients have a standard 7-business-day review period to verify that deliverables satisfy agreed acceptance criteria.</li>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2">We deploy working preview environments in staging clouds and demonstrate functioning code.</li>
+                <li class="mb-2">Clients have a standard 7-business-day review window to verify that deliverables satisfy agreed acceptance criteria.</li>
                 <li class="mb-2">Any functional discrepancies identified during this window are remediated promptly prior to final milestone sign-off.</li>
               </ul>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">4. Payment Terms & Billing Transparency</h2>
-              <p class="text-white-50 mb-3">
-                Invoices are issued based on agreed milestones or bi-weekly sprint intervals. Payments are due within 14 calendar days of invoice receipt. Third-party cloud infrastructure (AWS, GCP, Vercel) and API subscription costs are billed directly to your corporate accounts with zero hidden markups.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                4. Payment Terms & Direct Cloud Billing
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
+                Invoices are issued against agreed milestones or bi-weekly sprint boundaries, payable within 14 calendar days. Third-party cloud infrastructure costs (AWS, GCP, Vercel) and model API fees (Anthropic, OpenAI) are billed directly to your corporate accounts with zero intermediary markup.
               </p>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">5. Confidentiality & Non-Disclosure</h2>
-              <p class="text-white-50 mb-3">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                5. Confidentiality & Non-Disclosure
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
                 Both parties agree to hold all confidential information, business metrics, source code, and trade secrets in strict confidence. We execute mutual Non-Disclosure Agreements (NDAs) before reviewing sensitive technical specifications or proprietary datasets.
               </p>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">6. Post-Launch Warranty & Maintenance</h2>
-              <p class="text-white-50 mb-3">
-                Every custom software release includes a 30-day post-launch warranty period during which any critical bugs or functional regressions attributed to our code are resolved at zero additional charge. Ongoing support thereafter is governed by optional Service Level Agreement (SLA) contracts.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                6. 30-Day Post-Launch Warranty
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
+                Every custom software release includes a complimentary 30-day post-launch warranty period during which any critical bugs or functional regressions attributed to our code are resolved at zero additional charge. Ongoing support thereafter is governed by optional Service Level Agreement (SLA) contracts.
               </p>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">7. Limitation of Liability</h2>
-              <p class="text-white-50 mb-3">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                7. Limitation of Liability
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
                 In no event shall Vesharo be liable for indirect, incidental, consequential, or punitive damages arising from the use of custom software beyond the total fees paid under the specific Statement of Work during the preceding three months.
               </p>
             </div>
 
-            <div>
-              <h2 class="h4 text-white fw-semibold mb-3">8. Governing Law & Jurisdiction</h2>
-              <p class="text-white-50 mb-2">
-                These terms are governed by the laws of India. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the courts of Ahmedabad, Gujarat, India.
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                8. Governing Law & Dispute Resolution
+              </h2>
+              <p class="text-neutral-300 mb-2" style="color: #CBD5E1;">
+                These terms are governed by the laws of India. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the competent courts of Ahmedabad, Gujarat, India.
               </p>
-              <p class="text-white-50 mb-0">
-                Inquiries regarding service terms: <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a>
+              <p class="text-neutral-300 mb-0" style="color: #94A3B8;">
+                Inquiries regarding service terms: <a href="mailto:contact@vesharo.com" class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">contact@vesharo.com</a>
               </p>
             </div>
           </div>
@@ -106,5 +127,5 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
     </div>
   </section>
 
-  <Subscribe1 spacingClass="tz-mt-lg-80" />
+  <Subscribe1 />
 </Layout>

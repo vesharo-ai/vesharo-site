@@ -2,17 +2,155 @@
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import Error from "@/components/error/Error";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+
+const keyPages = [
+  { title: "Core Services Hub", path: "/services", icon: "ph-squares-four", desc: "Custom software, AI agents, cloud engineering & web apps" },
+  { title: "AI Automation Solutions", path: "/services/ai-automation", icon: "ph-cpu", desc: "Enterprise LLM agents, private vector databases & RAG" },
+  { title: "Case Studies & Work", path: "/portfolio", icon: "ph-briefcase", desc: "Real engineering products: LockApp, NavratriOS & Wirebench" },
+  { title: "Pricing & Models", path: "/pricing", icon: "ph-currency-circle-dollar", desc: "Transparent milestone pricing & dedicated engineering squads" },
+  { title: "Engineering Blog", path: "/blog", icon: "ph-book-open-text", desc: "Technical playbooks, software architecture & RSS feed" },
+  { title: "Frequently Asked Questions", path: "/faq", icon: "ph-question", desc: "26 answers on IP ownership, security guardrails & timelines" },
+  { title: "Contact & Discovery", path: "/contact", icon: "ph-paper-plane-tilt", desc: "Schedule a 30-min discovery call or send a project brief" },
+  { title: "About Vesharo", path: "/about", icon: "ph-users", desc: "Our engineering philosophy, founders & Ahmedabad HQ" },
+];
 ---
 
 <Layout
-  title="Page Not Found | Vesharo"
-  description="The page you are looking for does not exist or has been moved. Explore Vesharo's IT services and AI automation platforms."
+  title="Page Not Found (404) | Vesharo"
+  description="The page you requested could not be found. Use our site index or search to navigate to Vesharo's software and AI automation resources."
   noindex={true}
 >
-  <BreadCrumb title="404" />
+  <BreadCrumb title="404 — Page Not Found" />
   <HeaderSlider />
-  <Error />
+
+  <section class="py-5" style="background-color: var(--vesharo-navy-base, #070B14); color: #fff;">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <div class="display-1 fw-bolder mb-2" style="font-family: var(--font-family-heading); color: var(--vesharo-electric-accent, #00d2ff); letter-spacing: -0.04em;">
+            404
+          </div>
+          <h1 class="h2 fw-bold text-white mb-3" style="font-family: var(--font-family-heading);">
+            Page Not Found
+          </h1>
+          <p class="text-neutral-300 lead mx-auto mb-4" style="max-width: 600px; color: #94A3B8;">
+            The page you are looking for may have been moved, renamed, or is temporarily unavailable. Search below or explore our primary sections.
+          </p>
+
+          <!-- Interactive Search Input -->
+          <div class="mx-auto position-relative mb-4" style="max-width: 540px;">
+            <div class="input-group">
+              <span class="input-group-text border-end-0" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15); color: #94A3B8;">
+                <i class="ph ph-magnifying-glass fs-5"></i>
+              </span>
+              <input
+                type="text"
+                id="pageSearchInput"
+                class="form-control text-white border-start-0 py-3"
+                placeholder="Search key pages (e.g. pricing, blog, ai, mobile)..."
+                style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15);"
+                aria-label="Search site pages"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3">
+            <a href="/" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold" style="background: #0066FF; border-color: #0066FF;">
+              <i class="ph ph-house me-1"></i> Return to Homepage
+            </a>
+            <a href="/contact" class="btn btn-outline-light px-4 py-2 rounded-pill fw-semibold">
+              <i class="ph ph-headset me-1"></i> Speak with Support
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Pages Directory -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <div class="text-center mb-4">
+            <span class="tz-text-xs text-uppercase fw-semibold tracking-wider" style="color: #64748B; letter-spacing: 0.08em;">
+              Recommended Destinations
+            </span>
+          </div>
+
+          <div class="row g-3" id="pagesDirectory">
+            {keyPages.map((page) => (
+              <div class="col-md-6 page-card-col" data-title={page.title.toLowerCase()} data-desc={page.desc.toLowerCase()}>
+                <a
+                  href={page.path}
+                  class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none h-100"
+                  style="background: rgba(11, 15, 25, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s ease;"
+                >
+                  <div class="d-inline-flex align-items-center justify-content-center rounded-3 flex-shrink-0" style="width: 44px; height: 44px; background: rgba(0, 102, 255, 0.12); border: 1px solid rgba(0, 102, 255, 0.25);">
+                    <i class={`ph ${page.icon} fs-5`} style="color: var(--vesharo-electric-accent, #00d2ff);"></i>
+                  </div>
+                  <div class="overflow-hidden">
+                    <h2 class="h6 fw-bold text-white mb-1" style="font-family: var(--font-family-heading);">
+                      {page.title}
+                    </h2>
+                    <p class="tz-text-xs text-neutral-400 mb-0 text-truncate" style="color: #94A3B8;">
+                      {page.desc}
+                    </p>
+                  </div>
+                  <i class="ph ph-arrow-right ms-auto text-neutral-500" style="color: #64748B;"></i>
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div id="noResultsMsg" class="text-center py-4 d-none">
+            <p class="text-neutral-400 tz-text-m mb-2">No matching pages found.</p>
+            <a href="/" class="tz-text-s text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">Explore our complete site index from Home &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-time Filter Script -->
+  <script is:inline>
+    const searchInput = document.getElementById("pageSearchInput");
+    const cards = document.querySelectorAll(".page-card-col");
+    const noResultsMsg = document.getElementById("noResultsMsg");
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const title = card.getAttribute("data-title") || "";
+          const desc = card.getAttribute("data-desc") || "";
+          if (title.includes(query) || desc.includes(query)) {
+            card.classList.remove("d-none");
+            visibleCount++;
+          } else {
+            card.classList.add("d-none");
+          }
+        });
+
+        if (visibleCount === 0 && query !== "") {
+          noResultsMsg.classList.remove("d-none");
+        } else {
+          noResultsMsg.classList.add("d-none");
+        }
+      });
+    }
+  </script>
+
+  <style>
+    .page-card-col a:hover {
+      border-color: rgba(0, 210, 255, 0.3) !important;
+      transform: translateY(-2px);
+      background: rgba(14, 20, 34, 0.95) !important;
+    }
+    .page-card-col a:hover i.ph-arrow-right {
+      color: var(--vesharo-electric-accent, #00d2ff) !important;
+      transform: translateX(3px);
+    }
+  </style>
+
   <Subscribe1 />
 </Layout>

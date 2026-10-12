@@ -6,8 +6,8 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout
-  title="Privacy Policy | Vesharo"
-  description="Learn how Vesharo protects your data, enforces privacy-first engineering, and complies with international data privacy regulations."
+  title="Privacy Policy | DPDP Act & GDPR Compliant | Vesharo"
+  description="How Vesharo protects your data under the India Digital Personal Data Protection (DPDP) Act 2023 and GDPR. Zero invasive trackers, strict confidentiality."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Privacy Policy", path: "/privacy" },
@@ -16,83 +16,114 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
   <BreadCrumb title="Privacy Policy" />
   <HeaderSlider />
 
-  <section class="py-5" style="background-color: #0b0f19;">
+  <section class="py-5" style="background-color: var(--vesharo-navy-base, #070B14); color: #fff;">
     <div class="container py-lg-4">
       <div class="row justify-content-center">
-        <div class="col-lg-9 col-xl-8">
-          <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
-            <div class="mb-4">
-              <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+        <div class="col-lg-10 col-xl-9">
+          <div class="p-4 p-md-5 rounded-4" style="background-color: rgba(11, 15, 25, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
+              <span class="badge px-3 py-2 rounded-pill text-cyan" style="background-color: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25); color: var(--vesharo-electric-accent, #00d2ff); font-size: 0.875rem;">
                 Last Updated: October 2026
+              </span>
+              <span class="tz-text-xs text-neutral-400" style="color: #64748B;">
+                Jurisdiction: Ahmedabad, Gujarat, India (DPDP Act & GDPR Aligned)
               </span>
             </div>
 
-            <h1 class="h2 text-white mb-4 fw-bold">Privacy Policy</h1>
-            <p class="text-white-50 lead mb-5">
-              At Vesharo, we treat privacy and data protection as foundational engineering principles. This Privacy Policy details how we collect, handle, and safeguard information when you visit our website (vesharo.com) or engage our engineering services.
+            <h1 class="h2 text-white mb-4 fw-bold" style="font-family: var(--font-family-heading);">
+              Privacy Policy & Data Protection
+            </h1>
+            <p class="text-neutral-300 lead mb-5" style="color: #CBD5E1; line-height: 1.7;">
+              At Vesharo, we engineer software and AI automation with privacy-by-design as an uncompromising principle. This Privacy Policy details our data collection, processing grounds, storage boundaries, and your legal rights under India's <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong> and international standards like the <strong>General Data Protection Regulation (GDPR)</strong>.
             </p>
 
+            <!-- 1. Data We Collect -->
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">1. Information We Collect</h2>
-              <p class="text-white-50 mb-3">
-                We only collect information necessary to communicate with you regarding engineering consultations and project delivery:
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                1. Data We Collect & Grounds for Collection
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                We adhere strictly to the principle of data minimization. We only collect information necessary to deliver consultative engineering services and respond to project inquiries:
               </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2"><strong class="text-white">Contact Submissions:</strong> When you submit a project inquiry or contact form, we collect your name, business email address, phone number, and project brief details.</li>
-                <li class="mb-2"><strong class="text-white">Technical Analytics:</strong> We collect minimal, anonymized operational metrics (such as device type, browser family, and page response times) solely to diagnose performance and maintain site availability.</li>
-                <li class="mb-2"><strong class="text-white">Client Project Data:</strong> During client engagements, proprietary business logic, schemas, and credentials are handled under strict Non-Disclosure Agreements (NDAs) and never stored on public or unencrypted environments.</li>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2">
+                  <strong class="text-white">Contact & Scoping Submissions:</strong> When you complete our contact form or book a discovery consultation, we receive your Full Name, Work Email Address, Phone Number, Service of Interest, Estimated Budget, and Project Details.
+                </li>
+                <li class="mb-2">
+                  <strong class="text-white">Cookieless Technical Metrics:</strong> We do not deploy invasive third-party tracking pixels or behavioral advertising cookies. We collect only aggregate, anonymized server-side request metrics (HTTP status, general device family, response latency) purely to maintain site uptime and security.
+                </li>
+                <li class="mb-2">
+                  <strong class="text-white">Client Intellectual Property & Credentials:</strong> During contracted engagements, client database schemas, credentials, and business logic are governed by mutual Non-Disclosure Agreements (NDAs), encrypted at rest and in transit, and strictly isolated from public repositories.
+                </li>
               </ul>
             </div>
 
-            <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">2. How We Use Your Information</h2>
-              <p class="text-white-50 mb-3">
-                The information you provide is strictly used for legitimate business purposes:
+            <!-- 2. DPDP Act Compliance -->
+            <div class="mb-5 p-4 rounded-3" style="background: rgba(0, 102, 255, 0.05); border: 1px solid rgba(0, 102, 255, 0.2);">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                2. India Digital Personal Data Protection (DPDP) Act, 2023 Compliance
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1;">
+                For individuals in India, Vesharo acts as a <em>Data Fiduciary</em> in compliance with the DPDP Act 2023:
               </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2">Responding directly to technical inquiries, scoping consultations, and requests for proposals.</li>
-                <li class="mb-2">Fulfilling contractual engineering milestones, architecture deliverables, and software deployment agreements.</li>
-                <li class="mb-2">Maintaining site security, preventing fraudulent requests, and ensuring server uptime.</li>
-              </ul>
-              <p class="text-white-50">
-                We do not sell, rent, monetize, or broker your personal information or business data to any third-party advertisers.
-              </p>
-            </div>
-
-            <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">3. AI Data Privacy & Security Guardrails</h2>
-              <p class="text-white-50 mb-3">
-                For clients utilizing our AI automation, custom agents, or machine learning pipelines:
-              </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2"><strong class="text-white">Zero Data Retention:</strong> We configure enterprise AI integrations with zero data retention terms, ensuring model providers do not train on your proprietary company data.</li>
-                <li class="mb-2"><strong class="text-white">Private Cloud VPCs:</strong> We deploy vector stores, inference microservices, and database models inside your organization's private AWS or GCP cloud boundaries.</li>
-                <li class="mb-2"><strong class="text-white">Role-Based Access:</strong> Access to staging environments and API keys is strictly governed by least-privilege role policies and revoked immediately upon milestone completion.</li>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2"><strong class="text-white">Notice & Consent:</strong> We collect personal information only after providing clear notice and securing voluntary consent through form submission.</li>
+                <li class="mb-2"><strong class="text-white">Specified Purpose:</strong> Personal data is processed exclusively for project scoping, engineering communication, and contractual milestone fulfillment.</li>
+                <li class="mb-2"><strong class="text-white">Right to Access & Correction:</strong> You may request an itemized summary of your personal data processed by Vesharo, and request correction of inaccurate data.</li>
+                <li class="mb-2"><strong class="text-white">Right to Erasure:</strong> You retain the absolute right to withdraw consent and request the permanent erasure of your personal data.</li>
+                <li class="mb-2"><strong class="text-white">Right to Grievance Redressal:</strong> We maintain a designated grievance redressal mechanism with an expedited 7-business-day response window.</li>
               </ul>
             </div>
 
+            <!-- 3. AI Automation Privacy -->
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">4. Data Retention & Erasure Rights</h2>
-              <p class="text-white-50 mb-3">
-                We retain general contact submissions only as long as necessary to facilitate your business inquiry or fulfill contractual obligations. You retain the right to request a complete copy of your submitted data or request its permanent erasure at any time by contacting our engineering desk at <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a>.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                3. Enterprise AI Privacy & Zero-Retention Architecture
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                When clients deploy autonomous AI agents or LLM workflows engineered by Vesharo:
+              </p>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2"><strong class="text-white">Zero Data Retention (ZDR):</strong> We configure enterprise API tiers with model providers (e.g. Anthropic, OpenAI) that guarantee your enterprise inputs and prompts are never retained for model retraining.</li>
+                <li class="mb-2"><strong class="text-white">Private Cloud VPC Boundaries:</strong> Vector stores, embedding databases, and model orchestrators are deployed exclusively inside your organization's private AWS or GCP accounts.</li>
+                <li class="mb-2"><strong class="text-white">No Public Exposure:</strong> Sensitive proprietary datasets never cross external boundaries without cryptographic verification and least-privilege token access.</li>
+              </ul>
+            </div>
+
+            <!-- 4. Data Retention & Erasure -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                4. Data Retention Policy
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
+                Inquiries that do not materialize into active client engagements are purged from our records within 90 calendar days. Contractual project documentation and accounting records are retained for the statutory period required under Indian commercial law.
               </p>
             </div>
 
+            <!-- 5. GDPR & International Rights -->
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">5. International Privacy Compliance</h2>
-              <p class="text-white-50 mb-3">
-                We respect international privacy standards, including the European General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Users in any jurisdiction may exercise their rights of access, rectification, portability, and deletion without penalty.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                5. Rights of European & International Users (GDPR / CCPA)
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1; line-height: 1.7;">
+                Regardless of your geographic location, you possess the rights of access, rectification, portability, restriction of processing, objection, and erasure under GDPR Articles 15–22. We never sell, broker, or monetize your contact information to advertising networks.
               </p>
             </div>
 
-            <div>
-              <h2 class="h4 text-white fw-semibold mb-3">6. Contacting Our Data Privacy Lead</h2>
-              <p class="text-white-50 mb-2">
-                For questions regarding this policy or our data handling practices, contact our team:
+            <!-- 6. Grievance Officer & Contact -->
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                6. Data Protection & Grievance Redressal Officer
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #CBD5E1;">
+                For any data privacy inquiries, consent withdrawals, or statutory grievance submissions, contact our designated officer:
               </p>
-              <p class="text-white mb-1"><strong>Vesharo Engineering Desk</strong></p>
-              <p class="text-white-50 mb-1">Email: <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a></p>
-              <p class="text-white-50 mb-0">Location: Ahmedabad, Gujarat, India</p>
+              <div class="d-flex flex-column gap-1 text-neutral-300 tz-text-s" style="color: #94A3B8;">
+                <p class="mb-1 text-white fw-semibold">Data Protection Officer — Vesharo</p>
+                <p class="mb-1">Email: <a href="mailto:contact@vesharo.com" class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">contact@vesharo.com</a></p>
+                <p class="mb-1">Corporate Address: Ahmedabad, Gujarat 380015, India</p>
+                <p class="mb-0">Operating Hours: Monday – Friday, 09:00 – 18:30 IST</p>
+              </div>
             </div>
           </div>
         </div>
@@ -100,5 +131,5 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
     </div>
   </section>
 
-  <Subscribe1 spacingClass="tz-mt-lg-80" />
+  <Subscribe1 />
 </Layout>

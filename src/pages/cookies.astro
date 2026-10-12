@@ -6,8 +6,8 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 ---
 
 <Layout
-  title="Cookie Policy | Vesharo"
-  description="Understand how Vesharo utilizes essential storage and functional cookies to provide an optimized, fast website experience."
+  title="Cookie Policy | Cookieless Analytics & Storage | Vesharo"
+  description="How Vesharo uses lightweight functional browser storage and cookieless metrics. Zero third-party ad trackers, zero surveillance."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Cookie Policy", path: "/cookies" },
@@ -16,60 +16,70 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
   <BreadCrumb title="Cookie Policy" />
   <HeaderSlider />
 
-  <section class="py-5" style="background-color: #0b0f19;">
+  <section class="py-5" style="background-color: var(--vesharo-navy-base, #070B14); color: #fff;">
     <div class="container py-lg-4">
       <div class="row justify-content-center">
-        <div class="col-lg-9 col-xl-8">
-          <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
-            <div class="mb-4">
-              <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+        <div class="col-lg-10 col-xl-9">
+          <div class="p-4 p-md-5 rounded-4" style="background-color: rgba(11, 15, 25, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
+              <span class="badge px-3 py-2 rounded-pill text-cyan" style="background-color: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25); color: var(--vesharo-electric-accent, #00d2ff); font-size: 0.875rem;">
                 Last Updated: October 2026
+              </span>
+              <span class="tz-text-xs text-neutral-400" style="color: #64748B;">
+                Zero Invasive Tracking Cookies Deployed
               </span>
             </div>
 
-            <h1 class="h2 text-white mb-4 fw-bold">Cookie Policy</h1>
-            <p class="text-white-50 lead mb-5">
-              Vesharo believes in building lightweight, high-performance web applications that respect your digital footprint. This Cookie Policy explains our minimal use of cookies and local storage on vesharo.com.
+            <h1 class="h2 text-white mb-4 fw-bold" style="font-family: var(--font-family-heading);">
+              Cookie & Local Storage Policy
+            </h1>
+            <p class="text-neutral-300 lead mb-5" style="color: #CBD5E1; line-height: 1.7;">
+              Vesharo believes in engineering high-velocity websites that respect your digital sovereignty. We do not use third-party marketing cookies, behavioral tracking pixels, or cross-site fingerprinting scripts.
             </p>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">1. What Are Cookies & Local Storage?</h2>
-              <p class="text-white-50 mb-3">
-                Cookies and browser local storage are small text files stored on your device by websites you visit. They are commonly used to remember preferences, authenticate sessions, and deliver efficient user experiences.
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                1. What Storage Technologies Do We Use?
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                Our site uses minimal browser client-side storage strictly necessary for basic functionality:
               </p>
-            </div>
-
-            <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">2. How Vesharo Uses Browser Storage</h2>
-              <p class="text-white-50 mb-3">
-                We maintain an ultra-strict privacy profile:
-              </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2"><strong class="text-white">Strictly Functional Storage:</strong> We use browser <code>localStorage</code> solely to remember your UI display preference (<code>vesharo-theme</code>: light or dark mode) to prevent flashing unstyled themes when you navigate between pages.</li>
-                <li class="mb-2"><strong class="text-white">Zero Invasive Ad Trackers:</strong> We do not deploy third-party advertising cookies, retargeting pixels, or behavioral marketing trackers.</li>
-                <li class="mb-2"><strong class="text-white">No Cross-Site Surveillance:</strong> We do not track your browsing activity across other websites.</li>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2">
+                  <strong class="text-white">Functional Theme Preference (localStorage):</strong> We store your preferred display theme (<code>vesharo-theme</code>: light or dark) in your browser's local storage. This ensures the site renders smoothly in your chosen theme without layout shifts or flashing.
+                </li>
+                <li class="mb-2">
+                  <strong class="text-white">Zero Non-Essential Marketing Cookies:</strong> We do not set third-party marketing, retargeting, or advertising cookies. Because no personal data is tracked or shared with ad networks, no intrusive cookie consent banner is required under GDPR and ePrivacy regulations.
+                </li>
+                <li class="mb-2">
+                  <strong class="text-white">Cookieless Analytics:</strong> Any performance analytics we evaluate are collected in aggregate without cookies, IP geolocation fingerprinting, or cross-session tracking.
+                </li>
               </ul>
             </div>
 
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">3. Managing Your Browser Storage</h2>
-              <p class="text-white-50 mb-3">
-                You can configure your browser at any time to block or delete cookies and local storage data:
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                2. Controlling & Clearing Browser Storage
+              </h2>
+              <p class="text-neutral-300 mb-3" style="color: #94A3B8;">
+                You retain complete control over your browser's cookies and local storage. You can inspect, modify, or erase stored data at any time:
               </p>
-              <ul class="text-white-50 ps-4 mb-3">
-                <li class="mb-2"><strong class="text-white">Google Chrome:</strong> Settings → Privacy and Security → Clear Browsing Data → Cookies and other site data.</li>
+              <ul class="text-neutral-300 ps-4 mb-3" style="color: #CBD5E1; line-height: 1.8;">
+                <li class="mb-2"><strong class="text-white">Google Chrome:</strong> Settings → Privacy and Security → Delete Browsing Data → Cookies and other site data.</li>
                 <li class="mb-2"><strong class="text-white">Mozilla Firefox:</strong> Settings → Privacy & Security → Cookies and Site Data → Clear Data.</li>
-                <li class="mb-2"><strong class="text-white">Apple Safari:</strong> Preferences → Privacy → Manage Website Data → Remove All.</li>
+                <li class="mb-2"><strong class="text-white">Apple Safari:</strong> Settings / Preferences → Privacy → Manage Website Data → Remove All.</li>
               </ul>
-              <p class="text-white-50">
-                Disabling local storage will reset your light/dark theme preference to default, but will not prevent you from browsing any content on the site.
+              <p class="text-neutral-300" style="color: #94A3B8;">
+                Clearing your browser storage simply resets your dark/light theme preference to your operating system default and will not restrict access to any page or service on our website.
               </p>
             </div>
 
-            <div>
-              <h2 class="h4 text-white fw-semibold mb-3">4. Inquiries</h2>
-              <p class="text-white-50 mb-0">
-                If you have questions regarding our cookie practices, reach out to us at <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a>.
+            <div class="p-4 rounded-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h2 class="h4 text-white fw-semibold mb-3" style="font-family: var(--font-family-heading);">
+                3. Questions Regarding Cookies & Storage
+              </h2>
+              <p class="text-neutral-300 mb-0" style="color: #CBD5E1;">
+                For inquiries regarding our lightweight storage policies, reach out to our engineering team at <a href="mailto:contact@vesharo.com" class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">contact@vesharo.com</a>.
               </p>
             </div>
           </div>
@@ -78,5 +88,5 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
     </div>
   </section>
 
-  <Subscribe1 spacingClass="tz-mt-lg-80" />
+  <Subscribe1 />
 </Layout>
