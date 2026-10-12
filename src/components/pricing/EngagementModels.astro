@@ -1,0 +1,200 @@
+---
+const models = [
+  {
+    id: "fixed-scope",
+    name: "Fixed-Scope Project",
+    badge: "Milestone-Based",
+    pricingType: "Custom Milestone Scope",
+    pricingNote: "Fixed price per agreed milestone — zero budget surprises",
+    idealFor: "Startups & businesses building a new MVP, isolated feature module, or legacy system migration with defined specs.",
+    included: [
+      "End-to-end technical architecture & database schema blueprint",
+      "Fixed delivery milestones, timelines & verified deliverables",
+      "Bi-weekly interactive sprint demos in staging environments",
+      "100% intellectual property & source code transfer",
+      "Complimentary 30-day post-launch bug fix warranty",
+    ],
+    howItWorks: "1-week architecture discovery -> locked specs & timeline -> bi-weekly milestone delivery -> production deployment & handover.",
+    timeline: "Typically 4 to 8 weeks",
+    ctaText: "Request Scope Estimate",
+    ctaLink: "/contact",
+    featured: false,
+  },
+  {
+    id: "dedicated-squad",
+    name: "Dedicated Engineering Squad",
+    badge: "Most Popular",
+    pricingType: "Predictable Monthly Retainer",
+    pricingNote: "Dedicated full-stack engineering team embedded in your workflow",
+    idealFor: "High-growth tech startups and product leaders needing senior engineering bandwidth without hiring overhead.",
+    included: [
+      "Dedicated senior solutions architect + senior full-stack developers",
+      "Daily asynchronous progress summaries & agile sprint boards",
+      "Direct collaboration in your team's Slack/Discord & GitHub repos",
+      "Flexible roadmap prioritization & rapid feature iteration",
+      "Automated CI/CD pipelines, automated testing & cloud infrastructure",
+    ],
+    howItWorks: "3-day team ramp-up -> integration into your communications -> 2-week delivery cycles -> continuous deployment to production.",
+    timeline: "Monthly engagement (scale or pause with 30-day notice)",
+    ctaText: "Hire Dedicated Squad",
+    ctaLink: "/contact",
+    featured: true,
+  },
+  {
+    id: "maintenance-sla",
+    name: "Support & Maintenance Retainer",
+    badge: "Production SLA",
+    pricingType: "Monthly SLA Retainer",
+    pricingNote: "Guaranteed uptime, security monitoring & ongoing enhancements",
+    idealFor: "Live web & mobile apps requiring 24/7 reliability, regular security patches, and proactive dependency updates.",
+    included: [
+      "24/7 uptime monitoring & rapid critical incident response SLA",
+      "Automated security vulnerability patching & dependency updates",
+      "Reserved monthly engineering hours for feature requests & bug fixes",
+      "Third-party API & cloud provider deprecation management",
+      "Monthly performance, security & cloud spend audit report",
+    ],
+    howItWorks: "Integration of monitoring webhooks -> proactive health checks -> on-call incident response -> monthly maintenance reports.",
+    timeline: "Ongoing monthly support (cancel anytime)",
+    ctaText: "Protect Your Application",
+    ctaLink: "/contact",
+    featured: false,
+  },
+  {
+    id: "discovery-call",
+    name: "Free Discovery Consultation",
+    badge: "Zero Obligation",
+    pricingType: "100% Complimentary",
+    pricingNote: "Direct 30-minute technical evaluation with a principal architect",
+    idealFor: "Founders, CTOs & product managers evaluating technical feasibility, AI automation opportunities, or estimating costs.",
+    included: [
+      "30-minute 1-on-1 strategic session with a principal architect",
+      "Technical feasibility evaluation of your product concept or AI workflow",
+      "High-level architecture, tech stack & cloud recommendations",
+      "Ballpark timeline & recommended milestone breakdown",
+      "Mutual non-disclosure agreement (NDA) signed upon request",
+    ],
+    howItWorks: "Select a time slot on Cal.com -> discuss your technical objectives -> receive written feasibility summary within 48h.",
+    timeline: "30 minutes (instant booking)",
+    ctaText: "Schedule Discovery Call",
+    ctaLink: "https://cal.com/vesharo/discovery",
+    featured: false,
+  },
+];
+---
+
+<section class="py-5" style="background-color: var(--vesharo-navy-base, #070B14);">
+  <div class="container py-4">
+    <!-- Section Header -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25);">
+          <i class="ph ph-handshake text-cyan" style="color: var(--vesharo-electric-accent, #00d2ff);"></i>
+          <span class="tz-text-xs text-uppercase fw-semibold tracking-wider text-cyan" style="color: var(--vesharo-electric-accent, #00d2ff); letter-spacing: 0.08em;">
+            Transparent Collaboration
+          </span>
+        </div>
+        <h2 class="tz-display-2 fw-bold text-white mb-3" style="font-family: var(--font-family-heading);">
+          Four Ways to Work With Vesharo
+        </h2>
+        <p class="tz-text-l text-neutral-400 mx-auto" style="max-width: 680px; color: #94A3B8;">
+          No arbitrary packages or hidden markups. We tailor every collaboration to your technical requirements, team dynamics, and business milestones.
+        </p>
+      </div>
+    </div>
+
+    <!-- Models Grid -->
+    <div class="row g-4">
+      {models.map((model) => (
+        <div class="col-md-6 col-xl-3 d-flex">
+          <div
+            class="model-card w-100 p-4 rounded-3 d-flex flex-column justify-content-between position-relative"
+            style={`background: rgba(11, 15, 25, 0.85); border: 1px solid ${model.featured ? 'var(--vesharo-electric-accent, #00d2ff)' : 'rgba(255, 255, 255, 0.08)'};`}
+          >
+            {model.featured && (
+              <div class="position-absolute top-0 end-0 translate-middle-y me-3">
+                <span class="badge px-3 py-1 text-dark fw-bold rounded-pill" style="background: var(--vesharo-electric-accent, #00d2ff); font-size: 0.75rem;">
+                  {model.badge}
+                </span>
+              </div>
+            )}
+
+            <div>
+              <div class="mb-3">
+                {!model.featured && (
+                  <span class="badge px-2 py-1 rounded text-uppercase" style="background: rgba(255, 255, 255, 0.06); color: #94A3B8; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    {model.badge}
+                  </span>
+                )}
+                <h3 class="h5 fw-bold text-white mt-2 mb-1" style="font-family: var(--font-family-heading);">
+                  {model.name}
+                </h3>
+              </div>
+
+              <!-- Price Tag -->
+              <div class="py-3 my-2 border-top border-bottom" style="border-color: rgba(255, 255, 255, 0.08) !important;">
+                <div class="text-white fw-bold fs-5" style="color: var(--vesharo-electric-accent, #00d2ff) !important;">
+                  {model.pricingType}
+                </div>
+                <div class="tz-text-xs mt-1" style="color: #64748B;">
+                  {model.pricingNote}
+                </div>
+              </div>
+
+              <!-- Who it's for -->
+              <div class="my-3">
+                <span class="tz-text-xs text-uppercase fw-semibold" style="color: #64748B; letter-spacing: 0.05em;">Best For:</span>
+                <p class="tz-text-s text-neutral-300 mt-1 mb-0" style="color: #CBD5E1; line-height: 1.5;">
+                  {model.idealFor}
+                </p>
+              </div>
+
+              <!-- What's Included -->
+              <div class="my-3">
+                <span class="tz-text-xs text-uppercase fw-semibold" style="color: #64748B; letter-spacing: 0.05em;">What's Included:</span>
+                <ul class="list-unstyled d-flex flex-column gap-2 mt-2 mb-0">
+                  {model.included.map((item) => (
+                    <li class="d-flex align-items-start gap-2 tz-text-xs" style="color: #94A3B8; line-height: 1.5;">
+                      <i class="ph ph-check-circle fs-6 flex-shrink-0 mt-1" style="color: var(--vesharo-electric-accent, #00d2ff);"></i>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Timeline & How it Works -->
+              <div class="p-2 rounded mt-3 mb-4" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="d-flex align-items-center gap-1 tz-text-xs" style="color: #94A3B8;">
+                  <i class="ph ph-clock" style="color: var(--vesharo-electric-accent, #00d2ff);"></i>
+                  <span class="fw-semibold text-white">Cadence:</span> {model.timeline}
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div>
+              <a
+                href={model.ctaLink}
+                class={`btn w-100 py-2 fw-semibold tz-text-s d-inline-flex align-items-center justify-content-center gap-2 ${model.featured ? 'btn-primary' : 'btn-outline-light'}`}
+                style={model.featured ? 'background: #0066FF; border-color: #0066FF; color: #fff;' : 'border-color: rgba(255,255,255,0.2); color: #fff;'}
+              >
+                <span>{model.ctaText}</span>
+                <i class="ph ph-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .model-card {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .model-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 102, 255, 0.15);
+  }
+</style>

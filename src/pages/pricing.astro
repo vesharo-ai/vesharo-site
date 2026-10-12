@@ -2,20 +2,51 @@
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import Pricing1 from "@/components/pricing/Pricing1.astro";
+import EngagementModels from "@/components/pricing/EngagementModels.astro";
+import HowWeEstimate from "@/components/pricing/HowWeEstimate.astro";
+import PricingComparison from "@/components/pricing/PricingComparison.astro";
+import PricingFaq from "@/components/pricing/PricingFaq.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+import { getFaqJsonLd } from "@/lib/jsonLd";
+
+const allFaqs = await getCollection("faq");
+const pricingFaqs = allFaqs
+  .filter((f) => f.data.category === "Pricing & Payments" || f.data.category === "Support & Ownership")
+  .sort((a, b) => a.data.order - b.data.order);
+
+const pricingFaqSchema = getFaqJsonLd(
+  pricingFaqs.map(({ data }) => ({
+    question: data.question,
+    answer: data.answer,
+  }))
+);
 ---
 
 <Layout
-  title="Pricing & Engagement Models | Vesharo"
-  description="Transparent, milestone-based pricing for AI automation, dedicated engineering sprints, and custom software delivery."
+  title="Pricing & Engagement Models | Fixed-Scope & Dedicated Squads | Vesharo"
+  description="Transparent milestone-based pricing and dedicated engineering retainers. Zero arbitrary markups, 100% IP code ownership, and free technical discovery."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Pricing", path: "/pricing" },
   ]}
+  jsonLd={pricingFaqSchema}
 >
-  <BreadCrumb title="Pricing Plan" />
+  <BreadCrumb title="Pricing & Engagement Models" />
   <HeaderSlider />
-  <Pricing1 />
+
+  <!-- Engagement Models (Fixed Scope, Dedicated Squad, Maintenance SLA, Free Discovery) -->
+  <EngagementModels />
+
+  <!-- How We Estimate (Scope, Scale, Integrations, Security, Concurrency) -->
+  <HowWeEstimate />
+
+  <!-- Mobile-Accessible Model Comparison Table -->
+  <PricingComparison />
+
+  <!-- Pricing FAQs + Schema -->
+  <PricingFaq />
+
+  <!-- Final CTA Band -->
   <Subscribe1 />
 </Layout>
