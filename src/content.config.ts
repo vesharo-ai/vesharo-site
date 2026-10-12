@@ -80,13 +80,15 @@ const team = defineCollection({
     name: z.string(),
     role: z.string(),
     bio: z.string(),
-    image: z.string(),
+    initials: z.string().optional(),
+    image: z.string().optional(),
     socials: z.object({
       linkedin: z.string().optional(),
       github: z.string().optional(),
       twitter: z.string().optional(),
     }).optional(),
     order: z.number(),
+    placeholder: z.boolean().optional(),
   }),
 });
 

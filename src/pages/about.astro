@@ -2,15 +2,22 @@
 import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
-import About2 from "@/components/about/About2.astro";
-import Service1 from "@/components/service/Service1.astro";
-import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
-import Testimonial1 from "@/components/testimonials/Testimonial1";
-import Faq1 from "@/components/faq/Faq1.astro";
+import Team1 from "@/components/team/Team1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
-import { getTestimonialSlides } from "@/lib/content";
+import { getCollection } from "astro:content";
+import { getAboutPageJsonLd } from "@/lib/jsonLd";
 
-const testimonials = await getTestimonialSlides();
+const allTeam = await getCollection("team");
+const realMembers = allTeam.filter((m) => !m.data.placeholder);
+
+const aboutJsonLd = getAboutPageJsonLd(
+  realMembers.map((m) => ({
+    name: m.data.name,
+    jobTitle: m.data.role,
+    description: m.data.bio,
+    sameAs: m.data.socials ? Object.values(m.data.socials).filter(Boolean) : [],
+  }))
+);
 ---
 
 <Layout
@@ -20,13 +27,239 @@ const testimonials = await getTestimonialSlides();
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
   ]}
+  jsonLd={aboutJsonLd}
 >
   <BreadCrumb title="About Us" />
   <HeaderSlider />
-  <About2 />
-  <Service1 limit={4} />
-  <WhoWeAre backgroundColor="#0b0f19" />
-  {testimonials.length > 0 && <Testimonial1 client:visible slides={testimonials} />}
-  <Faq1 backgroundColor="#0f1626" />
-  <Subscribe1 spacingClass="tz-mt-lg-120" />
+
+  <!-- 1. Story & Mission Section -->
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+            Who We Are
+          </span>
+          <h1 class="h2 text-white fw-bold mb-4">Engineering Software and AI Automation That Ships.</h1>
+          <p class="text-white-50 lead mb-4" style="line-height: 1.7;">
+            Vesharo was founded by hands-on systems architects and product engineers frustrated by enterprise software bloat, slow delivery cycles, and empty AI promises.
+          </p>
+          <p class="text-white-50 mb-4" style="line-height: 1.7;">
+            We operate as an elite engineering partner for forward-thinking businesses. Rather than deploying layers of non-technical account managers, our clients collaborate directly with senior technical architects who design, code, and deploy mission-critical systems.
+          </p>
+          <div class="row g-3 pt-2">
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.06);">
+                <div class="text-primary fw-bold h4 mb-1">100%</div>
+                <div class="text-white small fw-semibold">IP & Code Ownership</div>
+                <div class="text-white-50 small">Transferred to you from Day 1</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.06);">
+                <div class="text-primary fw-bold h4 mb-1">2-Week</div>
+                <div class="text-white small fw-semibold">Sprint Cadence</div>
+                <div class="text-white-50 small">Working, testable builds demonstrated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="p-4 p-md-5 rounded-4 position-relative" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.25);">
+            <h2 class="h4 text-white fw-bold mb-3">Our Mission</h2>
+            <p class="text-white-50 mb-4" style="line-height: 1.7;">
+              To accelerate business velocity by replacing fragile manual processes with deterministic AI pipelines, and building digital platforms engineered for resilience, speed, and real-world scale.
+            </p>
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex align-items-start gap-3">
+                <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                <div>
+                  <h3 class="h6 text-white fw-semibold mb-1">Zero Hallucination Tolerance</h3>
+                  <p class="text-white-50 small mb-0">Strict validation layers ensure AI outputs are predictable and safe.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                <div>
+                  <h3 class="h6 text-white fw-semibold mb-1">Private Cloud Isolation</h3>
+                  <p class="text-white-50 small mb-0">Your proprietary datasets never leak to third-party public models.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                <div>
+                  <h3 class="h6 text-white fw-semibold mb-1">Production-First Rigor</h3>
+                  <p class="text-white-50 small mb-0">Automated CI/CD pipelines, unit tests, and sub-second performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What We Believe (Core Values) -->
+  <section class="py-5" style="background-color: #070B14;">
+    <div class="container py-lg-4">
+      <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+          Our Philosophy
+        </span>
+        <h2 class="h2 text-white fw-bold mb-3">What We Believe</h2>
+        <p class="text-white-50 lead mx-auto" style="max-width: 680px;">
+          Core engineering principles that guide how we architect systems and collaborate with our partners.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 h-100" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 text-primary" style="width: 48px; height: 48px; background-color: rgba(0, 102, 255, 0.15);">
+              <i class="ph ph-shield-check" style="font-size: 1.5rem;"></i>
+            </div>
+            <h3 class="h5 text-white fw-bold mb-2">Honesty & Content Integrity</h3>
+            <p class="text-white-50 small mb-0" style="line-height: 1.7;">
+              We never fabricate case studies, fake client metrics, or invent testimonials. Our credibility comes from verified software running smoothly in production.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 h-100" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 text-primary" style="width: 48px; height: 48px; background-color: rgba(0, 102, 255, 0.15);">
+              <i class="ph ph-lightning" style="font-size: 1.5rem;"></i>
+            </div>
+            <h3 class="h5 text-white fw-bold mb-2">Simplicity Over Bloat</h3>
+            <p class="text-white-50 small mb-0" style="line-height: 1.7;">
+              The best code is the code you do not have to write. We favor lean architectures, sub-100KB JavaScript budgets, and proven databases over fragile trends.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 h-100" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 text-primary" style="width: 48px; height: 48px; background-color: rgba(0, 102, 255, 0.15);">
+              <i class="ph ph-handshake" style="font-size: 1.5rem;"></i>
+            </div>
+            <h3 class="h5 text-white fw-bold mb-2">Transparent Partnership</h3>
+            <p class="text-white-50 small mb-0" style="line-height: 1.7;">
+              No hidden fees, no opaque markup on cloud hosting, and no vendor lock-in. You own your code, your infrastructure, and your git repositories unconditionally.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. How We Work (Process) -->
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+          Delivery Cadence
+        </span>
+        <h2 class="h2 text-white fw-bold mb-3">How We Work</h2>
+        <p class="text-white-50 lead mx-auto" style="max-width: 680px;">
+          Our 5-stage engineering lifecycle guarantees predictable milestones and rapid time-to-value.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        {[
+          { step: "01", title: "Technical Discovery", desc: "1-week architecture sprint analyzing requirements, non-functional constraints, and defining measurable scope." },
+          { step: "02", title: "System Architecture", desc: "Design entity schemas, API contracts, security perimeters, and automated deployment test rigs." },
+          { step: "03", title: "Sprint Execution", desc: "2-week agile development cycles with working demo environments published at every sprint boundary." },
+          { step: "04", title: "Hardening & QA", desc: "Load testing, security audits, WCAG 2.2 AA accessibility verification, and cross-device QA." },
+          { step: "05", title: "Production & Warranty", desc: "Zero-downtime deployment, DNS handoff, 30-day post-launch warranty, and optional 24/7 SLA monitoring." },
+        ].map((item) => (
+          <div class="col-md-6 col-lg">
+            <div class="p-3 p-md-4 rounded-4 h-100" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-primary fw-bold d-block mb-2" style="font-size: 1.5rem;">{item.step}</span>
+              <h3 class="h6 text-white fw-semibold mb-2">{item.title}</h3>
+              <p class="text-white-50 small mb-0" style="line-height: 1.6;">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Technology We Use -->
+  <section class="py-5" style="background-color: #070B14;">
+    <div class="container py-lg-4">
+      <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+          Production Stack
+        </span>
+        <h2 class="h2 text-white fw-bold mb-3">Technology We Master</h2>
+        <p class="text-white-50 lead mx-auto" style="max-width: 680px;">
+          We select modern, resilient technologies engineered for performance, maintainability, and rapid developer velocity.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        {[
+          { category: "Web & Islands", stack: ["Astro 7", "React 19", "Next.js", "TypeScript", "TailwindCSS"] },
+          { category: "Mobile Engineering", stack: ["React Native", "Expo", "Flutter", "Android SDK / Kotlin", "iOS / Swift"] },
+          { category: "Backend & Systems", stack: ["Node.js", "Fastify", "Go", "Python", "REST & GraphQL"] },
+          { category: "Data & Storage", stack: ["PostgreSQL", "Redis", "MongoDB", "pgvector", "SQLite"] },
+          { category: "Cloud & DevOps", stack: ["AWS (ECS/RDS)", "GCP", "Docker", "Kubernetes", "GitHub Actions"] },
+          { category: "AI Orchestration", stack: ["LangChain", "LlamaIndex", "Pinecone / Qdrant", "Claude / OpenAI APIs", "Pydantic"] },
+        ].map((group) => (
+          <div class="col-md-6 col-lg-4">
+            <div class="p-4 rounded-4 h-100" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h3 class="h6 text-white fw-semibold text-uppercase tracking-wider small mb-3">{group.category}</h3>
+              <div class="d-flex flex-wrap gap-2">
+                {group.stack.map((tech) => (
+                  <span class="badge px-3 py-2 rounded-pill text-white" style="background-color: rgba(255, 255, 255, 0.07); font-weight: normal;">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Team Section (Always Visible) -->
+  <Team1 isInnerPage={true} />
+
+  <!-- 6. Location & Working Hours -->
+  <section class="py-5" style="background-color: #070B14;">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="p-4 p-md-5 rounded-4 text-center" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+              Global Headquarters
+            </span>
+            <h2 class="h3 text-white fw-bold mb-3">Location & Working Hours</h2>
+            <p class="text-white-50 lead mb-4">
+              Headquartered in Ahmedabad, Gujarat, India, collaborating with forward-thinking enterprises worldwide.
+            </p>
+            <div class="row g-3 text-start">
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <div class="text-white-50 small mb-1">Office Location</div>
+                  <div class="text-white fw-semibold">Ahmedabad, Gujarat, India</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <div class="text-white-50 small mb-1">Operating Hours</div>
+                  <div class="text-white fw-semibold">Monday – Friday: 9:00 – 18:30 IST</div>
+                  <div class="text-primary small">Overlapping hours with US (EST) & Europe (CET)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Final CTA -->
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
 </Layout>

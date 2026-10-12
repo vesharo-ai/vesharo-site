@@ -8,7 +8,7 @@ interface Props {
   limit?: number;
 }
 
-const { backgroundColor = "#0f1626", limit = 4 } = Astro.props;
+const { backgroundColor = "#0f1626", limit = 7 } = Astro.props;
 
 const allServices = await getCollection("services");
 const services = allServices
@@ -29,12 +29,12 @@ const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
         <div class="col-md-4">
           <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
             <a
-              href="/service-details"
+              href="/services"
               class="tz-button text-uppercase fw-medium tz-text-m"
             >
               All Services
             </a>
-            <a href="/service-details" class="tz-button-circle" aria-label="View All Services">
+            <a href="/services" class="tz-button-circle" aria-label="View All Services">
               <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
             </a>
           </div>
@@ -46,7 +46,7 @@ const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
       {services.map((svc, index) => (
         <div class="col-md-6 col-xl-3">
           <div class={`tz-service1-card ${index === 0 ? "active" : ""}`}>
-            <a href="/service-details" class="text-white d-block text-decoration-none">
+            <a href={`/services/${svc.data.id}`} class="text-white d-block text-decoration-none">
               <span class="tz-service1-card__number">{romanNumerals[index] || index + 1}</span>
               <div class="tz-service1-card__content">
                 <div class="tz-service1-card__shape d-flex justify-content-center tz-mb-20 tz-mb-lg-40">

@@ -1,0 +1,109 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+---
+
+<section class="py-5" style="background-color: #070B14;">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <SectionSubtitle subtitle="AI Automation Spotlight" />
+        <SectionTitle title="Autonomous Pipelines That Execute Reliably" />
+        <p class="text-white-50 lead mt-3 mb-4" style="line-height: 1.7;">
+          We move enterprises beyond simple chat wrappers into deterministic, production-grade AI agents and automation systems that interface directly with internal systems.
+        </p>
+
+        <!-- What We Automate -->
+        <div class="d-flex flex-column gap-3 mb-4">
+          <div class="p-3 rounded-3" style="background-color: #0f1626; border-left: 3px solid #0066FF;">
+            <h3 class="h6 text-white fw-bold mb-1">Unstructured Document &amp; Invoice Processing</h3>
+            <p class="text-white-50 small mb-0">99%+ field extraction accuracy across complex PDFs, invoices, and compliance filings.</p>
+          </div>
+          <div class="p-3 rounded-3" style="background-color: #0f1626; border-left: 3px solid #00D2FF;">
+            <h3 class="h6 text-white fw-bold mb-1">Enterprise RAG &amp; Knowledge Base Copilots</h3>
+            <p class="text-white-50 small mb-0">Hybrid search (dense vectors + BM25) with sub-200ms retrieval and deterministic citations.</p>
+          </div>
+          <div class="p-3 rounded-3" style="background-color: #0f1626; border-left: 3px solid #0066FF;">
+            <h3 class="h6 text-white fw-bold mb-1">Autonomous Multi-Agent Tool Calling</h3>
+            <p class="text-white-50 small mb-0">Multi-agent coordination triggering validated SQL queries, ERP updates, and API webhooks.</p>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="/services/ai-automation" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold">
+            Explore AI Automation
+          </a>
+          <a href="/services/ai-agents" class="btn btn-outline-light px-4 py-2 rounded-pill fw-semibold">
+            AI Agents &amp; Chatbots
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.25);">
+          <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+            <div>
+              <span class="text-white fw-bold d-block">Production Execution Pipeline</span>
+              <span class="text-white-50 small">Deterministic Guardrails &amp; Sandboxing</span>
+            </div>
+            <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.15);">
+              ACTIVE
+            </span>
+          </div>
+
+          <!-- Pipeline Visual Steps -->
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+              <div class="d-flex align-items-center gap-3">
+                <span class="badge rounded-circle p-2 text-primary" style="width: 32px; height: 32px; background-color: rgba(0, 102, 255, 0.2);">1</span>
+                <div>
+                  <div class="text-white small fw-bold">Document &amp; Event Ingestion</div>
+                  <div class="text-white-50" style="font-size: 0.75rem;">Async webhook / Kafka stream</div>
+                </div>
+              </div>
+              <span class="text-primary small fw-semibold">OK</span>
+            </div>
+
+            <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+              <div class="d-flex align-items-center gap-3">
+                <span class="badge rounded-circle p-2 text-primary" style="width: 32px; height: 32px; background-color: rgba(0, 102, 255, 0.2);">2</span>
+                <div>
+                  <div class="text-white small fw-bold">Private VPC LLM Inference</div>
+                  <div class="text-white-50" style="font-size: 0.75rem;">Zero data retention agreement</div>
+                </div>
+              </div>
+              <span class="text-primary small fw-semibold">Secured</span>
+            </div>
+
+            <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+              <div class="d-flex align-items-center gap-3">
+                <span class="badge rounded-circle p-2 text-primary" style="width: 32px; height: 32px; background-color: rgba(0, 102, 255, 0.2);">3</span>
+                <div>
+                  <div class="text-white small fw-bold">Pydantic / Zod Output Validation</div>
+                  <div class="text-white-50" style="font-size: 0.75rem;">Strict JSON schema typing</div>
+                </div>
+              </div>
+              <span class="text-primary small fw-semibold">100% Typed</span>
+            </div>
+
+            <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+              <div class="d-flex align-items-center gap-3">
+                <span class="badge rounded-circle p-2 text-primary" style="width: 32px; height: 32px; background-color: rgba(0, 102, 255, 0.2);">4</span>
+                <div>
+                  <div class="text-white small fw-bold">Live System Action &amp; DB Sync</div>
+                  <div class="text-white-50" style="font-size: 0.75rem;">Idempotent tool execution</div>
+                </div>
+              </div>
+              <span class="text-primary small fw-semibold">Committed</span>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 text-center" style="background-color: rgba(0, 102, 255, 0.08); border: 1px dashed rgba(0, 102, 255, 0.3);">
+            <span class="text-white small fw-semibold">Average End-to-End Latency: </span>
+            <span class="text-primary fw-bold small">&lt; 350ms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

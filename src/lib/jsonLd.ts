@@ -188,3 +188,35 @@ export function getFaqJsonLd(faqs: FaqItem[]) {
     })),
   };
 }
+
+export interface PersonSchemaData {
+  name: string;
+  jobTitle: string;
+  description?: string;
+  sameAs?: string[];
+}
+
+/**
+ * Generates schema.org AboutPage with Person structured data
+ */
+export function getAboutPageJsonLd(people: PersonSchemaData[] = [], siteUrl: string = siteConfig.url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${siteUrl}/about/#webpage`,
+    url: `${siteUrl}/about`,
+    name: `About Us | ${siteConfig.name}`,
+    description: "Learn about Vesharo's senior engineering team, enterprise standards, and our mission to deliver high-velocity AI and software.",
+    mainEntity: people.map((p) => ({
+      "@type": "Person",
+      name: p.name,
+      jobTitle: p.jobTitle,
+      description: p.description,
+      sameAs: p.sameAs || [],
+      worksFor: {
+        "@id": `${siteUrl}/#organization`,
+      },
+    })),
+  };
+}
+

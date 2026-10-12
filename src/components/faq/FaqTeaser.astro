@@ -1,0 +1,69 @@
+---
+import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
+import SectionTitle from "@/components/section-title/SectionTitle.astro";
+import { getCollection } from "astro:content";
+import { getFaqJsonLd } from "@/lib/jsonLd";
+
+interface Props {
+  backgroundColor?: string;
+  limit?: number;
+}
+
+const { backgroundColor = "#0f1626", limit = 5 } = Astro.props;
+
+const allFaqs = await getCollection("faq");
+const faqs = allFaqs
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, limit);
+
+const faqSchema = getFaqJsonLd(
+  faqs.map(({ data }) => ({ question: data.question, answer: data.answer }))
+);
+---
+
+<section class="py-5" style={{ backgroundColor }}>
+  <div class="container py-lg-4">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-5">
+        <div class="tz-section-top mb-4">
+          <SectionSubtitle subtitle="Transparent Answers" />
+          <SectionTitle title="Frequently Asked Questions" />
+        </div>
+        <p class="text-white-50 lead mb-4" style="line-height: 1.7;">
+          Everything you need to know about our engagement models, intellectual property ownership, security guardrails, and delivery sprints.
+        </p>
+        <div>
+          <a
+            href="/faq"
+            class="btn btn-outline-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+          >
+            <span>View All 22+ FAQs</span>
+            <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="d-flex flex-column gap-3">
+          {faqs.map(({ data }) => (
+            <details
+              class="p-4 rounded-4"
+              style="background-color: #070B14; border: 1px solid rgba(255, 255, 255, 0.08); cursor: pointer;"
+            >
+              <summary class="text-white fw-semibold h6 mb-0 d-flex align-items-center justify-content-between">
+                <span>{data.question}</span>
+                <i class="ph ph-caret-down text-primary ms-2" style="font-size: 1.25rem;"></i>
+              </summary>
+              <p class="text-white-50 small mb-0 pt-3 mt-3 border-top border-secondary border-opacity-25" style="line-height: 1.7;">
+                {data.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+</section>

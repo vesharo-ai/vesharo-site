@@ -1,27 +1,28 @@
 [
   {
-    "id": "harsh-siddhapura",
-    "name": "Harsh Siddhapura",
-    "role": "Founder & Principal Solutions Architect",
-    "bio": "Specializing in distributed systems, full-stack architectures, and production AI engineering. Leading architecture and client delivery across Vesharo platforms.",
-    "image": "/images/team/team1-img1.jpg",
+    "id": "hitesh-chauhan",
+    "name": "Hitesh Chauhan",
+    "role": "Founder",
+    "bio": "Directing company vision, strategic technology partnerships, and client delivery across Vesharo's enterprise software engagements.",
+    "initials": "HC",
     "socials": {
-      "github": "https://github.com/vesharo-ai",
       "linkedin": "https://linkedin.com",
-      "twitter": "https://x.com"
+      "github": "https://github.com/vesharo-ai"
     },
-    "order": 1
+    "order": 1,
+    "placeholder": false
   },
   {
-    "id": "systems-engineering",
-    "name": "Core Systems & AI Squad",
-    "role": "Distributed Systems & Machine Learning Engineers",
-    "bio": "Multi-disciplinary engineering group dedicated to high-concurrency cloud systems, low-latency mobile platforms, and autonomous AI agents.",
-    "image": "/images/team/team1-img2.jpg",
+    "id": "harsh-siddhapura",
+    "name": "Harsh Siddhapura",
+    "role": "Co-Founder & Principal Solutions Architect",
+    "bio": "Leading distributed cloud architectures, mobile engineering, and production AI orchestration systems.",
+    "initials": "HS",
     "socials": {
-      "github": "https://github.com/vesharo-ai",
-      "linkedin": "https://linkedin.com"
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com/vesharo-ai"
     },
-    "order": 2
+    "order": 2,
+    "placeholder": false
   }
 ]

@@ -1,4 +1,3 @@
-// Define the type for workflow card data
 export type WorkflowCard = {
   subtitle: string;
   number: string;
@@ -7,36 +6,40 @@ export type WorkflowCard = {
   active: boolean;
 };
 
-// Create demo data array
 export const workflowCards: WorkflowCard[] = [
   {
-    subtitle: "STEP_01",
+    subtitle: "PHASE 01",
     number: "01",
-    title: "Discover & Strategize",
-    description:
-      "We start by understanding your goals, audience, and challenges.",
+    title: "Discover",
+    description: "1-week architecture sprint analyzing technical requirements, data models, and non-functional constraints.",
     active: true,
   },
   {
-    subtitle: "STEP_02",
+    subtitle: "PHASE 02",
     number: "02",
-    title: "Design & Prototype",
-    description:
-      "We create visual concepts and interactive prototypes for your project.",
+    title: "Design",
+    description: "Architecting entity schemas, API contracts, private VPC perimeters, and component design tokens.",
     active: false,
   },
   {
-    subtitle: "STEP_03",
+    subtitle: "PHASE 03",
     number: "03",
-    title: "Develop & Implement",
-    description: "We turn designs into functional solutions with clean code.",
+    title: "Build",
+    description: "Rapid 2-week agile sprints with test-driven development, automated CI/CD builds, and working preview demos.",
     active: false,
   },
   {
-    subtitle: "STEP_04",
+    subtitle: "PHASE 04",
     number: "04",
-    title: "Test & Launch",
-    description: "We rigorously test and deploy your solution to the market.",
+    title: "Launch",
+    description: "Load testing, SOC2-aligned security auditing, zero-downtime deployment, and full DNS cutover.",
+    active: false,
+  },
+  {
+    subtitle: "PHASE 05",
+    number: "05",
+    title: "Support",
+    description: "30-day post-launch warranty, full IP and repository transfer, plus optional 24/7 SLA uptime monitoring.",
     active: false,
   },
 ];

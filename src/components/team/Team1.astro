@@ -11,38 +11,30 @@ interface Props {
 const { isInnerPage = false } = Astro.props;
 
 const allTeam = await getCollection("team");
-const teamMembersList = allTeam.sort((a, b) => a.data.order - b.data.order);
+const teamMembersList = allTeam
+  .filter((member) => !member.data.placeholder)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section class="tz-team1">
-  <div class="container">
-    <div class="tz-section-top">
-      <div class="row g-4 align-items-end">
-        <div class="col-md-8">
-          <SectionSubtitle subtitle="Engineering Leadership" />
-          <SectionTitle title="The Minds Behind The Architecture" />
-        </div>
-        <div class="col-md-4">
-          <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
-            <a
-              href="/team"
-              class="tz-button text-uppercase fw-medium tz-text-m"
-            >
-              Meet The Squad
-            </a>
-            <a class="tz-button-circle" href="/team" aria-label="Meet The Squad">
-              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+<section class="py-5" style="background-color: #0b0f19;">
+  <div class="container py-lg-4">
+    <div class="text-center mb-5">
+      <SectionSubtitle subtitle="Engineering Leadership" />
+      <SectionTitle title="The Minds Behind The Architecture" />
+      <p class="text-white-50 lead mx-auto mt-3" style="max-width: 680px;">
+        Senior solutions architects and distributed systems engineers leading direct technical execution on every client platform.
+      </p>
     </div>
-    <div class="row g-4">
+
+    <div class="row g-4 justify-content-center">
       {teamMembersList.map((member) => (
         <TeamCard
           name={member.data.name}
-          title={member.data.role}
+          role={member.data.role}
+          bio={member.data.bio}
+          initials={member.data.initials}
           imageSrc={member.data.image}
+          socials={member.data.socials}
         />
       ))}
     </div>

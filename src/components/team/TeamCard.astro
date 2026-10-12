@@ -1,34 +1,72 @@
 ---
 interface Props {
-  imageSrc: string;
   name: string;
-  title: string;
+  role: string;
+  bio: string;
+  initials?: string;
+  imageSrc?: string;
+  socials?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+  };
 }
 
-const { imageSrc, name, title } = Astro.props;
+const { name, role, bio, initials = "VA", imageSrc, socials } = Astro.props;
 ---
 
-<div class="col-md-6 col-xl-3">
-  <div class="tz-team1-card">
-    <div class="tz-team1-card__image">
-      <img src={imageSrc} alt={name} />
-    </div>
-    <div class="tz-team1-card__info">
-      <p class="tz-team1-card__name tz-text-xl fw-semibold">{name}</p>
-      <p class="tz-team1-card__title tz-text-m fw-light mb-0">
-        {title}
+<div class="col-md-6 col-lg-5">
+  <div
+    class="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between"
+    style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
+  >
+    <div>
+      <div class="d-flex align-items-center gap-3 mb-4">
+        {imageSrc ? (
+          <img src={imageSrc} alt={name} class="rounded-circle" width="72" height="72" style="object-fit: cover;" />
+        ) : (
+          <div
+            class="d-inline-flex align-items-center justify-content-center rounded-circle text-white fw-bold shadow-sm"
+            style="width: 72px; height: 72px; background: linear-gradient(135deg, #0066FF 0%, #00D2FF 100%); font-size: 1.5rem; letter-spacing: 0.05em;"
+          >
+            {initials}
+          </div>
+        )}
+        <div>
+          <h3 class="h4 text-white fw-bold mb-1">{name}</h3>
+          <p class="text-primary small fw-semibold mb-0">{role}</p>
+        </div>
+      </div>
+
+      <p class="text-white-50 small mb-4" style="line-height: 1.7;">
+        {bio}
       </p>
     </div>
-    <div class="tz-team1-card__links">
-      <a href="https://github.com/vesharo-ai" target="_blank" rel="noopener noreferrer" class="tz-team1-card__social" aria-label="GitHub">
-        <i class="ph ph-github-logo" aria-hidden="true"></i>
-      </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="tz-team1-card__social" aria-label="LinkedIn">
-        <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
-      </a>
-      <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="tz-team1-card__social" aria-label="X (Twitter)">
-        <i class="ph ph-x-logo" aria-hidden="true"></i>
-      </a>
+
+    <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary border-opacity-25">
+      {socials?.github && (
+        <a
+          href={socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white-50 hover-text-primary text-decoration-none"
+          aria-label={`${name}'s GitHub profile`}
+        >
+          <i class="ph ph-github-logo" style="font-size: 1.25rem;"></i>
+        </a>
+      )}
+      {socials?.linkedin && (
+        <a
+          href={socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white-50 hover-text-primary text-decoration-none"
+          aria-label={`${name}'s LinkedIn profile`}
+        >
+          <i class="ph ph-linkedin-logo" style="font-size: 1.25rem;"></i>
+        </a>
+      )}
+      <span class="text-white-50 small ms-auto">Verified Leadership</span>
     </div>
   </div>
 </div>
