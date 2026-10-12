@@ -1,0 +1,92 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("portfolio");
+---
+
+<Layout
+  title="Real Portfolio & Verified Case Studies | Vesharo"
+  description="Explore production platforms built by Vesharo: LockApp (B2B MDM SaaS), NavratriOS (Gate Ticketing), and Wirebench (API Governance Workbench)."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+  ]}
+>
+  <BreadCrumb title="Case Studies" />
+  <HeaderSlider />
+
+  <!-- Portfolio Hub Grid -->
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+          Verified Production Work
+        </span>
+        <h1 class="h1 text-white fw-bold mb-3">Real Products Engineered for Industry Leaders</h1>
+        <p class="text-white-50 lead mx-auto" style="max-width: 720px;">
+          We adhere to strict content integrity: no invented client logos or fictitious case studies. Here is the verified software we have built and deployed.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        {projects.map(({ data }) => (
+          <div class="col-lg-4">
+            <div
+              class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+              style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
+            >
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.8rem;">
+                    {data.category}
+                  </span>
+                  <span class="text-white-50 small">{data.year}</span>
+                </div>
+
+                <h2 class="h3 text-white fw-bold mb-2">{data.title}</h2>
+                <p class="text-primary small fw-semibold mb-3">{data.tagline}</p>
+                <p class="text-white-50 small mb-4" style="line-height: 1.6;">
+                  {data.description}
+                </p>
+
+                <h3 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-2">Key Outcomes</h3>
+                <ul class="list-unstyled text-white-50 small mb-4">
+                  {data.metrics.map((m) => (
+                    <li class="d-flex align-items-start mb-2">
+                      <i class="ph-check-circle text-primary me-2 mt-1"></i>
+                      <span>{m}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <div class="d-flex flex-wrap gap-1 mb-4">
+                  {data.stack.map((s) => (
+                    <span class="badge px-2 py-1 rounded text-white-50" style="background-color: rgba(255, 255, 255, 0.05); font-size: 0.75rem;">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={`/portfolio/${data.id}`}
+                  class="btn btn-outline-primary w-100 py-2 rounded-pill d-inline-flex align-items-center justify-content-center gap-2"
+                >
+                  <span>Read Full Case Study</span>
+                  <i class="ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

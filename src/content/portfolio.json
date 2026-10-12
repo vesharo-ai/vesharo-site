@@ -8,24 +8,34 @@
     "category": "Enterprise Mobile & Cloud SaaS",
     "tags": [
       "Enterprise MDM",
-      "B2B SaaS"
+      "B2B SaaS",
+      "Android Security"
     ],
-    "description": "LockApp is an enterprise-grade mobile device management and EMI enforcement system for electronics retailers and NBFCs financing smartphones. The platform combines a custom Android device management agent with a multi-tenant cloud control plane.",
+    "description": "LockApp is an enterprise-grade mobile device management and EMI payment compliance platform built for electronics retailers, smartphone distributors, and non-banking financial companies (NBFCs). The system couples an Android device administrator agent with a resilient cloud control plane to protect financed hardware assets.",
+    "challenge": "Electronics retailers and financing firms face significant default risks when financing smartphones without collateral. Customers can remove SIM cards, turn off Wi-Fi, or attempt hardware resets to evade payment obligations, rendering standard cloud-based locks ineffective.",
+    "solution": "Vesharo engineered a dual-layer MDM architecture combining a low-level Android device administrator client with a distributed multi-tenant backend. The device agent enforces cryptographic local state checks, triggers tamper-resistant offline locks if payment schedules lapse, and re-syncs device telemetry instantly upon network reconnection.",
+    "architecture": [
+      "Android Enterprise Device Admin client with persistent background watchdog",
+      "Event-driven Node.js backend managing fleet heartbeat pings and policy state",
+      "PostgreSQL with row-level security for tenant-isolated retailer reporting",
+      "Encrypted push notification pipeline for instant remote lock and unlock triggers"
+    ],
     "metrics": [
-      "Real-time remote device policy sync",
-      "Tamper-resistant offline lock enforcement",
-      "Multi-tenant retailer administration dashboard"
+      "Real-time remote device policy sync across multi-tenant retailer accounts",
+      "Tamper-resistant offline lock enforcement preventing unauthorized bypass",
+      "Centralized retailer administration dashboard with automated EMI reconciliation"
     ],
     "stack": [
-      "Android MDM",
-      "Node.js",
+      "Android SDK / Kotlin",
+      "Node.js / Express",
       "PostgreSQL",
       "Docker",
-      "AWS"
+      "AWS ECS & RDS",
+      "Firebase Cloud Messaging"
     ],
-    "link": "/portfolio-details",
+    "link": "/portfolio/lockapp",
     "featured": true,
-    "image": "/images/project/project1-img1.jpg"
+    "image": "/images/project/lockapp-mockup.svg"
   },
   {
     "id": "navratrios",
@@ -36,24 +46,35 @@
     "category": "Event Infrastructure & High-Volume Ticketing",
     "tags": [
       "Event Ticketing",
-      "QR Platform"
+      "QR Platform",
+      "High Concurrency"
     ],
-    "description": "NavratriOS is a specialized ticketing and entry management platform built to handle tens of thousands of concurrent festival attendees with sub-second QR code scanning at physical venue gates, instant fraud detection, and real-time pass generation.",
+    "description": "NavratriOS is a high-throughput ticketing and gate-entry management SaaS platform engineered to manage massive crowds at large cultural festivals and venues. The platform delivers sub-second QR pass verification, instant anti-passback protection, and real-time crowd telemetry under peak concurrent traffic spikes.",
+    "challenge": "During large-scale multi-day cultural events, venue gates experience massive rushes of tens of thousands of attendees arriving within a narrow 90-minute window. Network connectivity at crowded physical gates is frequently congested, leading to scanner freezes, long entry queues, and ticketing fraud.",
+    "solution": "Vesharo architected a high-concurrency ticketing engine backed by Fastify, Redis caching, and an offline-tolerant QR verification protocol. Scanners locally validate cryptographically signed QR tokens in under 200ms while asynchronously batch-syncing validation logs with the central database.",
+    "architecture": [
+      "High-throughput Fastify API gateway optimized for rapid JSON serialization",
+      "In-memory Redis datastore managing real-time gate validation and anti-passback counters",
+      "Offline-first mobile scanner interface with local cryptographic token verification",
+      "Live administrative dashboard monitoring gate throughput and venue capacity"
+    ],
     "metrics": [
-      "Sub-second gate validation via handheld scanners",
-      "Zero-downtime registration spikes under heavy load",
-      "Real-time attendance analytics and pass management"
+      "Sub-second gate validation via handheld scanners under dense crowd conditions",
+      "Zero-downtime registration spikes under heavy evening ticketing rushes",
+      "Real-time attendance analytics and pass management across multi-gate perimeters"
     ],
     "stack": [
       "React",
       "Fastify",
       "Redis",
       "PostgreSQL",
-      "TailwindCSS"
+      "TailwindCSS",
+      "Docker",
+      "DigitalOcean"
     ],
-    "link": "/portfolio-details",
+    "link": "/portfolio/navratrios",
     "featured": true,
-    "image": "/images/project/project1-img2.jpg"
+    "image": "/images/project/navratrios-mockup.svg"
   },
   {
     "id": "wirebench",
@@ -64,23 +85,34 @@
     "category": "Developer Tools & API Governance",
     "tags": [
       "API Governance",
-      "Dev Tools"
+      "Dev Tools",
+      "OpenAPI"
     ],
-    "description": "Wirebench is a lightweight, privacy-first API testing and documentation workbench for distributed engineering teams. It continuously monitors live endpoint contracts against OpenAPI schemas and flags breaking changes before staging deployment.",
+    "description": "Wirebench is a lightweight, privacy-first API testing and documentation workbench built for distributed engineering teams. It continuously monitors live endpoint contracts against OpenAPI schemas, alerting developers to unintended breaking changes and schema drift before code hits staging.",
+    "challenge": "As engineering teams scale microservices independently, subtle API contract drift—such as altered nullability, renamed response keys, or type shifts—routinely slips past unit tests, causing silent breakages across downstream web and mobile applications.",
+    "solution": "Vesharo built Wirebench as an offline-capable, local-first API workbench that executes contract diffing directly on developer machines or within private VPC CI pipelines. It generates automated visual diffs and markdown changelogs with zero third-party cloud data exposure.",
+    "architecture": [
+      "Local-first Electron & TypeScript desktop client with SQLite persistence",
+      "Automated schema comparison engine evaluating live JSON against OpenAPI 3.1 specs",
+      "CLI integration running contract verification inside GitHub Actions pipelines",
+      "Zero-telemetry privacy design ensuring proprietary API credentials never leave the machine"
+    ],
     "metrics": [
-      "Automated contract-drift alerting",
-      "Zero cloud data leaks — runs locally and in private VPC",
-      "Integrated markdown changelog generation"
+      "Automated contract-drift alerting preventing breaking client regressions",
+      "Zero cloud data leaks — operates completely locally or in private VPCs",
+      "Integrated markdown changelog generation streamlining cross-squad releases"
     ],
     "stack": [
       "TypeScript",
       "Electron",
       "SQLite",
-      "OpenAPI Spec",
-      "React"
+      "OpenAPI 3.1 Spec",
+      "React",
+      "Node.js",
+      "TailwindCSS"
     ],
-    "link": "/portfolio-details",
+    "link": "/portfolio/wirebench",
     "featured": true,
-    "image": "/images/project/project1-img3.jpg"
+    "image": "/images/project/wirebench-mockup.svg"
   }
 ]

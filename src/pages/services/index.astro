@@ -1,0 +1,82 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+
+const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+  title="Enterprise IT Services & AI Capabilities | Vesharo"
+  description="Explore Vesharo's 7 core capabilities: AI automation, custom agents, full-stack software, mobile platforms, cloud DevOps, and IT consulting."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ]}
+>
+  <BreadCrumb title="Our Capabilities" />
+  <HeaderSlider />
+
+  <!-- Services Hub Grid -->
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+          Production-Grade Engineering
+        </span>
+        <h1 class="h1 text-white fw-bold mb-3">Enterprise Capabilities Built for Scale</h1>
+        <p class="text-white-50 lead mx-auto" style="max-width: 720px;">
+          From autonomous multi-agent pipelines to distributed high-concurrency cloud systems, we engineer software that performs reliably in mission-critical environments.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        {services.map(({ data }) => (
+          <div class="col-md-6 col-lg-4">
+            <div
+              class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between transition-all"
+              style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
+            >
+              <div>
+                <div
+                  class="d-inline-flex align-items-center justify-content-center rounded-3 mb-4"
+                  style="width: 56px; height: 56px; background-color: rgba(0, 102, 255, 0.15); border: 1px solid rgba(0, 102, 255, 0.3);"
+                >
+                  <i class={`${data.icon} text-primary`} style="font-size: 1.75rem;"></i>
+                </div>
+                <h2 class="h4 text-white fw-semibold mb-3">{data.title}</h2>
+                <p class="text-white-50 small mb-4" style="line-height: 1.6;">
+                  {data.fullDescription}
+                </p>
+
+                <h3 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-2">Key Highlights</h3>
+                <ul class="list-unstyled text-white-50 small mb-4">
+                  {data.features.slice(0, 3).map((f) => (
+                    <li class="d-flex align-items-start mb-2">
+                      <i class="ph-check-circle text-primary me-2 mt-1"></i>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <a
+                  href={`/services/${data.id}`}
+                  class="btn btn-outline-primary w-100 py-2 rounded-pill d-inline-flex align-items-center justify-content-center gap-2"
+                >
+                  <span>Explore Capability</span>
+                  <i class="ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

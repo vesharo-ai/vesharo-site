@@ -1,0 +1,70 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Base -->
+  <rect width="800" height="500" rx="16" fill="#070B14"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" stroke="rgba(0, 102, 255, 0.25)"/>
+
+  <!-- Subtle Cyan Glow -->
+  <circle cx="400" cy="250" r="220" fill="#00D2FF" fill-opacity="0.07" filter="blur(60px)"/>
+
+  <!-- Scanner Device Frame -->
+  <rect x="220" y="30" width="360" height="440" rx="28" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2"/>
+  
+  <!-- Notch -->
+  <rect x="340" y="42" width="120" height="6" rx="3" fill="rgba(255, 255, 255, 0.2)"/>
+  <circle cx="330" cy="45" r="3" fill="#00D2FF"/>
+
+  <!-- Screen Content -->
+  <rect x="236" y="60" width="328" height="394" rx="16" fill="#070B14"/>
+
+  <!-- Header Bar -->
+  <rect x="252" y="76" width="32" height="32" rx="8" fill="#0066FF" fill-opacity="0.2"/>
+  <path d="M264 88h8m-8 8h8m-4-12v16" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+  
+  <text x="294" y="92" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700">NavratriOS Gate</text>
+  <text x="294" y="104" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Gate 04 • Scanner Unit #12</text>
+
+  <!-- Live Counter Pill -->
+  <rect x="466" y="82" width="82" height="22" rx="11" fill="rgba(0, 210, 255, 0.15)"/>
+  <circle cx="476" cy="93" r="3" fill="#00D2FF"/>
+  <text x="484" y="97" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">LIVE SYNC</text>
+
+  <!-- QR Scan Card with Success State -->
+  <rect x="252" y="124" width="296" height="150" rx="12" fill="#0F1626" stroke="rgba(0, 210, 255, 0.3)"/>
+  
+  <!-- QR Viewfinder graphic -->
+  <rect x="272" y="144" width="110" height="110" rx="8" fill="#070B14" stroke="rgba(255, 255, 255, 0.1)"/>
+  <!-- QR corner brackets -->
+  <path d="M280 156v-6h6m82 0h6v6m0 82v6h-6m-82 0h-6v-6" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+  <!-- QR center simulated grid -->
+  <rect x="290" y="162" width="16" height="16" fill="#0066FF"/>
+  <rect x="348" y="162" width="16" height="16" fill="#0066FF"/>
+  <rect x="290" y="220" width="16" height="16" fill="#0066FF"/>
+  <rect x="316" y="188" width="22" height="22" rx="3" fill="#00D2FF"/>
+
+  <!-- Validation Status Text -->
+  <text x="396" y="162" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11" font-weight="600">PASS VALIDATED</text>
+  <text x="396" y="184" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700">VIP Access</text>
+  <text x="396" y="202" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">Pass ID: #NV-8921</text>
+  <text x="396" y="224" fill="rgba(255, 255, 255, 0.4)" font-family="Inter, sans-serif" font-size="10">Scan Latency: 138ms</text>
+  <text x="396" y="244" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="500">Anti-Passback: Clean</text>
+
+  <!-- Live Venue Telemetry Grid -->
+  <rect x="252" y="286" width="142" height="70" rx="10" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="266" y="308" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Gate Throughput</text>
+  <text x="266" y="330" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600">2,400 / hr</text>
+  <text x="266" y="344" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">Zero Queue Friction</text>
+
+  <rect x="406" y="286" width="142" height="70" rx="10" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="420" y="308" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Venue Capacity</text>
+  <text x="420" y="330" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600">42,850 Total</text>
+  <text x="420" y="344" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">In-Memory Redis Sync</text>
+
+  <!-- Bottom Fast Actions -->
+  <rect x="252" y="368" width="296" height="42" rx="8" fill="#0F1626"/>
+  <circle cx="272" cy="389" r="5" fill="#00D2FF"/>
+  <text x="288" y="393" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11" font-weight="500">Manual ID Lookup Override</text>
+  <text x="500" y="393" fill="#0066FF" font-family="Inter, sans-serif" font-size="11">Ready</text>
+
+  <!-- Bottom Home pill -->
+  <rect x="360" y="440" width="80" height="4" rx="2" fill="rgba(255, 255, 255, 0.3)"/>
+</svg>

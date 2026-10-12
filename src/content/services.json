@@ -3,140 +3,413 @@
     "id": "ai-automation",
     "title": "AI Automation",
     "shortDescription": "Workflow automation, LLM integration & autonomous pipelines",
-    "fullDescription": "Transform operational workflows with production-grade AI agents, LLM integrations, and intelligent automation systems that eliminate manual bottlenecks.",
+    "fullDescription": "Transform labor-intensive operational workflows with production-grade AI agents, large language model integrations, and intelligent automation systems. We engineer resilient automation architectures that eliminate repetitive data extraction, automate multi-step document verification, and coordinate complex business logic across disparate APIs.",
     "icon": "ph-cpu",
     "features": [
-      "Custom LLM & Agent Pipelines",
-      "Enterprise Process Automation",
-      "Retrieval-Augmented Generation (RAG)",
-      "API Orchestration & Webhooks"
+      "Custom LLM & Agent Pipelines with deterministic validation",
+      "Enterprise Process Automation & Webhook Orchestration",
+      "Retrieval-Augmented Generation (RAG) with low-latency vector search",
+      "API Orchestration, Document Parsing & Unstructured Data Ingestion"
     ],
     "deliverables": [
-      "Automated workflow blueprints",
-      "Production-ready AI integration",
-      "Monitoring & observability dashboards",
-      "Full API documentation"
+      "Automated workflow blueprints and architecture specifications",
+      "Hardened, production-ready AI service integrations",
+      "Comprehensive telemetry, latency & accuracy monitoring dashboards",
+      "Complete OpenAPI specifications and developer documentation"
     ],
-    "order": 1
+    "order": 1,
+    "useCases": [
+      "Automated invoice and financial document parsing with 99%+ field extraction accuracy",
+      "Customer onboarding workflows that verify compliance documents in real-time",
+      "Cross-platform CRM and ERP data reconciliation without human intervention",
+      "Intelligent ticketing triage and automated response routing for enterprise IT"
+    ],
+    "process": [
+      {
+        "step": "Workflow Audit & Feasibility",
+        "desc": "We map your current manual bottlenecks, evaluate AI reliability thresholds, and define clear measurable ROI targets."
+      },
+      {
+        "step": "Architecture & Guardrail Design",
+        "desc": "We select the optimal model mix, design deterministic validation schemas, and set up private VPC sandbox boundaries."
+      },
+      {
+        "step": "Pipeline Engineering & Integration",
+        "desc": "We develop asynchronous queue-driven workers, integrate your databases, and connect existing internal systems."
+      },
+      {
+        "step": "Testing & Observability Setup",
+        "desc": "We benchmark edge cases, configure automated regression tests, and deploy real-time telemetry dashboards."
+      }
+    ],
+    "techStack": ["Python", "FastAPI", "TypeScript", "LangChain / LlamaIndex", "PostgreSQL pgvector", "Redis", "Docker", "AWS Lambda"],
+    "faqs": [
+      {
+        "question": "How do you prevent hallucinations in AI automation workflows?",
+        "answer": "We enforce strict Pydantic/Zod schema validation on all model outputs. If a payload violates expected formats, our fallback handlers automatically retry with stricter temperature constraints or route to human review."
+      },
+      {
+        "question": "Can our proprietary data be kept completely private?",
+        "answer": "Yes. We deploy models either via zero-retention enterprise enterprise endpoints or self-hosted open-weights models within your private AWS/GCP cloud perimeter."
+      },
+      {
+        "question": "How long does a typical automation project take to deploy?",
+        "answer": "Most targeted enterprise workflow automations ship to staging within 2 to 4 weeks, followed by parallel verification against your historical dataset."
+      }
+    ]
   },
   {
     "id": "ai-agents",
     "title": "AI Agents & Chatbots",
     "shortDescription": "Custom intelligent assistants, multi-agent frameworks & RAG",
-    "fullDescription": "Deploy autonomous AI agents and conversational chatbots that interface directly with internal systems, knowledge bases, and client APIs.",
+    "fullDescription": "Deploy autonomous AI agents and conversational assistants that interface directly with internal systems, knowledge repositories, and client-facing interfaces. Our agentic systems perform multi-step reasoning, execute verified tool calls, and retrieve accurate domain context without fabricating answers.",
     "icon": "ph-robot",
     "features": [
-      "Multi-Agent Coordination Systems",
-      "Enterprise Chatbots with Memory",
-      "Role-Based Tool Use & Function Calling",
-      "Strict Guardrails & Hallucination Checks"
+      "Multi-Agent Coordination Systems with specialized role separation",
+      "Enterprise Conversational Assistants with persistent contextual memory",
+      "Deterministic Tool Calling, Function Execution & System Actions",
+      "Strict Guardrails, Sentiment Monitoring & Hallucination Mitigation"
     ],
     "deliverables": [
-      "Trained domain-specific agent system",
-      "Custom embeddable chat widget",
-      "Knowledge retrieval pipeline",
-      "Admin telemetry portal"
+      "Domain-specific multi-agent runtime engine",
+      "Custom embeddable, accessible React chat component",
+      "Hybrid RAG knowledge retrieval and vector indexing pipeline",
+      "Admin monitoring portal with full conversation audit logs"
     ],
-    "order": 2
+    "order": 2,
+    "useCases": [
+      "24/7 technical customer support agents capable of resolving 70%+ of tier-1 requests",
+      "Internal HR and engineering knowledge base copilots with instant policy lookups",
+      "Autonomous sales qualification agents that book discovery meetings on calendar",
+      "Financial report summarization agents that pull live transactional metrics"
+    ],
+    "process": [
+      {
+        "step": "Domain Knowledge Ingestion",
+        "desc": "We clean, chunk, and index your internal documentation, standard operating procedures, and product catalogs."
+      },
+      {
+        "step": "Agent Persona & Tool Binding",
+        "desc": "We establish precise agent system prompts, role constraints, and bind custom API actions for live system interaction."
+      },
+      {
+        "step": "RAG & Retrieval Fine-Tuning",
+        "desc": "We implement hybrid search (BM25 + dense vectors) and reranking to guarantee precision over vast corpus sizes."
+      },
+      {
+        "step": "Production Deployment & Guardrails",
+        "desc": "We integrate frontend widgets, set up rate limiting, and deploy automated conversation evaluation loops."
+      }
+    ],
+    "techStack": ["TypeScript", "Python", "OpenAI / Claude APIs", "Pinecone / Qdrant", "Node.js", "React", "Docker", "FastAPI"],
+    "faqs": [
+      {
+        "question": "How do agents take action in our existing software?",
+        "answer": "Agents utilize structured tool calling with strictly typed JSON schemas. They invoke authenticated REST or GraphQL endpoints with least-privilege API keys."
+      },
+      {
+        "question": "Can agents handle multi-lingual customer inquiries?",
+        "answer": "Yes. Modern models natively comprehend and generate fluent responses across 50+ languages while preserving company terminology."
+      },
+      {
+        "question": "What happens when an agent cannot answer a question?",
+        "answer": "We program deterministic fallback triggers that gracefully transfer the session and complete chat transcript to human support agents."
+      }
+    ]
   },
   {
     "id": "custom-software",
     "title": "Custom Software Development",
     "shortDescription": "Scalable enterprise web applications, robust APIs & architectures",
-    "fullDescription": "End-to-end full-stack software engineering tailored to solve complex business logic with clean, maintainable, and high-performance architecture.",
+    "fullDescription": "End-to-end full-stack software engineering tailored to solve complex business operations with clean, maintainable, and high-performance architecture. From high-throughput backend services to multi-tenant B2B SaaS platforms, we write production code built for longevity, security, and effortless scaling.",
     "icon": "ph-code",
     "features": [
-      "Distributed Microservices & REST/GraphQL APIs",
-      "High-Throughput Backend Engineering",
-      "Multi-Tenant SaaS Platforms",
-      "Relational & NoSQL Database Architecture"
+      "Distributed Microservices & Modular Monoliths in TypeScript and Go",
+      "High-Throughput Backend Engineering with sub-millisecond database queries",
+      "Multi-Tenant SaaS Architecture with isolated tenant boundaries",
+      "Relational & NoSQL Database Design with automated schema migrations"
     ],
     "deliverables": [
-      "Clean TypeScript / Node / Go codebase",
-      "Automated CI/CD deployment pipeline",
-      "Unit & integration test suites",
-      "Comprehensive system architecture specs"
+      "Clean, modular TypeScript / Node / Go repository with full test coverage",
+      "Automated CI/CD build and container deployment pipelines",
+      "Comprehensive unit, integration, and load testing suites",
+      "Detailed architectural blueprints and database ER diagrams"
     ],
-    "order": 3
+    "order": 3,
+    "useCases": [
+      "Enterprise resource planning and inventory management systems for retail chains",
+      "Secure fintech transaction processing gateways with strict audit trails",
+      "Custom booking, scheduling, and dispatch engines for field service teams",
+      "Data integration hubs linking disparate legacy software platforms"
+    ],
+    "process": [
+      {
+        "step": "Technical Discovery & Scoping",
+        "desc": "We define core entity models, user flows, API contracts, and non-functional scalability requirements."
+      },
+      {
+        "step": "Foundational Architecture",
+        "desc": "We configure database schemas, authentication systems, multi-tenancy rules, and automated testing rigs."
+      },
+      {
+        "step": "Sprint-Based Engineering",
+        "desc": "We build features in 2-week agile sprints, deploying working preview environments at each milestone."
+      },
+      {
+        "step": "Hardening, Audit & Handover",
+        "desc": "We conduct load testing, run security vulnerability scans, and transfer complete repository ownership."
+      }
+    ],
+    "techStack": ["TypeScript", "Node.js", "Go", "PostgreSQL", "Redis", "Prisma / Drizzle", "Docker", "AWS / GCP"],
+    "faqs": [
+      {
+        "question": "Do we receive full ownership of the source code?",
+        "answer": "Yes. You receive 100% intellectual property ownership and administrative git repository access upon project handover."
+      },
+      {
+        "question": "How do you ensure the software scales as our user base grows?",
+        "answer": "We design stateless backend services, optimize database indexing, implement Redis caching layers, and use horizontal container autoscaling."
+      },
+      {
+        "question": "Can you integrate with our existing third-party systems?",
+        "answer": "Yes. We have deep experience integrating payment gateways (Stripe, Razorpay), CRMs (Salesforce, HubSpot), and custom internal legacy APIs."
+      }
+    ]
   },
   {
     "id": "web-development",
     "title": "Web Development",
     "shortDescription": "High-performance modern web platforms using Astro, Next.js & React",
-    "fullDescription": "Build lightning-fast, accessible, and SEO-optimized digital platforms utilizing modern island architecture and edge computing.",
+    "fullDescription": "Build lightning-fast, accessible, and search-optimized digital platforms utilizing modern island architecture and edge computing. We combine sleek, intuitive user experiences with ultra-low bundle sizes to ensure maximum conversion, instant page loads, and top Core Web Vitals scores.",
     "icon": "ph-browser",
     "features": [
-      "Astro Island Architecture & SSR/SSG",
-      "React & Next.js Web Applications",
-      "WCAG 2.2 AA Accessibility Compliance",
-      "Sub-second Core Web Vitals"
+      "Astro Island Architecture & Hybrid SSR/SSG for zero JS runtime bloat",
+      "React & Next.js Web Applications with modern state management",
+      "WCAG 2.2 AA Accessibility Compliance across all interactive UI components",
+      "Sub-second Core Web Vitals and 95+ Lighthouse performance scores"
     ],
     "deliverables": [
-      "Fully responsive production web platform",
-      "Design system & component library",
-      "Lighthouse 95+ performance optimization",
-      "Edge-ready deployment setup"
+      "Fully responsive production web platform with fluid typography and layouts",
+      "Tailored design system and reusable component library",
+      "Sub-100KB gzipped client JavaScript payload optimization",
+      "Edge-ready deployment setup with custom cache headers and CDN integration"
     ],
-    "order": 4
+    "order": 4,
+    "useCases": [
+      "High-converting marketing websites and landing pages for B2B SaaS companies",
+      "Customer portals and interactive account dashboards with real-time updates",
+      "Editorial, technical blogs, and documentation hubs with instant search",
+      "Fast e-commerce storefronts with optimized checkout funnels"
+    ],
+    "process": [
+      {
+        "step": "Design System & Token Setup",
+        "desc": "We establish CSS custom properties, accessible typography scales, color palettes, and responsive breakpoints."
+      },
+      {
+        "step": "Component & Layout Assembly",
+        "desc": "We construct Astro-native components with partial React hydration for interactive widgets."
+      },
+      {
+        "step": "Content & SEO Integration",
+        "desc": "We wire type-safe content collections, Open Graph tags, canonical links, and Schema.org structured data."
+      },
+      {
+        "step": "Performance & Accessibility Audit",
+        "desc": "We benchmark Lighthouse metrics, verify keyboard navigation, and tune image formats to WebP/AVIF."
+      }
+    ],
+    "techStack": ["Astro", "React", "TypeScript", "TailwindCSS / Vanilla CSS", "Vite", "Vercel / Cloudflare", "GSAP"],
+    "faqs": [
+      {
+        "question": "Why do you recommend Astro for marketing and content sites?",
+        "answer": "Astro ships zero JavaScript by default, rendering pure HTML and hydrating only the interactive islands you specify, resulting in blazing fast speeds and higher SEO rankings."
+      },
+      {
+        "question": "Is the website responsive across mobile and tablet screens?",
+        "answer": "Yes. Every interface is tested extensively on real iOS and Android devices, and conforms to fluid typography and touch targets ≥ 44px."
+      },
+      {
+        "question": "How easy is it for non-technical team members to update content?",
+        "answer": "We structure data using intuitive Markdown, JSON content collections, or headless CMS platforms (Strapi, Sanity) for seamless editing."
+      }
+    ]
   },
   {
     "id": "mobile-app-development",
     "title": "Mobile App Development",
     "shortDescription": "Fluid iOS & Android cross-platform solutions built for scale",
-    "fullDescription": "Develop native-feel mobile applications with smooth gestures, offline capabilities, secure biometrics, and background sync.",
+    "fullDescription": "Develop native-feel mobile applications with smooth gestures, offline capabilities, secure biometric authentication, and background synchronization. We build production cross-platform applications that deliver high-velocity releases without sacrificing 60 FPS performance or native device capabilities.",
     "icon": "ph-device-mobile",
     "features": [
-      "React Native & Flutter Cross-Platform Apps",
-      "Offline-First Architecture & Sync",
-      "Secure Device Hardware Integration",
-      "App Store & Play Store Release Engineering"
+      "React Native & Flutter Cross-Platform Apps with shared business logic",
+      "Offline-First Architecture with SQLite / WatermelonDB local synchronization",
+      "Secure Hardware Integration: Biometrics, Camera, Bluetooth & Push Notifications",
+      "Complete App Store & Google Play Release Pipeline and Signing Engineering"
     ],
     "deliverables": [
-      "iOS & Android compiled bundles",
-      "Published store listings & assets",
-      "Push notification service integration",
-      "Analytics & crash reporting configuration"
+      "Production-ready iOS (.ipa) and Android (.aab) compiled application bundles",
+      "Optimized App Store and Google Play store listings and compliance assets",
+      "Push notification service integration with targeted audience segmentation",
+      "Integrated crash analytics and real-time telemetry error monitoring"
     ],
-    "order": 5
+    "order": 5,
+    "useCases": [
+      "Enterprise field operations apps with barcode/QR scanning and offline sync",
+      "B2B mobile dashboards giving executives real-time access to operational metrics",
+      "On-demand service booking apps with live GPS tracking and push notifications",
+      "Customer loyalty and mobile commerce apps with one-tap payment checkout"
+    ],
+    "process": [
+      {
+        "step": "Mobile Architecture & UX Specs",
+        "desc": "We architect state machines, offline caching strategies, and intuitive mobile gesture flows."
+      },
+      {
+        "step": "Cross-Platform Engineering",
+        "desc": "We build shared TypeScript/Dart components with native bridges for platform-specific hardware modules."
+      },
+      {
+        "step": "Hardware & Network Testing",
+        "desc": "We test performance under flaky network conditions, battery consumption, and device memory constraints."
+      },
+      {
+        "step": "Store Submission & Go-Live",
+        "desc": "We manage Apple Developer and Google Play Console store certification, review approvals, and release."
+      }
+    ],
+    "techStack": ["React Native", "TypeScript", "Flutter", "SQLite", "Expo / Fastlane", "Firebase", "Redux Toolkit", "iOS / Android APIs"],
+    "faqs": [
+      {
+        "question": "Can cross-platform apps match native performance?",
+        "answer": "Yes. With the modern React Native new architecture and Flutter's Skia/Impeller renderer, cross-platform apps achieve 60 FPS animations indistinguishable from native code."
+      },
+      {
+        "question": "Do you assist with Apple App Store and Google Play store approvals?",
+        "answer": "Yes. We handle privacy policy declarations, cryptographic compliance, app screenshots, and guide the entire store review submission."
+      },
+      {
+        "question": "Can the app function without an active internet connection?",
+        "answer": "Yes. We implement robust offline-first caching that queues local transactions and synchronizes automatically upon reconnect."
+      }
+    ]
   },
   {
     "id": "cloud-devops",
     "title": "Cloud & DevOps",
     "shortDescription": "CI/CD pipelines, containerization, cloud infrastructure & AWS/GCP",
-    "fullDescription": "Modernize infrastructure with automated Infrastructure-as-Code, zero-downtime deployments, Kubernetes orchestration, and cloud cost optimization.",
+    "fullDescription": "Modernize infrastructure with automated Infrastructure-as-Code, zero-downtime deployments, Kubernetes container orchestration, and proactive cloud cost optimization. We architect resilient, secure, and self-healing cloud foundations that empower development squads to ship code safely multiple times a day.",
     "icon": "ph-cloud",
     "features": [
-      "Terraform & AWS / GCP Infrastructure",
-      "Docker & Kubernetes Container Orchestration",
-      "Automated CI/CD Pipelines with GitHub Actions",
-      "24/7 Logging, Alerting & Metrics Dashboards"
+      "Terraform & OpenTofu Declarative Infrastructure-as-Code on AWS and GCP",
+      "Docker & Kubernetes (EKS / GKE) Container Orchestration and Autoscaling",
+      "Automated CI/CD Pipelines with GitHub Actions, GitLab, and ArgoCD",
+      "24/7 Logging, Alerting & Metrics Dashboards with Prometheus and Grafana"
     ],
     "deliverables": [
-      "Declarative IaC repositories",
-      "Hardened VPC & IAM security setups",
-      "Automated deployment environments",
-      "Cloud spend audit & optimization plan"
+      "Declarative, reproducible IaC repositories with multi-environment support",
+      "Hardened VPC, IAM, and network security groups meeting SOC2 benchmarks",
+      "Automated deployment workflows with preview branches and rollback triggers",
+      "Cloud spend architecture audit and cost-reduction remediation plan"
     ],
-    "order": 6
+    "order": 6,
+    "useCases": [
+      "Migrating legacy virtual machine hosting to scalable containerized clusters",
+      "Eliminating manual deployment errors with automated continuous delivery",
+      "Multi-region disaster recovery and automated database backup replication",
+      "Optimizing cloud resource allocation to reduce monthly infrastructure bills by 30-50%"
+    ],
+    "process": [
+      {
+        "step": "Infrastructure Audit",
+        "desc": "We evaluate existing cloud workloads, security policies, bottleneck risks, and resource utilization."
+      },
+      {
+        "step": "IaC Blueprinting",
+        "desc": "We codify all VPCs, compute instances, database clusters, and DNS records using modular Terraform."
+      },
+      {
+        "step": "CI/CD Pipeline Setup",
+        "desc": "We create automated testing, security scanning, container builds, and blue-green deployment pipelines."
+      },
+      {
+        "step": "Observability & Handover",
+        "desc": "We configure centralized logging, alerting thresholds, and conduct runbook training for your staff."
+      }
+    ],
+    "techStack": ["AWS", "Google Cloud", "Terraform", "Docker", "Kubernetes", "GitHub Actions", "Prometheus", "Grafana", "Nginx"],
+    "faqs": [
+      {
+        "question": "How do you achieve zero-downtime deployments?",
+        "answer": "We configure rolling updates or blue-green deployment patterns where new container versions spin up and pass health checks before traffic shifts."
+      },
+      {
+        "question": "Can you help reduce our existing AWS or GCP cloud bills?",
+        "answer": "Yes. Our cloud audits consistently uncover over-provisioned compute, idle storage, unattached elastic IPs, and optimize reserved instances."
+      },
+      {
+        "question": "Do we keep administrative ownership of our cloud accounts?",
+        "answer": "Yes. All infrastructure is deployed directly within your company's own cloud organization, ensuring full governance and compliance."
+      }
+    ]
   },
   {
     "id": "it-consulting",
     "title": "IT Consulting",
     "shortDescription": "System audits, technology roadmapping & modern tech strategy",
-    "fullDescription": "Strategic technical advisory helping leadership choose the right architectural stack, reduce technical debt, and plan scalable roadmaps.",
+    "fullDescription": "Strategic technical advisory helping executive leadership choose the right architectural stack, reduce technical debt, eliminate delivery bottlenecks, and plan scalable product roadmaps. We provide pragmatic, vendor-neutral engineering guidance to ensure your technology investments deliver concrete business returns.",
     "icon": "ph-chart-line-up",
     "features": [
-      "Comprehensive Architecture Audits",
-      "Security & Compliance Reviews",
-      "Legacy Modernization Strategy",
-      "Engineering Team Enablement"
+      "Comprehensive Architecture Audits & Scalability Gap Assessments",
+      "Security, Vulnerability & Compliance Posture Reviews",
+      "Legacy Software Modernization Strategy & Migration Roadmaps",
+      "Engineering Squad Enablement, Tooling Standardization & Best Practices"
     ],
     "deliverables": [
-      "Executive architecture audit report",
-      "Risk remediation matrix",
-      "Technology adoption roadmap",
-      "Estimated cost & timeline projection"
+      "Executive architecture audit report with actionable risk matrix",
+      "Prioritized technical debt remediation and modernization roadmap",
+      "Technology adoption blueprint comparing stack trade-offs and costs",
+      "Detailed timeline, resource, and budget projection estimates"
     ],
-    "order": 7
+    "order": 7,
+    "useCases": [
+      "Technical due diligence and architecture review ahead of investment or acquisition",
+      "Formulating a pragmatic 12-month technology roadmap for scaling startups",
+      "Evaluating build-vs-buy decisions for enterprise software tools",
+      "Resolving systemic developer velocity and deployment pipeline slowdowns"
+    ],
+    "process": [
+      {
+        "step": "Executive & Engineering Interviews",
+        "desc": "We interview stakeholders to understand business goals, pain points, and current delivery friction."
+      },
+      {
+        "step": "Codebase & System Deep Dive",
+        "desc": "We inspect source code, database queries, infrastructure topologies, and security configurations."
+      },
+      {
+        "step": "Gap Analysis & Synthesis",
+        "desc": "We benchmark your systems against industry best practices and identify high-impact risk areas."
+      },
+      {
+        "step": "Roadmap Presentation",
+        "desc": "We deliver a comprehensive report with prioritized recommendations, estimates, and phased milestones."
+      }
+    ],
+    "techStack": ["Architecture Review", "Security Auditing", "CI/CD Benchmarking", "Database Profiling", "Cloud Topology"],
+    "faqs": [
+      {
+        "question": "What is the typical deliverable of an IT Consulting engagement?",
+        "answer": "You receive a comprehensive executive report containing an architectural risk matrix, prioritized remediation roadmap, stack recommendations, and actionable implementation milestones."
+      },
+      {
+        "question": "Can you help our team execute the recommended roadmap?",
+        "answer": "Yes. Following the consulting phase, our engineering squads can either implement the recommendations directly or provide technical oversight to your internal team."
+      },
+      {
+        "question": "How long does a technical architecture audit take?",
+        "answer": "A standard architecture and code quality audit takes 1 to 2 weeks from kickoff to final executive presentation."
+      }
+    ]
   }
 ]

@@ -1,0 +1,204 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getServiceJsonLd } from "@/lib/jsonLd";
+
+export async function getStaticPaths() {
+  const allServices = await getCollection("services");
+  return allServices.map((service) => ({
+    params: { slug: service.data.id },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: CollectionEntry<"services">;
+}
+
+const { service } = Astro.props;
+const data = service.data;
+
+const serviceJsonLd = getServiceJsonLd({
+  name: `${data.title} — Vesharo`,
+  description: data.fullDescription,
+  path: `/services/${data.id}`,
+  serviceType: data.title,
+});
+---
+
+<Layout
+  title={`${data.title} Services | Vesharo`}
+  description={data.fullDescription.slice(0, 155)}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: data.title, path: `/services/${data.id}` },
+  ]}
+  jsonLd={serviceJsonLd}
+>
+  <BreadCrumb title={data.title} />
+  <HeaderSlider />
+
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="row g-5">
+        <!-- Main Content Column -->
+        <div class="col-lg-8">
+          <div class="p-4 p-md-5 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-4" style="width: 64px; height: 64px; background-color: rgba(0, 102, 255, 0.15); border: 1px solid rgba(0, 102, 255, 0.3);">
+              <i class={`${data.icon} text-primary`} style="font-size: 2rem;"></i>
+            </div>
+
+            <h1 class="h2 text-white fw-bold mb-3">{data.title}</h1>
+            <p class="text-white-50 lead mb-5" style="line-height: 1.7;">
+              {data.fullDescription}
+            </p>
+
+            <!-- What's Included -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">What's Included & Core Capabilities</h2>
+              <p class="text-white-50 mb-4">
+                Our engineering squads take an end-to-end approach, handling architectural design, prototype validation, hardening, and production cloud operations.
+              </p>
+              <div class="row g-3">
+                {data.features.map((feature) => (
+                  <div class="col-md-6">
+                    <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                      <div class="d-flex align-items-start gap-2">
+                        <i class="ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <span class="text-white small fw-medium">{feature}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Enterprise Use Cases -->
+            {data.useCases && data.useCases.length > 0 && (
+              <div class="mb-5">
+                <h2 class="h4 text-white fw-semibold mb-3">Enterprise Use Cases & Applications</h2>
+                <p class="text-white-50 mb-3">
+                  How modern organizations leverage this capability to eliminate friction and scale revenue:
+                </p>
+                <ul class="list-unstyled text-white-50">
+                  {data.useCases.map((uc) => (
+                    <li class="d-flex align-items-start gap-3 mb-3 p-3 rounded-3" style="background-color: rgba(255, 255, 255, 0.02); border-left: 3px solid #0066FF;">
+                      <i class="ph-arrow-right text-primary mt-1"></i>
+                      <span>{uc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <!-- Engineering Process -->
+            {data.process && data.process.length > 0 && (
+              <div class="mb-5">
+                <h2 class="h4 text-white fw-semibold mb-3">Our 4-Stage Engineering Process</h2>
+                <p class="text-white-50 mb-4">
+                  We operate in focused 2-week agile sprints with transparent milestone reviews and working preview environments:
+                </p>
+                <div class="row g-3">
+                  {data.process.map((step, idx) => (
+                    <div class="col-12">
+                      <div class="p-3 p-md-4 rounded-3 d-flex gap-3 align-items-start" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <span class="badge rounded-circle p-2 d-inline-flex align-items-center justify-content-center text-primary" style="width: 36px; height: 36px; background-color: rgba(0, 102, 255, 0.2); font-weight: bold;">
+                          0{idx + 1}
+                        </span>
+                        <div>
+                          <h3 class="h6 text-white fw-semibold mb-1">{step.step}</h3>
+                          <p class="text-white-50 small mb-0">{step.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Deliverables -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">Tangible Client Deliverables</h2>
+              <ul class="text-white-50 ps-4 mb-0">
+                {data.deliverables.map((d) => (
+                  <li class="mb-2"><strong class="text-white">{d}</strong> with 100% intellectual property ownership transferred upon completion.</li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Service FAQs -->
+            {data.faqs && data.faqs.length > 0 && (
+              <div>
+                <h2 class="h4 text-white fw-semibold mb-3">Frequently Asked Questions</h2>
+                <div class="d-flex flex-column gap-3">
+                  {data.faqs.map((f) => (
+                    <details class="p-3 rounded-3" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); cursor: pointer;">
+                      <summary class="text-white fw-medium mb-2">{f.question}</summary>
+                      <p class="text-white-50 small mb-0 pt-2 border-top border-secondary border-opacity-25" style="line-height: 1.7;">
+                        {f.answer}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-lg-4">
+          <div class="position-sticky" style="top: 100px;">
+            <!-- Consultation Card -->
+            <div class="p-4 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.3);">
+              <h2 class="h5 text-white fw-bold mb-2">Build With Vesharo</h2>
+              <p class="text-white-50 small mb-4">
+                Schedule a 30-minute discovery consultation with our technical leads to scope your architecture.
+              </p>
+              <a href="/contact" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold mb-3">
+                Book a Free Call
+              </a>
+              <div class="text-center">
+                <span class="text-white-50 small">Direct email: </span>
+                <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none small">contact@vesharo.com</a>
+              </div>
+            </div>
+
+            <!-- Tech Stack Pill Box -->
+            {data.techStack && data.techStack.length > 0 && (
+              <div class="p-4 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <h2 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">Production Tech Stack</h2>
+                <div class="d-flex flex-wrap gap-2">
+                  {data.techStack.map((tech) => (
+                    <span class="badge px-3 py-2 rounded-pill text-white" style="background-color: rgba(255, 255, 255, 0.08); font-weight: normal;">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Other Capabilities Link List -->
+            <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h2 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">All Capabilities</h2>
+              <div class="d-flex flex-column gap-2">
+                <a href="/services/ai-automation" class="text-white-50 text-decoration-none small hover-text-primary py-1">AI Automation</a>
+                <a href="/services/ai-agents" class="text-white-50 text-decoration-none small hover-text-primary py-1">AI Agents & Chatbots</a>
+                <a href="/services/custom-software" class="text-white-50 text-decoration-none small hover-text-primary py-1">Custom Software Development</a>
+                <a href="/services/web-development" class="text-white-50 text-decoration-none small hover-text-primary py-1">Web Development</a>
+                <a href="/services/mobile-app-development" class="text-white-50 text-decoration-none small hover-text-primary py-1">Mobile App Development</a>
+                <a href="/services/cloud-devops" class="text-white-50 text-decoration-none small hover-text-primary py-1">Cloud & DevOps</a>
+                <a href="/services/it-consulting" class="text-white-50 text-decoration-none small hover-text-primary py-1">IT Consulting</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

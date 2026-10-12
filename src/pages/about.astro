@@ -5,7 +5,6 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import About2 from "@/components/about/About2.astro";
 import Service1 from "@/components/service/Service1.astro";
 import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
-import Team1 from "@/components/team/Team1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
 import Faq1 from "@/components/faq/Faq1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
@@ -27,7 +26,6 @@ const testimonials = await getTestimonialSlides();
   <About2 />
   <Service1 limit={4} />
   <WhoWeAre backgroundColor="#0b0f19" />
-  <Team1 />
   {testimonials.length > 0 && <Testimonial1 client:visible slides={testimonials} />}
   <Faq1 backgroundColor="#0f1626" />
   <Subscribe1 spacingClass="tz-mt-lg-120" />

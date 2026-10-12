@@ -8,7 +8,6 @@ import Service1 from "@/components/service/Service1.astro";
 import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
 import WorkFlow1 from "@/components/wordflows/WorkFlow1.astro";
 import Project1 from "@/components/project/Project1";
-import Team1 from "@/components/team/Team1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
 import Blog1 from "@/components/blog/Blog1.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
@@ -30,7 +29,6 @@ const testimonials = await getTestimonialSlides();
   <WhoWeAre backgroundColor="#0b0f19" />
   <WorkFlow1 />
   {projects.length > 0 && <Project1 client:visible projects={projects} />}
-  <Team1 />
   {testimonials.length > 0 && (
     <Testimonial1 client:visible slides={testimonials} bgClass="tz-bg-neutral3" />
   )}

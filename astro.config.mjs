@@ -4,6 +4,6 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://vesharo.com',
+  site: process.env.PUBLIC_SITE_URL || process.env.SITE_URL || 'https://vesharo.com',
   integrations: [react()],
 });

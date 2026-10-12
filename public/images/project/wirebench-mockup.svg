@@ -1,0 +1,85 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Base -->
+  <rect width="800" height="500" rx="16" fill="#070B14"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" stroke="rgba(0, 102, 255, 0.25)"/>
+
+  <!-- Subtle Blue Glow -->
+  <circle cx="400" cy="250" r="240" fill="#0066FF" fill-opacity="0.08" filter="blur(60px)"/>
+
+  <!-- Desktop App Window Frame -->
+  <rect x="80" y="40" width="640" height="420" rx="12" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+
+  <!-- Window Header / Title Bar -->
+  <rect x="80" y="40" width="640" height="38" rx="12" fill="#0F1626"/>
+  <rect x="80" y="66" width="640" height="12" fill="#0F1626"/>
+  
+  <!-- Window control buttons (red, yellow, green) -->
+  <circle cx="104" cy="59" r="5" fill="#FF5F56"/>
+  <circle cx="120" cy="59" r="5" fill="#FFBD2E"/>
+  <circle cx="136" cy="59" r="5" fill="#27C93F"/>
+
+  <!-- Window Title -->
+  <text x="320" y="63" fill="rgba(255, 255, 255, 0.7)" font-family="Inter, sans-serif" font-size="12" font-weight="500">Wirebench API Workbench • Private VPC</text>
+
+  <!-- Left Sidebar (Endpoint Tree) -->
+  <rect x="80" y="78" width="180" height="382" fill="#070B14" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+  
+  <text x="96" y="104" fill="rgba(255, 255, 255, 0.4)" font-family="Inter, sans-serif" font-size="10" font-weight="700">OPENAPI SPEC 3.1</text>
+  
+  <!-- Endpoint items -->
+  <rect x="92" y="118" width="156" height="30" rx="6" fill="#0F1626"/>
+  <rect x="98" y="124" width="34" height="18" rx="4" fill="#0066FF" fill-opacity="0.3"/>
+  <text x="104" y="137" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9" font-weight="700">POST</text>
+  <text x="138" y="137" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">/v2/orders</text>
+
+  <rect x="98" y="160" width="34" height="18" rx="4" fill="#27C93F" fill-opacity="0.2"/>
+  <text x="106" y="173" fill="#27C93F" font-family="Inter, sans-serif" font-size="9" font-weight="700">GET</text>
+  <text x="138" y="173" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">/v2/users</text>
+
+  <rect x="98" y="196" width="34" height="18" rx="4" fill="#FFBD2E" fill-opacity="0.2"/>
+  <text x="107" y="209" fill="#FFBD2E" font-family="Inter, sans-serif" font-size="9" font-weight="700">PUT</text>
+  <text x="138" y="209" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">/v2/webhooks</text>
+
+  <!-- Contract Drift Alert Box in Sidebar -->
+  <rect x="92" y="340" width="156" height="100" rx="8" fill="#0F1626" stroke="rgba(255, 95, 86, 0.3)"/>
+  <text x="104" y="362" fill="#FF5F56" font-family="Inter, sans-serif" font-size="10" font-weight="700">DRIFT ALERT</text>
+  <text x="104" y="380" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Schema Regression</text>
+  <text x="104" y="398" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="9">Field 'tenant_id' changed</text>
+  <text x="104" y="412" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="9">from uuid to string</text>
+  <text x="104" y="430" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">Prevented in CI/CD</text>
+
+  <!-- Main Editor Area -->
+  <rect x="260" y="78" width="460" height="382" fill="#0B0F19"/>
+
+  <!-- Top Action Tab -->
+  <rect x="276" y="94" width="428" height="42" rx="8" fill="#070B14" stroke="rgba(255, 255, 255, 0.08)"/>
+  <rect x="284" y="102" width="44" height="26" rx="4" fill="#0066FF"/>
+  <text x="292" y="119" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11" font-weight="700">POST</text>
+  <text x="336" y="119" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12">https://api.internal.corp/v2/orders</text>
+
+  <!-- Diff Comparison Headers -->
+  <text x="276" y="160" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="11" font-weight="600">OpenAPI Spec Contract</text>
+  <text x="496" y="160" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="11" font-weight="600">Live Server Response</text>
+
+  <!-- Diff Blocks -->
+  <rect x="276" y="172" width="206" height="240" rx="8" fill="#070B14" stroke="rgba(255, 255, 255, 0.05)"/>
+  <text x="290" y="198" fill="rgba(255, 255, 255, 0.4)" font-family="monospace" font-size="11">{</text>
+  <text x="302" y="218" fill="#00D2FF" font-family="monospace" font-size="11">"status": "success",</text>
+  <text x="302" y="238" fill="#00D2FF" font-family="monospace" font-size="11">"order_id": "ord_812",</text>
+  <text x="302" y="258" fill="#27C93F" font-family="monospace" font-size="11">"tenant_id": UUID,</text>
+  <text x="302" y="278" fill="#00D2FF" font-family="monospace" font-size="11">"amount_cents": 4500</text>
+  <text x="290" y="298" fill="rgba(255, 255, 255, 0.4)" font-family="monospace" font-size="11">}</text>
+
+  <rect x="496" y="172" width="208" height="240" rx="8" fill="#070B14" stroke="rgba(255, 95, 86, 0.25)"/>
+  <text x="510" y="198" fill="rgba(255, 255, 255, 0.4)" font-family="monospace" font-size="11">{</text>
+  <text x="522" y="218" fill="#00D2FF" font-family="monospace" font-size="11">"status": "success",</text>
+  <text x="522" y="238" fill="#00D2FF" font-family="monospace" font-size="11">"order_id": "ord_812",</text>
+  <rect x="516" y="246" width="170" height="20" rx="3" fill="#FF5F56" fill-opacity="0.2"/>
+  <text x="522" y="260" fill="#FF5F56" font-family="monospace" font-size="11">"tenant_id": "str_98",</text>
+  <text x="522" y="280" fill="#00D2FF" font-family="monospace" font-size="11">"amount_cents": 4500</text>
+  <text x="510" y="300" fill="rgba(255, 255, 255, 0.4)" font-family="monospace" font-size="11">}</text>
+
+  <!-- Diff Footer Verdict -->
+  <rect x="276" y="424" width="428" height="24" rx="4" fill="rgba(0, 102, 255, 0.1)"/>
+  <text x="286" y="440" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">ZERO DATA LEAKS • LOCAL SANDBOX STORAGE ONLY</text>
+</svg>

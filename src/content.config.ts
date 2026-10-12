@@ -13,6 +13,10 @@ const services = defineCollection({
     features: z.array(z.string()),
     deliverables: z.array(z.string()),
     order: z.number(),
+    useCases: z.array(z.string()).optional(),
+    process: z.array(z.object({ step: z.string(), desc: z.string() })).optional(),
+    techStack: z.array(z.string()).optional(),
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),
 });
 
@@ -33,6 +37,9 @@ const portfolio = defineCollection({
     link: z.string(),
     featured: z.boolean(),
     image: z.string(),
+    challenge: z.string().optional(),
+    solution: z.string().optional(),
+    architecture: z.array(z.string()).optional(),
   }),
 });
 

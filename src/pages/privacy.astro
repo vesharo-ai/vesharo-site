@@ -1,0 +1,104 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+---
+
+<Layout
+  title="Privacy Policy | Vesharo"
+  description="Learn how Vesharo protects your data, enforces privacy-first engineering, and complies with international data privacy regulations."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Privacy Policy", path: "/privacy" },
+  ]}
+>
+  <BreadCrumb title="Privacy Policy" />
+  <HeaderSlider />
+
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="mb-4">
+              <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+                Last Updated: October 2026
+              </span>
+            </div>
+
+            <h1 class="h2 text-white mb-4 fw-bold">Privacy Policy</h1>
+            <p class="text-white-50 lead mb-5">
+              At Vesharo, we treat privacy and data protection as foundational engineering principles. This Privacy Policy details how we collect, handle, and safeguard information when you visit our website (vesharo.com) or engage our engineering services.
+            </p>
+
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">1. Information We Collect</h2>
+              <p class="text-white-50 mb-3">
+                We only collect information necessary to communicate with you regarding engineering consultations and project delivery:
+              </p>
+              <ul class="text-white-50 ps-4 mb-3">
+                <li class="mb-2"><strong class="text-white">Contact Submissions:</strong> When you submit a project inquiry or contact form, we collect your name, business email address, phone number, and project brief details.</li>
+                <li class="mb-2"><strong class="text-white">Technical Analytics:</strong> We collect minimal, anonymized operational metrics (such as device type, browser family, and page response times) solely to diagnose performance and maintain site availability.</li>
+                <li class="mb-2"><strong class="text-white">Client Project Data:</strong> During client engagements, proprietary business logic, schemas, and credentials are handled under strict Non-Disclosure Agreements (NDAs) and never stored on public or unencrypted environments.</li>
+              </ul>
+            </div>
+
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">2. How We Use Your Information</h2>
+              <p class="text-white-50 mb-3">
+                The information you provide is strictly used for legitimate business purposes:
+              </p>
+              <ul class="text-white-50 ps-4 mb-3">
+                <li class="mb-2">Responding directly to technical inquiries, scoping consultations, and requests for proposals.</li>
+                <li class="mb-2">Fulfilling contractual engineering milestones, architecture deliverables, and software deployment agreements.</li>
+                <li class="mb-2">Maintaining site security, preventing fraudulent requests, and ensuring server uptime.</li>
+              </ul>
+              <p class="text-white-50">
+                We do not sell, rent, monetize, or broker your personal information or business data to any third-party advertisers.
+              </p>
+            </div>
+
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">3. AI Data Privacy & Security Guardrails</h2>
+              <p class="text-white-50 mb-3">
+                For clients utilizing our AI automation, custom agents, or machine learning pipelines:
+              </p>
+              <ul class="text-white-50 ps-4 mb-3">
+                <li class="mb-2"><strong class="text-white">Zero Data Retention:</strong> We configure enterprise AI integrations with zero data retention terms, ensuring model providers do not train on your proprietary company data.</li>
+                <li class="mb-2"><strong class="text-white">Private Cloud VPCs:</strong> We deploy vector stores, inference microservices, and database models inside your organization's private AWS or GCP cloud boundaries.</li>
+                <li class="mb-2"><strong class="text-white">Role-Based Access:</strong> Access to staging environments and API keys is strictly governed by least-privilege role policies and revoked immediately upon milestone completion.</li>
+              </ul>
+            </div>
+
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">4. Data Retention & Erasure Rights</h2>
+              <p class="text-white-50 mb-3">
+                We retain general contact submissions only as long as necessary to facilitate your business inquiry or fulfill contractual obligations. You retain the right to request a complete copy of your submitted data or request its permanent erasure at any time by contacting our engineering desk at <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a>.
+              </p>
+            </div>
+
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">5. International Privacy Compliance</h2>
+              <p class="text-white-50 mb-3">
+                We respect international privacy standards, including the European General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Users in any jurisdiction may exercise their rights of access, rectification, portability, and deletion without penalty.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="h4 text-white fw-semibold mb-3">6. Contacting Our Data Privacy Lead</h2>
+              <p class="text-white-50 mb-2">
+                For questions regarding this policy or our data handling practices, contact our team:
+              </p>
+              <p class="text-white mb-1"><strong>Vesharo Engineering Desk</strong></p>
+              <p class="text-white-50 mb-1">Email: <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none">contact@vesharo.com</a></p>
+              <p class="text-white-50 mb-0">Location: Ahmedabad, Gujarat, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

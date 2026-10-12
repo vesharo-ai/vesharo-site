@@ -1,0 +1,61 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Base -->
+  <rect width="800" height="500" rx="16" fill="#070B14"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" stroke="rgba(0, 102, 255, 0.25)"/>
+
+  <!-- Subtle Radial Glow -->
+  <circle cx="400" cy="250" r="220" fill="#0066FF" fill-opacity="0.08" filter="blur(60px)"/>
+
+  <!-- Device Container / Frame -->
+  <rect x="220" y="30" width="360" height="440" rx="28" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2"/>
+  
+  <!-- Speaker notch / camera bar -->
+  <rect x="340" y="42" width="120" height="6" rx="3" fill="rgba(255, 255, 255, 0.2)"/>
+  <circle cx="330" cy="45" r="3" fill="#00D2FF"/>
+
+  <!-- Screen Content -->
+  <rect x="236" y="60" width="328" height="394" rx="16" fill="#070B14"/>
+
+  <!-- Header Bar -->
+  <rect x="252" y="76" width="32" height="32" rx="8" fill="#0066FF" fill-opacity="0.2"/>
+  <path d="M268 86v4m-3 0h6m-7 4h8a2 2 0 012 2v4a2 2 0 01-2 2h-8a2 2 0 01-2-2v-4a2 2 0 012-2z" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+  
+  <text x="294" y="92" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700">LockApp MDM</text>
+  <text x="294" y="104" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Device Admin • Enterprise</text>
+
+  <!-- Status Chip -->
+  <rect x="470" y="82" width="78" height="22" rx="11" fill="rgba(0, 210, 255, 0.15)"/>
+  <circle cx="482" cy="93" r="3" fill="#00D2FF"/>
+  <text x="492" y="97" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">ENFORCED</text>
+
+  <!-- Device Status Card -->
+  <rect x="252" y="124" width="296" height="84" rx="12" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="268" y="146" fill="rgba(255, 255, 255, 0.6)" font-family="Inter, sans-serif" font-size="11">EMI Finance Compliance</text>
+  <text x="268" y="168" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700">Account Current • Active</text>
+  <text x="268" y="190" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11">Next Policy Verification: In 48h</text>
+
+  <!-- Telemetry Metrics Grid -->
+  <rect x="252" y="220" width="142" height="70" rx="10" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="266" y="242" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Heartbeat Sync</text>
+  <text x="266" y="264" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600">&lt; 150ms Latency</text>
+  <text x="266" y="278" fill="#00D2FF" font-family="Inter, sans-serif" font-size="9">MQTT Connection OK</text>
+
+  <rect x="406" y="220" width="142" height="70" rx="10" fill="#0F1626" stroke="rgba(255, 255, 255, 0.06)"/>
+  <text x="420" y="242" fill="rgba(255, 255, 255, 0.5)" font-family="Inter, sans-serif" font-size="10">Offline Security</text>
+  <text x="420" y="264" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600">Tamper-Proof</text>
+  <text x="420" y="278" fill="rgba(255, 255, 255, 0.4)" font-family="Inter, sans-serif" font-size="9">Hardware Keystore</text>
+
+  <!-- Security Policy Controls -->
+  <rect x="252" y="302" width="296" height="42" rx="8" fill="#0F1626"/>
+  <circle cx="272" cy="323" r="5" fill="#0066FF"/>
+  <text x="288" y="327" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11" font-weight="500">USB Debugging Disabled</text>
+  <text x="506" y="327" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11">Locked</text>
+
+  <rect x="252" y="352" width="296" height="42" rx="8" fill="#0F1626"/>
+  <circle cx="272" cy="373" r="5" fill="#0066FF"/>
+  <text x="288" y="377" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11" font-weight="500">Factory Reset Prevention</text>
+  <text x="506" y="377" fill="#00D2FF" font-family="Inter, sans-serif" font-size="11">Active</text>
+
+  <!-- Bottom Home pill -->
+  <rect x="360" y="440" width="80" height="4" rx="2" fill="rgba(255, 255, 255, 0.3)"/>
+</svg>
