@@ -32,6 +32,18 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://cloud.umami.is https://www.googletagmanager.com https://app.cal.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https: blob:; connect-src 'self' https://plausible.io https://cloud.umami.is https://www.google-analytics.com https://api.resend.com; frame-src 'self' https://app.cal.com https://www.google.com https://maps.google.com; frame-ancestors 'none';"
         }
       ]
     },
@@ -55,6 +67,15 @@
     },
     {
       "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/brand/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

@@ -6,17 +6,20 @@ Official company website for **Vesharo** (IT services & AI automation company).
 - **Public Contact**: `contact@vesharo.com` · Phone/WhatsApp: `+91 95862 12495`
 - **Location**: Ahmedabad, Gujarat, India
 - **Business Hours**: Mon–Fri 9:00–18:30 IST
-- **Deployment**: Vercel
+- **Deployment Platform**: Vercel
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Astro 7](https://astro.build) (Static site generation + selective hydration)
+- **Framework**: [Astro 7](https://astro.build) (Static site generation + selective serverless API routes)
+- **Adapter**: `@astrojs/vercel` (for serverless `/api/contact` route)
 - **UI Islands**: React 19
 - **CSS / Styling**: Design Tokens (`src/styles/tokens.css`, `src/styles/brand.css`) + Bootstrap 5 + Vanilla CSS
 - **Typography**: Self-hosted variable `Plus Jakarta Sans` (headings) and `Inter` (body)
-- **Animation & Motion**: GSAP, Swiper
+- **Analytics**: Cookieless Plausible / Umami wrapper (`src/components/common/Analytics.astro`)
+- **Animation & Motion**: GSAP, Swiper, lightweight IntersectionObserver scroll-reveal
+- **Security & Headers**: Strict HSTS, Content Security Policy (CSP), anti-clickjacking in `vercel.json`
 
 ---
 
@@ -40,6 +43,15 @@ Official company website for **Vesharo** (IT services & AI automation company).
 
 ---
 
+## 📚 Documentation & Guides
+
+- [Deployment & Custom Domain Guide](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/deployment.md) — Step-by-step Vercel setup, DNS records, SSL, Search Console, and uptime monitoring.
+- [Content Editing Guide](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/content-guide.md) — How to edit services, add blog posts, portfolio case studies, and update company facts.
+- [Brand Guidelines](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/brand.md) — Color palette, typography tokens, logo usage, and design standards.
+- [Image Credits](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/image-credits.md) — Unsplash & curated asset attribution.
+
+---
+
 ## 💻 Development Commands
 
 | Command | Description |
@@ -48,7 +60,7 @@ Official company website for **Vesharo** (IT services & AI automation company).
 | `npx astro dev --background` | Runs dev server in background mode |
 | `npx astro dev stop` | Stops background dev server |
 | `npm run check` | Runs `astro check` followed by `astro build` |
-| `npm run build` | Builds production-ready static output in `dist/` |
+| `npm run build` | Builds production-ready static output + Vercel serverless function |
 | `npm run preview` | Previews production build locally |
 
 ---

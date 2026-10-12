@@ -14,13 +14,12 @@ function RelatedArticles() {
             <div className="col-md-4">
               <div className="tz-buttons d-flex justify-content-start justify-content-md-end">
                 <a
-                  href="#"
+                  href="/blog"
                   className="tz-button text-uppercase fw-medium tz-text-m"
                 >
-                  {" "}
                   View More
                 </a>
-                <a className="tz-button-circle" href="#">
+                <a className="tz-button-circle" href="/blog" aria-label="View more articles">
                   <i className="ph ph-arrow-up-right" />
                 </a>
               </div>
