@@ -1,0 +1,316 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getArticleJsonLd } from "@/lib/jsonLd";
+import { siteConfig } from "@/config/site";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+
+  return allPosts.map((post) => {
+    const relatedPosts = allPosts
+      .filter((p) => p.data.id !== post.data.id && (p.data.category === post.data.category || true))
+      .slice(0, 3);
+
+    return {
+      params: { slug: post.data.id },
+      props: {
+        post,
+        relatedPosts,
+      },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  relatedPosts: CollectionEntry<"blog">[];
+}
+
+const { post, relatedPosts } = Astro.props;
+const data = post.data;
+
+const articleJsonLd = getArticleJsonLd({
+  title: data.title,
+  description: data.excerpt,
+  path: `/blog/${data.id}`,
+  datePublished: new Date(data.date).toISOString(),
+  dateModified: data.updatedDate ? new Date(data.updatedDate).toISOString() : new Date(data.date).toISOString(),
+  authorName: data.author,
+  imageUrl: `https://vesharo.com${data.image}`,
+});
+
+const currentUrl = `${siteConfig.url}/blog/${data.id}`;
+const encodedTitle = encodeURIComponent(data.title);
+const encodedUrl = encodeURIComponent(currentUrl);
+
+const shareLinks = [
+  {
+    name: "X (Twitter)",
+    icon: "ph-x-logo",
+    url: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+  },
+  {
+    name: "LinkedIn",
+    icon: "ph-linkedin-logo",
+    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  },
+  {
+    name: "WhatsApp",
+    icon: "ph-whatsapp-logo",
+    url: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`,
+  },
+];
+---
+
+<Layout
+  title={`${data.title} | Vesharo Blog`}
+  description={data.excerpt.slice(0, 155)}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: data.title, path: `/blog/${data.id}` },
+  ]}
+  article={{
+    title: data.title,
+    description: data.excerpt,
+    path: `/blog/${data.id}`,
+    datePublished: new Date(data.date).toISOString(),
+    dateModified: data.updatedDate ? new Date(data.updatedDate).toISOString() : new Date(data.date).toISOString(),
+    authorName: data.author,
+    imageUrl: `https://vesharo.com${data.image}`,
+  }}
+  jsonLd={articleJsonLd}
+>
+  <BreadCrumb title="Engineering Insights" />
+  <HeaderSlider />
+
+  <article class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <!-- Article Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+          <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+            <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.15); font-size: 0.85rem;">
+              {data.category}
+            </span>
+            <span class="text-white-50 small d-flex align-items-center gap-1">
+              <i class="ph ph-clock"></i>
+              {data.readTime}
+            </span>
+            <span class="text-white-50 small d-flex align-items-center gap-1">
+              <i class="ph ph-calendar"></i>
+              {data.date}
+            </span>
+            {data.updatedDate && (
+              <span class="badge px-2 py-1 rounded text-white-50" style="background-color: rgba(255, 255, 255, 0.05); font-size: 0.75rem;">
+                Updated: {data.updatedDate}
+              </span>
+            )}
+          </div>
+
+          <h1 class="h1 text-white fw-bold mb-4" style="line-height: 1.25;">
+            {data.title}
+          </h1>
+
+          <p class="text-white-50 lead mb-4" style="line-height: 1.7; font-size: 1.2rem;">
+            {data.excerpt}
+          </p>
+
+          <!-- Author Info & Share Bar -->
+          <div class="p-3 rounded-4 d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex align-items-center gap-3">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"
+                style="width: 48px; height: 48px; background: linear-gradient(135deg, #0066FF, #00D2FF); font-size: 1rem;"
+              >
+                {data.author.split(" ").map((n) => n[0]).join("")}
+              </div>
+              <div>
+                <span class="text-white fw-bold d-block">{data.author}</span>
+                <span class="text-white-50 small">{data.authorRole || "Engineering Leadership"}</span>
+              </div>
+            </div>
+
+            <!-- Share Buttons (No Third-Party Tracking Scripts) -->
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-white-50 small me-2 d-none d-sm-inline">Share Article:</span>
+              {shareLinks.map((s) => (
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center text-white-50 hover-text-primary"
+                  style="width: 36px; height: 36px; border-color: rgba(255, 255, 255, 0.1);"
+                  aria-label={`Share on ${s.name}`}
+                >
+                  <i class={`ph ${s.icon}`}></i>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Answer-First Summary Box -->
+          {data.summary && (
+            <div class="p-4 rounded-4 mb-5" style="background-color: rgba(0, 102, 255, 0.08); border-left: 4px solid #0066FF;">
+              <span class="text-primary text-uppercase tracking-wider small fw-bold d-block mb-1">Answer-First Executive Summary</span>
+              <p class="text-white small mb-0" style="line-height: 1.7; font-size: 0.95rem;">
+                {data.summary}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Main Body + Table of Contents -->
+      <div class="row justify-content-center g-5">
+        <!-- Content Column -->
+        <div class="col-lg-8">
+          <div class="article-content d-flex flex-column gap-5">
+            {data.sections.map((section) => (
+              <section id={section.id} class="scroll-mt-5">
+                <h2 class="h3 text-white fw-bold mb-3">{section.heading}</h2>
+
+                {section.paragraphs.map((p) => (
+                  <p class="text-white-50 mb-3" style="line-height: 1.8; font-size: 1.05rem;">
+                    {p}
+                  </p>
+                ))}
+
+                {section.callout && (
+                  <div class="p-3 p-md-4 rounded-3 my-4" style="background-color: #0f1626; border-left: 3px solid #00D2FF;">
+                    <p class="text-white small fw-medium mb-0" style="line-height: 1.7;">
+                      {section.callout}
+                    </p>
+                  </div>
+                )}
+
+                {section.bulletPoints && section.bulletPoints.length > 0 && (
+                  <ul class="list-unstyled my-3">
+                    {section.bulletPoints.map((bp) => (
+                      <li class="d-flex align-items-start gap-2 mb-2 text-white-50" style="line-height: 1.6;">
+                        <i class="ph ph-check-circle text-primary mt-1"></i>
+                        <span>{bp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.codeSnippet && (
+                  <div class="rounded-3 overflow-hidden my-4" style="background-color: #070B14; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <div class="px-3 py-2 d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-25" style="background-color: rgba(255, 255, 255, 0.02);">
+                      <span class="badge text-uppercase small text-white-50" style="font-size: 0.75rem;">{section.codeSnippet.lang}</span>
+                      <span class="text-white-50 small" style="font-size: 0.75rem;">Source Code</span>
+                    </div>
+                    <pre class="p-3 mb-0 text-white" style="font-size: 0.85rem; line-height: 1.6; overflow-x: auto;"><code>{section.codeSnippet.code}</code></pre>
+                  </div>
+                )}
+              </section>
+            ))}
+          </div>
+
+          <!-- Tags Cloud -->
+          <div class="pt-5 mt-5 border-top border-secondary border-opacity-25 d-flex flex-wrap align-items-center gap-2">
+            <span class="text-white-50 small me-2">Article Tags:</span>
+            {data.tags.map((tag) => (
+              <span class="badge px-3 py-2 rounded-pill text-white-50" style="background-color: rgba(255, 255, 255, 0.05); font-size: 0.8rem;">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Sidebar / Sticky Table of Contents -->
+        <div class="col-lg-4">
+          <div class="position-sticky" style="top: 100px;">
+            <!-- TOC Box -->
+            <div class="p-4 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h3 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="ph ph-list-bullets text-primary"></i>
+                Table of Contents
+              </h3>
+              <nav aria-label="Table of contents">
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                  {data.sections.map((s, idx) => (
+                    <li>
+                      <a
+                        href={`#${s.id}`}
+                        class="text-white-50 text-decoration-none small hover-text-primary d-flex align-items-start gap-2 py-1"
+                        style="line-height: 1.4;"
+                      >
+                        <span class="text-primary fw-semibold" style="font-size: 0.75rem;">0{idx + 1}.</span>
+                        <span>{s.heading}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Author Bio Card -->
+            <div class="p-4 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <h3 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">About The Author</h3>
+              <p class="text-white-50 small mb-3" style="line-height: 1.6;">
+                Written by <strong class="text-white">{data.author}</strong>, leading software and AI systems architecture at Vesharo.
+              </p>
+              <a href="/about" class="text-primary text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1">
+                <span>Meet Vesharo Leadership</span>
+                <i class="ph ph-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Free Consultation Box -->
+            <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.35);">
+              <h3 class="h5 text-white fw-bold mb-2">Build With Vesharo</h3>
+              <p class="text-white-50 small mb-4">
+                Discuss your software architecture or AI automation goals directly with our engineers.
+              </p>
+              <a href="/contact" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold mb-2">
+                Book a Free Discovery Call
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Posts Section -->
+      {relatedPosts && relatedPosts.length > 0 && (
+        <div class="pt-5 mt-5 border-top border-secondary border-opacity-25">
+          <h2 class="h3 text-white fw-bold mb-4 text-center">Related Engineering Articles</h2>
+          <div class="row g-4 justify-content-center">
+            {relatedPosts.map((rp) => (
+              <div class="col-md-6 col-lg-4">
+                <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <div>
+                    <span class="badge px-3 py-1 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.75rem;">
+                      {rp.data.category}
+                    </span>
+                    <h3 class="h5 text-white fw-semibold mb-2" style="line-height: 1.4;">
+                      <a href={`/blog/${rp.data.id}`} class="text-white text-decoration-none hover-text-primary">
+                        {rp.data.title}
+                      </a>
+                    </h3>
+                    <p class="text-white-50 small mb-4" style="line-height: 1.6;">
+                      {rp.data.excerpt.slice(0, 120)}...
+                    </p>
+                  </div>
+                  <div>
+                    <a href={`/blog/${rp.data.id}`} class="text-primary text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1">
+                      <span>Read Full Article</span>
+                      <i class="ph ph-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

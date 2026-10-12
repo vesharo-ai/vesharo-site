@@ -1,0 +1,211 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
+import HeaderSlider from "@/components/heading-slider/HeaderSlider";
+import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { getCollection } from "astro:content";
+
+const allBlogs = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const currentCategory = Astro.url.searchParams.get("category") || "all";
+const categories = ["all", ...new Set(allBlogs.map((b) => b.data.category))];
+
+const filteredBlogs =
+  currentCategory === "all"
+    ? allBlogs
+    : allBlogs.filter((b) => b.data.category === currentCategory);
+
+const featuredPost = allBlogs.find((b) => b.data.featured) || allBlogs[0];
+const regularPosts = filteredBlogs.filter((b) => b.data.id !== (currentCategory === "all" ? featuredPost.data.id : ""));
+
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Vesharo Engineering Insights & Technical Blog",
+  description: "Technical articles on production AI agents, cloud architectures, custom software, and cross-platform mobile engineering.",
+  hasPart: filteredBlogs.map((b) => ({
+    "@type": "Article",
+    headline: b.data.title,
+    description: b.data.excerpt,
+    url: `https://vesharo.com/blog/${b.data.id}`,
+    datePublished: new Date(b.data.date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: b.data.author,
+    },
+  })),
+};
+---
+
+<Layout
+  title="Engineering Insights & Tech Blog | Vesharo"
+  description="Technical analysis and engineering playbooks on AI automation, LLM orchestration, custom software, and cloud scalability."
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+  ]}
+  jsonLd={blogJsonLd}
+>
+  <BreadCrumb title="Engineering Insights" />
+  <HeaderSlider />
+
+  <section class="py-5" style="background-color: #0b0f19;">
+    <div class="container py-lg-4">
+      <!-- Blog Hub Header -->
+      <div class="text-center mb-5">
+        <div class="d-inline-flex align-items-center gap-2 mb-3">
+          <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
+            Senior Engineering Playbooks
+          </span>
+          <a
+            href="/rss.xml"
+            class="badge px-3 py-2 rounded-pill text-white text-decoration-none d-inline-flex align-items-center gap-1"
+            style="background-color: rgba(255, 255, 255, 0.08); font-size: 0.8rem;"
+            title="Subscribe via RSS"
+          >
+            <i class="ph ph-rss-simple text-warning"></i>
+            <span>RSS Feed</span>
+          </a>
+        </div>
+        <h1 class="h1 text-white fw-bold mb-3">Architecture, Automation &amp; Scale</h1>
+        <p class="text-white-50 lead mx-auto mb-4" style="max-width: 720px;">
+          Practical, battle-tested engineering guides written directly by our technical founders. No superficial listicles or AI-generated fluff.
+        </p>
+
+        <!-- Category Filter (Works Without JavaScript via Query Params) -->
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          {categories.map((cat) => {
+            const isActive = currentCategory === cat;
+            const href = cat === "all" ? "/blog" : `/blog?category=${encodeURIComponent(cat)}`;
+            return (
+              <a
+                href={href}
+                class={`btn rounded-pill px-3 py-1 small fw-semibold transition-all ${
+                  isActive
+                    ? "btn-primary"
+                    : "btn-outline-secondary text-white-50 border-secondary border-opacity-25"
+                }`}
+                style="font-size: 0.85rem;"
+              >
+                {cat === "all" ? "All Insights" : cat}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Featured Hero Post (When viewing 'all') -->
+      {currentCategory === "all" && featuredPost && (
+        <div class="mb-5">
+          <div class="p-4 p-md-5 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.35);">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                  <span class="badge px-3 py-2 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.15); font-size: 0.8rem;">
+                    Featured Blueprint
+                  </span>
+                  <span class="text-white-50 small d-flex align-items-center gap-1">
+                    <i class="ph ph-clock"></i>
+                    {featuredPost.data.readTime}
+                  </span>
+                  <span class="text-white-50 small">
+                    {featuredPost.data.date}
+                  </span>
+                </div>
+                <h2 class="h2 text-white fw-bold mb-3" style="line-height: 1.3;">
+                  <a href={`/blog/${featuredPost.data.id}`} class="text-white text-decoration-none hover-text-primary">
+                    {featuredPost.data.title}
+                  </a>
+                </h2>
+                <p class="text-white-50 lead mb-4" style="line-height: 1.7; font-size: 1.1rem;">
+                  {featuredPost.data.excerpt}
+                </p>
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                  <a
+                    href={`/blog/${featuredPost.data.id}`}
+                    class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+                  >
+                    <span>Read Full Blueprint</span>
+                    <i class="ph ph-arrow-right"></i>
+                  </a>
+                  <span class="text-white-50 small">
+                    By <strong class="text-white">{featuredPost.data.author}</strong> ({featuredPost.data.authorRole})
+                  </span>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center">
+                <div class="p-4 rounded-4 text-start" style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);">
+                  <span class="text-uppercase tracking-wider small text-primary fw-bold d-block mb-2">Key Focus Areas</span>
+                  <ul class="list-unstyled text-white-50 small mb-0 d-flex flex-column gap-2">
+                    {featuredPost.data.tags.map((t) => (
+                      <li class="d-flex align-items-center gap-2">
+                        <i class="ph ph-check-circle text-primary"></i>
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Grid of Regular Posts -->
+      <div class="row g-4">
+        {(currentCategory === "all" ? regularPosts : filteredBlogs).map((post) => (
+          <div class="col-md-6 col-lg-4">
+            <div
+              class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between transition-all"
+              style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
+            >
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge px-3 py-1 rounded-pill text-primary" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.75rem;">
+                    {post.data.category}
+                  </span>
+                  <span class="text-white-50 small" style="font-size: 0.75rem;">
+                    {post.data.readTime}
+                  </span>
+                </div>
+
+                <h2 class="h5 text-white fw-bold mb-3" style="line-height: 1.4;">
+                  <a href={`/blog/${post.data.id}`} class="text-white text-decoration-none hover-text-primary">
+                    {post.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-white-50 small mb-4" style="line-height: 1.6;">
+                  {post.data.excerpt}
+                </p>
+              </div>
+
+              <div>
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top border-secondary border-opacity-25 mb-3">
+                  <span class="text-white-50 small" style="font-size: 0.8rem;">
+                    {post.data.author}
+                  </span>
+                  <span class="text-white-50 small" style="font-size: 0.8rem;">
+                    {post.data.date}
+                  </span>
+                </div>
+
+                <a
+                  href={`/blog/${post.data.id}`}
+                  class="btn btn-outline-primary w-100 py-2 rounded-pill d-inline-flex align-items-center justify-content-center gap-2 small fw-semibold"
+                >
+                  <span>Read Article</span>
+                  <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Subscribe1 spacingClass="tz-mt-lg-80" />
+</Layout>

@@ -55,12 +55,30 @@ const blog = defineCollection({
     title: z.string(),
     excerpt: z.string(),
     date: z.string(),
+    updatedDate: z.string().optional(),
     author: z.string(),
+    authorRole: z.string().optional(),
     category: z.string(),
     readTime: z.string(),
     tags: z.array(z.string()),
     image: z.string(),
-    link: z.string(),
+    featured: z.boolean().default(false),
+    summary: z.string().optional(),
+    sections: z.array(
+      z.object({
+        id: z.string(),
+        heading: z.string(),
+        paragraphs: z.array(z.string()),
+        callout: z.string().optional(),
+        bulletPoints: z.array(z.string()).optional(),
+        codeSnippet: z
+          .object({
+            lang: z.string(),
+            code: z.string(),
+          })
+          .optional(),
+      })
+    ),
   }),
 });
 

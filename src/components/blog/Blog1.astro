@@ -44,7 +44,7 @@ const blogPostsList = allBlogs.slice(0, limit);
           category={post.data.category}
           date={post.data.date}
           title={post.data.title}
-          link={post.data.link}
+          link={`/blog/${post.data.id}`}
         />
       ))}
     </div>

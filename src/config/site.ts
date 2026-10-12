@@ -30,6 +30,8 @@ export const siteConfig = {
     email: "contact@vesharo.com",
     phone: "+91 95862 12495",
     whatsapp: "+919586212495",
+    whatsappUrl: "https://wa.me/919586212495",
+    bookingUrl: "https://cal.com/vesharo/discovery",
     location: "Ahmedabad, Gujarat, India",
     hours: "Mon–Fri 9:00–18:30 IST",
     formRecipientNotice: "Submissions delivered securely to engineering desk.",
