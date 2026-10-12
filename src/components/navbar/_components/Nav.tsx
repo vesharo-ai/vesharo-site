@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState, useRef } from "react";
 import { siteConfig } from "@/config/site";
 import useWindowWidth from "@/hooks/useWindowWidth";

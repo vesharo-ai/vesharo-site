@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import Link from "@/components/common/Link";

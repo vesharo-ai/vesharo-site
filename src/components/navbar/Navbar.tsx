@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import BodyOverlay from "./_components/BodyOverlay";
 import Offcanvas from "./_components/Offcanvas";
@@ -19,9 +17,18 @@ function Navbar() {
         setIsSticky(false);
       }
     };
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setShowOffcanvas(false);
+      }
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

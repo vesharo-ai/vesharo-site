@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import ContactInfoBox from "./ContactInfoBox";
 import ContactFormBox from "./ContactFormBox";

@@ -731,7 +731,44 @@
 }
 
 .tz-header1 {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
   z-index: 1000 !important;
+  background: rgba(7, 11, 20, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.tz-header1.sticky {
+  background: rgba(7, 11, 20, 0.96) !important;
+  border-bottom: 1px solid rgba(0, 102, 255, 0.25) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Light theme header contrast safeguards */
+[data-theme="light"] .tz-header1 {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .tz-header1 .tz-nav-links > ul li a,
+[data-theme="light"] .tz-header1 .tz-services-trigger {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tz-header1 .tz-header1__logo img {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(20%) saturate(2000%) hue-rotate(185deg) brightness(90%) contrast(95%);
+}
+
+[data-theme="light"] .tz-header1 .tz-offcanvas-btn {
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
 }
 
 .tz-faq-item summary::-webkit-details-marker {
