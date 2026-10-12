@@ -277,3 +277,86 @@ input[type="submit"] {
   }
 }
 
+/* ------------------------------------------------------------------------
+   Responsive & Mobile QA: iOS Safari Form Input Zoom Prevention
+   ------------------------------------------------------------------------ */
+input,
+select,
+textarea {
+  font-size: 1rem !important; /* 16px minimum prevents iOS viewport zoom on focus */
+}
+
+/* ------------------------------------------------------------------------
+   VS-23: Micro-Interactions & GPU-Accelerated Scroll Reveal
+   ------------------------------------------------------------------------ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------------
+   VS-22: Clean Print Stylesheet for Legal & Documentation Pages
+   ------------------------------------------------------------------------ */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+  }
+
+  header,
+  nav,
+  footer,
+  .skip-to-content,
+  .tz-scroll-top,
+  .tz-header-slider,
+  .tz-subscribe,
+  .btn,
+  .tz-button {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .p-4, .p-5, .p-md-5, .rounded-3, .rounded-4 {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+
+  p, li {
+    color: #374151 !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+}
+
+
