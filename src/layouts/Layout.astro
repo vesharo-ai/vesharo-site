@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer.astro";
 import ScrollTop from "@/components/scroll-top/ScrollTop";
 import SEO from "@/components/seo/SEO.astro";
+import Analytics from "@/components/common/Analytics.astro";
 import type { BreadcrumbItem, ArticleSchemaData } from "@/lib/jsonLd";
 
 import "@/styles/phosphoricons.css";
@@ -44,6 +45,9 @@ const seoProps = Astro.props;
 
     <!-- Primary Metadata & Structured Data via SEO Component -->
     <SEO {...seoProps} />
+
+    <!-- Privacy-Friendly Analytics Wrapper (VS-24) -->
+    <Analytics />
 
     <!-- Preload Critical Self-Hosted Variable Fonts -->
     <link

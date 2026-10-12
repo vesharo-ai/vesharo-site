@@ -1,0 +1,71 @@
+---
+/**
+ * Analytics Wrapper Component (VS-24)
+ * Supports cookieless Plausible, Umami, or Google Analytics 4 (GA4).
+ * Conditioned strictly on production (PROD) builds so 0 tracking scripts load during local dev/preview.
+ */
+const isProd = import.meta.env.PROD;
+
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const plausibleApiHost = import.meta.env.PUBLIC_PLAUSIBLE_API_HOST || "https://plausible.io";
+
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiSrc = import.meta.env.PUBLIC_UMAMI_SRC || "https://cloud.umami.is/script.js";
+
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+{isProd && (
+  <>
+    {/* 1. Plausible Analytics (Cookieless, GDPR-compliant, lightweight ~1KB) */}
+    {plausibleDomain && (
+      <script
+        defer
+        data-domain={plausibleDomain}
+        src={`${plausibleApiHost}/js/script.tagged-events.js`}
+      />
+    )}
+
+    {/* 2. Umami Analytics (Cookieless, open-source alternative) */}
+    {umamiWebsiteId && (
+      <script
+        async
+        defer
+        data-website-id={umamiWebsiteId}
+        src={umamiSrc}
+      />
+    )}
+
+    {/* 3. Google Analytics 4 (Only when explicitly configured) */}
+    {gaId && (
+      <>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, {
+            anonymize_ip: true,
+            send_page_view: true
+          });
+        </script>
+      </>
+    )}
+  </>
+)}
+
+{/* Client-side auto-binding for conversion links and custom tracking */}
+<script>
+  import { initAnalyticsListeners } from "@/lib/analytics";
+
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => initAnalyticsListeners());
+    } else {
+      initAnalyticsListeners();
+    }
+  }
+</script>

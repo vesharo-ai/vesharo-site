@@ -55,10 +55,18 @@ function Navbar() {
                       <Link
                         href="/contact"
                         className="tz-button text-uppercase fw-medium tz-text-m"
+                        data-analytics-event="cta_click"
+                        data-analytics-label="navbar_book_call"
                       >
                         Book a free call
                       </Link>
-                      <Link className="tz-button-circle" href="/contact" aria-label="Book a free call">
+                      <Link
+                        className="tz-button-circle"
+                        href="/contact"
+                        aria-label="Book a free call"
+                        data-analytics-event="cta_click"
+                        data-analytics-label="navbar_book_call_circle"
+                      >
                         <i className="ph ph-arrow-up-right" />
                       </Link>
                     </div>

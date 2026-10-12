@@ -47,6 +47,8 @@ export default function ContactForm() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary w-100 py-3 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-2"
+                data-analytics-event="book_call_click"
+                data-analytics-label="contact_page_calendar"
               >
                 <span>Book a Free Call</span>
                 <i className="ph ph-arrow-up-right" />
@@ -82,6 +84,8 @@ export default function ContactForm() {
                 rel="noopener noreferrer"
                 className="btn btn-outline-success w-100 py-2 rounded-pill mt-3 small fw-semibold d-inline-flex align-items-center justify-content-center gap-2"
                 style={{ borderColor: "#25D366", color: "#25D366" }}
+                data-analytics-event="whatsapp_click"
+                data-analytics-label="contact_page_whatsapp"
               >
                 <span>Open WhatsApp Chat</span>
                 <i className="ph ph-arrow-right" />
