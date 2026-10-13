@@ -1,7 +1,7 @@
 ---
-import { getCollection } from "astro:content";
+import { getClientsList } from "@/lib/content";
 
-const clients = await getCollection("clients");
+const clients = await getClientsList();
 ---
 
 {clients.length > 0 && (
@@ -16,10 +16,15 @@ const clients = await getCollection("clients");
         <div class="col-lg-9">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between gap-3">
             {clients.map(({ data }) => (
-              <div class="p-2 px-3 rounded-3 d-flex align-items-center gap-2" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+              <div class="p-2 px-3 rounded-3 d-flex align-items-center gap-2 position-relative" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
                 <i class="ph ph-check-circle text-primary" style="font-size: 1rem;"></i>
                 <div>
-                  <span class="text-white small fw-bold d-block">{data.name}</span>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="text-white small fw-bold d-block">{data.name}</span>
+                    {data.placeholder && (
+                      <span class="badge bg-warning text-dark text-uppercase fw-bold" style="font-size: 9px; padding: 2px 5px; letter-spacing: 0.05em;">Demo</span>
+                    )}
+                  </div>
                   <span class="text-white-50" style="font-size: 0.75rem;">{data.category}</span>
                 </div>
               </div>

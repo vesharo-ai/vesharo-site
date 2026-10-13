@@ -10,14 +10,15 @@ interface Props {
     github?: string;
     twitter?: string;
   };
+  placeholder?: boolean;
 }
 
-const { name, role, bio, initials = "VA", imageSrc, socials } = Astro.props;
+const { name, role, bio, initials = "VA", imageSrc, socials, placeholder = false } = Astro.props;
 ---
 
 <div class="col-md-6 col-lg-5">
   <div
-    class="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between"
+    class="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between position-relative"
     style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);"
   >
     <div>
@@ -33,7 +34,12 @@ const { name, role, bio, initials = "VA", imageSrc, socials } = Astro.props;
           </div>
         )}
         <div>
-          <h3 class="h4 text-white fw-bold mb-1">{name}</h3>
+          <div class="d-flex align-items-center gap-2">
+            <h3 class="h4 text-white fw-bold mb-1">{name}</h3>
+            {placeholder && (
+              <span class="badge bg-warning text-dark text-uppercase fw-bold" style="font-size: 9px; padding: 2px 6px; letter-spacing: 0.05em;">Demo Profile</span>
+            )}
+          </div>
           <p class="text-primary small fw-semibold mb-0">{role}</p>
         </div>
       </div>

@@ -12,6 +12,7 @@ export interface TestimonialSlide {
   text: string;
   title: string;
   designation: string;
+  placeholder?: boolean;
 }
 
 function Testimonial1Slider({ slides }: { slides: TestimonialSlide[] }) {
@@ -84,9 +85,14 @@ function Testimonial1Slider({ slides }: { slides: TestimonialSlide[] }) {
                         <p className="tz-testimonial1-card__text tz-text-xl tz-text-neutral6">
                           {slide.text}
                         </p>
-                        <h3 className="tz-testimonial1-card__title tz-text-neutral5">
-                          {slide.title}
-                        </h3>
+                        <div className="d-flex align-items-center gap-2 mb-1">
+                          <h3 className="tz-testimonial1-card__title tz-text-neutral5 mb-0">
+                            {slide.title}
+                          </h3>
+                          {slide.placeholder && (
+                            <span className="badge bg-warning text-dark text-uppercase fw-bold" style={{ fontSize: "10px", padding: "2px 6px", letterSpacing: "0.05em" }}>Demo Review</span>
+                          )}
+                        </div>
                         <p className="tz-testimonial1-card__designation tz-text-xl tz-text-neutral6">
                           {slide.designation}
                         </p>

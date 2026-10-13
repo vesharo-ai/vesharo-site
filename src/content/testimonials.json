@@ -7,7 +7,8 @@
     "company": "LockApp Platform",
     "project": "LockApp Device Management",
     "image": "/images/project/lockapp-mockup.svg",
-    "rating": 5
+    "rating": 5,
+    "placeholder": false
   },
   {
     "id": "navratrios-feedback",
@@ -17,7 +18,8 @@
     "company": "NavratriOS Deployment",
     "project": "NavratriOS Event Management",
     "image": "/images/project/navratrios-mockup.svg",
-    "rating": 5
+    "rating": 5,
+    "placeholder": false
   },
   {
     "id": "wirebench-feedback",
@@ -27,6 +29,29 @@
     "company": "Wirebench Ecosystem",
     "project": "Wirebench API Workbench",
     "image": "/images/project/wirebench-mockup.svg",
-    "rating": 5
+    "rating": 5,
+    "placeholder": false
+  },
+  {
+    "id": "demo-telehealth-feedback",
+    "quote": "Vesharo deployed our secure telemedicine triage platform in record time. Zero compliance drift, sub-second latency, and remarkable reliability under heavy appointment surges.",
+    "author": "VP of Product Engineering",
+    "role": "Digital Health Systems",
+    "company": "PulseCare Network",
+    "project": "PulseCare Triage Engine",
+    "image": "/images/testimonial/testimonial1-shape1.svg",
+    "rating": 5,
+    "placeholder": true
+  },
+  {
+    "id": "demo-logistics-feedback",
+    "quote": "The autonomous routing agents delivered by Vesharo reduced last-mile dispatch latencies by over 40%. Their technical rigor and communication were exceptional.",
+    "author": "Director of Fleet Operations",
+    "role": "Fleet Intelligence & Telematics",
+    "company": "Apex Freight Solutions",
+    "project": "Freight AI Routing",
+    "image": "/images/testimonial/testimonial1-shape1.svg",
+    "rating": 5,
+    "placeholder": true
   }
 ]

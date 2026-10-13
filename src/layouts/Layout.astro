@@ -15,6 +15,8 @@ import "@/styles/brand.css";
 import "@/styles/globals.css";
 import "swiper/css";
 
+import { isReviewMode } from "@/lib/reviewMode";
+
 export interface Props {
   title?: string;
   description?: string;
@@ -28,6 +30,7 @@ export interface Props {
 }
 
 const seoProps = Astro.props;
+const reviewMode = isReviewMode();
 ---
 
 <!doctype html>
@@ -43,8 +46,8 @@ const seoProps = Astro.props;
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Primary Metadata & Structured Data via SEO Component -->
-    <SEO {...seoProps} />
+    <!-- Primary Metadata & Structured Data via SEO Component (Enforces noindex in reviewMode) -->
+    <SEO {...seoProps} noindex={reviewMode ? true : seoProps.noindex} />
 
     <!-- Privacy-Friendly Analytics Wrapper (VS-24) -->
     <Analytics />
@@ -77,7 +80,15 @@ const seoProps = Astro.props;
       })();
     </script>
   </head>
-  <body class="tz-bg-neutral3">
+  <body class={`tz-bg-neutral3${reviewMode ? " has-review-banner" : ""}`}>
+    {reviewMode && (
+      <aside class="tz-review-banner" role="alert" aria-label="Review build banner">
+        <div class="container d-flex align-items-center justify-content-center gap-2">
+          <span class="badge bg-warning text-dark text-uppercase fw-bold" style="font-size: 10px; letter-spacing: 0.08em; padding: 2px 7px;">Review Build</span>
+          <span class="review-banner-text">Review build — demo content active for internal sign-off, not final</span>
+        </div>
+      </aside>
+    )}
     <a href="#main-content" class="skip-to-content visually-hidden-focusable">
       Skip to main content
     </a>

@@ -2,7 +2,7 @@
 import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
 import SectionTitle from "@/components/section-title/SectionTitle.astro";
 import TeamCard from "./TeamCard.astro";
-import { getCollection } from "astro:content";
+import { getTeamList } from "@/lib/content";
 
 interface Props {
   isInnerPage?: boolean;
@@ -10,10 +10,7 @@ interface Props {
 
 const { isInnerPage = false } = Astro.props;
 
-const allTeam = await getCollection("team");
-const teamMembersList = allTeam
-  .filter((member) => !member.data.placeholder)
-  .sort((a, b) => a.data.order - b.data.order);
+const teamMembersList = await getTeamList();
 ---
 
 <section class="py-5" style="background-color: #0b0f19;">
@@ -35,6 +32,7 @@ const teamMembersList = allTeam
           initials={member.data.initials}
           imageSrc={member.data.image}
           socials={member.data.socials}
+          placeholder={member.data.placeholder}
         />
       ))}
     </div>

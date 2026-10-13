@@ -44,6 +44,7 @@ const portfolio = defineCollection({
     architecture: z.array(z.string()).optional(),
     role: z.string().optional(),
     status: z.string().optional(),
+    placeholder: z.boolean().default(false),
   }),
 });
 
@@ -126,6 +127,7 @@ const testimonials = defineCollection({
     project: z.string(),
     image: z.string().optional(),
     rating: z.number().default(5),
+    placeholder: z.boolean().default(false),
   }),
 });
 
@@ -138,6 +140,7 @@ const clients = defineCollection({
     category: z.string(),
     logoText: z.string(),
     description: z.string(),
+    placeholder: z.boolean().default(false),
   }),
 });
 
