@@ -1,29 +1,33 @@
-# Vesharo — Content Editing & Maintenance Guide
+# Vesharo — Content Editing & Maintenance Guide (VS-40)
 
-This guide explains how engineering and marketing team members can add, edit, or update website content on the Vesharo website.
+This guide provides step-by-step instructions for Hitesh and future developers to add, edit, or update website content on the Vesharo website without needing deep technical assistance.
 
 ---
 
 ## 1. Directory Structure Overview
+
+All content is structured cleanly in JSON and TypeScript data models:
 
 ```text
 src/
 ├── config/
 │   └── site.ts               # Global company facts, social links, contact info
 ├── content/
-│   ├── blog/                 # Markdown / MDX blog articles
-│   └── portfolio/            # Portfolio case studies (LockApp, NavratriOS, Wirebench)
+│   ├── blog.json             # Blog articles & technical guides
+│   ├── faq.json              # Frequently Asked Questions categorized by topic
+│   ├── services.json         # 7 core capabilities & deliverables
+│   ├── portfolio.json        # Verified case studies (LockApp, NavratriOS, Wirebench)
+│   ├── team.json             # Verified team leadership and credentials
+│   ├── clients.json          # Client organizations & industry verticals
+│   └── testimonials.json     # Client testimonials & reviews
 ├── data/
 │   └── pricing.ts            # Pricing tiers, estimation parameters, comparison table
-├── pages/
-│   ├── index.astro           # Homepage
-│   ├── about/index.astro     # About page & leadership facts
-│   ├── contact/index.astro   # Contact & inquiry form page
-│   ├── services/             # Services index & dynamic [slug].astro routes
-│   └── ...                   # Legal & utility pages
-└── styles/
-    ├── tokens.css            # Color, typography, spacing CSS variables
-    └── brand.css             # Theme and styling overrides
+└── pages/
+    ├── index.astro           # Homepage
+    ├── about/index.astro     # About page & leadership facts
+    ├── contact/index.astro   # Contact & inquiry form page
+    ├── services/             # Services index & dynamic [slug].astro routes
+    └── ...                   # Legal & utility pages
 ```
 
 ---
@@ -48,79 +52,116 @@ export const siteConfig = {
     location: "Ahmedabad, Gujarat, India",
     hours: "Mon–Fri 9:00–18:30 IST",
   },
-  // ...
 };
 ```
-*Changes made here automatically propagate across Header, Footer, Contact Page, SEO structured data (JSON-LD), and schema.*
+*Changes made here automatically propagate across Header, Footer, Contact Page, and SEO structured data (JSON-LD).*
 
 ---
 
 ## 3. Adding or Editing Blog Posts
 
-Blog articles live as individual Markdown files inside:
-👉 `src/content/blog/<slug>.md`
+Blog articles live inside:
+👉 `src/content/blog.json`
 
-### Frontmatter Schema:
-```yaml
----
-title: "What AI Agents Can and Cannot Do in 2026"
-description: "A realistic engineering guide to autonomous agents, tool calling, and workflow automation."
-pubDate: 2026-03-15
-author: "Vesharo Engineering Team"
-category: "AI & Automation"
-readTime: "7 min read"
-heroImage: "/images/blog/ai-agents.jpg"
-tags: ["AI", "Agents", "Automation", "Architecture"]
----
-
-## Article Content in Markdown...
+To add a new post, simply append an object to the JSON array:
+```json
+{
+  "id": "new-article-slug",
+  "title": "Article Title Here",
+  "summary": "Short 1-2 sentence preview for cards and meta description.",
+  "date": "2026-10-14",
+  "readTime": "5 min read",
+  "category": "AI Automation",
+  "content": [
+    "Paragraph 1 text...",
+    "Paragraph 2 text..."
+  ],
+  "author": {
+    "name": "Vesharo Engineering",
+    "role": "Systems Architecture"
+  }
+}
 ```
 
-*When a new `.md` file is committed, Astro automatically generates its route at `/blog/<slug>`, updates `/blog`, regenerates RSS feed (`/rss.xml`), and updates the XML sitemap.*
+---
+
+## 4. Adding or Editing FAQs
+
+FAQs live in:
+👉 `src/content/faq.json`
+
+```json
+{
+  "id": "faq-unique-id",
+  "question": "What is the question text?",
+  "answer": "Detailed answer explaining the technical architecture or business policy.",
+  "category": "Engineering & Security"
+}
+```
 
 ---
 
-## 4. Adding or Editing Portfolio Case Studies
+## 5. Editing Portfolio Case Studies
 
-Real case studies live in:
-👉 `src/content/portfolio/<id>.md`
+Verified case studies live in:
+👉 `src/content/portfolio.json`
 
 > [!IMPORTANT]
-> **Content Integrity Rule**: Vesharo maintains 100% authentic work history. Only genuine projects (e.g. LockApp, NavratriOS, Wirebench) with verified technical architecture and deliverables may be added.
+> **Content Integrity Rule**: Vesharo maintains 100% authentic work history. Only genuine projects (e.g. LockApp, NavratriOS, Wirebench, MedMarketMD) with verified technical architecture and deliverables may be added.
 
-### Case Study Schema:
-```yaml
----
-id: "wirebench"
-title: "Wirebench"
-tagline: "High-Throughput Distributed Performance Testing Bench"
-category: "Developer Tooling & Cloud Benchmarking"
-client: "Open Source / Internal"
-duration: "4 Months"
-year: "2025"
-technologies: ["Go", "gRPC", "Docker", "Prometheus", "Grafana"]
-impact: ["100k+ req/sec simulation", "Sub-millisecond jitter tracking"]
----
+```json
+{
+  "id": "case-study-slug",
+  "title": "Product Title",
+  "tagline": "One-line technical summary",
+  "client": "Client Name or Internal Initiative",
+  "overview": "Detailed project description...",
+  "stack": ["React Native", "Go", "Docker", "AWS"],
+  "metrics": [
+    "Sub-second verification response",
+    "Zero database downtime"
+  ]
+}
 ```
 
 ---
 
-## 5. Editing Services & FAQs
+## 6. Updating Team Members & Credentials
 
-- **Service Pages**: Individual service definitions and capabilities are maintained in `src/pages/services/[slug].astro` and `src/config/site.ts`.
-- **Pricing Data**: Tiers, FAQ accordions, and comparison matrix are located in `src/data/pricing.ts`.
+Team members live in:
+👉 `src/content/team.json`
+
+```json
+{
+  "id": "member-slug",
+  "name": "Full Name",
+  "role": "Official Role Title",
+  "bio": "2-3 sentence overview of engineering focus.",
+  "initials": "FN",
+  "socials": {
+    "linkedin": "https://linkedin.com",
+    "github": "https://github.com/vesharo-ai"
+  },
+  "order": 1,
+  "placeholder": false
+}
+```
+*Note: Any unverified member must have `"placeholder": true` so it is safely omitted from production builds.*
 
 ---
 
-## 6. Testing & Verifying Changes Locally
+## 7. Testing & Verifying Changes Locally
 
-Before pushing changes to GitHub:
+Before committing or pushing changes to production:
 
 ```bash
 # 1. Start development server
 npm run dev
 
-# 2. Verify types and production build
+# 2. Verify types, content schema and production build
 npm run check
+
+# 3. Check for any leaking demo placeholders
+npm run check:placeholders
 ```
-If `npm run check` exits with `0 errors, 0 warnings`, your changes are valid and ready to commit!
+If `npm run check` exits with `0 errors, 0 warnings`, your changes are valid and ready to push to production!
