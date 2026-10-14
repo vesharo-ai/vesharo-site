@@ -1,0 +1,349 @@
+/**
+ * Vesharo Glass & Depth UI Layer (VS-31)
+ *
+ * Implements:
+ * 1. Ambient atmosphere (aurora gradients, film grain, vignette)
+ * 2. Frosted glass surfaces with subtle reflections & border highlights
+ * 3. Premium button shine, gradient CTA & frosted secondary buttons
+ * 4. Desktop cursor spotlight
+ * 5. Mobile performance optimizations (reduced blur radius on handheld)
+ * 6. Accessibility fallbacks: no-blur, reduced-transparency, reduced-motion
+ */
+
+/* ==========================================================================
+   1. Atmosphere Base Layer (Aurora, Grain, Vignette)
+   ========================================================================== */
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--color-base, #070B14);
+}
+
+/* Ambient Aurora Floating Meshes */
+.atmosphere__aurora {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+  filter: blur(60px);
+  -webkit-filter: blur(60px);
+  will-change: transform;
+}
+
+.atmosphere__aurora-blob1 {
+  position: absolute;
+  top: -10%;
+  left: 15%;
+  width: 650px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.18) 0%, rgba(0, 102, 255, 0) 70%);
+  animation: aurora-drift-1 25s ease-in-out infinite alternate;
+}
+
+.atmosphere__aurora-blob2 {
+  position: absolute;
+  top: 40%;
+  right: -5%;
+  width: 750px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.14) 0%, rgba(0, 210, 255, 0) 70%);
+  animation: aurora-drift-2 30s ease-in-out infinite alternate;
+}
+
+.atmosphere__aurora-blob3 {
+  position: absolute;
+  bottom: -15%;
+  left: 25%;
+  width: 700px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.12) 0%, rgba(0, 102, 255, 0) 70%);
+  animation: aurora-drift-3 28s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.08); }
+  100% { transform: translate(-40px, 80px) scale(0.96); }
+}
+
+@keyframes aurora-drift-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-80px, -50px) scale(1.12); }
+  100% { transform: translate(40px, -90px) scale(0.94); }
+}
+
+@keyframes aurora-drift-3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -60px) scale(1.05); }
+  100% { transform: translate(-60px, 30px) scale(1.1); }
+}
+
+/* Vignette to frame content crisply */
+.atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(7, 11, 20, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* Desktop Cursor Spotlight */
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(650px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(0, 210, 255, 0.05), transparent 60%);
+  transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   2. Frosted Glass Cards & Reflection System
+   ========================================================================== */
+
+.glass-card,
+.tz-service1-card,
+.tz-process1-card,
+.tz-faq-item,
+.tz-contact-form-card {
+  position: relative;
+  background: rgba(15, 22, 38, 0.72) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.38),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              background-color 0.35s ease !important;
+}
+
+.glass-card:hover,
+.tz-service1-card:hover,
+.tz-process1-card:hover,
+.tz-faq-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 210, 255, 0.32) !important;
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 102, 255, 0.28),
+    0 0 20px -2px rgba(0, 210, 255, 0.15),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Light Theme Contrast Support */
+[data-theme="light"] .glass-card,
+[data-theme="light"] .tz-service1-card,
+[data-theme="light"] .tz-process1-card,
+[data-theme="light"] .tz-faq-item,
+[data-theme="light"] .tz-contact-form-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .glass-card:hover,
+[data-theme="light"] .tz-service1-card:hover,
+[data-theme="light"] .tz-process1-card:hover,
+[data-theme="light"] .tz-faq-item:hover {
+  border-color: rgba(0, 102, 255, 0.3) !important;
+  box-shadow: 0 14px 32px rgba(0, 102, 255, 0.12) !important;
+}
+
+/* ==========================================================================
+   3. Premium Button Shimmer & Secondary Glass Button
+   ========================================================================== */
+
+/* Primary Button Shine Highlight */
+.tz-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.tz-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.tz-button:hover::before {
+  left: 180%;
+  transition: left 0.75s ease-in-out;
+}
+
+/* Secondary Frosted Glass Button */
+.tz-button-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tz-button-glass:hover {
+  background: rgba(0, 102, 255, 0.18);
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   4. Hero Visual Frame & Floor Reflection
+   ========================================================================== */
+
+.hero-visual-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  box-shadow: 
+    0 20px 60px -15px rgba(0, 102, 255, 0.35),
+    0 0 30px -5px rgba(0, 210, 255, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.hero-visual-reflection {
+  position: absolute;
+  bottom: -40px;
+  left: 10%;
+  right: 10%;
+  height: 50px;
+  background: radial-gradient(ellipse at center, rgba(0, 210, 255, 0.25) 0%, transparent 70%);
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   5. Mobile Performance Optimizations (60fps Scroll Safeguard)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Disable animated aurora on mobile to conserve GPU & battery */
+  .atmosphere__aurora-blob1,
+  .atmosphere__aurora-blob2,
+  .atmosphere__aurora-blob3 {
+    animation: none !important;
+    filter: blur(40px) !important;
+    opacity: 0.45 !important;
+  }
+  
+  /* Reduce blur radius on mobile cards for zero scroll jank */
+  .glass-card,
+  .tz-service1-card,
+  .tz-process1-card,
+  .tz-faq-item,
+  .tz-contact-form-card {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .cursor-spotlight {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   6. Accessibility & System Preference Fallbacks (WCAG 2.2 AA)
+   ========================================================================== */
+
+/* Fallback for browsers that do not support backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-card,
+  .tz-service1-card,
+  .tz-process1-card,
+  .tz-faq-item,
+  .tz-contact-form-card,
+  .tz-header1 {
+    background: #0f1626 !important;
+  }
+  [data-theme="light"] .glass-card,
+  [data-theme="light"] .tz-service1-card,
+  [data-theme="light"] .tz-process1-card,
+  [data-theme="light"] .tz-faq-item,
+  [data-theme="light"] .tz-contact-form-card,
+  [data-theme="light"] .tz-header1 {
+    background: #ffffff !important;
+  }
+}
+
+/* User prefers reduced transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .glass-card,
+  .tz-service1-card,
+  .tz-process1-card,
+  .tz-faq-item,
+  .tz-contact-form-card,
+  .tz-header1 {
+    background: #0B0F19 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  [data-theme="light"] .glass-card,
+  [data-theme="light"] .tz-service1-card,
+  [data-theme="light"] .tz-process1-card,
+  [data-theme="light"] .tz-faq-item,
+  [data-theme="light"] .tz-contact-form-card,
+  [data-theme="light"] .tz-header1 {
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* User prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere__aurora-blob1,
+  .atmosphere__aurora-blob2,
+  .atmosphere__aurora-blob3 {
+    animation: none !important;
+  }
+  .tz-button::before {
+    display: none !important;
+  }
+  .cursor-spotlight {
+    display: none !important;
+  }
+  .glass-card,
+  .tz-service1-card,
+  .tz-process1-card,
+  .tz-faq-item {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -14,6 +14,7 @@ import "@/styles/tokens.css";
 import "@/styles/brand.css";
 import "@/styles/globals.css";
 import "swiper/css";
+import "@/styles/glass.css";
 
 import { isReviewMode } from "@/lib/reviewMode";
 
@@ -81,6 +82,18 @@ const reviewMode = isReviewMode();
     </script>
   </head>
   <body class={`tz-bg-neutral3${reviewMode ? " has-review-banner" : ""}`}>
+    <!-- VS-31: Ambient Glass & Depth Atmosphere Layer -->
+    <div class="atmosphere" aria-hidden="true">
+      <div class="atmosphere__aurora">
+        <div class="atmosphere__aurora-blob1"></div>
+        <div class="atmosphere__aurora-blob2"></div>
+        <div class="atmosphere__aurora-blob3"></div>
+      </div>
+      <div class="atmosphere__vignette"></div>
+    </div>
+    <!-- Desktop Cursor Spotlight -->
+    <div class="cursor-spotlight d-none d-lg-block" id="cursor-spotlight" aria-hidden="true"></div>
+
     {reviewMode && (
       <aside class="tz-review-banner" role="alert" aria-label="Review build banner">
         <div class="container d-flex align-items-center justify-content-center gap-2">
@@ -122,6 +135,26 @@ const reviewMode = isReviewMode();
           document.addEventListener("DOMContentLoaded", initScrollReveal);
         } else {
           initScrollReveal();
+        }
+      }
+    </script>
+
+    <!-- Desktop Cursor Spotlight Listener (VS-31) -->
+    <script is:inline>
+      if (typeof window !== "undefined" && window.matchMedia && window.matchMedia("(pointer: fine)").matches) {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const spotlight = document.getElementById("cursor-spotlight");
+          if (spotlight) {
+            let rafId = null;
+            window.addEventListener("pointermove", (e) => {
+              if (rafId) return;
+              rafId = requestAnimationFrame(() => {
+                spotlight.style.setProperty("--mouse-x", `${e.clientX}px`);
+                spotlight.style.setProperty("--mouse-y", `${e.clientY}px`);
+                rafId = null;
+              });
+            }, { passive: true });
+          }
         }
       }
     </script>
