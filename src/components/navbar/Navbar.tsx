@@ -3,7 +3,6 @@ import BodyOverlay from "./_components/BodyOverlay";
 import Offcanvas from "./_components/Offcanvas";
 import Nav from "./_components/Nav";
 import Link from "@/components/common/Link";
-import ThemeToggle from "@/components/common/ThemeToggle";
 
 function Navbar() {
   const [showOffcanvas, setShowOffcanvas] = React.useState(false);
@@ -57,7 +56,6 @@ function Navbar() {
                     <Nav />
                   </div>
                   <div className="d-flex align-items-center justify-content-end gap-2 gap-md-3">
-                    <ThemeToggle />
                     <div className="tz-buttons d-none d-md-inline-flex">
                       <Link
                         href="/contact"

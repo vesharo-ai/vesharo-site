@@ -69,15 +69,12 @@ const reviewMode = isReviewMode();
       crossorigin
     />
 
-    <!-- Theme Initialization Script (Prevents flash of unstyled theme; Brand default: dark deep navy) -->
+    <!-- VS-33: Consistent Dark-First Enterprise Theme Strategy -->
+    <meta name="color-scheme" content="dark" />
     <script is:inline>
       (function() {
-        const storedTheme = localStorage.getItem('vesharo-theme');
-        if (storedTheme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        document.documentElement.setAttribute('data-theme', 'dark');
+        try { localStorage.removeItem('vesharo-theme'); } catch(e) {}
       })();
     </script>
   </head>
