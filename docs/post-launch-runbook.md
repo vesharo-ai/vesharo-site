@@ -133,3 +133,47 @@ Refer to **`docs/placeholders.md`** for the complete audit of 6 demo items:
      - LCP (Largest Contentful Paint) < 2.5s
      - CLS (Cumulative Layout Shift) < 0.1
      - INP (Interaction to Next Paint) < 200ms
+
+---
+
+## 6. Task 38 — Production Go-Live & Rollback Runbook (VS-38)
+
+### A. Vercel Domain Connection & DNS Records (38.1 & 38.2)
+1. **Vercel Project Settings -> Domains**:
+   - Add Domain: `vesharo.com` (Set as Primary Domain).
+   - Add Domain: `www.vesharo.com` (Set to automatically redirect to `vesharo.com` with 301).
+2. **DNS Registrar Records (Cloudflare or Namecheap)**:
+   | Type | Name | Content / Target | Proxy Status |
+   | :--- | :--- | :--- | :--- |
+   | **A** | `@` | `76.76.21.21` (Vercel IP) | DNS Only (or Cloudflare Proxied) |
+   | **CNAME** | `www` | `cname.vercel-dns.com.` | DNS Only (or Cloudflare Proxied) |
+3. **SSL Certificate**:
+   - Vercel automatically generates and auto-renews Let's Encrypt Wildcard SSL.
+   - Verify certificate status turns **Valid** within 3–15 minutes.
+
+### B. Production Environment Switch (38.3)
+1. **In Vercel Project Settings -> Environment Variables**:
+   - `PUBLIC_REVIEW_MODE` = `false` (Production environment)
+   - `PUBLIC_REVIEW_MODE` = `true` (Preview environment only)
+   - `RESEND_API_KEY` = Production key from Resend dashboard
+   - `CONTACT_TO_EMAIL` = `contact@vesharo.com`
+2. **Trigger Production Deployment**:
+   - Merge `feature/VS-00-05-website-fixes` into `main`.
+   - Vercel automatically builds and deploys to `https://vesharo.com`.
+
+### C. Live Smoke Test Checklist (38.4)
+- [ ] `https://vesharo.com` loads with valid HTTPS lock icon (zero mixed content warnings).
+- [ ] `http://vesharo.com` redirects to `https://vesharo.com`.
+- [ ] `https://www.vesharo.com` redirects to `https://vesharo.com`.
+- [ ] Yellow review banner is absent.
+- [ ] `/robots.txt` returns `Allow: /` and links `Sitemap: https://vesharo.com/sitemap-index.xml`.
+- [ ] Live contact form submitted and verified in team inbox.
+- [ ] Booking button opens Cal.com scheduling modal cleanly.
+
+### D. Emergency Rollback Readiness (38.4)
+If any critical blocker is identified post-switch:
+1. **Instant Vercel Rollback**:
+   - In Vercel Deployments dashboard, click the previous known-good deployment -> Click **Instant Rollback**. Rollback takes < 5 seconds.
+2. **Review Mode Re-engagement**:
+   - Set `PUBLIC_REVIEW_MODE=true` in Vercel to reinstate `noindex` headers and review disclaimers while debugging.
+
