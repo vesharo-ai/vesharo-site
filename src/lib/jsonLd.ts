@@ -220,3 +220,32 @@ export function getAboutPageJsonLd(people: PersonSchemaData[] = [], siteUrl: str
   };
 }
 
+export interface SoftwareApplicationData {
+  name: string;
+  description: string;
+  operatingSystem?: string;
+  applicationCategory?: string;
+  url?: string;
+}
+
+/**
+ * Generates schema.org SoftwareApplication JSON-LD
+ */
+export function getSoftwareApplicationJsonLd(app: SoftwareApplicationData, siteUrl: string = siteConfig.url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: app.name,
+    description: app.description,
+    operatingSystem: app.operatingSystem || "iOS, Android, Web",
+    applicationCategory: app.applicationCategory || "BusinessApplication",
+    url: app.url ? (app.url.startsWith("http") ? app.url : `${siteUrl}${app.url}`) : siteUrl,
+    author: {
+      "@id": `${siteUrl}/#organization`,
+    },
+    provider: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+}
+

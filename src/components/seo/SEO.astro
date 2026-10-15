@@ -2,6 +2,7 @@
 import { siteConfig } from "@/config/site";
 import {
   getOrganizationJsonLd,
+  getProfessionalServiceJsonLd,
   getWebSiteJsonLd,
   getBreadcrumbJsonLd,
   type BreadcrumbItem,
@@ -62,6 +63,7 @@ const bingVerification = import.meta.env.PUBLIC_BING_SITE_VERIFICATION || import
 // Assemble structured data
 const baseSchemas: Record<string, any>[] = [
   getOrganizationJsonLd(siteUrl),
+  getProfessionalServiceJsonLd(siteUrl),
   getWebSiteJsonLd(siteUrl),
 ];
 

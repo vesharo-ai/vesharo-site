@@ -2,12 +2,11 @@
 import Layout from "@/layouts/Layout.astro";
 import Banner1 from "@/components/banner/Banner1.astro";
 import TrustStrip from "@/components/trust-strip/TrustStrip.astro";
-import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Service1 from "@/components/service/Service1.astro";
-import AiAutomationHighlight from "@/components/ai-highlight/AiAutomationHighlight.astro";
 import Project1 from "@/components/project/Project1";
 import WorkFlow1 from "@/components/wordflows/WorkFlow1.astro";
-import WhoWeAre from "@/components/who-we-are/WhoWeAre.astro";
+import TechStack from "@/components/tech-stack/TechStack.astro";
+import EngagementModelsTeaser from "@/components/pricing/EngagementModelsTeaser.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1";
 import FaqTeaser from "@/components/faq/FaqTeaser.astro";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
@@ -18,32 +17,29 @@ const testimonials = await getTestimonialSlides();
 ---
 
 <Layout
-  title="Vesharo — Mobile App Development & AI Automation"
-  description="Vesharo builds high-performance iOS and Android mobile apps with React Native & Expo, powered by production AI automation and scalable cloud backends."
+  title="Vesharo — Mobile App Development & Software Engineering"
+  description="Vesharo designs and ships production iOS & Android mobile apps with React Native & Expo, powered by scalable cloud backends, DevOps CI/CD, and pragmatic AI automation."
 >
   <!-- 1. Hero Section -->
   <Banner1 />
 
-  <!-- 2. Trust Strip (Data-driven from clients collection) -->
+  <!-- 2. Trust Strip (Data-driven from verified client portfolio) -->
   <TrustStrip />
 
-  <!-- Dynamic Heading Slider -->
-  <HeaderSlider />
-
-  <!-- 3. Services Overview (7 Cards -> Dedicated Service Pages) -->
+  <!-- 3. Services Overview (Mobile App Dev #1 -> Dedicated Service Pages) -->
   <Service1 limit={7} backgroundColor="#0f1626" />
 
-  <!-- 4. AI Automation Highlight (What we automate, outcomes, pipeline) -->
-  <AiAutomationHighlight />
-
-  <!-- 5. Featured Products & Case Studies (LockApp, NavratriOS, Wirebench) -->
+  <!-- 4. Featured Products & Case Studies (LockApp, NavratriOS, Wirebench) -->
   {projects.length > 0 && <Project1 client:visible projects={projects} />}
 
-  <!-- 6. Engineering Process (Discover -> Design -> Build -> Launch -> Support) -->
+  <!-- 5. Engineering Process (Discover -> Design -> Build -> Launch -> Support) -->
   <WorkFlow1 />
 
-  <!-- 7. Why Vesharo (Real Differentiators, 100% IP, No Fake Stats) -->
-  <WhoWeAre backgroundColor="#0b0f19" />
+  <!-- 6. Production Tech Stack -->
+  <TechStack />
+
+  <!-- 7. Transparent Engagement Models Teaser -->
+  <EngagementModelsTeaser />
 
   <!-- 8. Testimonials (Real Only, Hidden If Empty) -->
   {testimonials.length > 0 && (
@@ -56,7 +52,9 @@ const testimonials = await getTestimonialSlides();
   <!-- 10. Final CTA Band -->
   <Subscribe1
     spacingClass="tz-mt-lg-80"
-    title="Ready to Build Software That Ships?"
-    subtitle="Discuss your architecture directly with our senior technical leads. Free 30-minute discovery call."
+    title="Ready to build software that ships?"
+    subtitle="Discuss your architecture directly with our senior technical leads. Free 15-minute call."
+    buttonLabel="Book a 15-minute call"
+    buttonLink="https://cal.com/vesharo/15min"
   />
 </Layout>

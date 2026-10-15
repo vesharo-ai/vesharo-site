@@ -9,10 +9,10 @@ interface Props {
 
 const {
   spacingClass = "",
-  title = "Ready to Accelerate Your Engineering?",
-  subtitle = "Discuss your roadmap with our lead architects. Free 30-minute discovery session.",
-  buttonLabel = "Book a Free Call",
-  buttonLink = "/contact",
+  title = "Ready to build software that ships?",
+  subtitle = "Discuss your architecture directly with our senior technical leads. Free 15-minute call.",
+  buttonLabel = "Book a 15-minute call",
+  buttonLink = "https://cal.com/vesharo/15min",
 } = Astro.props;
 ---
 
@@ -21,7 +21,7 @@ const {
     <div class="tz-subscribe1__wrapper">
       <div class="row g-4 d-flex align-items-center justify-content-between">
         <div class="col-lg-7">
-          <h2 class="tz-subscribe1__title tz-display-3 text-uppercase mb-2 text-white">
+          <h2 class="tz-subscribe1__title tz-display-3 mb-2 text-white">
             {title}
           </h2>
           <p class="tz-text-l tz-text-neutral6 mb-0">
@@ -32,7 +32,9 @@ const {
           <div class="tz-buttons">
             <a
               href={buttonLink}
-              class="tz-button text-uppercase fw-medium tz-text-m"
+              class="tz-button fw-medium tz-text-m"
+              target={buttonLink.startsWith("http") ? "_blank" : undefined}
+              rel={buttonLink.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               {buttonLabel}
             </a>
@@ -40,6 +42,8 @@ const {
               href={buttonLink}
               class="tz-button-circle"
               aria-label={buttonLabel}
+              target={buttonLink.startsWith("http") ? "_blank" : undefined}
+              rel={buttonLink.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
             </a>

@@ -4,6 +4,7 @@ import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { getSoftwareApplicationJsonLd } from "@/lib/jsonLd";
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("portfolio");
@@ -38,6 +39,18 @@ const caseStudyJsonLd = {
   image: `https://vesharo.com${data.image}`,
   mainEntityOfPage: `https://vesharo.com/portfolio/${data.id}`,
 };
+
+const softwareAppJsonLd = getSoftwareApplicationJsonLd({
+  name: data.title,
+  description: data.description,
+  operatingSystem: data.category.toLowerCase().includes("mobile") || (data.stack && data.stack.some((t: string) => t.toLowerCase().includes("react native") || t.toLowerCase().includes("android") || t.toLowerCase().includes("swift")))
+    ? "iOS, Android"
+    : "Web, Linux, Cloud",
+  applicationCategory: "BusinessApplication",
+  url: `/portfolio/${data.id}`,
+});
+
+const pageSchemas = [caseStudyJsonLd, softwareAppJsonLd];
 ---
 
 <Layout
@@ -48,7 +61,7 @@ const caseStudyJsonLd = {
     { name: "Portfolio", path: "/portfolio" },
     { name: data.title, path: `/portfolio/${data.id}` },
   ]}
-  jsonLd={caseStudyJsonLd}
+  jsonLd={pageSchemas}
 >
   <BreadCrumb title={data.title} />
   <HeaderSlider />

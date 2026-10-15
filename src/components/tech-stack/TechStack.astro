@@ -1,0 +1,111 @@
+---
+/**
+ * TechStack.astro — Production Engineering Stack
+ * Follows Master Prompt v2 & anti-AI tells:
+ * - Sentence case headings and clean typography
+ * - Focused, high-contrast dark tokens
+ * - Pragmatic technology explanations grounded in real production work
+ */
+
+interface TechCategory {
+  title: string;
+  badge: string;
+  description: string;
+  items: { name: string; role: string; icon?: string }[];
+}
+
+const categories: TechCategory[] = [
+  {
+    title: "Mobile App Development",
+    badge: "Core Discipline",
+    description: "Cross-platform mobile apps with native fluid performance, offline support, and streamlined release cycles.",
+    items: [
+      { name: "React Native", role: "Native mobile core" },
+      { name: "Expo & EAS", role: "Modern tooling & OTA updates" },
+      { name: "TypeScript", role: "End-to-end type safety" },
+      { name: "Swift / Kotlin", role: "Native modules & OS integrations" },
+      { name: "WatermelonDB / SQLite", role: "High-performance local data" },
+    ],
+  },
+  {
+    title: "Cloud & Backend Infrastructure",
+    badge: "Scalable Systems",
+    description: "Reliable APIs, transactional integrity, and low-latency data pipelines built for high concurrent traffic.",
+    items: [
+      { name: "Node.js & Express", role: "Asynchronous API runtime" },
+      { name: "PostgreSQL", role: "ACID relational persistence" },
+      { name: "Redis / Upstash", role: "Caching & rate limiting" },
+      { name: "Docker & Linux", role: "Containerized reproducible builds" },
+      { name: "AWS & GCP", role: "Cloud hosting & serverless primitives" },
+    ],
+  },
+  {
+    title: "AI & Agentic Systems",
+    badge: "Intelligent Automation",
+    description: "Pragmatic LLM integration, function calling, tool use, and vector search that solve real workflows.",
+    items: [
+      { name: "Python", role: "AI model scripting & data pipelining" },
+      { name: "Claude, OpenAI & Gemini", role: "Frontier LLM inference" },
+      { name: "pgvector", role: "Vector embeddings & semantic retrieval" },
+      { name: "Tool Calling & Agents", role: "Structured actions & verification" },
+    ],
+  },
+  {
+    title: "Web & DevOps Automation",
+    badge: "Delivery Velocity",
+    description: "Fast web applications, automated test suites, and continuous delivery pipelines that prevent regressions.",
+    items: [
+      { name: "Astro & React", role: "High-speed modern web applications" },
+      { name: "Next.js", role: "Full-stack web applications" },
+      { name: "GitHub Actions", role: "Automated CI/CD workflows" },
+      { name: "Playwright & Vitest", role: "Automated visual & logic QA" },
+    ],
+  },
+];
+---
+
+<section class="py-5" style="background-color: #0B0F19; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+  <div class="container py-lg-4">
+    <!-- Header -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <span class="d-inline-block px-3 py-1 rounded-pill small fw-medium mb-3" style="background: rgba(0, 102, 255, 0.1); color: #00D2FF; border: 1px solid rgba(0, 210, 255, 0.2); font-size: 0.8rem;">
+          Production Tech Stack
+        </span>
+        <h2 class="display-6 fw-bold text-white mb-3" style="letter-spacing: -0.02em;">
+          Battle-tested technologies for speed and reliability
+        </h2>
+        <p class="lead text-white-50 fs-6 mb-0" style="max-width: 620px; margin: 0 auto; line-height: 1.6;">
+          We select tools that ship fast to users and remain straightforward to maintain years after launch. No bloated hype stacks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="row g-4">
+      {categories.map((cat) => (
+        <div class="col-md-6 col-lg-3">
+          <div class="h-100 p-4 rounded-4 d-flex flex-column" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07);">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge" style="background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-weight: 500; font-size: 0.72rem; padding: 4px 8px;">
+                {cat.badge}
+              </span>
+            </div>
+            <h3 class="h6 fw-bold text-white mb-2">{cat.title}</h3>
+            <p class="text-white-50 small mb-4" style="line-height: 1.5; font-size: 0.82rem;">
+              {cat.description}
+            </p>
+            <div class="mt-auto d-flex flex-column gap-2">
+              {cat.items.map((item) => (
+                <div class="p-2 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.04);">
+                  <span class="text-white small fw-semibold" style="font-size: 0.8rem;">{item.name}</span>
+                  <span class="text-white-50" style="font-size: 0.7rem;">{item.role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

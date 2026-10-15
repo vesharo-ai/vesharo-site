@@ -44,17 +44,27 @@ export const siteConfig = {
   url: "https://vesharo.com",
 
   contact: {
-    email: "contact@vesharo.com",
+    email: "vesharo.ai@gmail.com", // Temporary until domain mailbox exists -> switch to contact@vesharo.com in site.ts only
     phone: "+91 95862 12495",
     whatsapp: "+919586212495",
     whatsappUrl: "https://wa.me/919586212495",
-    bookingUrl: "https://cal.com/vesharo/discovery",
+    bookingUrl: "https://cal.com/vesharo/15min",
     location: "Ahmedabad, Gujarat, India",
     hours: "Mon–Fri 9:00–18:30 IST",
   },
 };
 ```
 *Changes made here automatically propagate across Header, Footer, Contact Page, and SEO structured data (JSON-LD).*
+
+---
+
+## 2.1 Copy & Editorial Voice Rules
+
+1. **Active Voice & Plain Truth**: State what we engineer clearly without filler ("We build cross-platform mobile apps with React Native", not "We empower seamless paradigm-shifting mobility").
+2. **Explicit Action CTAs**: Every CTA states the exact commitment ("Book a 15-minute call", "See what we've shipped"). Avoid generic "Submit" or "Click Here".
+3. **Sentence Case Only**: Use sentence case across all headings, buttons, and badges. All-caps is reserved strictly for tiny technical abbreviations (`EAS`, `MDM`, `API`, `5G`).
+4. **Contextual Helpful Errors**: Error states must explain specifically what went wrong and how to resolve it ("Please enter a valid work email address", not "Invalid input").
+5. **No Invented Proof**: Never add unverified statistics, fake client logos, or placeholder awards. Check `docs/claims.md` for any new capability.
 
 ---
 
