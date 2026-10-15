@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type ChangeEvent, type SubmitEvent } from "react";
 import { siteConfig } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
 
@@ -27,10 +27,23 @@ export default function ContactFormBox() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const serviceSelectRef = useRef<HTMLSelectElement>(null);
+  const budgetSelectRef = useRef<HTMLSelectElement>(null);
+  const messageTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const successBoxRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Record page load timestamp for time-trap spam protection
     setFormLoadedAt(Date.now());
   }, []);
+
+  useEffect(() => {
+    if (submitSuccess && successBoxRef.current) {
+      successBoxRef.current.focus();
+    }
+  }, [submitSuccess]);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -63,11 +76,24 @@ export default function ContactFormBox() {
     }
 
     setErrors(newErrors);
+
+    if (newErrors.name) {
+      nameInputRef.current?.focus();
+    } else if (newErrors.email) {
+      emailInputRef.current?.focus();
+    } else if (newErrors.service) {
+      serviceSelectRef.current?.focus();
+    } else if (newErrors.budget) {
+      budgetSelectRef.current?.focus();
+    } else if (newErrors.message) {
+      messageTextareaRef.current?.focus();
+    }
+
     return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -152,10 +178,13 @@ export default function ContactFormBox() {
   if (submitSuccess) {
     return (
       <div
+        ref={successBoxRef}
+        tabIndex={-1}
         className="p-4 p-md-5 rounded-4 text-center border"
         style={{
           backgroundColor: "#0B0F19",
           borderColor: "rgba(0, 210, 255, 0.3)",
+          outline: "none",
         }}
         role="alert"
         aria-live="polite"
@@ -189,7 +218,7 @@ export default function ContactFormBox() {
             Send Another Inquiry
           </button>
           <a
-            href={siteConfig.contact.bookingUrl || "https://cal.com/vesharo"}
+            href={siteConfig.contact.bookingUrl || "https://cal.com/vesharo/discovery"}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary rounded-pill px-4 py-2"
@@ -247,6 +276,7 @@ export default function ContactFormBox() {
             Your Full Name <span className="text-primary">*</span>
           </label>
           <input
+            ref={nameInputRef}
             type="text"
             id="contact-name"
             name="name"
@@ -281,6 +311,7 @@ export default function ContactFormBox() {
             Work Email Address <span className="text-primary">*</span>
           </label>
           <input
+            ref={emailInputRef}
             type="email"
             id="contact-email"
             name="email"
@@ -341,6 +372,7 @@ export default function ContactFormBox() {
             Primary Capability Required <span className="text-primary">*</span>
           </label>
           <select
+            ref={serviceSelectRef}
             id="contact-service"
             name="service"
             className="form-select bg-dark text-white"
@@ -360,10 +392,10 @@ export default function ContactFormBox() {
             <option value="" disabled>
               Select engineering service...
             </option>
+            <option value="Mobile App Development">Mobile App Development (iOS &amp; Android / React Native / Expo)</option>
             <option value="AI Automation & Agents">AI Automation &amp; Autonomous Agents</option>
             <option value="Custom Software Development">Custom Software &amp; Platform Architecture</option>
             <option value="Full-Stack Web Development">Full-Stack Web Applications (React / Next.js / Astro)</option>
-            <option value="Mobile App Development">Mobile Apps (iOS &amp; Android / React Native / Flutter)</option>
             <option value="Cloud Infrastructure & DevOps">Cloud Infrastructure &amp; DevOps (AWS / GCP / K8s)</option>
             <option value="AI Chatbots & LLM Fine-Tuning">Enterprise AI Chatbots &amp; LLM Fine-Tuning</option>
             <option value="IT Consulting & Code Audit">IT Consulting, Architecture Review &amp; Code Audit</option>
@@ -383,6 +415,7 @@ export default function ContactFormBox() {
             Estimated Budget Range <span className="text-primary">*</span>
           </label>
           <select
+            ref={budgetSelectRef}
             id="contact-budget"
             name="budget"
             className="form-select bg-dark text-white"
@@ -423,6 +456,7 @@ export default function ContactFormBox() {
             Project Overview &amp; Objectives <span className="text-primary">*</span>
           </label>
           <textarea
+            ref={messageTextareaRef}
             id="contact-message"
             name="message"
             className="form-control bg-dark text-white"

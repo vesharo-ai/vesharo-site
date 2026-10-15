@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "check": "astro check && astro build",
     "check:placeholders": "node scripts/check-placeholders.mjs",
+    "test": "node --test scripts/test-contact-api.mjs && node scripts/audit-seo-metadata.mjs && node scripts/verify-internal-links.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -35,5 +36,8 @@
     "opentype.js": "^2.0.0",
     "sharp": "^0.35.5",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "path-to-regexp": "^6.3.0"
   }
 }
