@@ -13,46 +13,41 @@
       <div class="col-lg-6">
         <div class="hero-badge d-inline-flex align-items-center gap-2 mb-3 px-3 py-2 rounded-pill">
           <span class="pulse-dot"></span>
-          <span class="text-uppercase fw-semibold" style="font-size: 12px; letter-spacing: 0.08em; color: #00d2ff;">
-            React Native &amp; Expo · Mobile &amp; AI Engineering
+          <span class="fw-semibold" style="font-size: 13px; color: #00d2ff;">
+            Mobile App Development First · React Native &amp; Expo
           </span>
         </div>
 
-        <h1 class="hero-title fw-bold text-uppercase mb-3">
-          <span class="text-white d-block">Production</span>
-          <span class="gradient-text d-block">Mobile Apps</span>
+        <h1 class="hero-title fw-bold text-white mb-3" style="font-family: var(--font-family-heading);">
+          We ship production mobile apps and software for startups.
         </h1>
 
-        <p class="hero-subtitle text-muted mb-4">
-          We engineer high-performance iOS and Android mobile apps with React Native &amp; Expo — supercharged by intelligent AI automation and resilient cloud infrastructure. Built for enterprise scale, delivered with senior engineering rigor.
+        <p class="hero-subtitle mb-4" style="color: #cbd5e1; line-height: 1.65;">
+          Cross-platform iOS and Android apps built with React Native and Expo. High-performance backends, release pipelines, and autonomous AI automation — delivered with senior engineering discipline.
         </p>
 
         <div class="d-flex flex-wrap align-items-center gap-3 mb-4 pb-2">
-          <div class="tz-buttons d-inline-flex align-items-center">
-            <a
-              href="/contact"
-              class="tz-button text-uppercase fw-semibold"
-              style="padding: 12px 26px; font-size: 14px;"
-            >
-              Build your app
-            </a>
-            <a href="/contact" class="tz-button-circle" aria-label="Build your app">
-              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
+          <a
+            href="https://cal.com/vesharo/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary px-4 py-3 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+            style="background: #0066FF; border-color: #0066FF; font-size: 15px;"
+            data-analytics-event="book_call_click"
+            data-analytics-label="hero_cta_primary"
+          >
+            <span>Book a 15-minute call</span>
+            <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+          </a>
 
-          <div class="tz-buttons d-inline-flex align-items-center">
-            <a
-              href="/portfolio"
-              class="tz-button tz-button-glass text-uppercase fw-semibold"
-              style="padding: 12px 26px; font-size: 14px;"
-            >
-              View Portfolio
-            </a>
-            <a href="/portfolio" class="tz-button-circle" aria-label="View Portfolio">
-              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
+          <a
+            href="/portfolio"
+            class="btn btn-outline-light px-4 py-3 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+            style="border-color: rgba(255, 255, 255, 0.2); font-size: 15px;"
+          >
+            <span>See what we've shipped</span>
+            <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
 
         <!-- Verified Trust Points -->
@@ -72,25 +67,26 @@
         </div>
       </div>
 
-      <!-- Right Column: High-End Technology Showcase Image -->
+      <!-- Right Column: Real Shipped Product UI in Device Frame -->
       <div class="col-lg-6 position-relative">
         <div class="hero-image-card hero-visual-frame p-2 rounded-4 position-relative">
           <img
-            src="/images/banner/banner1-hero.jpg"
-            alt="Vesharo Cross-Platform Mobile Apps with React Native, Expo and AI Automation"
+            src="/images/project/lockapp-mockup.svg"
+            alt="LockApp Android Enterprise MDM product screen mockup engineered by Vesharo"
             class="img-fluid rounded-4 w-100 shadow-lg"
             width="600"
-            height="400"
+            height="375"
             fetchpriority="high"
             loading="eager"
+            decoding="async"
             style="border: 1px solid rgba(0, 102, 255, 0.3); display: block;"
           />
           <div class="floating-stat-badge p-3 rounded-3 position-absolute shadow">
             <div class="d-flex align-items-center gap-2">
               <i class="ph ph-device-mobile" style="font-size: 22px; color: var(--vesharo-electric-accent, #00d2ff);" aria-hidden="true"></i>
               <div>
-                <div class="fw-bold text-white" style="font-size: 13px; line-height: 1.2;">React Native &amp; Expo</div>
-                <div class="text-muted" style="font-size: 11px;">iOS &amp; Android Apps</div>
+                <div class="fw-bold text-white" style="font-size: 13px; line-height: 1.2;">Shipped Product: LockApp</div>
+                <div class="text-white-50" style="font-size: 11px;">Android Enterprise MDM &bull; React Native &amp; Kotlin</div>
               </div>
             </div>
           </div>
@@ -156,8 +152,8 @@
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-    line-height: 1.08;
+    font-size: clamp(2.2rem, 4.8vw, 3.75rem);
+    line-height: 1.15;
     letter-spacing: -0.02em;
     position: static !important;
   }

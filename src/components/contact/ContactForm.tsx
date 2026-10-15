@@ -38,21 +38,21 @@ export default function ContactForm() {
               </div>
               <h2 className="h4 text-white fw-bold mb-2">Schedule Discovery Call</h2>
               <p className="text-white-50 small mb-4" style={{ lineHeight: "1.6" }}>
-                Skip the back-and-forth emails. Pick a 30-minute slot on our calendar to discuss your technical requirements directly.
+                Skip the back-and-forth emails. Pick a 15-minute slot on our calendar to discuss your technical requirements directly.
               </p>
               <a
-                href={contact.bookingUrl || "https://cal.com/vesharo/discovery"}
+                href={contact.bookingUrl || "https://cal.com/vesharo/15min"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary w-100 py-3 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-2"
                 data-analytics-event="book_call_click"
                 data-analytics-label="contact_page_calendar"
               >
-                <span>Book a Free Call</span>
+                <span>Book a 15-Minute Call</span>
                 <i className="ph ph-arrow-up-right" />
               </a>
               <span className="d-block text-center text-white-50 small mt-2" style={{ fontSize: "0.75rem" }}>
-                30-min Google Meet · No sales pressure
+                15-min Google Meet · Direct discussion with engineering lead
               </span>
             </div>
 

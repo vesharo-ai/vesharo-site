@@ -70,5 +70,5 @@
 
   <!-- Bottom Verification Bar -->
   <rect x="256" y="414" width="448" height="26" rx="4" fill="rgba(0, 102, 255, 0.1)"/>
-  <text x="272" y="431" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">HIPAA &amp; PHARMA AUDIT COMPLIANT • END-TO-END BATCH TRACEABILITY</text>
+  <text x="272" y="431" fill="#00D2FF" font-family="Inter, sans-serif" font-size="10" font-weight="600">ENTERPRISE PROCUREMENT &bull; END-TO-END BATCH TRACEABILITY</text>
 </svg>

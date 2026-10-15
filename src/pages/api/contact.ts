@@ -168,7 +168,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const isAllowed = await checkServerlessRateLimit(clientIp);
   if (!isAllowed) {
     const rateLimitMessage =
-      'Too many inquiries submitted from your network. To protect our engineering desk from automated spam, please wait 10 minutes before submitting again, or email us directly at contact@vesharo.com.';
+      'Too many inquiries submitted from your network. To protect our engineering desk from automated spam, please wait 10 minutes before submitting again, or email us directly at vesharo.ai@gmail.com.';
 
     if (isFormPost) {
       return new Response(rateLimitMessage, {
@@ -289,7 +289,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const senderEmail =
     process.env.CONTACT_FROM ||
     process.env.CONTACT_FROM_EMAIL ||
-    'Vesharo Inquiries <leads@vesharo.com>';
+    'Vesharo Inquiries <onboarding@resend.dev>';
 
   const subject = `[Vesharo Lead] ${data.name.slice(0, 50)} — ${data.service.slice(0, 50)}`;
 
@@ -395,7 +395,7 @@ Timestamp: ${new Date().toISOString()}
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Our email dispatch gateway is currently undergoing maintenance. Please reach out to us directly at contact@vesharo.com or via WhatsApp at +91 95862 12495.',
+          error: 'Our email dispatch gateway is currently undergoing maintenance. Please reach out to us directly at vesharo.ai@gmail.com or via WhatsApp at +91 95862 12495.',
         }),
         { status: 503, headers: { 'Content-Type': 'application/json' } }
       );
@@ -466,10 +466,34 @@ Timestamp: ${new Date().toISOString()}
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Unable to deliver message to our engineering inbox right now. Please email us directly at contact@vesharo.com or call +91 95862 12495.',
+          error: 'Unable to deliver message to our engineering inbox right now. Please email us directly at vesharo.ai@gmail.com or call +91 95862 12495.',
         }),
         { status: 502, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Optional Free Lead Capture Webhook (e.g. Google Sheets Apps Script)
+    const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (sheetsWebhookUrl) {
+      try {
+        await fetch(sheetsWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            service: data.service,
+            budget: data.budget,
+            message: data.message,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+      } catch (webhookErr) {
+        // Log webhook error without failing client response
+        // eslint-disable-next-line no-console
+        console.warn('Google Sheets lead webhook dispatch failed', webhookErr);
+      }
     }
 
     // eslint-disable-next-line no-console
@@ -497,7 +521,7 @@ Timestamp: ${new Date().toISOString()}
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'Network connection error during email dispatch. Please contact contact@vesharo.com directly.',
+        error: 'Network connection error during email dispatch. Please contact vesharo.ai@gmail.com directly.',
       }),
       { status: 502, headers: { 'Content-Type': 'application/json' } }
     );

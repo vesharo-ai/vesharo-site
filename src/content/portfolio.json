@@ -80,11 +80,11 @@
     ],
     "status": "Piloted at Gujarat Venues & In Production",
     "role": "High-Concurrency Backend, Offline QR Protocol & Handheld Scanner App",
-    "description": "NavratriOS is a high-throughput ticketing and gate-entry management SaaS platform engineered to manage massive crowds at large cultural festivals and venues in Gujarat. Built for thousands of scans at peak, it delivers sub-second QR pass verification, instant anti-passback protection, and real-time crowd telemetry.",
+    "description": "NavratriOS is a high-throughput ticketing and gate-entry management SaaS platform engineered to manage massive crowds at large cultural festivals and venues in Gujarat. Built for high peak concurrency, it delivers instant offline QR pass verification, instant anti-passback protection, and real-time crowd telemetry.",
     "challenge": "During large-scale multi-day cultural events, venue gates experience massive rushes of tens of thousands of attendees arriving within a narrow 90-minute window. Network connectivity at crowded physical gates is frequently congested, leading to scanner freezes, long entry queues, and ticketing fraud.",
     "constraints": [
       "Congested cellular networks and intermittent gate Wi-Fi",
-      "Sub-second verification per attendee to avoid physical queue hazards",
+      "Instant offline verification per attendee to avoid physical queue hazards",
       "Strict anti-passback enforcement to eliminate screenshot and token sharing",
       "Asynchronous batch-syncing to maintain entry velocity without connectivity loss"
     ],

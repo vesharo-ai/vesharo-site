@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { siteConfig } from "@/config/site";
 ---
 
 <Layout
@@ -79,7 +80,7 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
                 3. Questions Regarding Cookies & Storage
               </h2>
               <p class="text-neutral-300 mb-0" style="color: #CBD5E1;">
-                For inquiries regarding our lightweight storage policies, reach out to our engineering team at <a href="mailto:contact@vesharo.com" class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">contact@vesharo.com</a>.
+                For inquiries regarding our lightweight storage policies, reach out to our engineering team at <a href={`mailto:${siteConfig.contact.email}`} class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">{siteConfig.contact.email}</a>.
               </p>
             </div>
           </div>

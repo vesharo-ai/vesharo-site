@@ -15,11 +15,11 @@ All articles are authored in Markdown with frontmatter and placed under `src/con
 | **W1** | **How to Build Autonomous AI Agents for Enterprise Workflows (2026 Guide)** | enterprise ai agents | Informational / Commercial | CTOs, VP Engineering | Book a Discovery Call |
 | **W1** | **Multi-Tenant Android MDM Architecture: How We Engineered LockApp** | custom android mdm | Case / Technical | Hardware Financing Founders | Explore LockApp Case Study |
 | **W2** | **RAG vs Fine-Tuning: Making the Right Architecture Decision for Your LLM** | rag vs fine tuning enterprise | Commercial | Head of AI / Tech Leads | AI Architecture Consultation |
-| **W2** | **Offline-First Event Ticketing at 50,000+ Scale: NavratriOS Deep Dive** | offline first ticketing system | Technical / Authority | Event Organizers & Ops Leads | View NavratriOS Case Study |
+| **W2** | **Offline-First Event Ticketing at Peak Scale: NavratriOS Deep Dive** | offline first ticketing system | Technical / Authority | Event Organizers & Ops Leads | View NavratriOS Case Study |
 | **W3** | **API Schema Drift Detection in Microservices: Automating CI/CD Contracts** | api contract testing microservices | Technical / Problem-Solving | Lead DevOps / Backend Engineers | Try Wirebench Workbench |
 | **W3** | **Fixed-Price Milestone vs Dedicated Engineering Squad: Which Model Fits?** | dedicated engineering team pricing | Commercial / Decision | Startup Founders, Product Heads | Calculate Project Estimate |
 | **W4** | **Building Production Next.js & Astro Web Platforms That Score 100 on Lighthouse** | modern web engineering astro nextjs | Technical Authority | Digital Agency Heads / VPs | Request Code Audit |
-| **W4** | **Deploying HIPAA & SOC2 Compliant Cloud Pipelines on AWS & GCP** | compliant cloud architecture aws | High Commercial Intent | HealthTech / FinTech Founders | Schedule Security Scoping |
+| **W4** | **Deploying Secure & Compliant Cloud Pipelines on AWS & GCP** | compliant cloud architecture aws | High Commercial Intent | HealthTech / FinTech Founders | Schedule Security Scoping |
 
 ---
 
@@ -30,7 +30,7 @@ As upcoming builds reach production maturity, publish full case study pages unde
 1. **Sprint 1 (Day 10)**:
    - **MedMarketMD**: B2B Medical Equipment Procurement Portal with verified supplier KYC, bulk contract negotiation, and real-time inventory sync.
 2. **Sprint 2 (Day 22)**:
-   - **Autonomous WhatsApp CRM Agent**: Multi-language conversational AI agent connected to enterprise PostgreSQL with zero hallucination guardrails.
+   - **Autonomous WhatsApp CRM Agent**: Multi-language conversational AI agent connected to enterprise PostgreSQL with structured schema validation guardrails.
 
 ---
 

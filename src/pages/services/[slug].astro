@@ -5,6 +5,7 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getServiceJsonLd, getFaqJsonLd } from "@/lib/jsonLd";
+import { siteConfig } from "@/config/site";
 
 export async function getStaticPaths() {
   const allServices = await getCollection("services");
@@ -252,14 +253,14 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
             <div class="p-4 p-md-5 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 210, 255, 0.05) 100%); border: 1px solid rgba(0, 102, 255, 0.35);">
               <h2 class="h3 text-white fw-bold mb-3">Ready to Scope Your {data.title} Architecture?</h2>
               <p class="text-white-50 small mx-auto mb-4" style="max-width: 580px; line-height: 1.7;">
-                Schedule a complimentary 30-minute discovery call with our technical leadership. We'll assess technical feasibility, deliver an initial architectural estimate, and map out sprint deliverables.
+                Schedule a complimentary 15-minute scoping call with our technical leadership. We'll assess technical feasibility, deliver an initial architectural estimate, and map out sprint deliverables.
               </p>
               <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
-                <a href="/contact" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2">
-                  <span>Book Technical Scoping Call</span>
+                <a href={siteConfig.contact.bookingUrl} class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2">
+                  <span>Book a 15-Minute Call</span>
                   <i class="ph ph-arrow-right"></i>
                 </a>
-                <a href="mailto:contact@vesharo.com" class="btn btn-outline-secondary px-4 py-2 rounded-pill text-white fw-semibold">
+                <a href={`mailto:${siteConfig.contact.email}`} class="btn btn-outline-secondary px-4 py-2 rounded-pill text-white fw-semibold">
                   <span>Email Technical Team</span>
                 </a>
               </div>
@@ -300,14 +301,14 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
             <div class="p-4 rounded-4 mb-4" style="background-color: #0f1626; border: 1px solid rgba(0, 102, 255, 0.3);">
               <h2 class="h5 text-white fw-bold mb-2">Build With Vesharo</h2>
               <p class="text-white-50 small mb-4">
-                Schedule a 30-minute discovery consultation with our technical leads to scope your architecture.
+                Schedule a 15-minute call with our engineering leads to scope your app or system.
               </p>
-              <a href="/contact" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold mb-3">
-                Book a Free Call
+              <a href={siteConfig.contact.bookingUrl} class="btn btn-primary w-100 py-2 rounded-pill fw-semibold mb-3">
+                Book a 15-Minute Call
               </a>
               <div class="text-center">
                 <span class="text-white-50 small">Direct email: </span>
-                <a href="mailto:contact@vesharo.com" class="text-primary text-decoration-none small">contact@vesharo.com</a>
+                <a href={`mailto:${siteConfig.contact.email}`} class="text-primary text-decoration-none small">{siteConfig.contact.email}</a>
               </div>
             </div>
 

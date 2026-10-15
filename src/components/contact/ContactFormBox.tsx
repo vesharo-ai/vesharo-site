@@ -146,12 +146,12 @@ export default function ContactFormBox() {
       } else {
         const errorMsg =
           result?.error ||
-          "An unexpected error occurred while transmitting your inquiry. Please try again or email us directly at contact@vesharo.com.";
+          `An unexpected error occurred while transmitting your inquiry. Please try again or email us directly at ${siteConfig.contact.email}.`;
         setSubmitError(errorMsg);
       }
     } catch (err) {
       setSubmitError(
-        "Network connection interrupted. Please check your internet or reach us via email/WhatsApp."
+        `Network connection interrupted. Please check your internet or reach us via email at ${siteConfig.contact.email} or WhatsApp.`
       );
     } finally {
       setIsSubmitting(false);
@@ -218,7 +218,7 @@ export default function ContactFormBox() {
             Send Another Inquiry
           </button>
           <a
-            href={siteConfig.contact.bookingUrl || "https://cal.com/vesharo/discovery"}
+            href={siteConfig.contact.bookingUrl || "https://cal.com/vesharo/15min"}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary rounded-pill px-4 py-2"
@@ -226,7 +226,7 @@ export default function ContactFormBox() {
             data-analytics-label="post_submit_cta"
           >
             <i className="ph ph-calendar-plus me-2" />
-            Book Instant Discovery Call
+            Book a 15-Minute Call
           </a>
         </div>
       </div>

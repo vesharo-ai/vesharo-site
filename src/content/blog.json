@@ -116,7 +116,7 @@
         "paragraphs": [
           "Custom software engineering delivers overwhelming strategic value in three distinct scenarios:",
           "First, High-Volume Transactional Workflows: In businesses processing tens of thousands of daily events—such as logistics tracking, festival gate registrations (like our NavratriOS platform), or device lifecycle policies (like LockApp)—per-transaction SaaS fees destroy gross margins. A custom Node/Go service hosted on containerized cloud infrastructure handles millions of requests for a fraction of the cost.",
-          "Second, Specialized Hardware or Compliance Integrations: When your business requires deep OS integration, Android Device Owner policies, custom peripheral Bluetooth scanners, or stringent HIPAA data controls, commercial platforms cannot deliver the requisite control.",
+          "Second, Specialized Hardware or Compliance Integrations: When your business requires deep OS integration, Android Device Owner policies, custom peripheral Bluetooth scanners, or strict tenant data isolation, commercial platforms cannot deliver the requisite control.",
           "Third, Enterprise Valuation and Intellectual Property: Proprietary technology is a balance-sheet asset that elevates enterprise multiples during capital raises or acquisitions. Paying annual subscriptions produces zero equity value; commissioning clean, proprietary code creates durable intellectual property."
         ],
         "bulletPoints": [
@@ -190,7 +190,7 @@
           "Based on current senior engineering rates in India's top tech hubs (Ahmedabad, Bangalore, Pune) for dedicated, senior-led teams, here is what quality builds actually cost:",
           "Tier 1: Focused MVP ($8,000 – $15,000 USD). Scope: Clean cross-platform React Native app with 6 to 10 screens, core user authentication, payment gateway integration, push notifications, and a lightweight Node.js/PostgreSQL backend. Timeline: 4 to 6 weeks.",
           "Tier 2: Full Commercial Product ($18,000 – $35,000 USD). Scope: Robust offline synchronization, multi-role user permissions, complex business workflows, custom UI micro-animations, administrative analytics dashboard, and automated Fastlane deployment pipelines. Timeline: 8 to 12 weeks.",
-          "Tier 3: Complex Multi-Tenant Platform ($40,000 – $80,000+ USD). Scope: Device-level background services, high-throughput microservice backends supporting tens of thousands of concurrent connections, multi-tenant isolation, and SOC2/HIPAA compliance controls. Timeline: 3 to 5 months."
+          "Tier 3: Complex Multi-Tenant Platform ($40,000 – $80,000+ USD). Scope: Device-level background services, high-throughput microservice backends supporting tens of thousands of concurrent connections, multi-tenant isolation, and enterprise security controls. Timeline: 3 to 5 months."
         ],
         "bulletPoints": [
           "Senior full-stack developers in India command $25–$45/hr for elite engineering capability.",
@@ -259,7 +259,7 @@
         "heading": "What AI Agents Excel At (When Properly Engineered)",
         "paragraphs": [
           "When you confine an agent to a bounded domain with typed tools and comprehensive context, they perform remarkably well:",
-          "1. Multi-Step Information Synthesis and RAG: Retrieving relevant company documentation across thousands of internal SOPs, customer tickets, and manuals, synthesizing a coherent answer, and citing verified primary sources with sub-second latency.",
+          "1. Multi-Step Information Synthesis and RAG: Retrieving relevant company documentation across thousands of internal SOPs, customer tickets, and manuals, synthesizing a coherent answer, and citing verified primary sources with low latency.",
           "2. Structured Tool Calling: Transforming ambiguous natural language requests into strict JSON arguments to invoke external APIs. For instance, parsing 'reschedule John's appointment next Tuesday afternoon' into an authenticated calendar API mutation.",
           "3. Intelligent Workflow Routing & Disambiguation: Reviewing inbound operational exceptions, detecting missing documentation fields, and reaching out to human users with concise clarifying questions before proceeding.",
           "4. Schema-Bound Data Normalization: Ingesting messy, unstructured inputs from multiple vendors and standardizing them into uniform database records."

@@ -5,17 +5,17 @@
 ---
 
 ## 1. Company Overview
-- **Name**: Vesharo (Vesharo IT Services & AI Automation)
-- **Tagline**: Software and AI automation that ships.
-- **Mission**: Delivering production-grade software and deterministic AI automation with zero fluff, rapid sprint iterations, and 100% client intellectual property ownership.
-- **Headquarters**: Ahmedabad, Gujarat 380015, India
+- **Name**: Vesharo (by Apptify Solutions)
+- **Tagline**: Production iOS & Android apps with React Native & Expo.
+- **Mission**: Delivering production-grade mobile applications and software engineering with zero fluff, rapid sprint iterations, and 100% client intellectual property ownership.
+- **Headquarters**: Ahmedabad, Gujarat, India
 - **Operating Hours**: Monday – Friday, 09:00 – 18:30 Indian Standard Time (IST). Overlapping support hours provided for North America (EST/PST) and Europe (GMT/CET).
-- **Official Email**: contact@vesharo.com
+- **Official Email**: vesharo.ai@gmail.com
 - **Official Phone / WhatsApp**: +91 95862 12495
-- **Discovery Booking**: https://cal.com/vesharo/discovery
+- **Discovery Booking**: https://cal.com/vesharo/15min
 - **Leadership**:
   - Hitesh Chauhan (Founder)
-  - Harsh Siddhapura (Co-Founder & Principal Solutions Architect)
+  - Harsh Siddhapura (Engineering Lead)
 
 ---
 
@@ -145,7 +145,7 @@ A: Every production release includes a complimentary 30-day bug-fix warranty. Af
 
 ## 7. Contact Information
 - **Website**: https://vesharo.com
-- **Direct Email**: contact@vesharo.com
+- **Direct Email**: vesharo.ai@gmail.com
 - **Phone / WhatsApp**: +91 95862 12495
-- **Cal.com Scheduling**: https://cal.com/vesharo/discovery
-- **Address**: Ahmedabad, Gujarat 380015, India
+- **Cal.com Scheduling**: https://cal.com/vesharo/15min
+- **Address**: Ahmedabad, Gujarat, India

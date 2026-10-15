@@ -6,11 +6,11 @@
 Production Mobile Apps, React Native & Expo · Mobile & AI Engineering
 
 ## Key Facts
-- **Location**: Ahmedabad, Gujarat, India (Operating hours: Mon-Fri 09:00 - 18:30 IST)
-- **Team Leadership**: Hitesh Chauhan (Founder), Harsh Siddhapura (Solutions Architect & Engineering Lead)
-- **Official Contact**: contact@vesharo.com
+- **Company**: Vesharo (by Apptify Solutions), Ahmedabad, Gujarat, India (Operating hours: Mon-Fri 09:00 - 18:30 IST)
+- **Team Leadership**: Hitesh Chauhan (Founder), Harsh Siddhapura (Engineering Lead)
+- **Official Contact**: vesharo.ai@gmail.com
 - **Official Phone**: +91 95862 12495
-- **Discovery Booking**: https://cal.com/vesharo/discovery
+- **Discovery Booking**: https://cal.com/vesharo/15min
 - **Code & IP Ownership**: 100% intellectual property, source code, and repository ownership transferred to clients upon milestone completion.
 - **Warranty**: Complimentary 30-day post-launch bug warranty on all software deliverables.
 

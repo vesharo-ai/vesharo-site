@@ -24,17 +24,17 @@ export const siteConfig = {
   tagline: "Production iOS & Android apps with React Native & Expo.",
   description:
     "Vesharo engineers production-grade mobile applications for iOS and Android using React Native and Expo, supercharged by intelligent AI automation and scalable cloud backends.",
+  company: "Vesharo (by Apptify Solutions)",
   url: "https://vesharo.com",
 
   contact: {
-    email: "contact@vesharo.com",
+    email: "vesharo.ai@gmail.com",
     phone: "+91 95862 12495",
     whatsapp: "+919586212495",
     whatsappUrl: "https://wa.me/919586212495",
-    bookingUrl: "https://cal.com/vesharo/discovery",
+    bookingUrl: "https://cal.com/vesharo/15min",
     location: "Ahmedabad, Gujarat, India",
     hours: "Mon–Fri 9:00–18:30 IST",
-    formRecipientNotice: "Submissions delivered securely to engineering desk.",
   },
 
   socials: [
@@ -117,7 +117,7 @@ export const siteConfig = {
     {
       id: "medmarketmd",
       title: "MedMarketMD",
-      tagline: "HIPAA-compliant healthcare marketplace platform connecting medical suppliers and clinics",
+      tagline: "B2B medical supplies procurement & inventory distribution platform",
       href: "/portfolio/medmarketmd",
     },
   ] as PortfolioItem[],

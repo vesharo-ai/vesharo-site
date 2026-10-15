@@ -1,6 +1,4 @@
 ---
-import SectionSubtitle from "@/components/section-subtitle/SectionSubtitle.astro";
-import SectionTitle from "@/components/section-title/SectionTitle.astro";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -8,79 +6,73 @@ interface Props {
   limit?: number;
 }
 
-const { backgroundColor = "#0f1626", limit = 7 } = Astro.props;
+const { backgroundColor = "#070B14", limit = 7 } = Astro.props;
 
 const allServices = await getCollection("services");
 const services = allServices
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, limit);
-
-const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 ---
 
-<section class="tz-service1" style={{ backgroundColor }}>
-  <div class="container">
-    <div class="tz-section-top">
-      <div class="row g-4 align-items-end">
-        <div class="col-md-8">
-          <SectionSubtitle subtitle="Core Capabilities" />
-          <SectionTitle title="Engineered For Modern Business" />
+<section class="tz-service1 py-5" style={{ backgroundColor }}>
+  <div class="container py-4">
+    <!-- Section Top Header -->
+    <div class="d-flex flex-wrap align-items-end justify-content-between mb-5 gap-3">
+      <div>
+        <div class="d-inline-flex align-items-center gap-2 mb-2 px-3 py-1 rounded-pill" style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25);">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background-color: #00d2ff;"></span>
+          <span class="fw-semibold" style="font-size: 13px; color: #00d2ff;">
+            Core Capabilities
+          </span>
         </div>
-        <div class="col-md-4">
-          <div class="tz-buttons d-flex justify-content-start justify-content-md-end">
-            <a
-              href="/services"
-              class="tz-button text-uppercase fw-medium tz-text-m"
-            >
-              All Services
-            </a>
-            <a href="/services" class="tz-button-circle" aria-label="View All Services">
-              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
+        <h2 class="h2 text-white fw-bold mb-0" style="font-family: var(--font-family-heading);">
+          Engineering services for startups and growing teams
+        </h2>
+      </div>
+      <div>
+        <a href="/services" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold">
+          View all 7 services
+        </a>
       </div>
     </div>
 
+    <!-- Always-Visible Responsive Service Cards Grid -->
     <div class="row g-4">
-      {services.map((svc, index) => (
-        <div class="col-md-6 col-xl-3">
-          <div class={`tz-service1-card ${index === 0 ? "active" : ""}`}>
-            <a href={`/services/${svc.data.id}`} class="text-white d-block text-decoration-none">
-              <span class="tz-service1-card__number">{romanNumerals[index] || index + 1}</span>
-              <div class="tz-service1-card__content">
-                <div class="tz-service1-card__shape d-flex justify-content-center tz-mb-20 tz-mb-lg-40">
-                  <div
-                    class="d-flex align-items-center justify-content-center rounded-circle"
-                    style="width: 56px; height: 56px; background: rgba(0, 210, 255, 0.15); color: #00d2ff;"
-                  >
-                    <i class={`ph ${svc.data.icon}`} style="font-size: 28px;" aria-hidden="true"></i>
-                  </div>
+      {services.map((svc) => (
+        <div class="col-md-6 col-lg-4">
+          <a
+            href={`/services/${svc.data.id}`}
+            class="service-card-item p-4 rounded-4 d-flex flex-column justify-content-between text-decoration-none h-100 position-relative"
+            style="background: #0B0F19; border: 1px solid rgba(255, 255, 255, 0.08); transition: border-color 0.2s ease, transform 0.2s ease;"
+          >
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div
+                  class="d-inline-flex align-items-center justify-content-center rounded-3 p-2"
+                  style="width: 48px; height: 48px; background: rgba(0, 102, 255, 0.15); color: #00d2ff;"
+                >
+                  <i class={`ph ${svc.data.icon}`} style="font-size: 24px;" aria-hidden="true"></i>
                 </div>
-                <h3 class="tz-service1-card__title text-uppercase text-center text-white">
-                  {svc.data.title}
-                </h3>
-                <p class="tz-service1-card__desc fw-medium tz-text-l text-center mb-0" style="color: #cbd5e1;">
-                  {svc.data.shortDescription}
-                </p>
-                <div class="tz-service1-card__footer">
-                  <div class="row align-items-center">
-                    <div class="col-8">
-                      <span class="mb-0 text-uppercase tz-text-s fw-semibold" style="color: #00d2ff;">
-                        Explore Capability
-                      </span>
-                    </div>
-                    <div class="col-4">
-                      <div class="d-flex justify-content-end">
-                        <i class="ph ph-arrow-up-right text-white" style="font-size: 18px;" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {svc.data.id === "mobile-app-development" && (
+                  <span class="badge px-2 py-1 rounded" style="background: rgba(0, 210, 255, 0.15); color: #00d2ff; font-size: 11px;">
+                    Flagship Offering
+                  </span>
+                )}
               </div>
-              <div class="tz-service1-card__circle"></div>
-            </a>
-          </div>
+              <h3 class="h5 text-white fw-bold mb-2" style="font-family: var(--font-family-heading);">
+                {svc.data.title}
+              </h3>
+              <p class="small mb-4" style="line-height: 1.6; color: #cbd5e1;">
+                {svc.data.shortDescription}
+              </p>
+            </div>
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top border-secondary border-opacity-15">
+              <span class="small fw-semibold" style="color: #00d2ff;">
+                Explore service details
+              </span>
+              <i class="ph ph-arrow-right text-white" style="font-size: 16px;" aria-hidden="true"></i>
+            </div>
+          </a>
         </div>
       ))}
     </div>
@@ -88,56 +80,15 @@ const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 </section>
 
 <style>
-  /* Accent surfaces (active, hover, keyboard focus) need dark text to stay readable. */
-  :global(.tz-service1-card.active),
-  :global(.tz-service1-card:hover),
-  :global(.tz-service1-card:focus-within) {
-    background-color: var(--vesharo-electric-accent);
+  .service-card-item:hover,
+  .service-card-item:focus-visible {
+    border-color: rgba(0, 210, 255, 0.5) !important;
+    background: #0F1626 !important;
+    outline: none;
   }
 
-  :global(.tz-service1-card:focus-within .tz-service1-card__content) {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  :global(.tz-service1-card:focus-within .tz-service1-card__number),
-  :global(.tz-service1-card:focus-within .tz-service1-card__circle) {
-    visibility: hidden;
-  }
-
-  :global(.tz-service1-card.active *),
-  :global(.tz-service1-card:hover *),
-  :global(.tz-service1-card:focus-within *) {
-    color: #070b14 !important;
-  }
-
-  :global(.tz-service1-card.active .tz-service1-card__shape > div),
-  :global(.tz-service1-card:hover .tz-service1-card__shape > div),
-  :global(.tz-service1-card:focus-within .tz-service1-card__shape > div) {
-    background: rgba(12, 12, 12, 0.1) !important;
-  }
-
-  :global(.tz-service1-card a:focus-visible) {
-    outline: 2px solid #070b14;
-    outline-offset: 4px;
-  }
-
-  @media (max-width: 991px) {
-    :global(.tz-service1-card .tz-service1-card__content) {
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    /* Content is always shown on touch layouts, so the hover-only decorations would cover it. */
-    :global(.tz-service1-card .tz-service1-card__number),
-    :global(.tz-service1-card .tz-service1-card__circle) {
-      display: none !important;
-    }
-    :global(.tz-service1-card__footer) {
-      padding-top: 1.5rem !important;
-    }
-    :global(.tz-service1-card) {
-      padding: 1.75rem !important;
-      min-height: auto !important;
-    }
+  .service-card-item:focus-visible {
+    outline: 2px solid #00d2ff !important;
+    outline-offset: 3px !important;
   }
 </style>

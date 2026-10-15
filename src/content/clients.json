@@ -36,7 +36,7 @@
     "name": "PulseCare Telehealth Systems",
     "category": "Healthcare Automation",
     "logoText": "PulseCare Health",
-    "description": "HIPAA-compliant patient intake workflows, conversational triage agents, and EHR synchronization.",
+    "description": "Patient intake workflows, conversational triage agents, and EHR synchronization.",
     "placeholder": true
   }
 ]

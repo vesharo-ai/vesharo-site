@@ -12,7 +12,7 @@
   },
   {
     "id": "navratrios-feedback",
-    "quote": "Handling 50,000+ gate scans during peak evening festival rushes with zero downtime or scanner sync lag seemed impossible until Vesharo built and deployed NavratriOS. The performance was flawless.",
+    "quote": "Handling high crowd gate scans during peak festival rushes with zero downtime or scanner sync lag seemed impossible until Vesharo built and deployed NavratriOS. The offline reliability was exceptional.",
     "author": "Festival Organizing Committee",
     "role": "Infrastructure & Ticketing Director",
     "company": "NavratriOS Deployment",
@@ -34,7 +34,7 @@
   },
   {
     "id": "demo-telehealth-feedback",
-    "quote": "Vesharo deployed our secure telemedicine triage platform in record time. Zero compliance drift, sub-second latency, and remarkable reliability under heavy appointment surges.",
+    "quote": "Vesharo deployed our secure telemedicine triage platform in record time. Strict data isolation, responsive performance, and high reliability under heavy appointment surges.",
     "author": "VP of Product Engineering",
     "role": "Digital Health Systems",
     "company": "PulseCare Network",

@@ -22,7 +22,7 @@
 | # | Planned Article Title | Planned Slug | Author | Target Date | Target Audience | Key Engineering Takeaways |
 |:-:|:---|:---|:---|:---:|:---:|:---|
 | **07** | **Multi-Tenant Android MDM Architecture: How We Engineered LockApp** | `/blog/multi-tenant-android-mdm-architecture` | Harsh Siddhapura | Nov 5, 2026 | FinTech & Device Financing CTOs | Low-level Android Kotlin Device Owner SDK, watchdog persistence, carrier SMS fallback, and Knox bypass prevention. |
-| **08** | **Offline-First Event Ticketing at 50,000+ Scale: NavratriOS Deep Dive** | `/blog/offline-first-event-ticketing-high-concurrency` | Hitesh Chauhan | Nov 20, 2026 | Event Organizers & Platform Architects | Handheld React Native QR cryptography, sub-200ms verification without cell reception, and batch sync reconciliations. |
+| **08** | **Offline-First Event Ticketing at Peak Scale: NavratriOS Deep Dive** | `/blog/offline-first-event-ticketing-high-concurrency` | Hitesh Chauhan | Nov 20, 2026 | Event Organizers & Platform Architects | Handheld React Native QR cryptography, sub-200ms verification without cell reception, and batch sync reconciliations. |
 | **09** | **API Contract Drift Detection in Microservices: Automating CI Schemas** | `/blog/api-contract-drift-detection-microservices` | Harsh Siddhapura | Dec 10, 2026 | Backend Engineers & DevOps Leads | Comparing live JSON responses against OpenAPI 3.1 specifications, AST diff algorithms, and preventing client regressions. |
 | **10** | **Building Production React Native & Expo Apps with 60 FPS Fluidity** | `/blog/react-native-expo-production-performance` | Hitesh Chauhan | Jan 15, 2027 | Mobile Product Leaders & Founders | Gesture handlers, native thread offloading, FlashList optimization, and instant over-the-air updates. |
 

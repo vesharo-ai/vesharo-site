@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
+import { siteConfig } from "@/config/site";
 ---
 
 <Layout
@@ -168,9 +169,9 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
               </p>
               <div class="d-flex flex-column gap-1 text-neutral-300 tz-text-s" style="color: #94A3B8;">
                 <p class="mb-1 text-white fw-semibold">Data Protection Officer — Vesharo</p>
-                <p class="mb-1">Email: <a href="mailto:contact@vesharo.com" class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">contact@vesharo.com</a></p>
-                <p class="mb-1">Corporate Address: Ahmedabad, Gujarat 380015, India</p>
-                <p class="mb-0">Operating Hours: Monday – Friday, 09:00 – 18:30 IST</p>
+                <p class="mb-1">Email: <a href={`mailto:${siteConfig.contact.email}`} class="text-decoration-none" style="color: var(--vesharo-electric-accent, #00d2ff);">{siteConfig.contact.email}</a></p>
+                <p class="mb-1">Corporate Address: {siteConfig.contact.location}</p>
+                <p class="mb-0">Operating Hours: {siteConfig.contact.hours}</p>
               </div>
             </div>
           </div>
