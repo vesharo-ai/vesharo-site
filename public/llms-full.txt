@@ -32,28 +32,28 @@ Vesharo develops exclusively with modern, battle-tested, high-performance techno
 
 ## 3. Core Services Breakdown
 
-### Service 1: AI Automation (`/services/ai-automation`)
-- **What it is**: Enterprise-grade artificial intelligence workflows integrated directly into core business operations with deterministic validation.
+### Service 1: Mobile App Development (`/services/mobile-app-development`)
+- **What it is**: High-performance cross-platform iOS and Android applications with 60 FPS performance, offline data persistence, and hardware integrations.
+- **Core Capabilities**: React Native and Expo engineering, SQLite/WatermelonDB offline sync, biometric security, camera/barcode scanning, push notifications (FCM), and automated App Store/Google Play release signing.
+
+### Service 2: AI Automation (`/services/ai-automation`)
+- **What it is**: Enterprise-grade artificial intelligence workflows integrated directly into core business operations with deterministic schema validation.
 - **Core Capabilities**: Document processing & extraction, deterministic workflow pipelines, private Retrieval-Augmented Generation (RAG), and CRM/ERP data synchronization.
 - **Security Guardrails**: Zero customer data retention agreements with model providers, private VPC data isolation, role-based access control, and deterministic schema outputs.
 
-### Service 2: AI Agents & Chatbots (`/services/ai-agents-chatbots`)
+### Service 3: AI Agents & Chatbots (`/services/ai-agents-chatbots`)
 - **What it is**: Autonomous, multi-turn AI agents equipped with structured tool-calling capabilities to execute business tasks across databases and APIs.
 - **Core Capabilities**: Customer support ticket triage, automated lead qualification, intelligent SQL querying over data warehouses, and multi-step research synthesis.
 - **Hallucination Prevention**: Strict confidence score thresholds, schema-validated JSON tool outputs, and programmatic fallback routing to human teams.
 
-### Service 3: Custom Software Development (`/services/custom-software-development`)
+### Service 4: Custom Software Development (`/services/custom-software-development`)
 - **What it is**: Tailored web platforms, high-throughput backend services, and scalable database architectures engineered for specific business logic.
 - **Core Capabilities**: Domain-driven architectural blueprints, microservices architectures, Strangler Fig legacy modernization, and third-party API orchestration.
 - **Ownership**: 100% intellectual property, source code, and repository transfer upon milestone completion.
 
-### Service 4: Web Development (`/services/web-development`)
+### Service 5: Web Development (`/services/web-development`)
 - **What it is**: Fast, accessible, content-driven and transactional web applications built for high Lighthouse performance and maximum SEO/AEO indexability.
 - **Core Capabilities**: Static & server-rendered Astro architectures, React interactive components, fluid design token systems, and WCAG 2.2 AA accessibility.
-
-### Service 5: Mobile App Development (`/services/mobile-app-development`)
-- **What it is**: High-performance cross-platform iOS and Android applications with 60 FPS performance, offline data persistence, and hardware integrations.
-- **Core Capabilities**: React Native and Flutter engineering, biometric security, camera/barcode scanning, push notifications (FCM), and background sync.
 
 ### Service 6: Cloud & DevOps (`/services/cloud-devops`)
 - **What it is**: Resilient cloud infrastructure setup, automated CI/CD pipelines, containerization, and cost-efficient cloud resource management.
@@ -61,7 +61,7 @@ Vesharo develops exclusively with modern, battle-tested, high-performance techno
 
 ### Service 7: IT Consulting & Architecture Advisory (`/services/it-consulting`)
 - **What it is**: Strategic technology roadmapping, legacy codebase audits, AI feasibility reviews, and Fractional CTO architecture guidance.
-- **Core Capabilities**: Code audits, cloud spend optimization, compliance reviews (HIPAA, DPDP, GDPR), and architectural refactoring strategies.
+- **Core Capabilities**: Code audits, cloud spend optimization, compliance reviews (DPDP, GDPR), and architectural refactoring strategies.
 
 ---
 
@@ -86,12 +86,12 @@ Vesharo develops exclusively with modern, battle-tested, high-performance techno
 - **Problem**: Existing API tools have bloat, intrusive telemetry, cloud lock-in, and lack automated contract drift diffing.
 - **Solution**: Private, local-first API client with one-click Postman/Insomnia/Hoppscotch workspace imports and OpenAPI contract-drift diffing.
 - **Key Features**: Zero external telemetry, instant OpenAPI linting, git-backed request collections, and team changelog generation.
-- **Status**: Public Beta / Live.
+- **Status**: In Active Development (Beta).
 
 ### Product 4: MedMarketMD (Healthcare Procurement Platform)
 - **Client / Domain**: Healthcare clinics and verified medical suppliers.
 - **Problem**: Fragmented supply chains and compliance friction in procuring clinical supplies.
-- **Solution**: HIPAA-compliant procurement marketplace platform with encrypted ordering, multi-vendor catalogs, and automated reorder triggers.
+- **Solution**: B2B healthcare procurement marketplace platform with tenant-isolated role permissions, encrypted ordering, multi-vendor catalogs, and automated reorder triggers.
 - **Status**: Live in production.
 
 ---

@@ -1,9 +1,9 @@
 # Vesharo
 
-> Vesharo is a specialized IT services and AI automation engineering firm based in Ahmedabad, Gujarat, India. We engineer custom web and mobile applications, deterministic AI agents, cloud infrastructure, and enterprise software for growing businesses and tech startups.
+> Vesharo is a specialized mobile app development and AI automation engineering firm based in Ahmedabad, Gujarat, India. We engineer production cross-platform iOS and Android apps with React Native & Expo, deterministic AI agents, cloud infrastructure, and enterprise software for growing businesses and tech startups.
 
 ## Core Tagline
-Software and AI automation that ships.
+Production Mobile Apps, React Native & Expo · Mobile & AI Engineering
 
 ## Key Facts
 - **Location**: Ahmedabad, Gujarat, India (Operating hours: Mon-Fri 09:00 - 18:30 IST)
@@ -15,24 +15,24 @@ Software and AI automation that ships.
 - **Warranty**: Complimentary 30-day post-launch bug warranty on all software deliverables.
 
 ## Core Services
-- [AI Automation](https://vesharo.com/services/ai-automation): Enterprise LLM automation, deterministic validation, RAG architectures, and zero-data-retention security boundaries.
-- [AI Agents & Chatbots](https://vesharo.com/services/ai-agents-chatbots): Domain-specific autonomous agents with tool-calling, support triage, ERP/CRM data sync, and multi-turn workflows.
-- [Custom Software Development](https://vesharo.com/services/custom-software-development): Bespoke web platforms, microservices architectures, REST & GraphQL APIs, and legacy system modernization (Strangler Fig pattern).
-- [Web Development](https://vesharo.com/services/web-development): High-performance Astro, React, and Next.js applications, server-driven architecture, and WCAG 2.2 AA accessibility.
-- [Mobile App Development](https://vesharo.com/services/mobile-app-development): High-throughput iOS and Android mobile apps using React Native and Flutter with native 60 FPS performance and offline sync.
+- [Mobile App Development](https://vesharo.com/services/mobile-app-development): Production iOS & Android cross-platform solutions built with React Native and Expo, 60 FPS gestures, offline SQLite caching, and automated App Store / Google Play delivery.
+- [AI Automation](https://vesharo.com/services/ai-automation): Enterprise LLM automation, deterministic schema validation, RAG architectures, and zero-data-retention security boundaries.
+- [AI Agents & Chatbots](https://vesharo.com/services/ai-agents-chatbots): Domain-specific autonomous agents with structured tool-calling, support triage, ERP/CRM data sync, and multi-turn workflows.
+- [Custom Software Development](https://vesharo.com/services/custom-software-development): Bespoke web platforms, microservices architectures, REST & GraphQL APIs, and legacy system modernization.
+- [Web Development](https://vesharo.com/services/web-development): High-performance Astro, React, and Next.js applications, island architecture, and WCAG 2.2 AA accessibility.
 - [Cloud & DevOps](https://vesharo.com/services/cloud-devops): Automated CI/CD pipelines, Docker containerization, Kubernetes clusters, and AWS/GCP cloud infrastructure.
 - [IT Consulting & Architecture Advisory](https://vesharo.com/services/it-consulting): Technical architecture audits, AI feasibility reviews, security perimeters, and CTO-level roadmap planning.
 
 ## Verified Products & Case Studies
 - [LockApp](https://vesharo.com/portfolio/lockapp): Android Enterprise MDM (Device Owner) B2B SaaS for Indian electronics retailers to manage EMI-financed smartphones with remote lock/unlock and Knox-level security.
-- [NavratriOS](https://vesharo.com/portfolio/navratrios): High-throughput event ticketing and access control platform in Gujarat, handling thousands of QR gate scans per minute with sub-100ms validation and offline synchronization.
+- [NavratriOS](https://vesharo.com/portfolio/navratrios): High-throughput event ticketing and access control platform in Gujarat, handling thousands of QR gate scans at peak with offline cryptographic validation.
 - [Wirebench](https://vesharo.com/portfolio/wirebench): Local-first private API client with one-click migration from Postman/Insomnia, contract drift detection, and team changelogs.
-- [MedMarketMD](https://vesharo.com/portfolio/medmarketmd): HIPAA-compliant B2B healthcare procurement marketplace connecting verified medical suppliers and clinics with real-time inventory and encrypted ordering.
+- [MedMarketMD](https://vesharo.com/portfolio/medmarketmd): B2B healthcare procurement marketplace connecting verified medical suppliers and clinics with tenant-isolated role permissions and encrypted transaction auditing.
 
 ## Engagement Models
 - **Fixed-Scope Projects**: Milestone-based delivery for well-defined MVPs and feature modules. 4 to 8 week timelines, 30-day warranty.
 - **Dedicated Engineering Squads**: Predictable monthly retainer. Senior solutions architect + full-stack engineers embedded in your Slack and GitHub.
-- **Support & Maintenance Retainer**: Monthly SLA subscription. 24/7 uptime monitoring, security patching, and ongoing updates.
+- **Support & Maintenance Retainer**: Monthly SLA subscription. Uptime monitoring, security patching, and ongoing updates.
 - **Free Discovery Call**: 30-minute 1-on-1 architecture evaluation with a principal architect ($0, zero obligation).
 
 ## Primary Documentation Links
