@@ -36,7 +36,12 @@ const Testimonial1 = React.memo(function Testimonial1({
                   <img
                     src="/images/testimonial/testimonial1-shape1.svg"
                     className="floating"
-                    alt="shape"
+                    alt=""
+                    aria-hidden="true"
+                    width={180}
+                    height={180}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -60,7 +65,12 @@ const Testimonial1 = React.memo(function Testimonial1({
               <div className="tz-testimonial1__shape2 d-flex align-items-end justify-content-center tz-pt-lg-120">
                 <img
                   src="/images/testimonial/testimonial1-shape2.svg"
-                  alt="shape"
+                  alt=""
+                  aria-hidden="true"
+                  width={150}
+                  height={150}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

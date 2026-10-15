@@ -76,7 +76,7 @@ function Testimonial1Slider({ slides }: { slides: TestimonialSlide[] }) {
                     {slide.imageSrc && (
                       <div className="col-sm-5">
                         <div className="tz-testimonial1-card__image">
-                          <img src={slide.imageSrc} alt={slide.title} loading="lazy" />
+                          <img src={slide.imageSrc} alt={slide.title} width={380} height={380} loading="lazy" decoding="async" />
                         </div>
                       </div>
                     )}
@@ -99,6 +99,11 @@ function Testimonial1Slider({ slides }: { slides: TestimonialSlide[] }) {
                         <img
                           src="/images/testimonial/testimonial1-quote.svg"
                           alt=""
+                          aria-hidden="true"
+                          width={56}
+                          height={44}
+                          loading="lazy"
+                          decoding="async"
                           className="tz-testimonial1-card__quote"
                         />
                       </div>

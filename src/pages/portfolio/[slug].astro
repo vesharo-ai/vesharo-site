@@ -65,6 +65,9 @@ const caseStudyJsonLd = {
                 src={data.image}
                 alt={`${data.title} product screen mockup`}
                 class="img-fluid rounded"
+                width="800"
+                height="450"
+                loading="lazy"
                 style="max-height: 380px; width: auto; object-fit: contain;"
               />
             </div>
@@ -75,8 +78,15 @@ const caseStudyJsonLd = {
               </span>
               <div class="d-flex align-items-center gap-2">
                 {data.status && (
-                  <span class="badge px-2 py-1 rounded text-white" style="background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;">
-                    Status: {data.status}
+                  <span
+                    class="badge px-2 py-1 rounded"
+                    style={
+                      data.status.toLowerCase().includes("beta") || data.status.toLowerCase().includes("development")
+                        ? "background-color: rgba(245, 166, 35, 0.2); color: #F5A623; font-size: 0.75rem;"
+                        : "background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;"
+                    }
+                  >
+                    Stage: {data.status}
                   </span>
                 )}
                 <span class="text-white-50 small">Production: {data.year}</span>
@@ -84,16 +94,24 @@ const caseStudyJsonLd = {
             </div>
 
             <h1 class="h2 text-white fw-bold mb-2">{data.title}</h1>
-            <p class="text-primary lead fw-semibold mb-4">{data.tagline}</p>
+            <p class="text-primary lead fw-semibold mb-3">{data.tagline}</p>
+
+            {data.audience && (
+              <div class="mb-4 p-3 rounded-3" style="background-color: rgba(0, 102, 255, 0.08); border: 1px solid rgba(0, 102, 255, 0.25);">
+                <span class="text-white-50 small text-uppercase tracking-wider fw-bold d-block mb-1">Target Audience & Domain:</span>
+                <span class="text-white small fw-medium">{data.audience}</span>
+              </div>
+            )}
+
             <p class="text-white-50 lead mb-5" style="line-height: 1.7;">
               {data.description}
             </p>
 
-            <!-- The Challenge -->
+            <!-- 1. The Problem / Architectural Challenge -->
             {data.challenge && (
               <div class="mb-5">
-                <h2 class="h4 text-white fw-semibold mb-3">The Architectural Challenge</h2>
-                <div class="p-4 rounded-3" style="background-color: rgba(255, 255, 255, 0.02); border-left: 4px solid #00D2FF;">
+                <h2 class="h4 text-white fw-semibold mb-3">1. The Problem & Architectural Challenge</h2>
+                <div class="p-4 rounded-3" style="background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-left: 4px solid #ef4444;">
                   <p class="text-white-50 mb-0" style="line-height: 1.7;">
                     {data.challenge}
                   </p>
@@ -101,20 +119,68 @@ const caseStudyJsonLd = {
               </div>
             )}
 
-            <!-- The Engineering Solution -->
-            {data.solution && (
+            <!-- 2. Critical Real-World Constraints -->
+            {data.constraints && data.constraints.length > 0 && (
               <div class="mb-5">
-                <h2 class="h4 text-white fw-semibold mb-3">The Engineering Solution</h2>
-                <p class="text-white-50 mb-4" style="line-height: 1.7;">
-                  {data.solution}
+                <h2 class="h4 text-white fw-semibold mb-3">2. Critical Real-World Constraints</h2>
+                <p class="text-white-50 mb-3 small">
+                  The system was engineered to operate reliably under strict operational boundaries:
                 </p>
+                <div class="row g-3">
+                  {data.constraints.map((c) => (
+                    <div class="col-md-6">
+                      <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <div class="d-flex align-items-start gap-2">
+                          <i class="ph ph-shield-check text-warning mt-1" style="font-size: 1.25rem;"></i>
+                          <span class="text-white-50 small">{c}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 
-            <!-- Architecture Components -->
+            <!-- 3. What Vesharo Built & Our Role -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">3. What Vesharo Built</h2>
+              {data.role && (
+                <p class="text-primary small fw-semibold mb-3">
+                  Vesharo Responsibility: {data.role}
+                </p>
+              )}
+              {data.whatWeBuilt && data.whatWeBuilt.length > 0 ? (
+                <div class="row g-3">
+                  {data.whatWeBuilt.map((item) => (
+                    <div class="col-12">
+                      <div class="p-3 rounded-3 d-flex align-items-start gap-3" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <span class="text-white small fw-medium">{item}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p class="text-white-50 small mb-0">{data.solution}</p>
+              )}
+            </div>
+
+            <!-- 4. Engineering Approach -->
+            {data.approach && (
+              <div class="mb-5">
+                <h2 class="h4 text-white fw-semibold mb-3">4. Engineering Approach</h2>
+                <div class="p-4 rounded-3" style="background-color: rgba(255, 255, 255, 0.02); border-left: 4px solid #0066FF;">
+                  <p class="text-white-50 mb-0" style="line-height: 1.7;">
+                    {data.approach}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <!-- 5. System Architecture & Components -->
             {data.architecture && data.architecture.length > 0 && (
               <div class="mb-5">
-                <h2 class="h4 text-white fw-semibold mb-3">System Architecture &amp; Highlights</h2>
+                <h2 class="h4 text-white fw-semibold mb-3">5. System Architecture & Core Components</h2>
                 <div class="row g-3">
                   {data.architecture.map((item) => (
                     <div class="col-12">
@@ -128,14 +194,45 @@ const caseStudyJsonLd = {
               </div>
             )}
 
-            <!-- Verified Results -->
+            <!-- 6. Tangible Deliverables -->
+            {data.deliverables && data.deliverables.length > 0 && (
+              <div class="mb-5">
+                <h2 class="h4 text-white fw-semibold mb-3">6. Tangible Deliverables Handed Over</h2>
+                <div class="row g-3">
+                  {data.deliverables.map((deliv) => (
+                    <div class="col-md-6">
+                      <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <div class="d-flex align-items-start gap-2">
+                          <i class="ph ph-package text-primary mt-1" style="font-size: 1.25rem;"></i>
+                          <span class="text-white-50 small">{deliv}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- 7. Verified Outcomes & Operational Impact -->
             <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">Verified Results &amp; Operational Impact</h2>
+              <h2 class="h4 text-white fw-semibold mb-3">7. Verified Outcomes & Operational Impact</h2>
               <ul class="text-white-50 ps-4 mb-0">
-                {data.metrics.map((m) => (
-                  <li class="mb-2"><strong class="text-white">{m}</strong> — verified in production deployment.</li>
+                {(data.verifiedOutcomes || data.metrics).map((m) => (
+                  <li class="mb-2"><strong class="text-white">{m}</strong> — verified in production environment.</li>
                 ))}
               </ul>
+            </div>
+
+            <!-- 8. Next Step Call to Action -->
+            <div class="p-4 p-md-5 rounded-4 text-center mt-5" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 210, 255, 0.05) 100%); border: 1px solid rgba(0, 102, 255, 0.35);">
+              <h2 class="h4 text-white fw-bold mb-2">Deploying a Similar System?</h2>
+              <p class="text-white-50 small mx-auto mb-4" style="max-width: 540px; line-height: 1.7;">
+                {data.nextStep || "Schedule a 30-minute discovery consultation with our technical leads to scope your architecture and sprint milestones."}
+              </p>
+              <a href="/contact" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2">
+                <span>Book Technical Scoping Call</span>
+                <i class="ph ph-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>

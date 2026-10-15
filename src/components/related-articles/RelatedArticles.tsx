@@ -50,7 +50,7 @@ function RelatedArticles() {
                 </div>
               </div>
               <div className="tz-blog2-card__image">
-                <img src="/images/blog/blog2-img1.jpg" alt="img" />
+                <img src="/images/blog/blog2-img1.jpg" alt="Website wireframe and analytics dashboard preview" width={400} height={250} loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ function RelatedArticles() {
                 </div>
               </div>
               <div className="tz-blog2-card__image">
-                <img src="/images/blog/blog2-img2.jpg" alt="img" />
+                <img src="/images/blog/blog2-img2.jpg" alt="Performance telemetry tracking chart" width={400} height={250} loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ function RelatedArticles() {
                 </div>
               </div>
               <div className="tz-blog2-card__image">
-                <img src="/images/blog/blog2-img3.jpg" alt="img" />
+                <img src="/images/blog/blog2-img3.jpg" alt="Data metrics and customer conversion funnel" width={400} height={250} loading="lazy" decoding="async" />
               </div>
             </div>
           </div>

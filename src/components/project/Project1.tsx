@@ -131,7 +131,7 @@ function Project1({
                   </Link>
                 </div>
                 <div className="tz-project1-card__image-wrapper">
-                  <img src={project.imageSrc} alt={project.title} className="img-fluid w-100 rounded" />
+                  <img src={project.imageSrc} alt={project.title} className="img-fluid w-100 rounded" width={600} height={380} loading="lazy" decoding="async" />
                   <span className="tz-project1-card__tag-date tz-text-m">
                     {project.year}
                     <span className="tz-project1-card__line" />

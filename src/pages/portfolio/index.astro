@@ -54,7 +54,7 @@ const portfolioJsonLd = {
         <span class="badge px-3 py-2 rounded-pill text-primary mb-3" style="background-color: rgba(0, 102, 255, 0.12); font-size: 0.875rem;">
           Verified Production Work
         </span>
-        <h1 class="h1 text-white fw-bold mb-3">Real Products Engineered for Industry Leaders</h1>
+        <h1 class="h1 text-white fw-bold mb-3">Real Products Engineered for Production Scale</h1>
         <p class="text-white-50 lead mx-auto mb-4" style="max-width: 720px;">
           We adhere to strict content integrity: no invented client logos or fictitious case studies. Here is the verified software we have built and deployed.
         </p>
@@ -95,8 +95,11 @@ const portfolioJsonLd = {
                     src={data.image}
                     alt={`${data.title} product screen mockup`}
                     class="img-fluid rounded"
+                    width="600"
+                    height="340"
                     style="max-height: 240px; width: auto; object-fit: contain;"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -106,7 +109,14 @@ const portfolioJsonLd = {
                   </span>
                   <div class="d-flex align-items-center gap-2">
                     {data.status && (
-                      <span class="badge px-2 py-1 rounded text-white" style="background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;">
+                      <span
+                        class="badge px-2 py-1 rounded"
+                        style={
+                          data.status.toLowerCase().includes("beta") || data.status.toLowerCase().includes("development")
+                            ? "background-color: rgba(245, 166, 35, 0.2); color: #F5A623; font-size: 0.75rem;"
+                            : "background-color: rgba(39, 201, 63, 0.2); color: #27C93F; font-size: 0.75rem;"
+                        }
+                      >
                         {data.status}
                       </span>
                     )}
