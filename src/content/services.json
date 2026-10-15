@@ -1,5 +1,67 @@
 [
   {
+    "id": "mobile-app-development",
+    "title": "Mobile App Development",
+    "shortDescription": "Production iOS & Android cross-platform solutions built for scale",
+    "fullDescription": "Develop native-feel mobile applications with smooth gestures, offline capabilities, secure biometric authentication, and background synchronization. We build production cross-platform applications with React Native and Expo that deliver high-velocity releases without sacrificing 60 FPS performance or native device capabilities.",
+    "icon": "ph-device-mobile",
+    "features": [
+      "React Native & Expo Cross-Platform Apps with shared TypeScript business logic",
+      "Offline-First Architecture with local SQLite / WatermelonDB synchronization",
+      "Secure Hardware Integration: Biometrics, Camera, Bluetooth & Push Notifications",
+      "Complete App Store & Google Play Release Pipeline and Signing Automation"
+    ],
+    "deliverables": [
+      "Production-ready iOS (.ipa) and Android (.aab) compiled application bundles",
+      "Complete source code repository with automated CI/CD build scripts",
+      "App Store and Google Play store listings and compliance assets",
+      "Integrated crash analytics and real-time telemetry error monitoring"
+    ],
+    "order": 1,
+    "problemStatement": "Engineering teams and founders often struggle with split codebases across iOS and Android, brittle offline synchronization, degraded mobile frame rates, and unexpected store rejection cycles that delay launches.",
+    "useCases": [
+      "Enterprise field operations apps with barcode/QR scanning and offline sync",
+      "B2B mobile dashboards giving executives real-time access to operational metrics",
+      "On-demand service booking apps with live GPS tracking and push notifications",
+      "Customer loyalty and mobile commerce apps with one-tap payment checkout"
+    ],
+    "process": [
+      {
+        "step": "Mobile Architecture & UX Specs",
+        "desc": "We architect state machines, offline caching strategies, and intuitive mobile gesture flows."
+      },
+      {
+        "step": "Cross-Platform Engineering",
+        "desc": "We build shared TypeScript components with native bridges for platform-specific hardware modules."
+      },
+      {
+        "step": "Hardware & Network Testing",
+        "desc": "We test performance under unstable network conditions, battery consumption, and device memory constraints."
+      },
+      {
+        "step": "Store Submission & Go-Live",
+        "desc": "We manage Apple Developer and Google Play Console store certification, review approvals, and release."
+      }
+    ],
+    "techStack": ["React Native", "Expo", "TypeScript", "Fastlane", "SQLite", "Firebase Cloud Messaging", "Node.js", "iOS / Android APIs"],
+    "faqs": [
+      {
+        "question": "Can cross-platform apps match native performance?",
+        "answer": "Yes. With the modern React Native architecture and Expo prebuild, cross-platform apps achieve 60 FPS animations indistinguishable from native code."
+      },
+      {
+        "question": "Do you assist with Apple App Store and Google Play store approvals?",
+        "answer": "Yes. We handle privacy policy declarations, cryptographic compliance, app screenshots, and guide the entire store review submission."
+      },
+      {
+        "question": "Can the app function without an active internet connection?",
+        "answer": "Yes. We implement robust offline-first caching that queues local transactions and synchronizes automatically upon reconnect."
+      }
+    ],
+    "relatedCaseStudyId": "lockapp",
+    "relatedServiceIds": ["ai-automation", "custom-software-development", "cloud-devops"]
+  },
+  {
     "id": "ai-automation",
     "title": "AI Automation",
     "shortDescription": "Workflow automation, LLM integration & autonomous pipelines",
@@ -17,9 +79,10 @@
       "Comprehensive telemetry, latency & accuracy monitoring dashboards",
       "Complete OpenAPI specifications and developer documentation"
     ],
-    "order": 1,
+    "order": 2,
+    "problemStatement": "Growing enterprises lose hundreds of operational hours to manual data re-keying, document verification, and cross-platform synchronization, while generic automation tools lack schema validation and fail silently.",
     "useCases": [
-      "Automated invoice and financial document parsing with 99%+ field extraction accuracy",
+      "Automated invoice and financial document parsing with schema-validated field extraction",
       "Customer onboarding workflows that verify compliance documents in real-time",
       "Cross-platform CRM and ERP data reconciliation without human intervention",
       "Intelligent ticketing triage and automated response routing for enterprise IT"
@@ -50,7 +113,7 @@
       },
       {
         "question": "Can our proprietary data be kept completely private?",
-        "answer": "Yes. We deploy models either via zero-retention enterprise enterprise endpoints or self-hosted open-weights models within your private AWS/GCP cloud perimeter."
+        "answer": "Yes. We deploy models either via zero-retention enterprise endpoints or self-hosted open-weights models within your private AWS/GCP cloud perimeter."
       },
       {
         "question": "How long does a typical automation project take to deploy?",
@@ -58,7 +121,7 @@
       }
     ],
     "relatedCaseStudyId": "wirebench",
-    "relatedServiceIds": ["ai-agents-chatbots", "cloud-devops", "custom-software-development"]
+    "relatedServiceIds": ["mobile-app-development", "ai-agents-chatbots", "cloud-devops"]
   },
   {
     "id": "ai-agents-chatbots",
@@ -78,9 +141,10 @@
       "Hybrid RAG knowledge retrieval and vector indexing pipeline",
       "Admin monitoring portal with full conversation audit logs"
     ],
-    "order": 2,
+    "order": 3,
+    "problemStatement": "Conventional chatbots frustrate users with canned scripts or hallucinated answers, lacking authenticated tool access, live database retrieval, persistent context memory, and graceful human escalation.",
     "useCases": [
-      "24/7 technical customer support agents capable of resolving 70%+ of tier-1 requests",
+      "24/7 technical customer support agents capable of handling frequent tier-1 inquiries and escalating complex issues",
       "Internal HR and engineering knowledge base copilots with instant policy lookups",
       "Autonomous sales qualification agents that book discovery meetings on calendar",
       "Financial report summarization agents that pull live transactional metrics"
@@ -119,7 +183,7 @@
       }
     ],
     "relatedCaseStudyId": "wirebench",
-    "relatedServiceIds": ["ai-automation", "custom-software-development", "web-development"]
+    "relatedServiceIds": ["mobile-app-development", "ai-automation", "custom-software-development"]
   },
   {
     "id": "custom-software-development",
@@ -139,7 +203,8 @@
       "Comprehensive unit, integration, and load testing suites",
       "Detailed architectural blueprints and database ER diagrams"
     ],
-    "order": 3,
+    "order": 4,
+    "problemStatement": "Companies outgrowing generic SaaS platforms face fragmented workflows, mounting technical debt, and performance bottlenecks that stall product releases and hinder business growth.",
     "useCases": [
       "Enterprise resource planning and inventory management systems for retail chains",
       "Secure fintech transaction processing gateways with strict audit trails",
@@ -180,7 +245,7 @@
       }
     ],
     "relatedCaseStudyId": "navratrios",
-    "relatedServiceIds": ["web-development", "mobile-app-development", "cloud-devops"]
+    "relatedServiceIds": ["mobile-app-development", "web-development", "cloud-devops"]
   },
   {
     "id": "web-development",
@@ -200,7 +265,8 @@
       "Sub-100KB gzipped client JavaScript payload optimization",
       "Edge-ready deployment setup with custom cache headers and CDN integration"
     ],
-    "order": 4,
+    "order": 5,
+    "problemStatement": "Modern web platforms suffer from heavy JavaScript payloads, slow Core Web Vitals, poor mobile responsiveness, and fragile client-side hydration that harm search rankings and enterprise conversion rates.",
     "useCases": [
       "High-converting marketing websites and landing pages for B2B SaaS companies",
       "Customer portals and interactive account dashboards with real-time updates",
@@ -241,68 +307,7 @@
       }
     ],
     "relatedCaseStudyId": "medmarketmd",
-    "relatedServiceIds": ["custom-software-development", "mobile-app-development", "cloud-devops"]
-  },
-  {
-    "id": "mobile-app-development",
-    "title": "Mobile App Development",
-    "shortDescription": "Fluid iOS & Android cross-platform solutions built for scale",
-    "fullDescription": "Develop native-feel mobile applications with smooth gestures, offline capabilities, secure biometric authentication, and background synchronization. We build production cross-platform applications that deliver high-velocity releases without sacrificing 60 FPS performance or native device capabilities.",
-    "icon": "ph-device-mobile",
-    "features": [
-      "React Native & Flutter Cross-Platform Apps with shared business logic",
-      "Offline-First Architecture with SQLite / WatermelonDB local synchronization",
-      "Secure Hardware Integration: Biometrics, Camera, Bluetooth & Push Notifications",
-      "Complete App Store & Google Play Release Pipeline and Signing Engineering"
-    ],
-    "deliverables": [
-      "Production-ready iOS (.ipa) and Android (.aab) compiled application bundles",
-      "Optimized App Store and Google Play store listings and compliance assets",
-      "Push notification service integration with targeted audience segmentation",
-      "Integrated crash analytics and real-time telemetry error monitoring"
-    ],
-    "order": 5,
-    "useCases": [
-      "Enterprise field operations apps with barcode/QR scanning and offline sync",
-      "B2B mobile dashboards giving executives real-time access to operational metrics",
-      "On-demand service booking apps with live GPS tracking and push notifications",
-      "Customer loyalty and mobile commerce apps with one-tap payment checkout"
-    ],
-    "process": [
-      {
-        "step": "Mobile Architecture & UX Specs",
-        "desc": "We architect state machines, offline caching strategies, and intuitive mobile gesture flows."
-      },
-      {
-        "step": "Cross-Platform Engineering",
-        "desc": "We build shared TypeScript/Dart components with native bridges for platform-specific hardware modules."
-      },
-      {
-        "step": "Hardware & Network Testing",
-        "desc": "We test performance under flaky network conditions, battery consumption, and device memory constraints."
-      },
-      {
-        "step": "Store Submission & Go-Live",
-        "desc": "We manage Apple Developer and Google Play Console store certification, review approvals, and release."
-      }
-    ],
-    "techStack": ["React Native", "TypeScript", "Flutter", "SQLite", "Expo / Fastlane", "Firebase", "Redux Toolkit", "iOS / Android APIs"],
-    "faqs": [
-      {
-        "question": "Can cross-platform apps match native performance?",
-        "answer": "Yes. With the modern React Native new architecture and Flutter's Skia/Impeller renderer, cross-platform apps achieve 60 FPS animations indistinguishable from native code."
-      },
-      {
-        "question": "Do you assist with Apple App Store and Google Play store approvals?",
-        "answer": "Yes. We handle privacy policy declarations, cryptographic compliance, app screenshots, and guide the entire store review submission."
-      },
-      {
-        "question": "Can the app function without an active internet connection?",
-        "answer": "Yes. We implement robust offline-first caching that queues local transactions and synchronizes automatically upon reconnect."
-      }
-    ],
-    "relatedCaseStudyId": "lockapp",
-    "relatedServiceIds": ["custom-software-development", "cloud-devops", "web-development"]
+    "relatedServiceIds": ["mobile-app-development", "custom-software-development", "cloud-devops"]
   },
   {
     "id": "cloud-devops",
@@ -323,11 +328,12 @@
       "Cloud spend architecture audit and cost-reduction remediation plan"
     ],
     "order": 6,
+    "problemStatement": "Engineering teams waste significant sprint velocity on manual deployments, configuration drift, lack of automated rollbacks, unmonitored downtime risks, and bloated monthly cloud infrastructure costs.",
     "useCases": [
       "Migrating legacy virtual machine hosting to scalable containerized clusters",
       "Eliminating manual deployment errors with automated continuous delivery",
       "Multi-region disaster recovery and automated database backup replication",
-      "Optimizing cloud resource allocation to reduce monthly infrastructure bills by 30-50%"
+      "Optimizing cloud resource allocation and eliminating idle compute to reduce recurring infrastructure costs"
     ],
     "process": [
       {
@@ -363,7 +369,7 @@
       }
     ],
     "relatedCaseStudyId": "navratrios",
-    "relatedServiceIds": ["custom-software-development", "ai-automation", "it-consulting"]
+    "relatedServiceIds": ["mobile-app-development", "custom-software-development", "it-consulting"]
   },
   {
     "id": "it-consulting",
@@ -384,6 +390,7 @@
       "Detailed timeline, resource, and budget projection estimates"
     ],
     "order": 7,
+    "problemStatement": "Leadership teams frequently face high-stakes architectural decisions without unbiased technical validation, resulting in expensive rework, technology lock-in, and misaligned engineering investments.",
     "useCases": [
       "Technical due diligence and architecture review ahead of investment or acquisition",
       "Formulating a pragmatic 12-month technology roadmap for scaling startups",
@@ -424,6 +431,6 @@
       }
     ],
     "relatedCaseStudyId": "lockapp",
-    "relatedServiceIds": ["custom-software-development", "cloud-devops", "ai-automation"]
+    "relatedServiceIds": ["mobile-app-development", "custom-software-development", "cloud-devops"]
   }
 ]

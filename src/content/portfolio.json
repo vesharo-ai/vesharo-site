@@ -3,7 +3,8 @@
     "id": "lockapp",
     "title": "LockApp",
     "tagline": "B2B SaaS for Indian phone retailers to remotely manage Android devices sold on EMI",
-    "client": "Hardware Financing & Smartphone Retailers",
+    "client": "Smartphone Financing & Consumer Electronics Retailers",
+    "audience": "Smartphone financing companies, NBFCs, and multi-store electronics retailers across India",
     "year": "2025",
     "category": "Enterprise Mobile & Cloud SaaS",
     "tags": [
@@ -15,6 +16,19 @@
     "role": "Full-Stack Architecture, Android Device Owner Client & Cloud Backend",
     "description": "LockApp is an enterprise-grade mobile device management and EMI payment compliance platform built for electronics retailers, smartphone distributors, and non-banking financial companies (NBFCs). The system couples an Android device administrator agent with a resilient cloud control plane to protect financed hardware assets.",
     "challenge": "Electronics retailers and financing firms face significant default risks when financing smartphones without collateral. Customers can remove SIM cards, turn off Wi-Fi, or attempt hardware resets to evade payment obligations, rendering standard cloud-based locks ineffective.",
+    "constraints": [
+      "Zero network dependency for policy enforcement once deployed",
+      "Immunity against hardware factory reset via recovery menus",
+      "Low battery footprint with Android Device Admin background services",
+      "Carrier-agnostic SMS fallback when mobile data and Wi-Fi are disconnected"
+    ],
+    "whatWeBuilt": [
+      "Low-level Android Kotlin Device Owner agent with persistent watchdog service",
+      "Event-driven Node.js backend managing fleet policy states and IMEI registries",
+      "Secure multi-tenant retailer administration dashboard on Railway and MongoDB Atlas",
+      "Dual-channel lock/unlock signaling via Firebase Cloud Messaging and Fast2SMS triggers"
+    ],
+    "approach": "We adopted Android Enterprise Device Owner provisioning combined with an SMS data fallback mechanism to guarantee policy enforcement even when mobile data connectivity is intentionally cut.",
     "solution": "Vesharo engineered a dual-layer MDM architecture combining a low-level Android Kotlin Device Owner lock app with a distributed Node.js/Express backend on Railway with MongoDB Atlas. FCM lock/unlock signals are coupled with Fast2SMS fallback triggers, ensuring offline policy enforcement even when network connectivity is severed.",
     "architecture": [
       "Kotlin Android Enterprise Device Owner client with persistent watchdog",
@@ -22,11 +36,23 @@
       "MongoDB Atlas cluster with tenant-isolated retailer reporting and audit trails",
       "Firebase Cloud Messaging (FCM) with automated Fast2SMS fallback triggers"
     ],
+    "deliverables": [
+      "Production-ready Android Device Owner APK with automated provisioning flow",
+      "Cloud backend API service deployed on Railway with MongoDB Atlas cluster",
+      "Web-based retailer portal for device tracking and lock dispatch",
+      "Technical documentation and store provisioning standard operating procedure (SOP)"
+    ],
+    "verifiedOutcomes": [
+      "Multi-tenant retailer fleet management live in production",
+      "Tamper-resistant local lock enforcement active across enrolled devices",
+      "Operational dual-channel SMS + FCM lock dispatch verified across carriers"
+    ],
     "metrics": [
       "Real-time remote device policy sync across multi-tenant retailer accounts",
       "Tamper-resistant offline lock enforcement preventing unauthorized bypass",
       "Centralized retailer administration dashboard with automated EMI reconciliation"
     ],
+    "nextStep": "Schedule a discovery consultation with our mobile & IoT systems team to scope an enterprise device management architecture.",
     "stack": [
       "Android SDK / Kotlin",
       "React Native / Expo",
@@ -43,7 +69,8 @@
     "id": "navratrios",
     "title": "NavratriOS",
     "tagline": "Multi-tenant SaaS digitizing Navratri festival registration and gate entry in Gujarat",
-    "client": "Cultural Festivals & Event Organizers",
+    "client": "Cultural Festival Organizers & Gujarat Venues",
+    "audience": "Cultural festival organizers, large garba venue managers, and ticketing partners across Gujarat",
     "year": "2024",
     "category": "Event Infrastructure & High-Volume Ticketing",
     "tags": [
@@ -52,9 +79,22 @@
       "High Concurrency"
     ],
     "status": "Piloted at Gujarat Venues & In Production",
-    "role": "High-Concurrency Backend, Offline QR Protocol & Scanner App",
+    "role": "High-Concurrency Backend, Offline QR Protocol & Handheld Scanner App",
     "description": "NavratriOS is a high-throughput ticketing and gate-entry management SaaS platform engineered to manage massive crowds at large cultural festivals and venues in Gujarat. Built for thousands of scans at peak, it delivers sub-second QR pass verification, instant anti-passback protection, and real-time crowd telemetry.",
     "challenge": "During large-scale multi-day cultural events, venue gates experience massive rushes of tens of thousands of attendees arriving within a narrow 90-minute window. Network connectivity at crowded physical gates is frequently congested, leading to scanner freezes, long entry queues, and ticketing fraud.",
+    "constraints": [
+      "Congested cellular networks and intermittent gate Wi-Fi",
+      "Sub-second verification per attendee to avoid physical queue hazards",
+      "Strict anti-passback enforcement to eliminate screenshot and token sharing",
+      "Asynchronous batch-syncing to maintain entry velocity without connectivity loss"
+    ],
+    "whatWeBuilt": [
+      "Offline-first React Native gate scanner with sub-200ms cryptographic QR verification",
+      "Modular Node.js and Express event ticketing backend designed for peak concurrency",
+      "MongoDB database cluster with in-memory anti-passback verification checks",
+      "Web portals for event organizers, ticketing sponsors, and garba dance academies"
+    ],
+    "approach": "We designed an offline cryptographic verification model where passes are signed with asymmetric keys and validated locally on handheld devices, asynchronously syncing scans with central servers when connections restore.",
     "solution": "Vesharo architected a modular Node.js/Express backend backed by MongoDB and an offline-tolerant QR verification protocol. Handheld React Native/Expo gate scanners locally validate cryptographically signed QR tokens in under 200ms while asynchronously batch-syncing validation logs with the central server.",
     "architecture": [
       "Modular Node.js/Express API architecture built for thousands of scans at peak",
@@ -62,11 +102,23 @@
       "MongoDB database cluster with in-memory anti-passback verification checks",
       "Real-time administrative web portals for organizers and garba classes"
     ],
+    "deliverables": [
+      "Cross-platform mobile scanner application compiled for Android handhelds",
+      "Ticketing administration web application with real-time gate telemetry",
+      "RESTful API services with containerized Docker deployment scripts",
+      "Staff operator runbook and offline synchronization protocol documentation"
+    ],
+    "verifiedOutcomes": [
+      "Deployed across high-density Gujarat festival venues",
+      "Sub-second gate validation achieved on handheld scanners under zero-signal conditions",
+      "Zero-downtime event registration spikes handled during peak evening ticketing rushes"
+    ],
     "metrics": [
       "Sub-second gate validation via handheld scanners under dense crowd conditions",
       "Zero-downtime registration spikes under heavy evening ticketing rushes",
       "Real-time attendance analytics and pass management across multi-gate perimeters"
     ],
+    "nextStep": "Discuss deploying offline cryptographic ticketing or high-concurrency event infrastructure for your upcoming venue.",
     "stack": [
       "React Native / Expo",
       "Node.js / Express",
@@ -83,7 +135,8 @@
     "id": "wirebench",
     "title": "Wirebench",
     "tagline": "Private API client with one-click Postman migration, drift detection & team changelog",
-    "client": "Developer Tooling & Engineering Teams",
+    "client": "Developer Tooling & Distributed Engineering Teams",
+    "audience": "Backend engineering squads, API platform teams, and full-stack software architects",
     "year": "2024",
     "category": "Developer Tools & API Governance",
     "tags": [
@@ -95,6 +148,19 @@
     "role": "Core Architecture, Schema Diffing Engine & Desktop Client",
     "description": "Wirebench is a lightweight, privacy-first API testing and documentation workbench built for distributed engineering teams. It offers one-click migration from Postman, Insomnia, and Hoppscotch, continuously monitors live endpoint contracts against OpenAPI schemas, and flags breaking schema regressions.",
     "challenge": "As engineering teams scale microservices independently, subtle API contract drift—such as altered nullability, renamed response keys, or type shifts—routinely slips past unit tests, causing silent breakages across downstream web and mobile applications.",
+    "constraints": [
+      "Zero transmission of proprietary API keys or endpoints to external cloud servers",
+      "Compatibility with complex nested OpenAPI 3.0 and 3.1 specification trees",
+      "Instant desktop performance with local-first file system persistence",
+      "Lossless conversion of nested Postman collection environments and scripts"
+    ],
+    "whatWeBuilt": [
+      "Local-first Electron and TypeScript desktop application with SQLite storage",
+      "AST-based schema comparison engine comparing live API payloads against OpenAPI specifications",
+      "Lossless one-click importer for Postman collections, Insomnia workspaces, and Hoppscotch",
+      "Automated visual diff viewer and markdown release changelog generator"
+    ],
+    "approach": "We built a privacy-first, local-first desktop application that runs diffing logic entirely on developer machines or in isolated CI pipelines without any outbound telemetry or proprietary data storage.",
     "solution": "Vesharo built Wirebench as an offline-capable, local-first API workbench that executes contract diffing directly on developer machines or within private VPC CI pipelines. It generates automated visual diffs and markdown changelogs with zero third-party cloud data exposure.",
     "architecture": [
       "Local-first Electron & TypeScript desktop client with SQLite persistence",
@@ -102,11 +168,23 @@
       "One-click lossless importer for Postman collections, Insomnia, and Hoppscotch",
       "Zero-telemetry privacy design ensuring proprietary API credentials never leave the machine"
     ],
+    "deliverables": [
+      "Cross-platform desktop application installers for macOS and Linux",
+      "Embedded SQLite database migrations and local schema validation engine",
+      "Comprehensive OpenAPI 3.1 parser test suite with schema regression fixtures",
+      "Open source documentation and community contribution guidelines"
+    ],
+    "verifiedOutcomes": [
+      "Functional beta release undergoing internal engineering evaluation",
+      "Accurate detection of breaking schema regressions across complex JSON payloads",
+      "Zero external network requests made during test collection execution"
+    ],
     "metrics": [
       "Automated contract-drift alerting preventing breaking client regressions",
       "Zero cloud data leaks — operates completely locally or in private VPCs",
       "Integrated markdown changelog generation streamlining cross-squad releases"
     ],
+    "nextStep": "Join the early access beta program or explore deploying automated schema drift guards into your CI pipeline.",
     "stack": [
       "TypeScript",
       "Electron",
@@ -124,7 +202,8 @@
     "id": "medmarketmd",
     "title": "MedMarketMD",
     "tagline": "B2B medical supplies procurement & inventory distribution platform",
-    "client": "Healthcare Providers & Medical Distributors",
+    "client": "Healthcare Clinics & Medical Equipment Distributors",
+    "audience": "Medical clinics, regional diagnostic laboratories, and certified pharmaceutical distributors",
     "year": "2024",
     "category": "Healthcare B2B SaaS & Supply Chain",
     "tags": [
@@ -134,8 +213,21 @@
     ],
     "status": "Live in Production",
     "role": "System Architecture & Full-Stack Platform Engineering",
-    "description": "MedMarketMD is a HIPAA-compliant B2B digital procurement platform designed for clinics, diagnostic centers, and certified pharmaceutical distributors. It centralizes bulk order purchasing, automated batch tracking, and supplier pricing agreements.",
+    "description": "MedMarketMD is a B2B digital procurement and medical supply distribution platform engineered with tenant-isolated role permissions and encrypted transaction auditing. It centralizes bulk order purchasing, automated batch tracking, and supplier pricing agreements.",
     "challenge": "Medical procurement involves fragmented supplier catalogs, compliance certification checks, and erratic inventory lead times, leading to order delays and pricing discrepancies.",
+    "constraints": [
+      "Strict data confidentiality and tenant-isolated record encryption",
+      "Dynamic wholesale tier pricing and minimum order quantity rules per facility",
+      "Multi-vendor order routing with synchronized inventory reservations",
+      "Verifiable audit logging for all prescription and clinical inventory transfers"
+    ],
+    "whatWeBuilt": [
+      "Multi-tenant B2B digital procurement web portal with role-based buyer/seller authorization",
+      "High-throughput Node.js backend with row-level tenant security and audit logging",
+      "Real-time inventory reservation engine preventing overselling across distributor warehouses",
+      "Automated purchase order PDF generation and webhook notifications"
+    ],
+    "approach": "We built a unified digital procurement platform featuring tenant-isolated access controls, encrypted order history, and automated catalog reconciliation.",
     "solution": "Vesharo engineered a centralized B2B marketplace engine with multi-vendor role-based access, automated invoice reconciliation, and integrated cold-chain tracking telemetry.",
     "architecture": [
       "Fastify & Node.js backend with row-level tenant security",
@@ -143,11 +235,23 @@
       "Real-time stock reservation and batch tracking engine",
       "Automated purchase order PDF generation and webhook dispatch"
     ],
+    "deliverables": [
+      "Production web application with responsive administrative and vendor dashboards",
+      "Relational database schema with automated migration scripts and backup policies",
+      "RESTful API service with complete OpenAPI documentation",
+      "Continuous deployment pipeline targeting containerized cloud infrastructure"
+    ],
+    "verifiedOutcomes": [
+      "Active production platform handling multi-vendor wholesale procurement",
+      "Zero-downtime procurement operations for healthcare facilities",
+      "Automated order fulfillment with verifiable audit trails"
+    ],
     "metrics": [
       "Streamlined multi-vendor catalog management",
       "Automated purchase order fulfillment and audit trails",
       "Zero-downtime procurement operations for healthcare facilities"
     ],
+    "nextStep": "Consult with our healthcare & B2B SaaS engineering team to build a secure, compliant procurement solution.",
     "stack": [
       "React",
       "Node.js",

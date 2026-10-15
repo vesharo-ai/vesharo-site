@@ -77,34 +77,27 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
             </div>
 
             <h1 class="h2 text-white fw-bold mb-3">{data.title}</h1>
-            <p class="text-white-50 lead mb-5" style="line-height: 1.7;">
+            <p class="text-white-50 lead mb-4" style="line-height: 1.7;">
               {data.fullDescription}
             </p>
 
-            <!-- What's Included -->
-            <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">What's Included & Core Capabilities</h2>
-              <p class="text-white-50 mb-4">
-                Our engineering squads take an end-to-end approach, handling architectural design, prototype validation, hardening, and production cloud operations.
-              </p>
-              <div class="row g-3">
-                {data.features.map((feature) => (
-                  <div class="col-md-6">
-                    <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
-                      <div class="d-flex align-items-start gap-2">
-                        <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
-                        <span class="text-white small fw-medium">{feature}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+            <!-- 1. Buyer Problem / The Challenge -->
+            {data.problemStatement && (
+              <div class="mb-5 p-4 rounded-3" style="background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-left: 4px solid #ef4444;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="ph ph-warning-circle text-danger" style="font-size: 1.25rem;"></i>
+                  <h2 class="h5 text-white fw-semibold mb-0">The Problem & Industry Bottleneck</h2>
+                </div>
+                <p class="text-white-50 mb-0 small" style="line-height: 1.7;">
+                  {data.problemStatement}
+                </p>
               </div>
-            </div>
+            )}
 
-            <!-- Enterprise Use Cases -->
+            <!-- 2. When to Use / Ideal Fit -->
             {data.useCases && data.useCases.length > 0 && (
               <div class="mb-5">
-                <h2 class="h4 text-white fw-semibold mb-3">Enterprise Use Cases & Applications</h2>
+                <h2 class="h4 text-white fw-semibold mb-3">When to Use & Ideal Fit</h2>
                 <p class="text-white-50 mb-3">
                   How modern organizations leverage this capability to eliminate friction, automate workflows, and scale revenue:
                 </p>
@@ -119,7 +112,63 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
               </div>
             )}
 
-            <!-- Engineering Process -->
+            <!-- 3. Tangible Client Deliverables -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">Tangible Client Deliverables</h2>
+              <p class="text-white-50 mb-3">
+                Every client engagement produces clear, production-tested assets with full intellectual property ownership:
+              </p>
+              <div class="row g-3">
+                {data.deliverables.map((d) => (
+                  <div class="col-md-6">
+                    <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+                      <div class="d-flex align-items-start gap-2">
+                        <i class="ph ph-check-square-offset text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <div>
+                          <strong class="text-white d-block small mb-1">{d}</strong>
+                          <span class="text-white-50 small" style="font-size: 0.8rem;">100% intellectual property transferred.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- 4. Technical Approach & Capabilities -->
+            <div class="mb-5">
+              <h2 class="h4 text-white fw-semibold mb-3">Technical Approach & Capabilities</h2>
+              <p class="text-white-50 mb-4">
+                Our engineering squads take an end-to-end approach, handling architectural design, prototype validation, hardening, and production cloud operations:
+              </p>
+              <div class="row g-3 mb-4">
+                {data.features.map((feature) => (
+                  <div class="col-md-6">
+                    <div class="p-3 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                      <div class="d-flex align-items-start gap-2">
+                        <i class="ph ph-check-circle text-primary mt-1" style="font-size: 1.25rem;"></i>
+                        <span class="text-white small fw-medium">{feature}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {data.techStack && data.techStack.length > 0 && (
+                <div class="p-3 rounded-3" style="background-color: rgba(0, 102, 255, 0.05); border: 1px solid rgba(0, 102, 255, 0.2);">
+                  <span class="text-white-50 small text-uppercase tracking-wider fw-bold d-block mb-2">Core Production Stack:</span>
+                  <div class="d-flex flex-wrap gap-2">
+                    {data.techStack.map((tech) => (
+                      <span class="badge px-3 py-1 rounded-pill text-white" style="background-color: rgba(255, 255, 255, 0.08); font-weight: 500;">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <!-- 5. 4-Stage Delivery Process -->
             {data.process && data.process.length > 0 && (
               <div class="mb-5">
                 <h2 class="h4 text-white fw-semibold mb-3">Our 4-Stage Engineering Process</h2>
@@ -144,17 +193,7 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
               </div>
             )}
 
-            <!-- Deliverables -->
-            <div class="mb-5">
-              <h2 class="h4 text-white fw-semibold mb-3">Tangible Client Deliverables</h2>
-              <ul class="text-white-50 ps-4 mb-0">
-                {data.deliverables.map((d) => (
-                  <li class="mb-2"><strong class="text-white">{d}</strong> with 100% intellectual property ownership transferred upon completion.</li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Related Real Case Study (Only if real) -->
+            <!-- 6. Related Product Proof -->
             {relatedPortfolio && (
               <div class="mb-5 p-4 p-md-5 rounded-4" style="background-color: #070B14; border: 1px solid rgba(0, 102, 255, 0.35);">
                 <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
@@ -192,9 +231,9 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
               </div>
             )}
 
-            <!-- Service FAQs (with FAQPage schema) -->
+            <!-- 7. Frequently Asked Questions -->
             {data.faqs && data.faqs.length > 0 && (
-              <div class="mb-4">
+              <div class="mb-5">
                 <h2 class="h4 text-white fw-semibold mb-3">Frequently Asked Questions</h2>
                 <div class="d-flex flex-column gap-3">
                   {data.faqs.map((f) => (
@@ -208,6 +247,23 @@ const schemas = faqJsonLd ? [serviceJsonLd, faqJsonLd] : [serviceJsonLd];
                 </div>
               </div>
             )}
+
+            <!-- 8. Clear CTA Section -->
+            <div class="p-4 p-md-5 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 210, 255, 0.05) 100%); border: 1px solid rgba(0, 102, 255, 0.35);">
+              <h2 class="h3 text-white fw-bold mb-3">Ready to Scope Your {data.title} Architecture?</h2>
+              <p class="text-white-50 small mx-auto mb-4" style="max-width: 580px; line-height: 1.7;">
+                Schedule a complimentary 30-minute discovery call with our technical leadership. We'll assess technical feasibility, deliver an initial architectural estimate, and map out sprint deliverables.
+              </p>
+              <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+                <a href="/contact" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2">
+                  <span>Book Technical Scoping Call</span>
+                  <i class="ph ph-arrow-right"></i>
+                </a>
+                <a href="mailto:contact@vesharo.com" class="btn btn-outline-secondary px-4 py-2 rounded-pill text-white fw-semibold">
+                  <span>Email Technical Team</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- Bottom Related Services Navigation -->
