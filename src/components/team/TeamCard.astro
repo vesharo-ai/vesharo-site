@@ -61,7 +61,7 @@ const { name, role, bio, initials = "VA", imageSrc, socials, placeholder = false
           <i class="ph ph-github-logo" style="font-size: 1.25rem;"></i>
         </a>
       )}
-      {socials?.linkedin && (
+      {socials?.linkedin && !socials.linkedin.endsWith("linkedin.com") && !socials.linkedin.endsWith("linkedin.com/") && (
         <a
           href={socials.linkedin}
           target="_blank"

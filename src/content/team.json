@@ -6,7 +6,6 @@
     "bio": "Guiding product strategy, technology partnerships, and client delivery across Vesharo engagements.",
     "initials": "HC",
     "socials": {
-      "linkedin": "https://linkedin.com",
       "github": "https://github.com/vesharo-ai"
     },
     "order": 1,
@@ -19,7 +18,6 @@
     "bio": "Architecting distributed cloud systems, high-performance web platforms, and production AI orchestration pipelines.",
     "initials": "HS",
     "socials": {
-      "linkedin": "https://linkedin.com",
       "github": "https://github.com/vesharo-ai"
     },
     "order": 2,
@@ -32,7 +30,6 @@
     "bio": "Specializing in high-throughput Kubernetes orchestration, automated IaC pipelines, and multi-region failover topologies.",
     "initials": "VP",
     "socials": {
-      "linkedin": "https://linkedin.com",
       "github": "https://github.com/vesharo-ai"
     },
     "order": 3,
@@ -45,7 +42,6 @@
     "bio": "Engineering enterprise RAG retrieval systems, latency-optimized LLM pipelines, and autonomous agent validation frameworks.",
     "initials": "AI",
     "socials": {
-      "linkedin": "https://linkedin.com",
       "github": "https://github.com/vesharo-ai"
     },
     "order": 4,

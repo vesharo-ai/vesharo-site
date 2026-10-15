@@ -21,9 +21,9 @@ export interface NavItem {
 
 export const siteConfig = {
   name: "Vesharo",
-  tagline: "Software and AI automation that ships.",
+  tagline: "Production iOS & Android apps with React Native & Expo.",
   description:
-    "Vesharo is a premier IT services and AI automation company delivering custom software, AI agents, mobile applications, and scalable cloud solutions.",
+    "Vesharo engineers production-grade mobile applications for iOS and Android using React Native and Expo, supercharged by intelligent AI automation and scalable cloud backends.",
   url: "https://vesharo.com",
 
   contact: {
@@ -38,13 +38,18 @@ export const siteConfig = {
   },
 
   socials: [
-    { name: "LinkedIn", href: "https://linkedin.com", icon: "ph-linkedin-logo" },
-    { name: "X (Twitter)", href: "https://x.com", icon: "ph-x-logo" },
     { name: "GitHub", href: "https://github.com/vesharo-ai", icon: "ph-github-logo" },
   ],
 
-  // 7 Core Real Services
+  // 7 Core Real Services (Mobile App Development Primary)
   services: [
+    {
+      id: "mobile-app-development",
+      title: "Mobile App Development",
+      shortDescription: "Production iOS & Android apps built with React Native & Expo",
+      href: "/services/mobile-app-development",
+      icon: "ph-device-mobile",
+    },
     {
       id: "ai-automation",
       title: "AI Automation",
@@ -72,13 +77,6 @@ export const siteConfig = {
       shortDescription: "High-performance modern web platforms using Astro, Next.js & React",
       href: "/services/web-development",
       icon: "ph-browser",
-    },
-    {
-      id: "mobile-app-development",
-      title: "Mobile App Development",
-      shortDescription: "Fluid iOS & Android cross-platform solutions built for scale",
-      href: "/services/mobile-app-development",
-      icon: "ph-device-mobile",
     },
     {
       id: "cloud-devops",
@@ -127,7 +125,7 @@ export const siteConfig = {
   nav: [
     { title: "Home", href: "/" },
     { title: "Services", href: "/services", hasDropdown: true },
-    { title: "Portfolio", href: "/portfolio" },
+    { title: "Products & Portfolio", href: "/portfolio" },
     { title: "About", href: "/about" },
     { title: "Pricing", href: "/pricing" },
     { title: "Blog", href: "/blog" },
@@ -142,7 +140,7 @@ export const siteConfig = {
   footerLinks: {
     company: [
       { label: "About Us", href: "/about" },
-      { label: "Our Portfolio", href: "/portfolio" },
+      { label: "Products & Portfolio", href: "/portfolio" },
       { label: "Pricing Models", href: "/pricing" },
       { label: "Insights & Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },

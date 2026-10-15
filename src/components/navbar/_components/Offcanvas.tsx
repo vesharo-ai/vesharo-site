@@ -110,7 +110,7 @@ export default function Offcanvas({
               {siteConfig.tagline}
             </span>
             <p className="text-muted tz-text-s mt-1 mb-0">
-              Custom software engineering, intelligent AI automation, and cloud platforms.
+              Production iOS &amp; Android mobile apps with React Native, Expo, and AI automation.
             </p>
           </div>
 
@@ -169,7 +169,7 @@ export default function Offcanvas({
                   style={{ minHeight: "44px", fontSize: "16px" }}
                   onClick={closeMenu}
                 >
-                  Portfolio
+                  Products &amp; Portfolio
                 </Link>
               </li>
               <li>
