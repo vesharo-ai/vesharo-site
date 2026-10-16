@@ -12,7 +12,10 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes('/thank-you') && !page.includes('/404'),
+      filter: (page) =>
+        !page.includes('/thank-you') &&
+        !page.includes('/404') &&
+        !page.includes('/portfolio/medmarketmd'),
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),

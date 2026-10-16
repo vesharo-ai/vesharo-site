@@ -94,7 +94,7 @@ export const siteConfig = {
     },
   ] as ServiceItem[],
 
-  // Real Verified Portfolio
+  // Real Verified Public Portfolio (Confidential client work strictly excluded from public navigation)
   portfolio: [
     {
       id: "lockapp",
@@ -113,12 +113,6 @@ export const siteConfig = {
       title: "Wirebench",
       tagline: "Private API client with contract-drift detection and team changelog",
       href: "/portfolio/wirebench",
-    },
-    {
-      id: "medmarketmd",
-      title: "MedMarketMD",
-      tagline: "B2B medical supplies procurement & inventory distribution platform",
-      href: "/portfolio/medmarketmd",
     },
   ] as PortfolioItem[],
 

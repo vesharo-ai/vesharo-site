@@ -20,8 +20,13 @@ function Project1({
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    // The stacked-card animation is desktop-only, so GSAP is only downloaded there.
-    if (window.innerWidth <= 992) return;
+    // Check user accessibility preference for reduced motion
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // The stacked-card animation is desktop-only and disabled for reduced motion
+    if (window.innerWidth <= 992 || prefersReducedMotion) return;
 
     const container = containerRef.current;
     const cards = cardsRef.current;
@@ -98,15 +103,17 @@ function Project1({
   }, []);
 
   return (
-    <section className="tz-project1" style={{ backgroundColor }}>
+    <section className="tz-project1" style={{ backgroundColor }} aria-label="Featured Case Studies">
       <div className="container">
-        <div className="tz-section-top tz-section-top--centered">
-          <div className="tz-section-subtitle">
+        <div className="tz-section-top tz-section-top--centered mb-4 mb-lg-5">
+          <div className="tz-section-subtitle mb-2">
             <span className="tz-section-subtitle__line" />
-            <h4 className="text-uppercase tz-text-primary">SELECTED WORKS</h4>
+            <h2 className="tz-text-primary fw-semibold" style={{ fontSize: "0.85rem", letterSpacing: "0.05em" }}>
+              Featured case studies
+            </h2>
           </div>
-          <div className="tz-section-title tz-display-2 text-uppercase">
-            Our finished projects
+          <div className="tz-section-title tz-display-2" style={{ fontFamily: "var(--font-family-heading)", letterSpacing: "-0.02em" }}>
+            Real products engineered for production scale
           </div>
         </div>
         <div className="tz-project1__slides-sticky" ref={containerRef}>
@@ -122,25 +129,25 @@ function Project1({
                 <div className="tz-buttons d-flex justify-content-start justify-content-md-end">
                   <Link
                     href={project.link}
-                    className="tz-button text-uppercase fw-medium tz-text-m"
+                    className="tz-button fw-semibold tz-text-m"
                   >
-                    View More
+                    Read case study
                   </Link>
-                  <Link className="tz-button-circle" href={project.link} aria-label={`View ${project.title}`}>
+                  <Link className="tz-button-circle" href={project.link} aria-label={`Read case study: ${project.title}`}>
                     <i className="ph ph-arrow-up-right" aria-hidden="true" />
                   </Link>
                 </div>
                 <div className="tz-project1-card__image-wrapper">
-                  <img src={project.imageSrc} alt={project.title} className="img-fluid w-100 rounded" width={600} height={380} loading="lazy" decoding="async" />
+                  <img src={project.imageSrc} alt={`${project.title} product screen mockup`} className="img-fluid w-100 rounded" width={600} height={380} loading="lazy" decoding="async" />
                   <span className="tz-project1-card__tag-date tz-text-m">
                     {project.year}
                     <span className="tz-project1-card__line" />
                   </span>
                 </div>
                 <div className="tz-project1-card__meta">
-                  <h2 className="tz-project1-card__title tz-text-neutral5 text-uppercase">
+                  <h3 className="tz-project1-card__title tz-text-neutral5 fw-bold" style={{ fontFamily: "var(--font-family-heading)" }}>
                     {project.title}
-                  </h2>
+                  </h3>
                   <div className="tz-project1-card__category">
                     {project.categories.map((category, catIndex) => (
                       <span
@@ -159,11 +166,11 @@ function Project1({
         <div className="tz-buttons d-flex justify-content-center mt-5 mt-lg-0">
           <Link
             href="/portfolio"
-            className="tz-button text-uppercase fw-medium tz-text-m"
+            className="tz-button fw-semibold tz-text-m"
           >
-            VIEW ALL PROJECTS
+            View all case studies
           </Link>
-          <Link className="tz-button-circle" href="/portfolio" aria-label="View All Projects">
+          <Link className="tz-button-circle" href="/portfolio" aria-label="View all case studies">
             <i className="ph ph-arrow-up-right" />
           </Link>
         </div>

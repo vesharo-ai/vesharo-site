@@ -63,6 +63,10 @@
     ],
     "link": "/portfolio/lockapp",
     "featured": true,
+    "visibility": "public",
+    "confidential": false,
+    "publicApproved": true,
+    "placeholder": false,
     "image": "/images/project/lockapp-mockup.svg"
   },
   {
@@ -129,6 +133,10 @@
     ],
     "link": "/portfolio/navratrios",
     "featured": true,
+    "visibility": "public",
+    "confidential": false,
+    "publicApproved": true,
+    "placeholder": false,
     "image": "/images/project/navratrios-mockup.svg"
   },
   {
@@ -196,6 +204,10 @@
     ],
     "link": "/portfolio/wirebench",
     "featured": true,
+    "visibility": "public",
+    "confidential": false,
+    "publicApproved": true,
+    "placeholder": false,
     "image": "/images/project/wirebench-mockup.svg"
   },
   {
@@ -261,7 +273,11 @@
       "TailwindCSS"
     ],
     "link": "/portfolio/medmarketmd",
-    "featured": true,
+    "featured": false,
+    "visibility": "confidential",
+    "confidential": true,
+    "publicApproved": false,
+    "placeholder": false,
     "image": "/images/project/medmarketmd-mockup.svg"
   }
 ]

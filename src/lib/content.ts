@@ -2,12 +2,13 @@ import { getCollection } from "astro:content";
 import type { ProjectCard } from "@/components/project/Project1";
 import type { TestimonialSlide } from "@/components/testimonials/Testimonial1Slider";
 import { isReviewMode } from "./reviewMode";
+import { isPubliclyPublishable } from "./publication";
 
 export async function getFeaturedProjectCards(): Promise<ProjectCard[]> {
   const review = isReviewMode();
   const entries = await getCollection("portfolio", ({ data }) => {
     if (!data.featured) return false;
-    if (!review && data.placeholder) return false;
+    if (!isPubliclyPublishable(data, { reviewMode: review })) return false;
     return true;
   });
   return entries.map(({ data }) => ({

@@ -1,37 +1,102 @@
 ---
-import { getClientsList } from "@/lib/content";
+/**
+ * TrustStrip.astro — Production Systems & Architecture Proof
+ *
+ * Replaces misleading generic industry "client endorsements" with verified,
+ * concrete product-experience cards linking directly to genuinely public case studies.
+ */
+import { getCollection } from "astro:content";
+import { filterPublicItems } from "@/lib/publication";
 
-const clients = await getClientsList();
+const allProjects = await getCollection("portfolio");
+const publicProjects = filterPublicItems(allProjects).slice(0, 3);
 ---
 
-{clients.length > 0 && (
-  <section class="py-4 border-top border-bottom border-secondary border-opacity-10" style="background-color: #070B14;">
-    <div class="container">
-      <div class="row align-items-center g-3">
-        <div class="col-lg-3 text-center text-lg-start">
-          <span class="tracking-wide fw-semibold small text-white-50" style="letter-spacing: 0.05em; font-size: 0.75rem;">
-            Proven in production across
+<section
+  class="py-4 border-top border-bottom border-secondary border-opacity-15 position-relative"
+  style="background-color: #070B14;"
+  aria-label="Production Systems & Architecture Proof"
+>
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <!-- Section Label -->
+      <div class="col-xl-3 text-center text-xl-start">
+        <div class="d-inline-flex align-items-center gap-2">
+          <span class="d-inline-block rounded-circle" style="width: 8px; height: 8px; background-color: var(--vesharo-electric-accent, #00d2ff); box-shadow: 0 0 8px rgba(0, 210, 255, 0.6);"></span>
+          <span class="text-uppercase tracking-wider fw-bold text-white-50" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+            Engineering Proof
           </span>
         </div>
-        <div class="col-lg-9">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between gap-3">
-            {clients.map(({ data }) => (
-              <div class="p-2 px-3 rounded-3 d-flex align-items-center gap-2 position-relative" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
-                <i class="ph ph-check-circle text-primary" style="font-size: 1rem;"></i>
+        <p class="text-white small fw-semibold mb-0 mt-1 d-none d-xl-block" style="font-size: 0.85rem; line-height: 1.4;">
+          Production platforms built by our squad
+        </p>
+      </div>
+
+      <!-- Public Project Proof Cards -->
+      <div class="col-xl-9">
+        <div class="row g-2 g-md-3">
+          {publicProjects.map(({ data }) => (
+            <div class="col-md-4">
+              <a
+                href={data.link}
+                class="proof-card p-3 rounded-3 d-flex flex-column justify-content-between text-decoration-none h-100 transition-all"
+                style="background-color: #0b0f19; border: 1px solid rgba(255, 255, 255, 0.07);"
+                aria-label={`Read case study: ${data.title} — ${data.tagline}`}
+              >
                 <div>
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="text-white small fw-bold d-block">{data.name}</span>
-                    {data.placeholder && (
-                      <span class="badge bg-warning text-dark text-uppercase fw-bold" style="font-size: 9px; padding: 2px 5px; letter-spacing: 0.05em;">Demo</span>
-                    )}
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-white fw-bold" style="font-size: 0.95rem;">{data.title}</span>
+                    <span
+                      class="badge rounded-pill px-2 py-1"
+                      style="background-color: rgba(0, 102, 255, 0.15); color: #00d2ff; font-size: 0.7rem; font-weight: 600;"
+                    >
+                      {data.category.split("&")[0].trim()}
+                    </span>
                   </div>
-                  <span class="text-white-50" style="font-size: 0.75rem;">{data.category}</span>
+                  <p class="text-white-50 small mb-2" style="font-size: 0.78rem; line-height: 1.45;">
+                    {data.metrics && data.metrics[0] ? data.metrics[0] : data.tagline}
+                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
+                <div class="d-flex align-items-center justify-content-between pt-2 border-top border-secondary border-opacity-10 mt-auto">
+                  <span class="small fw-semibold" style="color: #00d2ff; font-size: 0.75rem;">
+                    Inspect architecture
+                  </span>
+                  <i class="ph ph-arrow-right text-white-50 proof-arrow" style="font-size: 0.85rem;" aria-hidden="true"></i>
+                </div>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  </section>
-)}
+  </div>
+</section>
+
+<style>
+  .proof-card {
+    transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .proof-card:hover,
+  .proof-card:focus-visible {
+    transform: translateY(-2px);
+    background-color: #0f1626 !important;
+    border-color: rgba(0, 210, 255, 0.4) !important;
+    outline: none;
+  }
+
+  .proof-card:focus-visible {
+    outline: 2px solid #00d2ff !important;
+    outline-offset: 2px !important;
+  }
+
+  .proof-card:hover .proof-arrow,
+  .proof-card:focus-visible .proof-arrow {
+    color: #00d2ff !important;
+    transform: translateX(3px);
+  }
+
+  .proof-arrow {
+    transition: transform 0.15s ease, color 0.15s ease;
+  }
+</style>

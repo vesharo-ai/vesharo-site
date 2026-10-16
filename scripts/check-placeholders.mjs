@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 /**
- * Vesharo Launch Gate: Placeholder & Review Mode Validator (VS-30)
+ * Vesharo Launch Gate: Placeholder, Review Mode & Visibility Validator (VS-30 / VS-00-05)
  *
  * Verifies that:
- * 1. All placeholder entries are catalogued and verified.
- * 2. Review mode (PUBLIC_REVIEW_MODE=true) is NEVER active on the public production domain (https://vesharo.com).
- * 3. In production mode (PUBLIC_REVIEW_MODE=false or domain=vesharo.com), demo items are shielded.
+ * 1. All placeholder entries across collections (team, clients, testimonials, portfolio) are catalogued.
+ * 2. The real portfolio collection in `src/content/portfolio.json` is scanned.
+ * 3. Publication Visibility Rules are strictly enforced:
+ *    - Confidential client items (e.g. MedMarketMD) without explicit public approval NEVER leak into `featured`,
+ *      public navigation (`siteConfig.portfolio`), or public production outputs.
+ *    - Public items must have explicit public approval (`publicApproved: true`, `visibility: 'public'`).
+ * 4. Review mode (PUBLIC_REVIEW_MODE=true) is NEVER active on the public production domain (https://vesharo.com).
+ * 5. In production mode (PUBLIC_REVIEW_MODE=false or domain=vesharo.com), demo items are shielded.
  */
 
 import fs from 'node:fs';
@@ -21,13 +26,14 @@ const rawReviewMode = process.env.PUBLIC_REVIEW_MODE ?? process.env.REVIEW_MODE;
 const isReviewMode = rawReviewMode === 'true' || (rawReviewMode !== 'false' && !siteUrl.includes('vesharo.com'));
 
 console.log('\n======================================================');
-console.log('       VESHARO PRODUCTION LAUNCH GATE (VS-30)');
+console.log('       VESHARO PRODUCTION LAUNCH GATE (VS-30 / VS-00-05)');
 console.log('======================================================');
 console.log(`Target Site URL:     ${siteUrl}`);
 console.log(`Public Review Mode:  ${isReviewMode ? 'ENABLED (Review Build)' : 'DISABLED (Production Build)'}`);
 console.log('------------------------------------------------------\n');
 
 const placeholders = [];
+const violations = [];
 
 // 1. Scan team.json
 const teamPath = path.join(rootDir, 'src/content/team.json');
@@ -80,42 +86,92 @@ if (fs.existsSync(testimonialsPath)) {
   }
 }
 
-// 4. Scan portfolio directory if any JSON/frontmatter
-const portfolioDir = path.join(rootDir, 'src/content/portfolio');
-if (fs.existsSync(portfolioDir)) {
-  const files = fs.readdirSync(portfolioDir);
-  for (const file of files) {
-    if (file.endsWith('.json')) {
-      const data = JSON.parse(fs.readFileSync(path.join(portfolioDir, file), 'utf8'));
-      if (data.placeholder) {
-        placeholders.push({
-          collection: 'portfolio',
-          id: data.id || file,
-          title: data.title,
-          roleOrCategory: data.category || 'Portfolio',
-          file: `src/content/portfolio/${file}`,
-        });
+// 4. Scan the REAL configured portfolio source: src/content/portfolio.json
+const portfolioJsonPath = path.join(rootDir, 'src/content/portfolio.json');
+const siteConfigPath = path.join(rootDir, 'src/config/site.ts');
+let siteConfigContent = '';
+if (fs.existsSync(siteConfigPath)) {
+  siteConfigContent = fs.readFileSync(siteConfigPath, 'utf8');
+}
+
+if (fs.existsSync(portfolioJsonPath)) {
+  const portfolioItems = JSON.parse(fs.readFileSync(portfolioJsonPath, 'utf8'));
+  for (const item of portfolioItems) {
+    if (item.placeholder) {
+      placeholders.push({
+        collection: 'portfolio',
+        id: item.id,
+        title: item.title,
+        roleOrCategory: item.category || 'Portfolio',
+        file: 'src/content/portfolio.json',
+      });
+    }
+
+    // Publication Visibility Rule Verification
+    const isConfidential =
+      Boolean(item.confidential) ||
+      item.visibility === 'confidential' ||
+      Boolean(item.status && item.status.toLowerCase().includes('confidential'));
+
+    if (isConfidential) {
+      // Confidential rule 1: Must NOT have publicApproved: true without explicit evidence
+      if (item.publicApproved === true) {
+        violations.push(
+          `Confidential portfolio item "${item.id}" cannot have publicApproved: true without verified owner authorization.`
+        );
+      }
+
+      // Confidential rule 2: Must NOT be featured on homepage
+      if (item.featured === true) {
+        violations.push(
+          `Confidential portfolio item "${item.id}" is marked "featured: true", which would leak to the homepage.`
+        );
+      }
+
+      // Confidential rule 3: Must NOT be in public siteConfig.portfolio
+      // Check if siteConfig.ts has portfolio item with this ID
+      const regex = new RegExp(`id:\\s*["']${item.id}["']`, 'i');
+      if (regex.test(siteConfigContent)) {
+        violations.push(
+          `Confidential portfolio item "${item.id}" is listed in src/config/site.ts siteConfig.portfolio navigation.`
+        );
+      }
+
+      // Confidential rule 4: Must not have visibility="public"
+      if (item.visibility === 'public') {
+        violations.push(
+          `Confidential portfolio item "${item.id}" cannot have visibility: "public".`
+        );
+      }
+    } else {
+      // Public item rule: Must have explicit publicApproved: true and visibility: "public"
+      if (item.visibility === 'public' && item.publicApproved !== true) {
+        violations.push(
+          `Public portfolio item "${item.id}" lacks explicit approval metadata (publicApproved: true).`
+        );
       }
     }
   }
+} else {
+  violations.push('Configured portfolio source src/content/portfolio.json is missing!');
 }
 
 console.log(`Found ${placeholders.length} placeholder / demo content entries:`);
-console.table(placeholders.map(p => ({
-  Collection: p.collection,
-  ID: p.id,
-  Title: p.title,
-  Category: p.roleOrCategory,
-  Location: p.file
-})));
+console.table(
+  placeholders.map((p) => ({
+    Collection: p.collection,
+    ID: p.id,
+    Title: p.title,
+    Category: p.roleOrCategory,
+    Location: p.file,
+  }))
+);
 
-let hasViolation = false;
-
-// Rule 1: Launch gate check — Review mode CANNOT be ON on public domain https://vesharo.com
+// Rule 1: Review mode CANNOT be ON on public domain https://vesharo.com
 if (isReviewMode && siteUrl.includes('vesharo.com')) {
-  console.error('\n❌ [GATE FAILURE] Review mode is ON while target domain is production (https://vesharo.com)!');
-  console.error('   Action: Set PUBLIC_REVIEW_MODE=false before deploying to production.\n');
-  hasViolation = true;
+  violations.push(
+    'Review mode is ON while target domain is production (https://vesharo.com)! Set PUBLIC_REVIEW_MODE=false before deploying to production.'
+  );
 }
 
 // Rule 2: In production mode, ensure all placeholder items are safely flagged and will be hidden
@@ -125,10 +181,14 @@ if (!isReviewMode) {
   console.log('ℹ Review mode active: demo placeholders will be displayed with explicit DEMO CONTENT badges.');
 }
 
-if (hasViolation) {
-  console.error('Launch Gate Check FAILED.\n');
+if (violations.length > 0) {
+  console.error('\n❌ [LAUNCH GATE FAILURE] Visibility or placeholder invariants violated:');
+  for (const v of violations) {
+    console.error(`   - ${v}`);
+  }
+  console.error('\nLaunch Gate Check FAILED.\n');
   process.exit(1);
 } else {
-  console.log('\n✓ Launch Gate Check PASSED. All placeholder invariants satisfied.\n');
+  console.log('\n✓ Launch Gate Check PASSED. All placeholder and publication-visibility invariants satisfied.\n');
   process.exit(0);
 }

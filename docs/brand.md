@@ -5,7 +5,7 @@
 
 - **Primary URL**: `https://vesharo.com`
 - **Location**: Ahmedabad, Gujarat, India
-- **Public Contact**: `vesharo.ai@gmail.com` (temporary) / `contact@vesharo.com` · `+91 95862 12495`
+- **Public Contact**: `vesharo.ai@gmail.com` (verified owner mailbox; switch to `contact@vesharo.com` only after custom domain mailbox is provisioned) · `+91 95862 12495`
 - **Booking**: `https://cal.com/vesharo/15min`
 
 ---

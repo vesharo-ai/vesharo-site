@@ -3,7 +3,7 @@
 Official company website for **Vesharo** (IT services & AI automation company).
 
 - **Brand**: Vesharo
-- **Public Contact**: `contact@vesharo.com` · Phone/WhatsApp: `+91 95862 12495`
+- **Public Contact**: `vesharo.ai@gmail.com` · Phone/WhatsApp: `+91 95862 12495`
 - **Location**: Ahmedabad, Gujarat, India
 - **Business Hours**: Mon–Fri 9:00–18:30 IST
 - **Deployment Platform**: Vercel
@@ -25,11 +25,11 @@ Official company website for **Vesharo** (IT services & AI automation company).
 
 ## 📋 Core Services (7)
 
-1. **AI Automation**: Workflow automation, LLM integration, intelligent pipeline orchestration.
-2. **AI Agents & Chatbots**: Custom conversational AI, autonomous task agents, customer care bots.
-3. **Custom Software Development**: Enterprise SaaS, full-stack web platforms, robust APIs.
-4. **Web Development**: High-performance websites, Next.js / Astro apps, headless CMS.
-5. **Mobile App Development**: Cross-platform Flutter / React Native, native Android/iOS solutions.
+1. **Mobile App Development** (Flagship): Cross-platform iOS & Android mobile apps built with React Native and Expo, 60 FPS performance, offline SQLite caching, and automated store delivery.
+2. **AI Automation**: Workflow automation, LLM integration, intelligent pipeline orchestration.
+3. **AI Agents & Chatbots**: Custom conversational AI, autonomous task agents, customer care bots.
+4. **Custom Software Development**: Enterprise SaaS, full-stack web platforms, robust APIs.
+5. **Web Development**: High-performance websites, Next.js / Astro apps, headless CMS.
 6. **Cloud & DevOps**: AWS, GCP, containerization, automated CI/CD pipelines, infrastructure as code.
 7. **IT Consulting**: Technical roadmapping, architecture audits, digital transformation strategy.
 
@@ -45,10 +45,10 @@ Official company website for **Vesharo** (IT services & AI automation company).
 
 ## 📚 Documentation & Guides
 
-- [Deployment & Custom Domain Guide](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/deployment.md) — Step-by-step Vercel setup, DNS records, SSL, Search Console, and uptime monitoring.
-- [Content Editing Guide](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/content-guide.md) — How to edit services, add blog posts, portfolio case studies, and update company facts.
-- [Brand Guidelines](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/brand.md) — Color palette, typography tokens, logo usage, and design standards.
-- [Image Credits](file:///Users/harshsiddhapura/Documents/GitHub/Vesharo-web/docs/image-credits.md) — Unsplash & curated asset attribution.
+- [Deployment & Custom Domain Guide](docs/deployment.md) — Step-by-step Vercel setup, DNS records, SSL, Search Console, and uptime monitoring.
+- [Content Editing Guide](docs/content-guide.md) — How to edit services, add blog posts, portfolio case studies, and update company facts.
+- [Brand Guidelines](docs/brand.md) — Color palette, typography tokens, logo usage, and design standards.
+- [Image Credits](docs/image-credits.md) — Unsplash & curated asset attribution.
 
 ---
 

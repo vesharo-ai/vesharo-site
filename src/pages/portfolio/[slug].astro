@@ -5,20 +5,26 @@ import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getSoftwareApplicationJsonLd } from "@/lib/jsonLd";
+import { filterPublicItems } from "@/lib/publication";
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("portfolio");
-  return allProjects.map((project) => ({
+  const visibleProjects = filterPublicItems(allProjects);
+  return visibleProjects.map((project) => ({
     params: { slug: project.data.id },
-    props: { project },
+    props: {
+      project,
+      otherProjects: visibleProjects.filter((p) => p.data.id !== project.data.id),
+    },
   }));
 }
 
 interface Props {
   project: CollectionEntry<"portfolio">;
+  otherProjects: CollectionEntry<"portfolio">[];
 }
 
-const { project } = Astro.props;
+const { project, otherProjects } = Astro.props;
 const data = project.data;
 
 const caseStudyJsonLd = {
@@ -289,14 +295,15 @@ const pageSchemas = [caseStudyJsonLd, softwareAppJsonLd];
               </a>
             </div>
 
-            <!-- All Real Case Studies Navigation -->
+            <!-- All Real Verified Case Studies Navigation -->
             <div class="p-4 rounded-4" style="background-color: #0f1626; border: 1px solid rgba(255, 255, 255, 0.08);">
               <h2 class="h6 text-white text-uppercase tracking-wider small fw-bold mb-3">Other Real Case Studies</h2>
               <div class="d-flex flex-column gap-2">
-                <a href="/portfolio/lockapp" class="text-white-50 text-decoration-none small hover-text-primary py-1">LockApp (Android Enterprise MDM)</a>
-                <a href="/portfolio/navratrios" class="text-white-50 text-decoration-none small hover-text-primary py-1">NavratriOS (Gate QR Ticketing)</a>
-                <a href="/portfolio/wirebench" class="text-white-50 text-decoration-none small hover-text-primary py-1">Wirebench (API Contract Workbench)</a>
-                <a href="/portfolio/medmarketmd" class="text-white-50 text-decoration-none small hover-text-primary py-1">MedMarketMD (B2B Procurement)</a>
+                {otherProjects.map((other) => (
+                  <a href={`/portfolio/${other.data.id}`} class="text-white-50 text-decoration-none small hover-text-primary py-1">
+                    {other.data.title} ({other.data.category.split("&")[0].trim()})
+                  </a>
+                ))}
               </div>
             </div>
           </div>

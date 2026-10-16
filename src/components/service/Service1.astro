@@ -9,12 +9,13 @@ interface Props {
 const { backgroundColor = "#070B14", limit = 7 } = Astro.props;
 
 const allServices = await getCollection("services");
-const services = allServices
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, limit);
+const sortedServices = allServices.sort((a, b) => a.data.order - b.data.order);
+
+const flagshipService = sortedServices.find((s) => s.data.id === "mobile-app-development");
+const supportingServices = sortedServices.filter((s) => s.data.id !== "mobile-app-development").slice(0, limit - 1);
 ---
 
-<section class="tz-service1 py-5" style={{ backgroundColor }}>
+<section class="tz-service1 py-5" style={{ backgroundColor }} aria-label="Services and Engineering Capabilities">
   <div class="container py-4">
     <!-- Section Top Header -->
     <div class="d-flex flex-wrap align-items-end justify-content-between mb-5 gap-3">
@@ -22,28 +23,114 @@ const services = allServices
         <div class="d-inline-flex align-items-center gap-2 mb-2 px-3 py-1 rounded-pill" style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.25);">
           <span style="width: 6px; height: 6px; border-radius: 50%; background-color: #00d2ff;"></span>
           <span class="fw-semibold" style="font-size: 13px; color: #00d2ff;">
-            Core Capabilities
+            Engineering Capabilities
           </span>
         </div>
         <h2 class="h2 text-white fw-bold mb-0" style="font-family: var(--font-family-heading);">
-          Engineering services for startups and growing teams
+          Mobile app development first, backed by full-stack systems
         </h2>
       </div>
       <div>
-        <a href="/services" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold">
-          View all 7 services
+        <a href="/services" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold" style="border-color: rgba(255, 255, 255, 0.2);">
+          View all 7 capabilities
         </a>
       </div>
     </div>
 
-    <!-- Always-Visible Responsive Service Cards Grid -->
+    <!-- 1. Flagship Offering Card: Mobile App Development -->
+    {flagshipService && (
+      <div class="mb-4">
+        <div
+          class="flagship-card p-4 p-lg-5 rounded-4 position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.12) 0%, rgba(15, 22, 38, 0.95) 100%); border: 1px solid rgba(0, 210, 255, 0.35); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);"
+        >
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="badge px-3 py-2 rounded-pill fw-bold" style="background: #0066FF; color: #ffffff; font-size: 0.8rem; letter-spacing: 0.05em;">
+                  Flagship Capability
+                </span>
+                <span class="text-white-50 small">iOS &bull; Android &bull; React Native &bull; Expo</span>
+              </div>
+              <h3 class="h2 text-white fw-bold mb-3" style="font-family: var(--font-family-heading);">
+                {flagshipService.data.title}
+              </h3>
+              <p class="text-white-50 mb-4 lead" style="font-size: 1.05rem; line-height: 1.65; max-width: 640px;">
+                {flagshipService.data.fullDescription}
+              </p>
+
+              <!-- Architecture Highlights -->
+              <div class="row g-2 mb-4">
+                {flagshipService.data.features.slice(0, 4).map((f) => (
+                  <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-2">
+                      <i class="ph ph-check-circle mt-1" style="color: #00d2ff; font-size: 1.1rem;" aria-hidden="true"></i>
+                      <span class="text-white small fw-medium" style="font-size: 0.85rem; line-height: 1.4;">
+                        {f}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Action Links -->
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <a
+                  href={`/services/${flagshipService.data.id}`}
+                  class="btn btn-primary px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+                  style="background: #0066FF; border-color: #0066FF;"
+                >
+                  <span>Explore Mobile Engineering</span>
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="/portfolio/lockapp"
+                  class="btn btn-outline-light px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+                  style="border-color: rgba(255, 255, 255, 0.2);"
+                >
+                  <span>Case Study: LockApp MDM</span>
+                  <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Stack & Metrics Column -->
+            <div class="col-lg-5">
+              <div class="p-4 rounded-3" style="background: rgba(7, 11, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <span class="text-white-50 text-uppercase tracking-wider fw-bold small d-block mb-3" style="font-size: 0.75rem;">
+                  Production Mobile Stack
+                </span>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                  {(flagshipService.data.techStack || ["React Native", "Expo", "TypeScript", "Kotlin", "Swift", "EAS", "SQLite"]).map((tech) => (
+                    <span class="badge px-3 py-2 rounded-pill text-white fw-semibold" style="background: rgba(255, 255, 255, 0.06); font-size: 0.8rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div class="pt-3 border-top border-secondary border-opacity-25">
+                  <span class="text-white-50 text-uppercase tracking-wider fw-bold small d-block mb-2" style="font-size: 0.75rem;">
+                    Key Deliverable
+                  </span>
+                  <p class="text-white small mb-0 fw-medium" style="line-height: 1.5;">
+                    Production-ready iOS (.ipa) and Android (.aab) binaries with complete repository handover and automated store deployment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- 2. Supporting Engineering Capabilities Grid -->
     <div class="row g-4">
-      {services.map((svc) => (
+      {supportingServices.map((svc) => (
         <div class="col-md-6 col-lg-4">
           <a
             href={`/services/${svc.data.id}`}
             class="service-card-item p-4 rounded-4 d-flex flex-column justify-content-between text-decoration-none h-100 position-relative"
-            style="background: #0B0F19; border: 1px solid rgba(255, 255, 255, 0.08); transition: border-color 0.2s ease, transform 0.2s ease;"
+            style="background: #0B0F19; border: 1px solid rgba(255, 255, 255, 0.08); transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;"
           >
             <div>
               <div class="d-flex align-items-center justify-content-between mb-3">
@@ -53,24 +140,35 @@ const services = allServices
                 >
                   <i class={`ph ${svc.data.icon}`} style="font-size: 24px;" aria-hidden="true"></i>
                 </div>
-                {svc.data.id === "mobile-app-development" && (
-                  <span class="badge px-2 py-1 rounded" style="background: rgba(0, 210, 255, 0.15); color: #00d2ff; font-size: 11px;">
-                    Flagship Offering
-                  </span>
-                )}
+                <span class="text-white-50 small fw-medium" style="font-size: 0.75rem;">
+                  Supporting Layer
+                </span>
               </div>
               <h3 class="h5 text-white fw-bold mb-2" style="font-family: var(--font-family-heading);">
                 {svc.data.title}
               </h3>
-              <p class="small mb-4" style="line-height: 1.6; color: #cbd5e1;">
+              <p class="small mb-3" style="line-height: 1.6; color: #cbd5e1; font-size: 0.85rem;">
                 {svc.data.shortDescription}
               </p>
+
+              <!-- Key Capabilities -->
+              <div class="mb-4">
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                  {svc.data.features.slice(0, 2).map((feat) => (
+                    <li class="d-flex align-items-start gap-2 text-white-50 small" style="font-size: 0.78rem;">
+                      <i class="ph ph-check text-primary mt-1" aria-hidden="true"></i>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div class="d-flex align-items-center justify-content-between pt-3 border-top border-secondary border-opacity-15">
-              <span class="small fw-semibold" style="color: #00d2ff;">
-                Explore service details
+
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top border-secondary border-opacity-15 mt-auto">
+              <span class="small fw-semibold" style="color: #00d2ff; font-size: 0.8rem;">
+                Explore capability
               </span>
-              <i class="ph ph-arrow-right text-white" style="font-size: 16px;" aria-hidden="true"></i>
+              <i class="ph ph-arrow-right text-white" style="font-size: 14px;" aria-hidden="true"></i>
             </div>
           </a>
         </div>
@@ -80,10 +178,19 @@ const services = allServices
 </section>
 
 <style>
+  .flagship-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .flagship-card:hover {
+    border-color: rgba(0, 210, 255, 0.55) !important;
+  }
+
   .service-card-item:hover,
   .service-card-item:focus-visible {
     border-color: rgba(0, 210, 255, 0.5) !important;
     background: #0F1626 !important;
+    transform: translateY(-2px);
     outline: none;
   }
 

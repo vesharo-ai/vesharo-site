@@ -6,6 +6,7 @@ import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getServiceJsonLd, getFaqJsonLd } from "@/lib/jsonLd";
 import { siteConfig } from "@/config/site";
+import { isPubliclyPublishable } from "@/lib/publication";
 
 export async function getStaticPaths() {
   const allServices = await getCollection("services");
@@ -14,7 +15,9 @@ export async function getStaticPaths() {
 
   return sortedServices.map((service) => {
     const relatedPortfolio = service.data.relatedCaseStudyId
-      ? allPortfolio.find((p) => p.data.id === service.data.relatedCaseStudyId)
+      ? allPortfolio.find(
+          (p) => p.data.id === service.data.relatedCaseStudyId && isPubliclyPublishable(p.data)
+        )
       : undefined;
 
     const relatedServices = sortedServices

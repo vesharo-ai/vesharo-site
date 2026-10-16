@@ -27,7 +27,6 @@ Production Mobile Apps, React Native & Expo · Mobile & AI Engineering
 - [LockApp](https://vesharo.com/portfolio/lockapp): Android Enterprise MDM (Device Owner) B2B SaaS for Indian electronics retailers to manage EMI-financed smartphones with remote lock/unlock and Knox-level security.
 - [NavratriOS](https://vesharo.com/portfolio/navratrios): High-throughput event ticketing and access control platform in Gujarat, handling thousands of QR gate scans at peak with offline cryptographic validation.
 - [Wirebench](https://vesharo.com/portfolio/wirebench): Local-first private API client with one-click migration from Postman/Insomnia, contract drift detection, and team changelogs.
-- [MedMarketMD](https://vesharo.com/portfolio/medmarketmd): B2B healthcare procurement marketplace connecting verified medical suppliers and clinics with tenant-isolated role permissions and encrypted transaction auditing.
 
 ## Engagement Models
 - **Fixed-Scope Projects**: Milestone-based delivery for well-defined MVPs and feature modules. 4 to 8 week timelines, 30-day warranty.

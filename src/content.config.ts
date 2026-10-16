@@ -53,6 +53,9 @@ const portfolio = defineCollection({
     verifiedOutcomes: z.array(z.string()).optional(),
     nextStep: z.string().optional(),
     placeholder: z.boolean().default(false),
+    visibility: z.enum(["public", "review", "confidential"]).default("confidential"),
+    confidential: z.boolean().default(false),
+    publicApproved: z.boolean().default(false),
   }),
 });
 

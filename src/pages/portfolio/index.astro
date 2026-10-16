@@ -4,8 +4,10 @@ import BreadCrumb from "@/components/breadcrumb/BreadCrumb.astro";
 import HeaderSlider from "@/components/heading-slider/HeaderSlider";
 import Subscribe1 from "@/components/subscribe/Subscribe1.astro";
 import { getCollection } from "astro:content";
+import { filterPublicItems } from "@/lib/publication";
 
-const allProjects = await getCollection("portfolio");
+const rawProjects = await getCollection("portfolio");
+const allProjects = filterPublicItems(rawProjects);
 
 // Category filtering via query params (compatible with static and server rendering)
 const currentCategory = Astro.url.searchParams.get("category") || "all";
@@ -20,7 +22,7 @@ const portfolioJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Vesharo Verified Portfolio & Case Studies",
-  description: "Real production case studies built by Vesharo: LockApp, NavratriOS, Wirebench, and MedMarketMD.",
+  description: "Real production case studies built by Vesharo: LockApp (B2B Android MDM), NavratriOS (Offline QR Ticketing), and Wirebench (API Governance).",
   hasPart: filteredProjects.map((p) => ({
     "@type": "SoftwareApplication",
     name: p.data.title,
@@ -37,7 +39,7 @@ const portfolioJsonLd = {
 
 <Layout
   title="Real Portfolio & Case Studies | Vesharo"
-  description="Explore production platforms built by Vesharo: LockApp (B2B MDM SaaS), NavratriOS (Gate Ticketing), Wirebench (API Governance), and MedMarketMD."
+  description="Explore production platforms built by Vesharo: LockApp (B2B MDM SaaS), NavratriOS (Gate Ticketing), and Wirebench (API Governance)."
   breadcrumbs={[
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
