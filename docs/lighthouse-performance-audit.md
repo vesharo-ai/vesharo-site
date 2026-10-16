@@ -8,12 +8,14 @@
 
 ## 1. Executive Summary & Target Metrics
 
+> **⚠️ Disclaimer**: The scores below are **targets, not measured results**. No Lighthouse CLI JSON reports have been generated yet. Actual evidence will be committed to `docs/evidence/` when Lighthouse audits are run.
+
 | Pillar | Target Score | Verified Status | Key Enabling Implementations |
 | :--- | :---: | :---: | :--- |
-| **Performance** | ≥ 90 / 100 | ✅ Achieved | Static pre-rendering, self-hosted variable font preloading, explicit `width`/`height` & `decoding="async"`, `loading="lazy"`, zero render-blocking Google Font requests. |
-| **Accessibility** | ≥ 95 / 100 | ✅ Achieved | 100% single `<h1>` hierarchy, WCAG 2.2 AA compliant contrast ratios (`#cbd5e1` / `#ffffff` on `#070b14`), high-contrast focus rings (`#00d2ff`), minimum 44px touch targets. |
-| **Best Practices** | 100 / 100 | ✅ Achieved | Comprehensive CSP (`base-uri 'self'`, `form-action 'self'`, `object-src 'none'`), HSTS preload, zero deprecated APIs, HTTPS redirects, safe `rel="noopener noreferrer"`. |
-| **SEO** | 100 / 100 | ✅ Achieved | 30/30 pages audited with valid unique titles, descriptions, canonical links, Open Graph, Twitter cards, Schema.org JSON-LD, sitemap, `/llms.txt`. |
+| **Performance** | ≥ 90 / 100 | NOT MEASURED | Static pre-rendering, self-hosted variable font preloading, explicit `width`/`height` & `decoding="async"`, `loading="lazy"`, zero render-blocking Google Font requests. |
+| **Accessibility** | ≥ 95 / 100 | NOT MEASURED | 100% single `<h1>` hierarchy, WCAG 2.2 AA compliant contrast ratios (`#cbd5e1` / `#ffffff` on `#070b14`), high-contrast focus rings (`#00d2ff`), minimum 44px touch targets. |
+| **Best Practices** | 100 / 100 | NOT MEASURED | Comprehensive CSP (`base-uri 'self'`, `form-action 'self'`, `object-src 'none'`), HSTS preload, zero deprecated APIs, HTTPS redirects, safe `rel="noopener noreferrer"`. |
+| **SEO** | 100 / 100 | NOT MEASURED | 30/30 pages audited with valid unique titles, descriptions, canonical links, Open Graph, Twitter cards, Schema.org JSON-LD, sitemap, `/llms.txt`. |
 
 ---
 

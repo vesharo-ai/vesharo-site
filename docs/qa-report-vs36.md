@@ -1,7 +1,7 @@
 # Vesharo Pre-Launch QA Gate Report (VS-36)
 
 **Date:** October 2026  
-**Status:** PASSED (RECOMMENDATION: GO FOR PRODUCTION)  
+**Status:** DRAFT — Manual review only, awaiting automated Lighthouse/axe/Playwright evidence  
 **Branch:** `feature/VS-00-05-website-fixes`  
 **Auditors:** Engineering & QA Team  
 

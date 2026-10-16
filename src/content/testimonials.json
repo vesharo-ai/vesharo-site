@@ -8,7 +8,7 @@
     "project": "LockApp Device Management",
     "image": "/images/project/lockapp-mockup.svg",
     "rating": 5,
-    "placeholder": false
+    "placeholder": true
   },
   {
     "id": "navratrios-feedback",
@@ -19,7 +19,7 @@
     "project": "NavratriOS Event Management",
     "image": "/images/project/navratrios-mockup.svg",
     "rating": 5,
-    "placeholder": false
+    "placeholder": true
   },
   {
     "id": "wirebench-feedback",
@@ -30,7 +30,7 @@
     "project": "Wirebench API Workbench",
     "image": "/images/project/wirebench-mockup.svg",
     "rating": 5,
-    "placeholder": false
+    "placeholder": true
   },
   {
     "id": "demo-telehealth-feedback",

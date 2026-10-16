@@ -32,7 +32,7 @@ export const workflowCards: WorkflowCard[] = [
     subtitle: "PHASE 04",
     number: "04",
     title: "Launch",
-    description: "Load testing, SOC2-aligned security auditing, zero-downtime deployment, and full DNS cutover.",
+    description: "Load testing, security hardening audit, zero-downtime deployment, and full DNS cutover.",
     active: false,
   },
   {

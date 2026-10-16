@@ -78,7 +78,7 @@
       "QR Platform",
       "High Concurrency"
     ],
-    "status": "Piloted at Gujarat Venues & In Production",
+    "status": "Pilot deployment at Gujarat venues",
     "role": "High-Concurrency Backend, Offline QR Protocol & Handheld Scanner App",
     "description": "NavratriOS is a high-throughput ticketing and gate-entry management SaaS platform engineered to manage massive crowds at large cultural festivals and venues in Gujarat. Built for high peak concurrency, it delivers instant offline QR pass verification, instant anti-passback protection, and real-time crowd telemetry.",
     "challenge": "During large-scale multi-day cultural events, venue gates experience massive rushes of tens of thousands of attendees arriving within a narrow 90-minute window. Network connectivity at crowded physical gates is frequently congested, leading to scanner freezes, long entry queues, and ticketing fraud.",
@@ -109,9 +109,9 @@
       "Staff operator runbook and offline synchronization protocol documentation"
     ],
     "verifiedOutcomes": [
-      "Deployed across high-density Gujarat festival venues",
-      "Sub-second gate validation achieved on handheld scanners under zero-signal conditions",
-      "Zero-downtime event registration spikes handled during peak evening ticketing rushes"
+      "Pilot deployed at Gujarat festival venues during seasonal events",
+      "Sub-second gate validation demonstrated on handheld scanners under low-signal conditions",
+      "Event registration spikes handled during peak evening ticketing rushes"
     ],
     "metrics": [
       "Sub-second gate validation via handheld scanners under dense crowd conditions",
@@ -211,7 +211,7 @@
       "B2B Procurement",
       "Supply Chain"
     ],
-    "status": "Live in Production",
+    "status": "Confidential client project",
     "role": "System Architecture & Full-Stack Platform Engineering",
     "description": "MedMarketMD is a B2B digital procurement and medical supply distribution platform engineered with tenant-isolated role permissions and encrypted transaction auditing. It centralizes bulk order purchasing, automated batch tracking, and supplier pricing agreements.",
     "challenge": "Medical procurement involves fragmented supplier catalogs, compliance certification checks, and erratic inventory lead times, leading to order delays and pricing discrepancies.",
@@ -242,14 +242,14 @@
       "Continuous deployment pipeline targeting containerized cloud infrastructure"
     ],
     "verifiedOutcomes": [
-      "Active production platform handling multi-vendor wholesale procurement",
-      "Zero-downtime procurement operations for healthcare facilities",
+      "Multi-vendor wholesale procurement platform engineered and delivered",
+      "Tenant-isolated role permissions and encrypted transaction auditing implemented",
       "Automated order fulfillment with verifiable audit trails"
     ],
     "metrics": [
       "Streamlined multi-vendor catalog management",
       "Automated purchase order fulfillment and audit trails",
-      "Zero-downtime procurement operations for healthcare facilities"
+      "Tenant-isolated data architecture with encrypted health records"
     ],
     "nextStep": "Consult with our healthcare & B2B SaaS engineering team to build a secure, compliant procurement solution.",
     "stack": [

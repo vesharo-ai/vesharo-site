@@ -2,7 +2,7 @@
 
 > **Audit Date**: October 15, 2026  
 > **Standards Evaluated**: WCAG 2.2 AA, HTML5 Semantic Heading Standards, Responsive Breakpoints (360px, 768px, 1024px, 1440px)  
-> **Status**: Completed & Validated
+> **Status**: Manual review only — awaiting axe-core JSON and Playwright screenshot evidence in `docs/evidence/`
 
 ---
 

@@ -323,7 +323,7 @@
     ],
     "deliverables": [
       "Declarative, reproducible IaC repositories with multi-environment support",
-      "Hardened VPC, IAM, and network security groups meeting SOC2 benchmarks",
+      "Hardened VPC, IAM, and network security groups following industry best practices",
       "Automated deployment workflows with preview branches and rollback triggers",
       "Cloud spend architecture audit and cost-reduction remediation plan"
     ],
