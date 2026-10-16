@@ -44,7 +44,7 @@ The following portfolio projects and leadership profiles are **100% verified rea
 
 ### Real Products & Case Studies
 1. **LockApp (`/portfolio/lockapp`)**: Android MDM platform with offline EMI lock, kiosk locking, and real-time cloud management.
-2. **NavratriOS (`/portfolio/navratrios`)**: Cultural festival & large venue ticketing engine with offline-first QR scanners handling 50k+ attendees.
+2. **NavratriOS (`/portfolio/navratrios`)**: Cultural festival & large venue ticketing engine with offline-first HMAC QR verification and anti-counterfeit gates.
 3. **Wirebench (`/portfolio/wirebench`)**: Developer API workbench with contract drift detection, automated schema mocking, and CI/CD gates.
 
 ### Real Verified Leadership

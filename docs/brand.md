@@ -1,11 +1,12 @@
 # Vesharo Brand Guidelines & Design System
 
 ## 1. Brand Overview
-**Vesharo** is an IT services & AI automation company delivering custom software engineering, intelligent agents, and scalable cloud solutions for forward-thinking enterprises.
+**Vesharo (by Apptify Solutions)** is a mobile-first product and engineering studio based in Ahmedabad, Gujarat, India. We specialize in high-performance React Native and Expo mobile app development, backed by scalable Node.js cloud APIs, DevOps pipelines, and pragmatic AI automation.
 
 - **Primary URL**: `https://vesharo.com`
 - **Location**: Ahmedabad, Gujarat, India
-- **Contact**: `contact@vesharo.com` · `+91 95862 12495`
+- **Public Contact**: `vesharo.ai@gmail.com` (temporary) / `contact@vesharo.com` · `+91 95862 12495`
+- **Booking**: `https://cal.com/vesharo/15min`
 
 ---
 
